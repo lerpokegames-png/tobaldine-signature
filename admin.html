@@ -52,6 +52,22 @@ main{flex:1;overflow-y:auto;padding:20px}
 .view-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .view-toggle button{padding:5px 10px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:13px;transition:all .15s}
 .view-toggle button.active{background:rgba(201,168,76,0.15);color:var(--gold)}
+/* ── BUSCA DE FOTOS ── */
+.foto-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px}
+.foto-modal{background:#161412;border:1px solid rgba(201,168,76,0.25);border-radius:12px;width:100%;max-width:680px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
+.foto-modal-hdr{padding:16px 20px;border-bottom:1px solid rgba(201,168,76,0.15);display:flex;align-items:center;gap:12px}
+.foto-modal-hdr h3{font-size:13px;font-weight:500;color:var(--gold);flex:1}
+.foto-modal-body{padding:16px 20px;overflow-y:auto;flex:1}
+.foto-search-row{display:flex;gap:8px;margin-bottom:16px}
+.foto-search-row input{flex:1}
+.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.foto-result{border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .15s;background:#0d0b09;aspect-ratio:3/4;position:relative}
+.foto-result:hover{border-color:var(--gold)}
+.foto-result img{width:100%;height:100%;object-fit:cover;display:block}
+.foto-result-url{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.75);font-size:8px;color:#c9a84c;padding:4px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.foto-status{text-align:center;padding:24px;color:var(--muted);font-size:12px}
+.foto-spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(201,168,76,0.2);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;margin-right:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:18px}
 .tab{padding:9px 16px;cursor:pointer;font-size:12px;border-bottom:2px solid transparent;color:var(--muted);transition:all .15s}
 .tab.active{color:var(--gold);border-bottom-color:var(--gold)}
@@ -873,7 +889,7 @@ function renderForm(){
       + '</div>'
       + '<button class="rmbtn" style="margin-top:2px" onclick="rmFoto('+i+')">✕</button>'
       + '</div>'
-  }).join("")+'<button class="addrow" onclick="addFoto()">+ Foto</button>';
+  }).join("")+'<div style="display:flex;gap:8px;margin-top:4px"><button class="addrow" style="flex:1" onclick="addFoto()">+ Foto</button><button class="addrow" style="flex:1;border-color:rgba(201,168,76,0.4);color:var(--gold)" onclick="openFotoModal()">🔍 Buscar Foto</button></div>';
   
   var precos=(p.precos||[]).map(function(pr,i){
     var cBruto = pr.custo_bruto || 0;
@@ -1166,6 +1182,94 @@ function openModal(){document.getElementById("modalPre").textContent=buildJS();d
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 function downloadJS(){var b=new Blob([buildJS()],{type:"text/javascript"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="produtos.js";a.click();}
 function copyJS(){navigator.clipboard.writeText(buildJS());toast("Copiado!");}
+/* ── BUSCA DE FOTOS COM IA ── */
+var _fotoTargetIdx = null;
+
+function openFotoModal(){
+  _fotoTargetIdx = selectedIdx;
+  var nome = (_fotoTargetIdx !== null && produtos[_fotoTargetIdx]) ? produtos[_fotoTargetIdx].nome || "" : "";
+  document.getElementById("fotoSearchInput").value = nome ? nome + " perfume" : "";
+  document.getElementById("fotoResults").innerHTML = '<div class="foto-status">Digite o nome do produto e clique em Buscar.</div>';
+  document.getElementById("fotoModalBg").style.display = "flex";
+  if(nome) buscarFotos();
+}
+
+function closeFotoModal(){
+  document.getElementById("fotoModalBg").style.display = "none";
+}
+
+function usarFoto(url){
+  if(_fotoTargetIdx === null) return;
+  var p = produtos[_fotoTargetIdx];
+  if(!Array.isArray(p.fotos)) p.fotos = [];
+  if(!Array.isArray(p.fotosPos)) p.fotosPos = [];
+  if(!Array.isArray(p.fotosZoom)) p.fotosZoom = [];
+  p.fotos.push(url);
+  p.fotosPos.push("50% 50%");
+  p.fotosZoom.push(1);
+  saveData();
+  renderForm();
+  closeFotoModal();
+  toast("✓ Foto adicionada ao produto!");
+}
+
+async function buscarFotos(){
+  var query = document.getElementById("fotoSearchInput").value.trim();
+  if(!query) return;
+  var el = document.getElementById("fotoResults");
+  el.innerHTML = '<div class="foto-status"><span class="foto-spinner"></span>Buscando fotos para "'+query+'"...</div>';
+
+  try {
+    var response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        tools: [{ type: "web_search_20250305", name: "web_search" }],
+        messages: [{
+          role: "user",
+          content: "Busca imagens do produto: " + query + ". Preciso de URLs diretas de imagens (terminando em .jpg, .jpeg, .png ou .webp) de alta qualidade mostrando o produto. Busca em sites como fragrantica.com, sephora.com.br, belezanaweb.com.br, lojaoficial ou google imagens. Retorna SOMENTE um array JSON com até 8 URLs diretas de imagem, sem texto, sem markdown, sem explicação. Exemplo: ["https://exemplo.com/foto.jpg"]"
+        }]
+      })
+    });
+
+    var data = await response.json();
+    var text = (data.content || []).filter(function(b){ return b.type === "text"; }).map(function(b){ return b.text; }).join("");
+
+    /* Extrai JSON do texto */
+    var match = text.match(/\[[\s\S]*?\]/);
+    var urls = [];
+    if(match){
+      try { urls = JSON.parse(match[0]).filter(function(u){ return typeof u === "string" && u.startsWith("http"); }); } catch(e){}
+    }
+
+    /* Também extrai URLs brutas de imagem do texto */
+    var rawUrls = text.match(/https?:\/\/[^\s"']+\.(?:jpg|jpeg|png|webp)(?:\?[^\s"']*)?/gi) || [];
+    rawUrls.forEach(function(u){ if(!urls.includes(u)) urls.push(u); });
+
+    if(!urls.length){
+      el.innerHTML = '<div class="foto-status">Nenhuma foto encontrada. Tente um nome diferente.</div>';
+      return;
+    }
+
+    var h = '<div class="foto-grid">';
+    urls.forEach(function(url){
+      var domain = url.match(/https?:\/\/([^\/]+)/);
+      var site = domain ? domain[1].replace("www.","") : "";
+      h += '<div class="foto-result" onclick="usarFoto(''+url.replace(/'/g,"%27")+'')" title="Clique para usar esta foto">'
+        + '<img src="'+url+'" loading="lazy" onerror="this.closest('.foto-result').style.display='none'"/>'
+        + '<div class="foto-result-url">'+site+'</div>'
+        + '</div>';
+    });
+    h += '</div><p style="font-size:10px;color:var(--muted);margin-top:12px;text-align:center">Clique na foto para adicionar ao produto</p>';
+    el.innerHTML = h;
+
+  } catch(err) {
+    el.innerHTML = '<div class="foto-status">Erro ao buscar: ' + err.message + '</div>';
+  }
+}
+
 function gerarPDF(){window.print();}
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
@@ -1189,5 +1293,20 @@ window.addEventListener("DOMContentLoaded", function(){
   }, 100);
 });
 </script>
+<div id="fotoModalBg" class="foto-modal-bg" style="display:none" onclick="if(event.target===this)closeFotoModal()">
+  <div class="foto-modal">
+    <div class="foto-modal-hdr">
+      <h3>🔍 Buscar Fotos</h3>
+      <button class="btn btn-outline btn-sm" onclick="closeFotoModal()">✕ Fechar</button>
+    </div>
+    <div class="foto-modal-body">
+      <div class="foto-search-row">
+        <input type="text" id="fotoSearchInput" placeholder="Ex: Chanel Bleu de Chanel perfume" onkeydown="if(event.key==='Enter')buscarFotos()"/>
+        <button class="btn btn-gold" onclick="buscarFotos()">Buscar</button>
+      </div>
+      <div id="fotoResults"><div class="foto-status">Digite o nome do produto e clique em Buscar.</div></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
