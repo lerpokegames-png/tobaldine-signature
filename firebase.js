@@ -83,6 +83,21 @@ var firebaseConfig = {
       _scheduleRender();
     });
 
+    /* Nomes de seções personalizados */
+    db.ref("config/secoes").once("value", function(snap) {
+      var labels = snap.val();
+      if(!labels) return;
+      document.querySelectorAll("[data-secao]").forEach(function(el){
+        var id = el.dataset.secao;
+        if(labels[id]){
+          /* Preserva emoji do início */
+          var texto = el.textContent;
+          var emoji = texto.match(/^[\u{1F000}-\u{1FFFF}✨📦⚜️🧴🎁][^\w]*/u);
+          el.textContent = (emoji ? emoji[0] : "") + labels[id];
+        }
+      });
+    });
+
   } catch(e) {
     console.warn("Firebase indisponível. Catálogo carregado via produtos.js local.", e);
   }

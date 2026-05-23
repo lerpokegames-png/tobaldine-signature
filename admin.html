@@ -438,11 +438,16 @@ if (sessionStorage.getItem("tb_auth") === "1") {
 }
 
 var SECOES = [
-  {id:"decants",lbl:"Decants"},
-  {id:"originais",lbl:"Originais"},
-  {id:"Similares",lbl:"Similares"},
+  {id:"decants",   lbl:"Decants"},
+  {id:"originais", lbl:"Originais"},
+  {id:"Similares", lbl:"Similares"},
   {id:"cosmeticos",lbl:"Cosméticos"}
 ];
+/* Carrega nomes personalizados de seções */
+try {
+  var _sl = localStorage.getItem("tb_secoes_labels");
+  if(_sl){ var _slp = JSON.parse(_sl); SECOES.forEach(function(s){ if(_slp[s.id]) s.lbl = _slp[s.id]; }); }
+} catch(e){}
 var produtos=[],kits=[],depoimentos=[],cupons=[],historico=[],selectedIdx=null,dragSrc=null;
 
 function renderEmptyProd() {
@@ -508,6 +513,11 @@ function loadFromFirebase(db){
       return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){return f&&f.trim();}).length : 0);
     }, 0);
 
+    /* Carrega nomes de seções */
+    db.ref("config/secoes").once("value", function(snap){
+      var sl = snap.val();
+      if(sl){ SECOES.forEach(function(s){ if(sl[s.id]) s.lbl = sl[s.id]; }); localStorage.setItem("tb_secoes_labels", JSON.stringify(sl)); }
+    });
     renderSidebar();
     if(fbSt){ fbSt.textContent = "✓ Firebase OK · "+totalFotos+" fotos"; fbSt.style.background = "rgba(76,175,121,0.15)"; fbSt.style.color = "#4caf79"; }
   }).catch(function(err){
@@ -1272,7 +1282,36 @@ function renderConf(){
     +'<input type="text" id="removebgKeyInput" placeholder="Chave remove.bg..." style="flex:1;font-size:11px;" value="'+(localStorage.getItem("tb_removebg_key")||"")+'" />'
     +'<button class="btn btn-gold btn-sm" onclick="salvarRemovebgKey()">Salvar</button>'
     +'</div>'
+    +'</div>'
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">🏷️ Nomes das Seções</h4>'
+    +SECOES.map(function(s){ return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:10px;color:var(--muted);width:80px;flex-shrink:0">'+s.id+'</span><input type="text" data-secao-id="'+s.id+'" value="'+esc(s.lbl)+'" style="flex:1;font-size:12px"/></div>'; }).join("")
+    +'<button class="btn btn-gold btn-sm" onclick="salvarNomesSecoes()" style="margin-top:4px">✓ Salvar</button>'
+    +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Altera o nome exibido. Os produtos não mudam de seção.</p>'
     +'</div>';
+}
+
+function salvarNomesSecoes(){
+  var inputs = document.querySelectorAll("[data-secao-id]");
+  var labels = {};
+  inputs.forEach(function(inp){
+    var id = inp.dataset.secaoId;
+    var val = inp.value.trim();
+    if(id && val){
+      labels[id] = val;
+      SECOES.forEach(function(s){ if(s.id===id) s.lbl = val; });
+    }
+  });
+  localStorage.setItem("tb_secoes_labels", JSON.stringify(labels));
+  /* Salva no Firebase para sincronizar admin e catálogo */
+  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
+    window.firebaseDB.ref("config/secoes").set(labels).then(function(){
+      toast("✓ Nomes salvos e sincronizados!");
+    }).catch(function(){ toast("✓ Salvo localmente (Firebase offline)"); });
+  } else {
+    toast("✓ Nomes das seções atualizados!");
+  }
+  renderSidebar();
 }
 
 function salvarRemovebgKey(){
