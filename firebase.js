@@ -102,6 +102,11 @@ var firebaseConfig = {
             /* update cutoff strip text */
             var strip = el.closest ? el.closest(".cutoff-strip") : null;
             if(strip){ var sp = strip.querySelector("span:last-child"); if(sp) sp.textContent = val; }
+          } else if(id.startsWith("sub_")){
+            /* Sub-category titles: preserve emoji prefix */
+            var cur = el.textContent || "";
+            var emojiMatch = cur.match(/^[^\w\s]{1,3}\s*/);
+            el.textContent = (emojiMatch ? emojiMatch[0] : "") + val;
           } else {
             el.textContent = val;
           }

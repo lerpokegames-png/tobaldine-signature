@@ -815,11 +815,10 @@ function aceitarLGPD() {
 /* ══════════════════════════════════════
    NAV ATIVO AO ROLAR
 ══════════════════════════════════════ */
-(function(){
+function initNavObserver(){
   var navLinks = document.querySelectorAll(".nav-link");
   if(!navLinks.length) return;
 
-  /* Mapa: href → link element */
   var linkMap = {};
   navLinks.forEach(function(a){
     var href = a.getAttribute("href");
@@ -833,14 +832,35 @@ function aceitarLGPD() {
 
   if("IntersectionObserver" in window){
     var observer = new IntersectionObserver(function(entries){
+      /* Pega a entrada mais visível */
+      var best = null;
       entries.forEach(function(entry){
-        if(entry.isIntersecting) setActive(entry.target.id);
+        if(entry.isIntersecting){
+          if(!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+        }
       });
-    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+      if(best) setActive(best.target.id);
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: [0, 0.1, 0.5] });
 
     ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre","depoimentos"].forEach(function(id){
       var el = document.getElementById(id);
       if(el) observer.observe(el);
     });
+  } else {
+    /* Fallback: scroll event */
+    window.addEventListener("scroll", function(){
+      var ids = ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre","depoimentos"];
+      var cur = "";
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
+      });
+      if(cur){
+        navLinks.forEach(function(a){ a.classList.remove("nav-active"); });
+        if(linkMap[cur]) linkMap[cur].classList.add("nav-active");
+      }
+    }, {passive: true});
   }
-})();
+}
+/* Aguarda o catálogo carregar para iniciar o observer */
+window.addEventListener("load", initNavObserver);

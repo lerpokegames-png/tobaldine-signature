@@ -2013,7 +2013,28 @@ async function buscarFotos(){
   }
 }
 
-function gerarPDF(){window.print();}
+function gerarPDF(){
+  var win = window.open("","_blank","width=900,height=700");
+  if(!win) { toast("Permita pop-ups para gerar o PDF"); return; }
+
+  var rows = "";
+  SECOES.forEach(function(sec){
+    var secProd = produtos.filter(function(p){ return p.secao===sec.id && p.ativo!==false; });
+    if(!secProd.length) return;
+    rows += '<tr style="background:#1a1714"><td colspan="4" style="padding:10px 14px;font-size:13px;color:#c9a84c;font-weight:600;letter-spacing:0.1em;text-transform:uppercase">'+sec.lbl+' ('+secProd.length+')</td></tr>';
+    secProd.forEach(function(p){
+      var preco = (p.precos&&p.precos[0]&&p.precos[0].preco) ? p.precos[0].preco : (p.preco ? "R$ "+parseFloat(p.preco).toFixed(2).replace(".",",") : "—");
+      var foto = (p.fotos&&p.fotos[0]) ? p.fotos[0] : "";
+      var fotoHtml = foto ? '<img src="'+foto+'" style="width:60px;height:80px;object-fit:contain;border-radius:4px;background:#0d0b09"/>' : '<div style="width:60px;height:80px;background:#111;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#444;font-size:9px">Sem foto</div>';
+      rows += '<tr style="border-bottom:1px solid #2a2520">'        +'<td style="padding:8px 14px;width:70px">'+fotoHtml+'</td>'        +'<td style="padding:8px 14px;font-size:12px;color:#f0e8d8;font-weight:500">'+esc(p.nome||"")+'</td>'        +'<td style="padding:8px 14px;font-size:11px;color:#9a8c78">'+esc(p.badge||"")+'</td>'        +'<td style="padding:8px 14px;font-size:13px;color:#c9a84c;font-weight:600;text-align:right">'+preco+'</td>'        +'</tr>';
+    });
+  });
+
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"/>'    +'<title>Tobaldine Signature · Lista de Produtos</title>'    +'<style>'    +'*{box-sizing:border-box;margin:0;padding:0}'    +'body{background:#080706;color:#f0e8d8;font-family:"DM Sans",system-ui,sans-serif;padding:24px}'    +'h1{font-family:Georgia,serif;font-weight:300;font-size:24px;color:#c9a84c;margin-bottom:4px}'    +'p{font-size:11px;color:#9a8c78;margin-bottom:20px}'    +'table{width:100%;border-collapse:collapse;background:#0d0b09;border-radius:8px;overflow:hidden}'    +'tr:hover td{background:rgba(255,255,255,0.02)}'    +'@media print{body{background:#fff;color:#000}table{border:1px solid #ddd}td{color:#000!important}h1,p{color:#000!important}}'    +'</style></head><body>'    +'<h1>✦ Tobaldine Signature</h1>'    +'<p>'+produtos.filter(function(p){return p.ativo!==false}).length+' produtos ativos · Gerado em '+new Date().toLocaleDateString("pt-BR")+'</p>'    +'<table><tbody>'+rows+'</tbody></table>'    +'<script>window.onload=function(){window.print();}<\/script>'    +'</body></html>';
+
+  win.document.write(html);
+  win.document.close();
+}
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
