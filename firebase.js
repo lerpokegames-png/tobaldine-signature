@@ -83,6 +83,27 @@ var firebaseConfig = {
       _scheduleRender();
     });
 
+    /* Textos do site */
+    db.ref("config/textos").once("value", function(snap) {
+      var textos = snap.val();
+      if(!textos) return;
+      Object.keys(textos).forEach(function(id){
+        var val = textos[id];
+        if(!val) return;
+        document.querySelectorAll("[data-texto='"+id+"']").forEach(function(el){
+          if(id === "strip_frase"){
+            el.innerHTML = "· "+val+" ·";
+          } else if(id === "entrega_faixa"){
+            /* update cutoff strip text */
+            var strip = el.closest ? el.closest(".cutoff-strip") : null;
+            if(strip){ var sp = strip.querySelector("span:last-child"); if(sp) sp.textContent = val; }
+          } else {
+            el.textContent = val;
+          }
+        });
+      });
+    });
+
     /* Nomes de seções personalizados */
     db.ref("config/secoes").once("value", function(snap) {
       var labels = snap.val();

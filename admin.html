@@ -254,11 +254,13 @@ select optgroup{color: var(--gold); font-weight: bold;}
       <div class="tab" onclick="switchTab('historico',this)">Histórico (Backlog)</div>
       <div class="tab" onclick="switchTab('pedidos',this)" style="color:#4caf79">📦 Pedidos</div>
       <div class="tab" onclick="switchTab('caixa',this)" style="color:#4caf79">💰 Caixa</div>
+      <div class="tab" onclick="switchTab('textos',this)">✏️ Textos</div>
     </div>
 
     <div id="tProdutos"></div>
     <div id="tPedidos" style="display:none;max-width:900px"></div>
     <div id="tCaixa" style="display:none;max-width:800px"></div>
+    <div id="tTextos" style="display:none;max-width:700px"></div>
 
     <div id="tKits" style="display:none;max-width:800px"></div>
     <div id="tCupons" style="display:none;max-width:800px"></div>
@@ -842,7 +844,7 @@ function renderGrade(){
   if(selectedIdx !== null){
     main.innerHTML = '<div style="display:flex;gap:20px;height:100%">'
       + '<div style="flex:1;overflow-y:auto">' + gradeHtml + '</div>'
-      + '<div style="width:420px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--border);padding-left:20px" id="gradeEdit"></div>'
+      + '<div style="width:420px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--border);padding-left:20px" id="gradeEdit"><div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button onclick="selectedIdx=null;renderGrade()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:11px">✕ Fechar</button></div></div>'
       + '</div>';
   } else {
     main.innerHTML = gradeHtml;
@@ -877,7 +879,10 @@ function renderGrade(){
         + '<button class="g-card-del" onclick="delProd(event,'+i+')" title="Excluir">✕</button>'
         + '<div class="g-card-body">'
         + '<div class="g-card-name" title="'+esc(p.nome||"")+'">'+esc((p.nome||"Sem nome").trim())+'</div>'
+        + '<div style="display:flex;justify-content:space-between;align-items:center;gap:4px;margin-top:3px">'
         + '<div class="g-card-price">'+preco+'</div>'
+        + (p.badge ? '<div style="font-size:9px;color:var(--muted);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:3px;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px">'+esc(p.badge)+'</div>' : '<div style="font-size:9px;color:rgba(192,76,76,0.6)">sem badge</div>')
+        + '</div>'
         + '</div></div>';
     });
   });
@@ -1203,7 +1208,7 @@ function salvarCupons(){saveData();if(typeof fbSaveCupons==="function") fbSaveCu
 function switchTab(name,btn){
   document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active")});
   btn.classList.add("active");
-  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",depoimentos:"tDep",dashboard:"tDash",config:"tConf",historico:"tHist",pedidos:"tPedidos",caixa:"tCaixa"};
+  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",depoimentos:"tDep",dashboard:"tDash",config:"tConf",historico:"tHist",pedidos:"tPedidos",caixa:"tCaixa",textos:"tTextos"};
   Object.values(tabs).forEach(function(id){var el=document.getElementById(id);if(el)el.style.display="none"});
   var show=tabs[name];
   if(show){
@@ -1220,6 +1225,7 @@ function switchTab(name,btn){
   if(name==="kits") renderKits();
   if(name==="pedidos") renderPedidos();
   if(name==="caixa") renderCaixa();
+  if(name==="textos") renderTextos();
 }
 
 function renderKits(){
@@ -1426,6 +1432,60 @@ function openModal(){document.getElementById("modalPre").textContent=buildJS();d
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 function downloadJS(){var b=new Blob([buildJS()],{type:"text/javascript"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="produtos.js";a.click();}
 function copyJS(){navigator.clipboard.writeText(buildJS());toast("Copiado!");}
+/* ══════════════════════════════════════
+   TEXTOS DO SITE
+══════════════════════════════════════ */
+var _textosSite = {};
+try { var _tx=localStorage.getItem("tb_v3_textos"); if(_tx) _textosSite=JSON.parse(_tx); } catch(e){}
+
+var _TEXTOS_CONFIG = [
+  { id:"hero_tagline",   label:"Hero · Frase principal",      tipo:"text",     def:"O perfume certo não é detalhe — é a primeira impressão que você deixa." },
+  { id:"hero_sub",       label:"Hero · Subtítulo",            tipo:"textarea", def:"Cada fragrância selecionada para fazer você se sentir única(o), poderosa(o) e inesquecível onde quer que vá." },
+  { id:"strip_frase",    label:"Faixa dourada · Frase",       tipo:"text",     def:"Ninguém esquece quem cheira bem. Ninguém." },
+  { id:"entrega_faixa",  label:"Faixa de entrega",            tipo:"text",     def:"Entrega em Mauá e região · Até 24h após confirmação · PIX ou cartão" },
+  { id:"sobre_titulo",   label:"Sobre · Título",              tipo:"text",     def:"Tobaldine Signature" },
+  { id:"sobre_desc1",    label:"Sobre · Parágrafo 1",         tipo:"textarea", def:"A Tobaldine Signature nasceu da crença de que alta perfumaria não precisa ser inacessível." },
+  { id:"sobre_desc2",    label:"Sobre · Parágrafo 2",         tipo:"textarea", def:"Atendemos de forma próxima e personalizada, direto pelo WhatsApp, com entrega em Mauá e região." },
+  { id:"footer_copy",    label:"Rodapé · Copyright",          tipo:"text",     def:"© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados" }
+];
+
+function renderTextos(){
+  var el = document.getElementById("tTextos");
+  if(!el) return;
+  var campos = _TEXTOS_CONFIG.map(function(t){
+    var val = _textosSite[t.id] !== undefined ? _textosSite[t.id] : t.def;
+    var input = t.tipo === "textarea"
+      ? '<textarea id="tx_'+t.id+'" style="min-height:70px">'+esc(val)+'</textarea>'
+      : '<input type="text" id="tx_'+t.id+'" value="'+esc(val)+'"/>';
+    return '<div class="field" style="margin-bottom:14px"><label>'+t.label+'</label>'+input+'</div>';
+  }).join("");
+
+  el.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'
+    +'<h3 style="font-size:13px;color:var(--gold)">✏️ Textos do Site</h3>'
+    +'<button class="btn btn-gold" onclick="salvarTextos()">☁ Salvar e Publicar</button>'
+    +'</div>'
+    +'<p style="font-size:11px;color:var(--muted);margin-bottom:20px">Edite os textos abaixo e clique em Salvar. As alterações aparecem no catálogo para todos os visitantes.</p>'
+    +'<div style="max-width:600px">'+campos+'</div>';
+}
+
+function salvarTextos(){
+  var dados = {};
+  _TEXTOS_CONFIG.forEach(function(t){
+    var el = document.getElementById("tx_"+t.id);
+    if(el) dados[t.id] = el.value.trim();
+  });
+  _textosSite = dados;
+  localStorage.setItem("tb_v3_textos", JSON.stringify(dados));
+
+  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
+    window.firebaseDB.ref("config/textos").set(dados).then(function(){
+      toast("✓ Textos salvos e publicados!");
+    }).catch(function(){ toast("✓ Salvo localmente (Firebase offline)"); });
+  } else {
+    toast("✓ Textos salvos!");
+  }
+}
+
 /* ══════════════════════════════════════
    CAIXA (CONTROLE FINANCEIRO)
 ══════════════════════════════════════ */
