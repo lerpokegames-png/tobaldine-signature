@@ -198,23 +198,48 @@ function renderCatalogo() {
 
     if (p.secao === "autorais") {
       if (!fragmentos["autorais"]) fragmentos["autorais"] = [];
-      fragmentos["autorais"].push(cardHtml);
+      fragmentos["autorais"].push({html: cardHtml, subsecao: p.subsecao || ""});
     } else if (p.secao === "cosmeticos") {
       fragCosmeticos.push(cardHtml);
     } else {
       var targetId = genero + "-" + p.secao;
       if (!fragmentos[targetId]) fragmentos[targetId] = [];
-      fragmentos[targetId].push(cardHtml);
+      fragmentos[targetId].push({html: cardHtml, subsecao: p.subsecao || ""});
     }
   });
 
-  /* Aplica todos os fragmentos de uma vez no DOM */
+  /* Aplica todos os fragmentos agrupados por subcategoria */
+  function renderFragmentos(el, frags) {
+    if(!frags || !frags.length) return;
+    /* Verifica se tem subcategorias */
+    var temSub = frags.some(function(f){ return f.subsecao && f.subsecao.trim(); });
+    if(!temSub){
+      el.innerHTML = frags.map(function(f){ return f.html; }).join("");
+      return;
+    }
+    /* Agrupa por subcategoria mantendo ordem de inserção */
+    var grupos = [];
+    var grupoMap = {};
+    frags.forEach(function(f){
+      var sub = f.subsecao && f.subsecao.trim() ? f.subsecao.trim() : "—";
+      if(!grupoMap[sub]){ grupoMap[sub] = []; grupos.push(sub); }
+      grupoMap[sub].push(f.html);
+    });
+    var html = "";
+    grupos.forEach(function(sub){
+      if(sub !== "—") html += '<div class="sub-category-title" style="margin-top:24px">✦ '+sub+'</div><div class="cards-track dynamic-grid" style="margin-bottom:24px">';
+      html += grupoMap[sub].join("");
+      if(sub !== "—") html += '</div>';
+    });
+    el.innerHTML = html;
+  }
+
   Object.keys(fragmentos).forEach(function(id) {
     var el = document.getElementById(id);
-    if (el) el.innerHTML = fragmentos[id].join("");
+    if (el) renderFragmentos(el, fragmentos[id]);
   });
   if (trackCosmeticos && fragCosmeticos.length) {
-    trackCosmeticos.innerHTML = fragCosmeticos.join("");
+    renderFragmentos(trackCosmeticos, fragCosmeticos);
   }
 
   /* Autorais */
@@ -222,7 +247,7 @@ function renderCatalogo() {
   var secAutorais   = document.getElementById("autorais");
   var navAutorais   = document.getElementById("nav-autorais");
   if(trackAutorais && fragmentos["autorais"] && fragmentos["autorais"].length){
-    trackAutorais.innerHTML = fragmentos["autorais"].join("");
+    renderFragmentos(trackAutorais, fragmentos["autorais"]);
     if(secAutorais) secAutorais.style.display = "";
     if(navAutorais) navAutorais.style.display = "";
   }
