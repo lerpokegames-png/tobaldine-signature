@@ -863,7 +863,13 @@ function renderGrade(){
       var pos  = (p.fotosPos && p.fotosPos[0]) ? p.fotosPos[0] : "50% 50%";
       var zoom = (p.fotosZoom && p.fotosZoom[0]) ? parseFloat(p.fotosZoom[0]) : 1;
       var imgStyle = "object-position:"+pos+";transform:scale("+zoom+");transform-origin:"+pos;
-      var preco = p.preco ? "R$ "+parseFloat(p.preco).toFixed(2).replace(".",",") : "";
+      /* Lê preço do sistema de custo+margem ou do campo direto */
+      var preco = "";
+      if(p.precos && p.precos.length && p.precos[0].preco){
+        preco = p.precos[0].preco; /* ex: "R$ 76,90" */
+      } else if(p.preco){
+        preco = "R$ "+parseFloat(p.preco).toFixed(2).replace(".",",");
+      }
       var isActive = selectedIdx === i;
       var loteSelClass = (_loteMode && _loteSelected.has(i)) ? " lote-selected" : "";
       var cardClick = _loteMode ? "toggleLoteCard("+i+",event)" : "selProdGrade("+i+")";
