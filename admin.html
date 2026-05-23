@@ -1253,14 +1253,14 @@ function renderConf(){
     +'<button class="btn btn-gold" onclick="alterarSenha()">✓ Salvar Nova Senha</button>'
     +'</div>'
     +'<p style="font-size:10px;color:var(--muted);margin-top:10px">A senha é salva no Firebase. Nenhuma senha fica visível no código-fonte.</p>'
-    +'</div>';
+    +'</div>'
     +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
     +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">🔍 Chave API Gemini (busca de fotos)</h4>'
     +'<div style="display:flex;gap:8px">'
     +'<input type="text" id="geminiKeyInput" placeholder="AIza..." style="flex:1;font-size:11px;" value="'+(localStorage.getItem("tb_gemini_key")||"")+'" />'
     +'<button class="btn btn-gold btn-sm" onclick="salvarGeminiKey()">Salvar</button>'
     +'</div>'
-    +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Obtenha grátis em aistudio.google.com</p>'
+    +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Obtenha grátis em <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--gold)">aistudio.google.com</a></p>'
     +'</div>';
 }
 
