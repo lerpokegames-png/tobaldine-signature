@@ -261,7 +261,7 @@ body {
 .product-image { width: 100%; aspect-ratio: 3/4; background: var(--dark3); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1); cursor: e-resize; }
 .carousel-slide { min-width: 100%; width: 100%; height: 100%; flex-shrink: 0; overflow: hidden; }
-.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #0d0b09; }
 .carousel-dots-container { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; }
 .carousel-dots-container .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); box-shadow: 0 1px 3px rgba(0,0,0,0.6); cursor: pointer; transition: all 0.2s ease; }
 .carousel-dots-container .dot.active { background: var(--gold); width: 14px; border-radius: 3px; }

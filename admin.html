@@ -969,7 +969,10 @@ function renderForm(){
     return '<div class="prow" style="align-items:flex-start;gap:10px;">'
       + previewHtml
       + '<div style="flex:1;display:flex;flex-direction:column;gap:6px;">'
-      +   '<input type="text" value="'+esc(f)+'" placeholder="URL da foto" onchange="setFoto('+i+',this.value)"/>'
+      +   '<div style="display:flex;gap:6px;align-items:center">'
+      +   '<input type="text" value="'+esc(f)+'" placeholder="URL da foto" onchange="setFoto('+i+',this.value)" style="flex:1"/>'
+      +   (f ? '<button class="btn btn-outline btn-sm" onclick="removerFundo('+i+',this)" title="Remover fundo" style="flex-shrink:0;padding:4px 8px;font-size:11px">✂️ Fundo</button>' : '')
+      +   '</div>'
       +   '<input type="text" value="'+pos+'" placeholder="Ponto focal (ex: 50% 30%)" title="Clique no preview ou edite aqui" onchange="setFotoPos('+i+',this.value)" style="font-size:11px;color:#c9a84c;"/>'
       +   '<div style="display:flex;align-items:center;gap:8px;">'
       +     '<span style="font-size:9px;color:#4a4235;white-space:nowrap;">🔍 Zoom</span>'
@@ -1261,7 +1264,72 @@ function renderConf(){
     +'<button class="btn btn-gold btn-sm" onclick="salvarGeminiKey()">Salvar</button>'
     +'</div>'
     +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Obtenha grátis em <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--gold)">aistudio.google.com</a></p>'
+    +'</div>'
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:4px">✂️ Remove.bg (remover fundo)</h4>'
+    +'<p style="font-size:10px;color:var(--muted);margin-bottom:10px">50 fotos grátis/mês · <a href="https://www.remove.bg/pt-br/dashboard#api-key" target="_blank" style="color:var(--gold)">Obter chave</a></p>'
+    +'<div style="display:flex;gap:8px">'
+    +'<input type="text" id="removebgKeyInput" placeholder="Chave remove.bg..." style="flex:1;font-size:11px;" value="'+(localStorage.getItem("tb_removebg_key")||"")+'" />'
+    +'<button class="btn btn-gold btn-sm" onclick="salvarRemovebgKey()">Salvar</button>'
+    +'</div>'
     +'</div>';
+}
+
+function salvarRemovebgKey(){
+  var key = (document.getElementById("removebgKeyInput").value||"").trim();
+  if(!key){ toast("Digite a chave"); return; }
+  localStorage.setItem("tb_removebg_key", key);
+  toast("✓ Chave remove.bg salva!");
+}
+
+async function removerFundo(fotoIdx, btn){
+  var rbKey = localStorage.getItem("tb_removebg_key")||"";
+  if(!rbKey){
+    toast("Configure a chave remove.bg na aba Config");
+    return;
+  }
+  if(selectedIdx === null) return;
+  var url = (produtos[selectedIdx].fotos||[])[fotoIdx];
+  if(!url){ toast("Sem URL de foto neste slot"); return; }
+
+  var origText = btn.textContent;
+  btn.textContent = "⏳";
+  btn.disabled = true;
+
+  try {
+    var formData = new FormData();
+    formData.append("image_url", url);
+    formData.append("size", "auto");
+
+    var resp = await fetch("https://api.remove.bg/v1.0/removebg", {
+      method: "POST",
+      headers: { "X-Api-Key": rbKey },
+      body: formData
+    });
+
+    if(!resp.ok){
+      var errData = await resp.json().catch(function(){return {};});
+      toast("Erro remove.bg: "+(errData.errors||[{title:resp.status}])[0].title);
+      btn.textContent = origText; btn.disabled = false;
+      return;
+    }
+
+    var blob = await resp.blob();
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataUrl = reader.result;
+      if(!Array.isArray(produtos[selectedIdx].fotos)) produtos[selectedIdx].fotos = [];
+      produtos[selectedIdx].fotos[fotoIdx] = dataUrl;
+      saveData();
+      renderForm();
+      toast("✓ Fundo removido!");
+    };
+    reader.readAsDataURL(blob);
+
+  } catch(e) {
+    toast("Erro: "+e.message);
+    btn.textContent = origText; btn.disabled = false;
+  }
 }
 
 function salvarGeminiKey(){
