@@ -880,7 +880,7 @@ function renderGrade(){
         + '<div class="g-card-body">'
         + '<div class="g-card-name" title="'+esc(p.nome||"")+'">'+esc((p.nome||"Sem nome").trim())+'</div>'
         + '<div style="display:flex;justify-content:space-between;align-items:center;gap:4px;margin-top:3px">'
-        + '<div class="g-card-price">'+preco+'</div>'
+        + (preco ? '<div class="g-card-price">'+preco+'</div>' : '<div style="font-size:9px;color:rgba(192,76,76,0.7)">sem preço</div>')
         + (p.badge ? '<div style="font-size:9px;color:var(--muted);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:3px;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px">'+esc(p.badge)+'</div>' : '<div style="font-size:9px;color:rgba(192,76,76,0.6)">sem badge</div>')
         + '</div>'
         + '</div></div>';
