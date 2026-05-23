@@ -366,8 +366,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
 <script src="firebase-admin.js"></script>
 
 <script>
-var SENHA_HASH     = "571ae5e25a76f4f3c3104cee8c59ec208e32ad74ebde64b1611cded584dc838c";
-var SENHA_FALLBACK = "tobaldine2025"; 
+var SENHA_HASH     = null; /* carregado do Firebase — não fica no HTML */
 var _loginAttempts = 0;
 var _loginLocked   = false;
 var MAX_ATTEMPTS   = 3;
@@ -388,11 +387,16 @@ async function checkSenha() {
   var btnEl  = document.getElementById("loginBtn");
   var isValid = false;
 
+  if (!SENHA_HASH) {
+    erroEl.textContent = "Firebase ainda carregando. Aguarde e tente novamente.";
+    return;
+  }
   if (window.isSecureContext && crypto && crypto.subtle) {
     var hash = await sha256(input);
     isValid = (hash === SENHA_HASH);
   } else {
-    isValid = (input === SENHA_FALLBACK);
+    erroEl.textContent = "Navegador não suportado. Use Chrome ou Firefox.";
+    return;
   }
 
   if (isValid) {
@@ -490,6 +494,12 @@ function loadFromFirebase(db){
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
     /* Pedidos ficam só local por enquanto */
+
+  /* Carrega hash da senha do Firebase */
+  db.ref("config/adminHash").once("value", function(snap){
+    var h = snap.val();
+    if(h) SENHA_HASH = h;
+  });
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
@@ -1233,7 +1243,37 @@ function rmDep(i){depoimentos.splice(i,1);saveData();renderDep()}
 function renderDash(){
   document.getElementById("tDash").innerHTML='<div class="dgrid"><div class="dcard"><div class="num">'+produtos.length+'</div><div class="lbl">Produtos</div></div><div class="dcard"><div class="num">'+kits.length+'</div><div class="lbl">Kits</div></div><div class="dcard"><div class="num">'+cupons.length+'</div><div class="lbl">Cupons / Afiliados</div></div><div class="dcard"><div class="num">'+depoimentos.length+'</div><div class="lbl">Depoimentos</div></div></div>';
 }
-function renderConf(){document.getElementById("tConf").innerHTML='<h3 style="font-size:13px;color:var(--gold)">Configuração</h3><p style="font-size:11px;color:var(--muted);margin-top:10px">WhatsApp configurado em script.js. Para alterar a senha do admin, gere um novo SHA-256 e substitua SENHA_HASH neste arquivo.</p>';}
+function renderConf(){
+  document.getElementById("tConf").innerHTML = '<h3 style="font-size:13px;color:var(--gold);margin-bottom:16px">Configuração</h3>'
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">🔑 Alterar Senha do Admin</h4>'
+    +'<div style="display:flex;flex-direction:column;gap:10px">'
+    +'<div class="field"><label>Nova Senha</label><input type="password" id="novaSenha1" placeholder="Nova senha"/></div>'
+    +'<div class="field"><label>Confirmar Senha</label><input type="password" id="novaSenha2" placeholder="Repita a senha"/></div>'
+    +'<button class="btn btn-gold" onclick="alterarSenha()">✓ Salvar Nova Senha</button>'
+    +'</div>'
+    +'<p style="font-size:10px;color:var(--muted);margin-top:10px">A senha é salva no Firebase. Nenhuma senha fica visível no código-fonte.</p>'
+    +'</div>';
+}
+
+async function alterarSenha(){
+  var s1 = document.getElementById("novaSenha1").value;
+  var s2 = document.getElementById("novaSenha2").value;
+  if(!s1){ toast("Digite a nova senha"); return; }
+  if(s1 !== s2){ toast("As senhas não coincidem"); return; }
+  if(s1.length < 6){ toast("Senha deve ter ao menos 6 caracteres"); return; }
+  var novoHash = await sha256(s1);
+  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
+    window.firebaseDB.ref("config/adminHash").set(novoHash).then(function(){
+      SENHA_HASH = novoHash;
+      toast("✓ Senha alterada com sucesso!");
+      document.getElementById("novaSenha1").value="";
+      document.getElementById("novaSenha2").value="";
+    }).catch(function(e){ toast("Erro: "+e); });
+  } else {
+    toast("Firebase indisponível");
+  }
+}
 
 /* RENDERIZAR O BACKLOG / HISTÓRICO TIME MACHINE */
 function renderHist(){
