@@ -785,3 +785,37 @@ function aceitarLGPD() {
   var banner = document.getElementById("lgpdBanner");
   if (banner) { banner.classList.remove("show"); }
 }
+
+
+/* ══════════════════════════════════════
+   NAV ATIVO AO ROLAR
+══════════════════════════════════════ */
+(function(){
+  var navLinks = document.querySelectorAll(".nav-link");
+  if(!navLinks.length) return;
+
+  /* Mapa: href → link element */
+  var linkMap = {};
+  navLinks.forEach(function(a){
+    var href = a.getAttribute("href");
+    if(href && href.startsWith("#")) linkMap[href.slice(1)] = a;
+  });
+
+  var setActive = function(id){
+    navLinks.forEach(function(a){ a.classList.remove("nav-active"); });
+    if(linkMap[id]) linkMap[id].classList.add("nav-active");
+  };
+
+  if("IntersectionObserver" in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+
+    ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre","depoimentos"].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) observer.observe(el);
+    });
+  }
+})();

@@ -1022,8 +1022,8 @@ function renderForm(){
       +'</div>';
   }).join("")+'<button class="addrow" onclick="addPr()">+ Preço</button>';
 
-  document.getElementById("tProdutos").innerHTML='<div class="fg">'
-    +'<div class="st">Dados do Produto</div>'
+  document.getElementById("tProdutos").innerHTML=''
+    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">'    +'<button onclick="selectedIdx=null;renderSidebar();renderEmptyProd();" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:4px">← Voltar</button>'    +'<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((p.nome||"Produto").trim())+'</span>'    +'<button onclick="delProd(event,selectedIdx)" style="margin-left:auto;background:transparent;border:1px solid rgba(192,76,76,0.3);color:var(--red);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px">✕ Excluir</button>'    +'</div>'    +'<div class="fg">'    +'<div class="st">Dados do Produto</div>'
     +'<div class="field"><label>Seção</label><select onchange="setF(\'secao\',this.value)">'+opts+'</select></div>'
     +'<div class="field"><label>Badge</label><input type="text" value="'+esc(p.badge||"")+'" onchange="setF(\'badge\',this.value)"/></div>'
     +'<div class="field"><label>Nome</label><input type="text" value="'+esc((p.nome||"").trim())+'" onchange="setF(\'nome\',this.value)"/></div>'
@@ -1471,7 +1471,10 @@ var _TEXTOS_CONFIG = [
   { id:"sobre_titulo",   label:"Sobre · Título",              tipo:"text",     def:"Tobaldine Signature" },
   { id:"sobre_desc1",    label:"Sobre · Parágrafo 1",         tipo:"textarea", def:"A Tobaldine Signature nasceu da crença de que alta perfumaria não precisa ser inacessível." },
   { id:"sobre_desc2",    label:"Sobre · Parágrafo 2",         tipo:"textarea", def:"Atendemos de forma próxima e personalizada, direto pelo WhatsApp, com entrega em Mauá e região." },
-  { id:"footer_copy",    label:"Rodapé · Copyright",          tipo:"text",     def:"© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados" }
+  { id:"footer_copy",    label:"Rodapé · Copyright",          tipo:"text",     def:"© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados" },
+  { id:"sub_decants",    label:"Subcategoria · Decants",       tipo:"text",     def:"Decants de Bolso / Miniaturas" },
+  { id:"sub_originais",  label:"Subcategoria · Originais",     tipo:"text",     def:"Frascos Originais Lacrados" },
+  { id:"sub_similares",  label:"Subcategoria · Similares",     tipo:"text",     def:"Inspirados Premium (Contratipos)" }
 ];
 
 function renderTextos(){

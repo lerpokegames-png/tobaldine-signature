@@ -189,6 +189,8 @@ body {
   border-bottom: 2px solid transparent;
   transition: color 0.25s, border-color 0.25s;
 }
+.nav-link.nav-active { color: var(--gold) !important; }
+.nav-link.nav-active .nav-dot { background: var(--gold); transform: scale(1.4); }
 
 .nav-link:hover, .nav-link.active {
   color: var(--gold);
