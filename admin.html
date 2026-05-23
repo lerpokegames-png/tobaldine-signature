@@ -1254,6 +1254,21 @@ function renderConf(){
     +'</div>'
     +'<p style="font-size:10px;color:var(--muted);margin-top:10px">A senha é salva no Firebase. Nenhuma senha fica visível no código-fonte.</p>'
     +'</div>';
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">🔍 Chave API Gemini (busca de fotos)</h4>'
+    +'<div style="display:flex;gap:8px">'
+    +'<input type="text" id="geminiKeyInput" placeholder="AIza..." style="flex:1;font-size:11px;" value="'+(localStorage.getItem("tb_gemini_key")||"")+'" />'
+    +'<button class="btn btn-gold btn-sm" onclick="salvarGeminiKey()">Salvar</button>'
+    +'</div>'
+    +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Obtenha grátis em aistudio.google.com</p>'
+    +'</div>';
+}
+
+function salvarGeminiKey(){
+  var key = (document.getElementById("geminiKeyInput").value||"").trim();
+  if(!key){ toast("Digite a chave"); return; }
+  localStorage.setItem("tb_gemini_key", key);
+  toast("✓ Chave Gemini salva!");
 }
 
 async function alterarSenha(){
@@ -1712,25 +1727,33 @@ async function buscarFotos(){
   var query = document.getElementById("fotoSearchInput").value.trim();
   if(!query) return;
   var el = document.getElementById("fotoResults");
+  var geminiKey = localStorage.getItem("tb_gemini_key")||"";
+  if(!geminiKey){
+    el.innerHTML = '<div class="foto-status">⚠ Configure sua chave Gemini na aba <strong>Config</strong> primeiro.</div>';
+    return;
+  }
   el.innerHTML = '<div class="foto-status"><span class="foto-spinner"></span>Buscando fotos para "'+query+'"...</div>';
 
   try {
-    var response = await fetch("https://api.anthropic.com/v1/messages", {
+    var response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+geminiKey, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
-        messages: [{
-          role: "user",
-          content: 'Busca imagens do produto: ' + query + '. Retorna SOMENTE um array JSON com ate 8 URLs diretas de imagem terminando em .jpg .jpeg .png ou .webp. Busca em fragrantica.com, sephora.com.br, belezanaweb.com.br. Sem texto, apenas o array JSON.'
-        }]
+        contents: [{ parts: [{ text: "Busca fotos do produto: "+query+". Retorna SOMENTE um array JSON com ate 8 URLs diretas de imagem terminando em .jpg .jpeg .png ou .webp. Busca em fragrantica.com, sephora.com.br, belezanaweb.com.br. Sem texto, apenas o array JSON." }] }],
+        tools: [{ google_search: {} }]
       })
     });
 
     var data = await response.json();
-    var text = (data.content || []).filter(function(b){ return b.type === "text"; }).map(function(b){ return b.text; }).join("");
+    var text = "";
+    if(data.candidates && data.candidates[0] && data.candidates[0].content){
+      text = (data.candidates[0].content.parts||[]).map(function(p){ return p.text||""; }).join("");
+    }
+    var groundingUrls = [];
+    try {
+      var chunks = (((data.candidates||[])[0]||{}).groundingMetadata||{}).groundingChunks||[];
+      chunks.forEach(function(c){ if(c.web && c.web.uri && /\.(jpg|jpeg|png|webp)/i.test(c.web.uri)) groundingUrls.push(c.web.uri); });
+    } catch(e){}
 
     /* Extrai JSON do texto */
     var match = text.match(/\[[\s\S]*?\]/);
