@@ -5,9 +5,12 @@ echo   Tobaldine Signature - Salvar e Publicar
 echo  ========================================
 echo.
 
-:: Pede descrição do que mudou
+:: Garante que firebase.json sempre exclui arquivos desnecessarios
+echo { "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"] } } > firebase.json
+
+:: Pede descricao do que mudou
 set /p MSG="O que voce alterou? (ex: atualizei fotos): "
-if "%MSG%"=="" set MSG="atualizacao"
+if "%MSG%"=="" set MSG=atualizacao
 
 echo.
 echo  Salvando no GitHub...

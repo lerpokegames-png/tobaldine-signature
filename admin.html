@@ -17,7 +17,7 @@ header h1{font-size:15px;font-weight:500;letter-spacing:0.08em;color:var(--gold)
 .btn-green{background:var(--green);color:#fff}.btn-red{background:var(--red);color:#fff}
 .btn-sm{padding:5px 10px;font-size:10px}
 .layout{display:flex;height:calc(100vh - 53px)}
-aside{width:250px;flex-shrink:0;border-right:1px solid var(--border);overflow-y:auto;padding:12px 0}
+aside{overflow-y:auto;padding:12px 0}
 main{flex:1;overflow-y:auto;padding:20px}
 .sec-lbl{padding:5px 14px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .p-item{padding:9px 14px;cursor:pointer;border-left:2px solid transparent;transition:all .12s;display:flex;align-items:center;gap:8px}
@@ -52,6 +52,70 @@ main{flex:1;overflow-y:auto;padding:20px}
 .view-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .view-toggle button{padding:5px 10px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:13px;transition:all .15s}
 .view-toggle button.active{background:rgba(201,168,76,0.15);color:var(--gold)}
+/* ── CAIXA ── */
+.caixa-saldo{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.caixa-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;flex:1;min-width:150px}
+.caixa-card-label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.caixa-card-value{font-size:24px;font-weight:600}
+.caixa-card-sub{font-size:10px;color:var(--muted);margin-top:4px}
+.caixa-form{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.caixa-form .field{flex:1;min-width:120px}
+.caixa-list{display:flex;flex-direction:column;gap:8px}
+.caixa-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card);border-radius:6px;border-left:3px solid transparent}
+.caixa-item.entrada{border-left-color:#4caf79}
+.caixa-item.saida{border-left-color:#c04c4c}
+.caixa-item.fornecedor{border-left-color:#e8a030}
+.caixa-item-icon{font-size:16px;flex-shrink:0}
+.caixa-item-desc{flex:1}
+.caixa-item-desc strong{display:block;font-size:12px}
+.caixa-item-desc span{font-size:10px;color:var(--muted)}
+.caixa-item-valor{font-size:14px;font-weight:600}
+.caixa-item-del{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:12px;opacity:0;transition:.15s}
+.caixa-item:hover .caixa-item-del{opacity:1}
+.caixa-aviso{background:rgba(232,160,48,0.08);border:1px solid rgba(232,160,48,0.25);border-radius:8px;padding:12px 16px;font-size:12px;color:#e8a030;margin-bottom:16px;line-height:1.6}
+
+/* ── BUSCA RÁPIDA ── */
+.search-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--dark);z-index:10}
+.search-bar input{flex:1;padding:6px 10px;font-size:12px}
+.search-bar .clear-btn{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:0 4px}
+.search-highlight{background:rgba(201,168,76,0.25);border-radius:2px}
+
+/* ── PEDIDOS ── */
+.pedido-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px}
+.pedido-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.pedido-nome{font-size:13px;font-weight:500}
+.pedido-hora{font-size:10px;color:var(--muted)}
+.pedido-status{font-size:9px;padding:3px 8px;border-radius:10px;font-weight:600;letter-spacing:0.05em}
+.ps-pendente{background:rgba(232,160,48,0.15);color:#e8a030}
+.ps-confirmado{background:rgba(76,175,121,0.15);color:#4caf79}
+.ps-entregue{background:rgba(201,168,76,0.15);color:var(--gold)}
+.ps-cancelado{background:rgba(192,76,76,0.15);color:#c04c4c}
+.pedido-itens{font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.6}
+.pedido-total{font-size:13px;color:var(--gold);font-weight:600}
+.batch-alert{background:rgba(76,175,121,0.08);border:1px solid rgba(76,175,121,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.batch-alert-warn{background:rgba(232,160,48,0.08);border-color:rgba(232,160,48,0.3)}
+.batch-icon{font-size:20px}
+.batch-text{flex:1}
+.batch-text strong{display:block;font-size:12px;margin-bottom:2px}
+.batch-text span{font-size:11px;color:var(--muted)}
+.novo-pedido-form{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
+.pedido-item-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.pedido-item-row select{flex:2}
+.pedido-item-row input{flex:0 0 60px}
+
+/* ── LOTE ── */
+.g-card.lote-selected{border-color:#4caf79;box-shadow:0 0 0 2px rgba(76,175,121,0.3)}
+.g-card.lote-selected .g-card-check{opacity:1!important;background:#4caf79;color:#fff}
+.g-card-check{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,0.6);border:2px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;opacity:0;transition:all .15s}
+.g-card:hover .g-card-check{opacity:1}
+.lote-bar{position:fixed;bottom:0;left:0;right:0;background:#161412;border-top:1px solid rgba(201,168,76,0.3);padding:12px 20px;display:flex;align-items:center;gap:12px;z-index:500;flex-wrap:wrap;transform:translateY(100%);transition:transform .2s}
+.lote-bar.visible{transform:translateY(0)}
+.lote-count{font-size:12px;color:var(--gold);font-weight:600;white-space:nowrap;min-width:80px}
+.lote-field{display:flex;flex-direction:column;gap:3px;flex:1;min-width:120px;max-width:200px}
+.lote-field label{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.lote-field input,.lote-field select{padding:5px 8px;font-size:12px;height:30px}
+.btn-lote-mode{border:1px solid rgba(76,175,121,0.4)!important;color:#4caf79!important}
+.btn-lote-mode.active-lote{background:rgba(76,175,121,0.15)!important;color:#4caf79!important}
 /* ── BUSCA DE FOTOS ── */
 .foto-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px}
 .foto-modal{background:#161412;border:1px solid rgba(201,168,76,0.25);border-radius:12px;width:100%;max-width:680px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
@@ -162,15 +226,23 @@ select optgroup{color: var(--gold); font-weight: bold;}
       <button id="btnLista" class="active" onclick="setView('lista')" title="Lista">☰</button>
       <button id="btnGrade" onclick="setView('grade')" title="Grade">⊞</button>
     </div>
+    <button class="btn btn-outline btn-sm" onclick="previewCatalogo()" title="Ver catálogo como cliente">👁 Preview</button>
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
+    <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
     <button class="btn btn-gold btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
   </div>
 </header>
 
 <div class="layout">
-  <aside id="sidebar"></aside>
+  <aside id="sidebarWrap" style="width:250px;flex-shrink:0;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Buscar produto..." oninput="filterSidebar(this.value)"/>
+      <button class="clear-btn" onclick="clearSearch()" title="Limpar">✕</button>
+    </div>
+    <div id="sidebar" style="flex:1;overflow-y:auto;padding:12px 0"></div>
+  </aside>
   <main id="main">
     <div class="tabs" id="tabBar">
       <div class="tab active" onclick="switchTab('produtos',this)">Produtos</div>
@@ -180,9 +252,13 @@ select optgroup{color: var(--gold); font-weight: bold;}
       <div class="tab" onclick="switchTab('dashboard',this)">Dashboard</div>
       <div class="tab" onclick="switchTab('config',this)">Config</div>
       <div class="tab" onclick="switchTab('historico',this)">Histórico (Backlog)</div>
+      <div class="tab" onclick="switchTab('pedidos',this)" style="color:#4caf79">📦 Pedidos</div>
+      <div class="tab" onclick="switchTab('caixa',this)" style="color:#4caf79">💰 Caixa</div>
     </div>
 
     <div id="tProdutos"></div>
+    <div id="tPedidos" style="display:none;max-width:900px"></div>
+    <div id="tCaixa" style="display:none;max-width:800px"></div>
 
     <div id="tKits" style="display:none;max-width:800px"></div>
     <div id="tCupons" style="display:none;max-width:800px"></div>
@@ -413,6 +489,7 @@ function loadFromFirebase(db){
     var fbCup  = toArr(snaps[3].val());
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
+    /* Pedidos ficam só local por enquanto */
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
@@ -766,7 +843,10 @@ function renderGrade(){
       var imgStyle = "object-position:"+pos+";transform:scale("+zoom+");transform-origin:"+pos;
       var preco = p.preco ? "R$ "+parseFloat(p.preco).toFixed(2).replace(".",",") : "";
       var isActive = selectedIdx === i;
-      h += '<div class="g-card'+(isActive?" active":"")+'" onclick="selProdGrade('+i+')">'
+      var loteSelClass = (_loteMode && _loteSelected.has(i)) ? " lote-selected" : "";
+      var cardClick = _loteMode ? "toggleLoteCard("+i+",event)" : "selProdGrade("+i+")";
+      h += '<div class="g-card'+(isActive&&!_loteMode?" active":"")+loteSelClass+'" data-idx="'+i+'" onclick="'+cardClick+'">'
+        + (_loteMode ? '<div class="g-card-check">'+(_loteSelected.has(i)?"✓":"")+'</div>' : '')
         + (foto
             ? '<img class="g-card-img" src="'+foto+'" style="'+imgStyle+'" loading="lazy"/>'
             : '<div class="g-card-img-empty">Sem foto</div>')
@@ -1100,7 +1180,7 @@ function salvarCupons(){saveData();if(typeof fbSaveCupons==="function") fbSaveCu
 function switchTab(name,btn){
   document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active")});
   btn.classList.add("active");
-  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",depoimentos:"tDep",dashboard:"tDash",config:"tConf",historico:"tHist"};
+  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",depoimentos:"tDep",dashboard:"tDash",config:"tConf",historico:"tHist",pedidos:"tPedidos",caixa:"tCaixa"};
   Object.values(tabs).forEach(function(id){var el=document.getElementById(id);if(el)el.style.display="none"});
   var show=tabs[name];
   if(show){
@@ -1115,6 +1195,8 @@ function switchTab(name,btn){
   if(name==="config") renderConf();
   if(name==="historico") renderHist();
   if(name==="kits") renderKits();
+  if(name==="pedidos") renderPedidos();
+  if(name==="caixa") renderCaixa();
 }
 
 function renderKits(){
@@ -1182,6 +1264,378 @@ function openModal(){document.getElementById("modalPre").textContent=buildJS();d
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 function downloadJS(){var b=new Blob([buildJS()],{type:"text/javascript"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="produtos.js";a.click();}
 function copyJS(){navigator.clipboard.writeText(buildJS());toast("Copiado!");}
+/* ══════════════════════════════════════
+   CAIXA (CONTROLE FINANCEIRO)
+══════════════════════════════════════ */
+var caixaLancamentos = [];
+try { var _cx=localStorage.getItem("tb_v3_caixa"); if(_cx) caixaLancamentos=JSON.parse(_cx); } catch(e){}
+
+function saveCaixa(){ localStorage.setItem("tb_v3_caixa", JSON.stringify(caixaLancamentos)); }
+
+function renderCaixa(){
+  var el = document.getElementById("tCaixa");
+  if(!el) return;
+
+  var entradas  = caixaLancamentos.filter(function(l){ return l.tipo==="entrada"; }).reduce(function(a,l){ return a+l.valor; }, 0);
+  var saidas    = caixaLancamentos.filter(function(l){ return l.tipo==="saida"; }).reduce(function(a,l){ return a+l.valor; }, 0);
+  var saldo     = entradas - saidas;
+
+  /* Pedidos pendentes sem pagamento registrado */
+  var pedidosPendentes = pedidos.filter(function(p){ return p.status==="pendente"; });
+  var totalPendente    = pedidosPendentes.reduce(function(a,p){ return a+(p.total||0); }, 0);
+  var itensPendentes   = pedidosPendentes.reduce(function(a,p){ return a+(p.itens||[]).reduce(function(b,i){ return b+(i.qty||1); },0); }, 0);
+
+  var cor = function(v){ return v>=0?"#4caf79":"#c04c4c"; };
+  var fmt = function(v){ return "R$ "+Math.abs(v).toFixed(2).replace(".",","); };
+
+  var avisoHtml = "";
+  if(pedidosPendentes.length > 0 && itensPendentes < 5){
+    avisoHtml = '<div class="caixa-aviso">⏳ Você tem '+pedidosPendentes.length+' pedido(s) pendente(s) com '+itensPendentes+' produto(s) — faltam '+(5-itensPendentes)+' para atingir o mínimo do fornecedor. Não confirme os pedidos ainda.</div>';
+  } else if(pedidosPendentes.length > 0 && itensPendentes >= 5){
+    avisoHtml = '<div class="caixa-aviso" style="border-color:rgba(76,175,121,0.3);background:rgba(76,175,121,0.08);color:#4caf79">🚀 Lote pronto! '+itensPendentes+' produtos pendentes · '+fmt(totalPendente)+' a receber. Confirme os pedidos, receba os PIX e peça ao fornecedor.</div>';
+  }
+
+  var saldoHtml = '<div class="caixa-saldo">'
+    +'<div class="caixa-card"><div class="caixa-card-label">Entradas (PIX)</div><div class="caixa-card-value" style="color:#4caf79">'+fmt(entradas)+'</div><div class="caixa-card-sub">recebido de clientes</div></div>'
+    +'<div class="caixa-card"><div class="caixa-card-label">Saídas</div><div class="caixa-card-value" style="color:#c04c4c">'+fmt(saidas)+'</div><div class="caixa-card-sub">pago ao fornecedor</div></div>'
+    +'<div class="caixa-card" style="border-color:rgba(201,168,76,0.35)"><div class="caixa-card-label">Saldo</div><div class="caixa-card-value" style="color:'+cor(saldo)+'">'+fmt(saldo)+'</div><div class="caixa-card-sub">'+(saldo>=0?"disponível":"atenção: negativo")+'</div></div>'
+    +(totalPendente>0?'<div class="caixa-card"><div class="caixa-card-label">A Receber</div><div class="caixa-card-value" style="color:#e8a030">'+fmt(totalPendente)+'</div><div class="caixa-card-sub">'+pedidosPendentes.length+' pedido(s) aguardando PIX</div></div>':'')
+    +'</div>';
+
+  var formHtml = '<div class="caixa-form">'
+    +'<div class="field"><label>Tipo</label><select id="cxTipo"><option value="entrada">📥 Entrada (PIX do cliente)</option><option value="saida">📤 Saída (fornecedor/outro)</option></select></div>'
+    +'<div class="field"><label>Valor (R$)</label><input type="number" id="cxValor" placeholder="0,00" step="0.01" min="0"/></div>'
+    +'<div class="field"><label>Descrição</label><input type="text" id="cxDesc" placeholder="Ex: Pedro · Yara Tous"/></div>'
+    +'<button class="btn btn-gold" onclick="addLancamento()" style="margin-bottom:1px">+ Lançar</button>'
+    +'</div>';
+
+  var listaHtml = caixaLancamentos.length === 0
+    ? '<div class="empty" style="height:120px"><p>Nenhum lançamento ainda.</p></div>'
+    : '<div class="caixa-list">'
+      + caixaLancamentos.slice().reverse().map(function(l, ri){
+          var i = caixaLancamentos.length - 1 - ri;
+          var icon = l.tipo==="entrada" ? "💚" : "🔴";
+          var sinal = l.tipo==="entrada" ? "+" : "-";
+          var cor2 = l.tipo==="entrada" ? "#4caf79" : "#c04c4c";
+          return '<div class="caixa-item '+l.tipo+'">'
+            +'<span class="caixa-item-icon">'+icon+'</span>'
+            +'<div class="caixa-item-desc"><strong>'+esc(l.desc||l.tipo)+'</strong><span>'+esc(l.data||"")+'</span></div>'
+            +'<span class="caixa-item-valor" style="color:'+cor2+'">'+sinal+' '+fmt(l.valor)+'</span>'
+            +'<button class="caixa-item-del" onclick="delLancamento('+i+')" title="Remover">✕</button>'
+            +'</div>';
+        }).join("")
+      + '</div>';
+
+  el.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'
+    +'<h3 style="font-size:13px;color:var(--gold)">💰 Caixa · Controle Financeiro</h3>'
+    +'<button class="btn btn-outline btn-sm" onclick="zerarCaixa()">🗑 Zerar</button>'
+    +'</div>'
+    + avisoHtml + saldoHtml + formHtml + listaHtml;
+}
+
+function zerarCaixa(){
+  if(confirm("Zerar todos os lançamentos?")){ caixaLancamentos=[]; saveCaixa(); renderCaixa(); }
+}
+function addLancamento(){
+  var tipo  = document.getElementById("cxTipo").value;
+  var valor = parseFloat(document.getElementById("cxValor").value);
+  var desc  = document.getElementById("cxDesc").value.trim();
+  if(!valor || valor <= 0){ toast("Informe o valor"); return; }
+  var agora = new Date();
+  caixaLancamentos.push({
+    tipo: tipo, valor: valor, desc: desc || (tipo==="entrada"?"PIX recebido":"Pagamento fornecedor"),
+    data: agora.toLocaleDateString("pt-BR")+" "+agora.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})
+  });
+  saveCaixa();
+  toast("✓ Lançado!");
+  renderCaixa();
+}
+
+function delLancamento(i){
+  caixaLancamentos.splice(i,1);
+  saveCaixa();
+  renderCaixa();
+}
+
+/* ══════════════════════════════════════
+   BUSCA RÁPIDA NA SIDEBAR
+══════════════════════════════════════ */
+function filterSidebar(q){
+  q = q.toLowerCase().trim();
+  document.querySelectorAll(".p-item").forEach(function(el){
+    var name = (el.querySelector(".pname")||{}).textContent||"";
+    var meta = (el.querySelector(".pmeta")||{}).textContent||"";
+    el.style.display = (!q || name.toLowerCase().includes(q) || meta.toLowerCase().includes(q)) ? "" : "none";
+  });
+  document.querySelectorAll(".sec-lbl").forEach(function(el){
+    el.style.display = q ? "none" : "";
+  });
+}
+function clearSearch(){
+  document.getElementById("searchInput").value="";
+  filterSidebar("");
+}
+
+/* ══════════════════════════════════════
+   PEDIDOS (DROPSHIPPING)
+══════════════════════════════════════ */
+var pedidos = [];
+try { var _p=localStorage.getItem("tb_v3_pedidos"); if(_p) pedidos=JSON.parse(_p); } catch(e){}
+
+function savePedidos(){ localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
+
+function renderPedidos(){
+  var el = document.getElementById("tPedidos");
+  if(!el) return;
+
+  /* Stats do lote atual */
+  var pendentes = pedidos.filter(function(p){ return p.status==="pendente"; });
+  var totalItens = pendentes.reduce(function(acc,p){ return acc + (p.itens||[]).reduce(function(a,i){ return a+(i.qty||1); },0); }, 0);
+  var totalValor = pendentes.reduce(function(acc,p){ return acc + (p.total||0); }, 0);
+  var minLote = 5;
+  var faltam = Math.max(0, minLote - totalItens);
+  var hora = new Date().getHours();
+  var entregaHoje = hora < 16;
+
+  /* Alerta do lote */
+  var batchHtml = "";
+  if(totalItens >= minLote){
+    batchHtml = '<div class="batch-alert">'
+      +'<span class="batch-icon">🚀</span>'
+      +'<div class="batch-text"><strong>Lote pronto! '+totalItens+' produtos · R$ '+totalValor.toFixed(2).replace(".",",")+' em pedidos</strong>'
+      +'<span>Você atingiu o mínimo de '+minLote+'. '+(entregaHoje?'Pedido antes das 16h = entrega hoje!':'Pedido agora = entrega amanhã.')+'</span></div>'
+      +'<button class="btn btn-gold btn-sm" onclick="gerarMsgFornecedor()">📋 Gerar Pedido</button>'
+      +'</div>';
+  } else if(totalItens > 0) {
+    batchHtml = '<div class="batch-alert batch-alert-warn">'
+      +'<span class="batch-icon">⏳</span>'
+      +'<div class="batch-text"><strong>'+totalItens+' de '+minLote+' produtos — faltam '+faltam+' para atingir o mínimo</strong>'
+      +'<span>'+(entregaHoje?'Ainda dá tempo de pedir hoje (antes das 16h)':'Próxima entrega será amanhã.')+'</span></div>'
+      +'</div>';
+  }
+
+  /* Form novo pedido */
+  var prodOptions = produtos.filter(function(p){return p.ativo!==false;}).map(function(p,i){
+    return '<option value="'+i+'">'+esc(p.nome||"?")+(p.preco?' · R$'+parseFloat(p.preco).toFixed(2).replace(".",","):'')+'</option>';
+  }).join("");
+
+  var formHtml = '<div class="novo-pedido-form">'
+    +'<h3 style="font-size:12px;color:var(--gold);margin-bottom:12px">+ Registrar Pedido</h3>'
+    +'<div class="fg" style="margin-bottom:10px">'
+    +'<div class="field"><label>Cliente</label><input type="text" id="npCliente" placeholder="Nome do cliente"/></div>'
+    +'<div class="field"><label>WhatsApp</label><input type="text" id="npTel" placeholder="(11) 9xxxx-xxxx"/></div>'
+    +'</div>'
+    +'<label style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:600">Produtos</label>'
+    +'<div id="npItens" style="margin:6px 0 10px">'
+    +'<div class="pedido-item-row"><select class="np-prod"><option value="">— selecione —</option>'+prodOptions+'</select>'
+    +'<input type="number" class="np-qty" value="1" min="1" style="width:60px" placeholder="Qtd"/></div>'
+    +'</div>'
+    +'<div style="display:flex;gap:8px">'
+    +'<button class="btn btn-outline btn-sm" onclick="addItemPedido()">+ Item</button>'
+    +'<button class="btn btn-gold" onclick="salvarPedido()">✓ Salvar Pedido</button>'
+    +'</div></div>';
+
+  /* Lista pedidos */
+  var listHtml = pedidos.length === 0
+    ? '<div class="empty"><p>Nenhum pedido registrado ainda.</p></div>'
+    : pedidos.slice().reverse().map(function(p, ri){
+        var i = pedidos.length - 1 - ri;
+        var statusClass = {pendente:"ps-pendente",confirmado:"ps-confirmado",entregue:"ps-entregue",cancelado:"ps-cancelado"}[p.status]||"ps-pendente";
+        var itensText = (p.itens||[]).map(function(it){ return it.qty+"x "+it.nome; }).join(", ");
+        return '<div class="pedido-card">'
+          +'<div class="pedido-hdr"><div><div class="pedido-nome">'+esc(p.cliente)+'</div>'
+          +'<div class="pedido-hora">'+esc(p.tel||"")+(p.data?" · "+p.data:"")+'</div></div>'
+          +'<span class="pedido-status '+statusClass+'">'+p.status.toUpperCase()+'</span></div>'
+          +'<div class="pedido-itens">'+esc(itensText)+'</div>'
+          +'<div style="display:flex;justify-content:space-between;align-items:center">'
+          +'<span class="pedido-total">R$ '+parseFloat(p.total||0).toFixed(2).replace(".",",")+'</span>'
+          +'<div style="display:flex;gap:6px">'
+          +(p.status==="pendente" ? '<button class="btn btn-green btn-sm" onclick="setStatusPedido('+i+',&quot;confirmado&quot;)">Confirmar</button>' : '')
+          +(p.status==="confirmado" ? '<button class="btn btn-gold btn-sm" onclick="setStatusPedido('+i+',&quot;entregue&quot;)">Entregue</button>' : '')
+          +'<button class="btn btn-outline btn-sm" onclick="setStatusPedido('+i+',&quot;cancelado&quot;)" style="color:var(--red)">Cancelar</button>'
+          +'<button class="btn btn-outline btn-sm" onclick="abrirWhats('+i+')">💬</button>'
+          +'</div></div></div>';
+      }).join("");
+
+  el.innerHTML = '<h3 style="font-size:13px;color:var(--gold);margin-bottom:14px">📦 Pedidos · '+pedidos.length+' total</h3>'
+    + batchHtml + formHtml + listHtml;
+}
+
+function addItemPedido(){
+  var prodOptions = produtos.filter(function(p){return p.ativo!==false;}).map(function(p,i){
+    return '<option value="'+i+'">'+esc(p.nome||"?")+(p.preco?' · R$'+parseFloat(p.preco).toFixed(2).replace(".",","):'')+'</option>';
+  }).join("");
+  var row = document.createElement("div");
+  row.className = "pedido-item-row";
+  row.innerHTML = '<select class="np-prod"><option value="">— selecione —</option>'+prodOptions+'</select>'
+    +'<input type="number" class="np-qty" value="1" min="1" style="width:60px"/>'
+    +'<button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:var(--red);cursor:pointer">✕</button>';
+  document.getElementById("npItens").appendChild(row);
+}
+
+function salvarPedido(){
+  var cliente = (document.getElementById("npCliente").value||"").trim();
+  var tel = (document.getElementById("npTel").value||"").trim();
+  if(!cliente){ toast("Informe o nome do cliente"); return; }
+  var rows = document.querySelectorAll("#npItens .pedido-item-row");
+  var itens = [];
+  var total = 0;
+  rows.forEach(function(row){
+    var sel = row.querySelector(".np-prod");
+    var qty = parseInt(row.querySelector(".np-qty").value)||1;
+    if(!sel||!sel.value) return;
+    var p = produtos[parseInt(sel.value)];
+    if(!p) return;
+    var preco = parseFloat(p.preco)||0;
+    itens.push({nome:p.nome, preco:preco, qty:qty, idx:parseInt(sel.value)});
+    total += preco * qty;
+  });
+  if(!itens.length){ toast("Adicione ao menos 1 produto"); return; }
+  var agora = new Date();
+  pedidos.push({
+    cliente:cliente, tel:tel, itens:itens, total:total, status:"pendente",
+    data: agora.toLocaleDateString("pt-BR")+" "+agora.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})
+  });
+  savePedidos();
+  toast("✓ Pedido salvo!");
+  renderPedidos();
+}
+
+function setStatusPedido(i, status){
+  pedidos[i].status = status;
+  savePedidos();
+  renderPedidos();
+}
+
+function abrirWhats(i){
+  var p = pedidos[i];
+  var itensText = (p.itens||[]).map(function(it){ return it.qty+"x "+it.nome+" (R$"+parseFloat(it.preco).toFixed(2).replace(".",",")+")"; }).join("%0A");
+  var msg = "Olá "+p.cliente+"!%0A%0ASeu pedido:%0A"+itensText+"%0A%0ATotal: R$"+parseFloat(p.total).toFixed(2).replace(".",",");
+  window.open("https://wa.me/55"+(p.tel||"").replace(/\D/g,"")+"?text="+msg, "_blank");
+}
+
+function gerarMsgFornecedor(){
+  var pendentes = pedidos.filter(function(p){ return p.status==="pendente"; });
+  var contagem = {};
+  pendentes.forEach(function(p){
+    (p.itens||[]).forEach(function(it){
+      contagem[it.nome] = (contagem[it.nome]||0) + it.qty;
+    });
+  });
+  var linhas = Object.entries(contagem).map(function(e){ return e[1]+"x "+e[0]; }).join("\n");
+  var msg = "Pedido Tobaldine:\n"+linhas+"\n\nTotal: "+Object.values(contagem).reduce(function(a,b){return a+b;},0)+" produtos";
+  navigator.clipboard.writeText(msg).then(function(){
+    toast("✓ Mensagem copiada! Cole no WhatsApp do fornecedor.");
+  }).catch(function(){
+    prompt("Copie a mensagem abaixo:", msg);
+  });
+}
+
+/* ══════════════════════════════════════
+   PREVIEW DO CATÁLOGO
+══════════════════════════════════════ */
+function previewCatalogo(){
+  window.open("https://tobaldine-signature.web.app", "_blank");
+}
+
+/* ══════════════════════════════════════
+   DASHBOARD / ESTATÍSTICAS
+══════════════════════════════════════ */
+function renderDash(){
+  var el = document.getElementById("tDash");
+  if(!el) return;
+  var ativos = produtos.filter(function(p){return p.ativo!==false;}).length;
+  var semFoto = produtos.filter(function(p){return !p.fotos||!p.fotos.filter(function(f){return f&&f.trim();}).length;}).length;
+  var totalPedidos = pedidos.length;
+  var pendentes = pedidos.filter(function(p){return p.status==="pendente";}).length;
+  var faturamento = pedidos.filter(function(p){return p.status!=="cancelado";}).reduce(function(acc,p){return acc+(p.total||0);},0);
+  var totalItensLote = pedidos.filter(function(p){return p.status==="pendente";}).reduce(function(acc,p){return acc+(p.itens||[]).reduce(function(a,i){return a+(i.qty||1);},0);},0);
+
+  var statCard = function(label, value, sub, color){
+    return '<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;flex:1;min-width:140px">'
+      +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">'+label+'</div>'
+      +'<div style="font-size:26px;font-weight:600;color:'+(color||"var(--text)")+'">'+value+'</div>'
+      +(sub?'<div style="font-size:10px;color:var(--muted);margin-top:4px">'+sub+'</div>':'')
+      +'</div>';
+  };
+
+  el.innerHTML = '<h3 style="font-size:13px;color:var(--gold);margin-bottom:16px">Dashboard</h3>'
+    +'<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px">'
+    +statCard("Produtos Ativos", ativos, produtos.length+" total")
+    +statCard("Sem Foto", semFoto, "precisam de foto", semFoto>0?"#e8a030":"#4caf79")
+    +statCard("Pedidos Pendentes", pendentes, totalPedidos+" total", pendentes>0?"#e8a030":"#4caf79")
+    +statCard("Itens no Lote", totalItensLote, "mínimo 5 para enviar", totalItensLote>=5?"#4caf79":"#e8a030")
+    +statCard("Faturamento", "R$"+faturamento.toFixed(2).replace(".",","), "excluindo cancelados", "var(--gold)")
+    +'</div>'
+    +'<div style="display:flex;gap:12px;flex-wrap:wrap">'
+    +'<button class="btn btn-outline" onclick="switchTab(&quot;pedidos&quot;,document.querySelectorAll(&quot;.tab&quot;)[7])">📦 Ver Pedidos</button>'
+    +'<button class="btn btn-outline" onclick="previewCatalogo()">👁 Ver Catálogo</button>'
+    +'</div>';
+}
+
+/* ══════════════════════════════════════
+   EDIÇÃO EM LOTE
+══════════════════════════════════════ */
+var _loteMode = false;
+var _loteSelected = new Set();
+
+function toggleLoteMode(){
+  _loteMode = !_loteMode;
+  var btn = document.getElementById("btnLoteMode");
+  if(btn) btn.classList.toggle("active-lote", _loteMode);
+  if(!_loteMode){ _loteSelected.clear(); updateLoteBar(); }
+  if(_currentView === "grade") renderGrade();
+  else setView("grade"); /* força grade no lote mode */
+}
+
+function toggleLoteCard(idx, e){
+  e.stopPropagation();
+  if(_loteSelected.has(idx)) _loteSelected.delete(idx);
+  else _loteSelected.add(idx);
+  updateLoteBar();
+  /* Atualiza visual do card */
+  var cards = document.querySelectorAll(".g-card[data-idx]");
+  cards.forEach(function(c){
+    var i = parseInt(c.dataset.idx);
+    c.classList.toggle("lote-selected", _loteSelected.has(i));
+    var chk = c.querySelector(".g-card-check");
+    if(chk) chk.textContent = _loteSelected.has(i) ? "✓" : "";
+  });
+}
+
+function updateLoteBar(){
+  var bar = document.getElementById("loteBar");
+  var cnt = document.getElementById("loteCount");
+  var n = _loteSelected.size;
+  if(bar){ bar.classList.toggle("visible", n > 0 && _loteMode); }
+  if(cnt){ cnt.textContent = n + " selecionado" + (n !== 1 ? "s" : ""); }
+}
+
+function limparSelecaoLote(){
+  _loteSelected.clear();
+  updateLoteBar();
+  renderGrade();
+}
+
+function aplicarLote(){
+  if(!_loteSelected.size){ toast("Nenhum produto selecionado"); return; }
+  var badge  = document.getElementById("loteBadge").value.trim();
+  var preco  = document.getElementById("lotePreco").value.trim();
+  var marca  = document.getElementById("loteMarca").value.trim();
+  var secao  = document.getElementById("loteSecao").value;
+  var n = 0;
+  _loteSelected.forEach(function(idx){
+    if(badge) produtos[idx].badge = badge;
+    if(preco) produtos[idx].preco = parseFloat(preco);
+    if(marca) produtos[idx].marca = marca;
+    if(secao) produtos[idx].secao = secao;
+    n++;
+  });
+  saveData();
+  toast("✓ " + n + " produtos atualizados!");
+  limparSelecaoLote();
+}
+
 /* ── BUSCA DE FOTOS COM IA ── */
 var _fotoTargetIdx = null;
 
@@ -1198,7 +1652,8 @@ function closeFotoModal(){
   document.getElementById("fotoModalBg").style.display = "none";
 }
 
-function usarFoto(url){
+function usarFoto(el){
+  var url = (typeof el === 'string') ? el : el.dataset.url;
   if(_fotoTargetIdx === null) return;
   var p = produtos[_fotoTargetIdx];
   if(!Array.isArray(p.fotos)) p.fotos = [];
@@ -1229,7 +1684,7 @@ async function buscarFotos(){
         tools: [{ type: "web_search_20250305", name: "web_search" }],
         messages: [{
           role: "user",
-          content: "Busca imagens do produto: " + query + ". Preciso de URLs diretas de imagens (terminando em .jpg, .jpeg, .png ou .webp) de alta qualidade mostrando o produto. Busca em sites como fragrantica.com, sephora.com.br, belezanaweb.com.br, lojaoficial ou google imagens. Retorna SOMENTE um array JSON com até 8 URLs diretas de imagem, sem texto, sem markdown, sem explicação. Exemplo: ["https://exemplo.com/foto.jpg"]"
+          content: 'Busca imagens do produto: ' + query + '. Retorna SOMENTE um array JSON com ate 8 URLs diretas de imagem terminando em .jpg .jpeg .png ou .webp. Busca em fragrantica.com, sephora.com.br, belezanaweb.com.br. Sem texto, apenas o array JSON.'
         }]
       })
     });
@@ -1257,8 +1712,8 @@ async function buscarFotos(){
     urls.forEach(function(url){
       var domain = url.match(/https?:\/\/([^\/]+)/);
       var site = domain ? domain[1].replace("www.","") : "";
-      h += '<div class="foto-result" onclick="usarFoto(''+url.replace(/'/g,"%27")+'')" title="Clique para usar esta foto">'
-        + '<img src="'+url+'" loading="lazy" onerror="this.closest('.foto-result').style.display='none'"/>'
+      h += '<div class="foto-result" onclick="usarFoto(this)" data-url="'+url.replace(/"/g,'&quot;')+'" title="Clique para usar esta foto">'
+        + '<img src="'+url+'" loading="lazy" onerror="this.closest(&quot;.foto-result&quot;).style.display=&quot;none&quot;"/>'
         + '<div class="foto-result-url">'+site+'</div>'
         + '</div>';
     });
@@ -1293,6 +1748,33 @@ window.addEventListener("DOMContentLoaded", function(){
   }, 100);
 });
 </script>
+<div id="loteBar" class="lote-bar">
+  <span class="lote-count" id="loteCount">0 selecionados</span>
+  <div class="lote-field">
+    <label>Badge</label>
+    <input type="text" id="loteBadge" placeholder="Ex: Árabe · 25ml"/>
+  </div>
+  <div class="lote-field">
+    <label>Preço (R$)</label>
+    <input type="number" id="lotePreco" placeholder="Ex: 29.90" step="0.01"/>
+  </div>
+  <div class="lote-field">
+    <label>Marca</label>
+    <input type="text" id="loteMarca" placeholder="Ex: LATTAFA"/>
+  </div>
+  <div class="lote-field">
+    <label>Seção</label>
+    <select id="loteSecao">
+      <option value="">— não alterar —</option>
+      <option value="decants">Decants</option>
+      <option value="originais">Originais</option>
+      <option value="similares">Similares</option>
+      <option value="cosmeticos">Cosméticos</option>
+    </select>
+  </div>
+  <button class="btn btn-gold" onclick="aplicarLote()">✓ Aplicar nos selecionados</button>
+  <button class="btn btn-outline btn-sm" onclick="limparSelecaoLote()">✕ Limpar</button>
+</div>
 <div id="fotoModalBg" class="foto-modal-bg" style="display:none" onclick="if(event.target===this)closeFotoModal()">
   <div class="foto-modal">
     <div class="foto-modal-hdr">
