@@ -83,6 +83,11 @@ var firebaseConfig = {
       _scheduleRender();
     });
 
+    /* Config: mostrar estoque */
+    db.ref("config/mostrarEstoque").once("value", function(snap){
+      window._cfgMostrarEstoque = snap.val() === true;
+    });
+
     /* Textos do site */
     db.ref("config/textos").once("value", function(snap) {
       var textos = snap.val();

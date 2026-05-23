@@ -119,11 +119,16 @@ function renderCatalogo() {
       : '';
     var rankingHtml = p.ranking ? '<p class="promo-banner">' + sanitize(p.ranking) + '</p>' : '';
 
-    /* Contador de pessoas vendo */
-    var viewersHtml = '<div class="viewers-badge" id="viewers-' + index + '">'
-      + _getViewers(index) + ' pessoas vendo agora'
-      + '</div>';
-
+    /* Contador de pessoas vendo — controlado pela config */
+    var _showViewers = (localStorage.getItem("tb_cfg_viewers") !== "0") && (typeof window._tbConfig === 'undefined' || window._tbConfig.viewers !== false);
+    var viewersHtml = _showViewers
+      ? '<div class="viewers-badge" id="viewers-' + index + '">' + _getViewers(index) + ' pessoas vendo agora</div>'
+      : '';
+    /* Estoque — controlado pelo admin Config */
+    var estoqueHtml = "";
+    if(window._cfgMostrarEstoque && p.estoque > 0 && p.estoque <= 5){
+      estoqueHtml = '<div class="stock-badge">⚠ Últimas ' + p.estoque + ' unidades</div>';
+    }
     var optHtml = "";
     var primeiroPreco = 0;
     if (p.precos && p.precos.length > 0) {
@@ -177,6 +182,7 @@ function renderCatalogo() {
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">' + WPP_ICON + 'Pedir Agora</button>'
       + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
       + '</div>'
+      + estoqueHtml
       + viewersHtml
       + '</div>'
       + '</div>'
@@ -190,7 +196,10 @@ function renderCatalogo() {
       genero = "femininos";
     }
 
-    if (p.secao === "cosmeticos") {
+    if (p.secao === "autorais") {
+      if (!fragmentos["autorais"]) fragmentos["autorais"] = [];
+      fragmentos["autorais"].push(cardHtml);
+    } else if (p.secao === "cosmeticos") {
       fragCosmeticos.push(cardHtml);
     } else {
       var targetId = genero + "-" + p.secao;
@@ -206,6 +215,16 @@ function renderCatalogo() {
   });
   if (trackCosmeticos && fragCosmeticos.length) {
     trackCosmeticos.innerHTML = fragCosmeticos.join("");
+  }
+
+  /* Autorais */
+  var trackAutorais = document.getElementById("autorais-track");
+  var secAutorais   = document.getElementById("autorais");
+  var navAutorais   = document.getElementById("nav-autorais");
+  if(trackAutorais && fragmentos["autorais"] && fragmentos["autorais"].length){
+    trackAutorais.innerHTML = fragmentos["autorais"].join("");
+    if(secAutorais) secAutorais.style.display = "";
+    if(navAutorais) navAutorais.style.display = "";
   }
 
   /* Oculta subcategorias vazias */

@@ -298,6 +298,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
           <option value="decants">Decants</option>
           <option value="Similares">Similares</option>
           <option value="cosmeticos">Cosméticos</option>
+          <option value="autorais">Autorais</option>
         </select>
       </div>
       <div style="flex:1">
@@ -443,7 +444,8 @@ var SECOES = [
   {id:"decants",   lbl:"Decants"},
   {id:"originais", lbl:"Originais"},
   {id:"Similares", lbl:"Similares"},
-  {id:"cosmeticos",lbl:"Cosméticos"}
+  {id:"cosmeticos",lbl:"Cosméticos"},
+  {id:"autorais",  lbl:"Autorais"}
 ];
 /* Carrega nomes personalizados de seções */
 try {
@@ -1288,6 +1290,14 @@ function renderConf(){
     +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Obtenha grátis em <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--gold)">aistudio.google.com</a></p>'
     +'</div>'
     +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-top:14px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">⚙️ Exibição no Catálogo</h4>'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
+    +'<span style="font-size:12px">Mostrar estoque para cliente</span>'
+    +'<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="toggleEstoque" onchange="salvarConfigExibicao()" '+((localStorage.getItem("tb_cfg_estoque")||"0")==="1"?"checked":"")+' style="width:16px;height:16px;accent-color:var(--gold)"/><span style="font-size:11px;color:var(--muted)">ativo</span></label>'
+    +'</div>'
+    +'<p style="font-size:10px;color:var(--muted)">Quando ativo, exibe "Últimas X unidades" nos produtos com estoque baixo.</p>'
+    +'</div>'
     +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:4px">✂️ Remove.bg (remover fundo)</h4>'
     +'<p style="font-size:10px;color:var(--muted);margin-bottom:10px">50 fotos grátis/mês · <a href="https://www.remove.bg/pt-br/dashboard#api-key" target="_blank" style="color:var(--gold)">Obter chave</a></p>'
     +'<div style="display:flex;gap:8px">'
@@ -1301,6 +1311,15 @@ function renderConf(){
     +'<button class="btn btn-gold btn-sm" onclick="salvarNomesSecoes()" style="margin-top:4px">✓ Salvar</button>'
     +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Altera o nome exibido. Os produtos não mudam de seção.</p>'
     +'</div>';
+}
+
+function salvarConfigExibicao(){
+  var mostrarEstoque = document.getElementById("toggleEstoque").checked ? "1" : "0";
+  localStorage.setItem("tb_cfg_estoque", mostrarEstoque);
+  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
+    window.firebaseDB.ref("config/mostrarEstoque").set(mostrarEstoque === "1");
+  }
+  toast("✓ Configuração salva!");
 }
 
 function salvarNomesSecoes(){
