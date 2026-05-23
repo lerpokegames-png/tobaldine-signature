@@ -1739,8 +1739,8 @@ async function buscarFotos(){
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: "Busca fotos do produto: "+query+". Retorna SOMENTE um array JSON com ate 8 URLs diretas de imagem terminando em .jpg .jpeg .png ou .webp. Busca em fragrantica.com, sephora.com.br, belezanaweb.com.br. Sem texto, apenas o array JSON." }] }],
-        tools: [{ google_search: {} }]
+        contents: [{ parts: [{ text: "You are a perfume product image assistant. For the product: \""+query+"\", list up to 8 direct image URLs (must end in .jpg, .jpeg, .png, or .webp) from sites like fragrantica.com (fimgs.net), sephora.com.br, belezanaweb.com.br, or brand official sites. Return ONLY a valid JSON array of strings, no explanation, no markdown. Example: [\"https://fimgs.net/example.jpg\"]" }] }],
+        generationConfig: { temperature: 0.1 }
       })
     });
 
@@ -1767,7 +1767,11 @@ async function buscarFotos(){
     rawUrls.forEach(function(u){ if(!urls.includes(u)) urls.push(u); });
 
     if(!urls.length){
-      el.innerHTML = '<div class="foto-status">Nenhuma foto encontrada. Tente um nome diferente.</div>';
+      var googleUrl = "https://www.google.com/search?tbm=isch&q="+encodeURIComponent(query+" perfume frasco");
+      el.innerHTML = '<div class="foto-status">Nenhuma foto encontrada automaticamente.<br><br>'
+        +'<a href="'+googleUrl+'" target="_blank" class="btn btn-gold btn-sm" style="display:inline-block;text-decoration:none">🔍 Buscar no Google Imagens</a>'
+        +'<br><br><span style="font-size:10px;color:var(--muted)">No Google: clique com botão direito na imagem → "Copiar endereço da imagem" → cole no campo URL da foto</span>'
+        +'</div>';
       return;
     }
 
