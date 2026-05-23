@@ -912,23 +912,17 @@ function renderGrade(){
 
 function selProdGrade(idx){
   selectedIdx = idx;
-  renderGrade();
-  /* Render form into side panel after grade re-renders */
-  setTimeout(function(){
-    var panel = document.getElementById("gradeFormPanel");
-    if(panel && selectedIdx !== null){
-      var p = produtos[selectedIdx];
-      /* Temporarily set tProdutos to panel for renderForm */
-      var orig = document.getElementById("tProdutos");
-      var tmp = document.createElement("div");
-      tmp.id = "tProdutos";
-      if(orig){ orig.id = "tProdutos_bak"; }
-      panel.appendChild(tmp);
-      renderForm();
-      if(orig){ orig.id = "tProdutos"; }
-      tmp.id = "tProdutosGrade";
-    }
-  }, 0);
+  /* Mostra o form diretamente no tProdutos com botão voltar à grade */
+  renderForm();
+  /* Injeta botão "← Voltar à Grade" no topo do form */
+  var form = document.getElementById("tProdutos");
+  if(form){
+    var btn = document.createElement("div");
+    btn.style.cssText = "display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)";
+    btn.innerHTML = '<button onclick="selectedIdx=null;setView(\'grade\')" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px">← Grade</button>'
+      + '<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((produtos[idx].nome||"Produto").trim())+'</span>';
+    form.insertBefore(btn, form.firstChild);
+  }
 }
 
 function renderSidebar(){

@@ -567,6 +567,8 @@ window.atualizarDoFirebase = function(fbProdutos, fbKits, fbDepoimentos, fbCupon
   if (window.CUPONS_DO_SISTEMA) CUPONS_DO_SISTEMA = window.CUPONS_DO_SISTEMA;
 
   renderCatalogo();
+  /* Inicia nav observer após produtos renderizados */
+  setTimeout(initNavObserver, 300);
 
   /* FIX: chama aqui após cupons serem carregados do Firebase,
      resolvendo a falha silenciosa do primeiro render. */
@@ -863,4 +865,4 @@ function initNavObserver(){
   }
 }
 /* Aguarda o catálogo carregar para iniciar o observer */
-window.addEventListener("load", initNavObserver);
+/* initNavObserver chamado após renderCatalogo via atualizarDoFirebase */
