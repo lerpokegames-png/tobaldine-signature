@@ -819,8 +819,9 @@ function setView(v){
   _currentView = v;
   document.getElementById("btnLista").classList.toggle("active", v === "lista");
   document.getElementById("btnGrade").classList.toggle("active", v === "grade");
-  document.getElementById("sidebar").style.display = v === "lista" ? "" : "none";
+  document.getElementById("sidebarWrap").style.display = v === "lista" ? "" : "none";
   if(v === "grade"){
+    document.getElementById("tProdutos").style.display = "";
     renderGrade();
   } else {
     renderSidebar();
@@ -912,6 +913,22 @@ function renderGrade(){
 function selProdGrade(idx){
   selectedIdx = idx;
   renderGrade();
+  /* Render form into side panel after grade re-renders */
+  setTimeout(function(){
+    var panel = document.getElementById("gradeFormPanel");
+    if(panel && selectedIdx !== null){
+      var p = produtos[selectedIdx];
+      /* Temporarily set tProdutos to panel for renderForm */
+      var orig = document.getElementById("tProdutos");
+      var tmp = document.createElement("div");
+      tmp.id = "tProdutos";
+      if(orig){ orig.id = "tProdutos_bak"; }
+      panel.appendChild(tmp);
+      renderForm();
+      if(orig){ orig.id = "tProdutos"; }
+      tmp.id = "tProdutosGrade";
+    }
+  }, 0);
 }
 
 function renderSidebar(){
