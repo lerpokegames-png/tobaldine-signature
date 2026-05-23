@@ -914,15 +914,7 @@ function selProdGrade(idx){
   selectedIdx = idx;
   /* Mostra o form diretamente no tProdutos com botão voltar à grade */
   renderForm();
-  /* Injeta botão "← Voltar à Grade" no topo do form */
-  var form = document.getElementById("tProdutos");
-  if(form){
-    var btn = document.createElement("div");
-    btn.style.cssText = "display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)";
-    btn.innerHTML = '<button onclick="selectedIdx=null;setView(\'grade\')" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px">← Grade</button>'
-      + '<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((produtos[idx].nome||"Produto").trim())+'</span>';
-    form.insertBefore(btn, form.firstChild);
-  }
+  /* renderForm já inclui o botão ← Voltar */
 }
 
 function renderSidebar(){
@@ -1033,7 +1025,11 @@ function renderForm(){
       +'</div>';
   }).join("")+'<button class="addrow" onclick="addPr()">+ Preço</button>';
 
-  document.getElementById("tProdutos").innerHTML=''
+  /* Garante que tProdutos existe */
+  var _fc = document.getElementById("tProdutos");
+  if(!_fc){ console.warn("tProdutos nao encontrado"); return; }
+  _fc.style.display = "";
+  _fc.innerHTML=''
     +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">'    +'<button onclick="selectedIdx=null;renderSidebar();renderEmptyProd();" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:4px">← Voltar</button>'    +'<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((p.nome||"Produto").trim())+'</span>'    +'<button onclick="delProd(event,selectedIdx)" style="margin-left:auto;background:transparent;border:1px solid rgba(192,76,76,0.3);color:var(--red);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px">✕ Excluir</button>'    +'</div>'    +'<div class="fg">'    +'<div class="st">Dados do Produto</div>'
     +'<div class="field"><label>Seção</label><select onchange="setF(\'secao\',this.value)">'+opts+'</select></div>'
     +'<div class="field"><label>Badge</label><input type="text" value="'+esc(p.badge||"")+'" onchange="setF(\'badge\',this.value)"/></div>'    +'<div class="field"><label>Subcategoria <span style="font-weight:300;color:var(--muted)">(opcional)</span></label><input type="text" value="'+esc(p.subsecao||"")+'" placeholder="Ex: Inspirados Premium" onchange="setF(\'subsecao\',this.value)"/></div>'
