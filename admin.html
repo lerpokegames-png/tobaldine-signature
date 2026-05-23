@@ -34,6 +34,24 @@ main{flex:1;overflow-y:auto;padding:20px}
 .drag-hdl{color:var(--muted);cursor:grab;font-size:14px;flex-shrink:0;user-select:none}
 .add-btn{margin:6px 10px;width:calc(100% - 20px);padding:7px;border-radius:6px;border:1px dashed var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:11px;transition:all .15s;font-family:inherit}
 .add-btn:hover{border-color:var(--gold);color:var(--gold)}
+/* ── GRADE VIEW ── */
+.grade-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;padding:4px 0}
+.grade-sec{grid-column:1/-1;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:8px 0 4px;border-bottom:1px solid var(--border);margin-top:8px}
+.grade-sec:first-child{margin-top:0}
+.g-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:all .15s;position:relative}
+.g-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.g-card.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,168,76,0.25)}
+.g-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#0d0b09}
+.g-card-img-empty{width:100%;aspect-ratio:3/4;background:#0d0b09;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:10px}
+.g-card-body{padding:8px}
+.g-card-name{font-size:11px;font-weight:500;line-height:1.3;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-card-price{font-size:11px;color:var(--gold)}
+.g-card-badges{position:absolute;top:6px;left:6px;display:flex;flex-direction:column;gap:3px}
+.g-card-del{position:absolute;top:6px;right:6px;width:22px;height:22px;background:rgba(0,0,0,0.7);border:none;color:var(--red);cursor:pointer;border-radius:4px;font-size:11px;display:none;align-items:center;justify-content:center}
+.g-card:hover .g-card-del{display:flex}
+.view-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.view-toggle button{padding:5px 10px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:13px;transition:all .15s}
+.view-toggle button.active{background:rgba(201,168,76,0.15);color:var(--gold)}
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:18px}
 .tab{padding:9px 16px;cursor:pointer;font-size:12px;border-bottom:2px solid transparent;color:var(--muted);transition:all .15s}
 .tab.active{color:var(--gold);border-bottom-color:var(--gold)}
@@ -124,6 +142,10 @@ select optgroup{color: var(--gold); font-weight: bold;}
   <span style="font-size:11px;color:var(--muted)" id="hdrInfo"></span>
   <span id="fbStatus" style="font-size:11px;padding:3px 8px;border-radius:10px;background:rgba(192,76,76,0.15);color:#c04c4c">⚡ Firebase...</span>
   <div class="ml-auto">
+    <div class="view-toggle" title="Alternar visualização">
+      <button id="btnLista" class="active" onclick="setView('lista')" title="Lista">☰</button>
+      <button id="btnGrade" onclick="setView('grade')" title="Grade">⊞</button>
+    </div>
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
@@ -673,6 +695,96 @@ function importarPJS(){
   document.head.appendChild(s);
 }
 
+/* ── Controle de visualização ── */
+var _currentView = "lista";
+
+function setView(v){
+  _currentView = v;
+  document.getElementById("btnLista").classList.toggle("active", v === "lista");
+  document.getElementById("btnGrade").classList.toggle("active", v === "grade");
+  document.getElementById("sidebar").style.display = v === "lista" ? "" : "none";
+  if(v === "grade"){
+    renderGrade();
+  } else {
+    renderSidebar();
+  }
+}
+
+function renderGrade(){
+  var main = document.getElementById("main");
+  /* Guarda o conteúdo de edição atual */
+  var editHtml = "";
+  if(selectedIdx !== null){
+    var formEl = document.getElementById("tProdutos");
+    if(formEl) editHtml = formEl ? formEl.innerHTML : "";
+  }
+
+  var gradeHtml = '<div id="gradeContainer" style="padding:0">';
+  gradeHtml += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">';
+  gradeHtml += '<span style="font-size:12px;color:var(--muted)">'+produtos.filter(function(p){return p.ativo!==false}).length+' ativos · '+produtos.length+' total</span>';
+  gradeHtml += '</div>';
+  gradeHtml += '<div class="grade-wrap" id="gradeWrap"></div></div>';
+
+  /* Se há produto selecionado, mostra form ao lado */
+  if(selectedIdx !== null){
+    main.innerHTML = '<div style="display:flex;gap:20px;height:100%">'
+      + '<div style="flex:1;overflow-y:auto">' + gradeHtml + '</div>'
+      + '<div style="width:420px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--border);padding-left:20px" id="gradeEdit"></div>'
+      + '</div>';
+  } else {
+    main.innerHTML = gradeHtml;
+  }
+
+  var wrap = document.getElementById("gradeWrap");
+  if(!wrap) return;
+  var h = "";
+  SECOES.forEach(function(sec){
+    var secProd = produtos.filter(function(p){ return p.secao === sec.id; });
+    if(!secProd.length) return;
+    h += '<div class="grade-sec">'+sec.lbl+' ('+secProd.length+')</div>';
+    produtos.forEach(function(p, i){
+      if(p.secao !== sec.id) return;
+      var foto = (Array.isArray(p.fotos) && p.fotos[0]) ? p.fotos[0] : null;
+      var pos  = (p.fotosPos && p.fotosPos[0]) ? p.fotosPos[0] : "50% 50%";
+      var zoom = (p.fotosZoom && p.fotosZoom[0]) ? parseFloat(p.fotosZoom[0]) : 1;
+      var imgStyle = "object-position:"+pos+";transform:scale("+zoom+");transform-origin:"+pos;
+      var preco = p.preco ? "R$ "+parseFloat(p.preco).toFixed(2).replace(".",",") : "";
+      var isActive = selectedIdx === i;
+      h += '<div class="g-card'+(isActive?" active":"")+'" onclick="selProdGrade('+i+')">'
+        + (foto
+            ? '<img class="g-card-img" src="'+foto+'" style="'+imgStyle+'" loading="lazy"/>'
+            : '<div class="g-card-img-empty">Sem foto</div>')
+        + '<div class="g-card-badges">'
+        + (p.ativo===false ? '<span class="sbadge boff">off</span>' : '<span class="sbadge bon">on</span>')
+        + (p.estoque===0 ? '<span class="sbadge blow">vazio</span>' : '')
+        + '</div>'
+        + '<button class="g-card-del" onclick="delProd(event,'+i+')" title="Excluir">✕</button>'
+        + '<div class="g-card-body">'
+        + '<div class="g-card-name" title="'+esc(p.nome||"")+'">'+esc((p.nome||"Sem nome").trim())+'</div>'
+        + '<div class="g-card-price">'+preco+'</div>'
+        + '</div></div>';
+    });
+  });
+  wrap.innerHTML = h;
+
+  /* Se produto selecionado, renderiza form no painel lateral */
+  if(selectedIdx !== null){
+    var editPanel = document.getElementById("gradeEdit");
+    if(editPanel){
+      var tmp = document.createElement("div");
+      tmp.id = "tProdutos";
+      editPanel.innerHTML = "";
+      editPanel.appendChild(tmp);
+      renderForm();
+    }
+  }
+}
+
+function selProdGrade(idx){
+  selectedIdx = idx;
+  renderGrade();
+}
+
 function renderSidebar(){
   var h="";
   SECOES.forEach(function(sec){
@@ -692,6 +804,7 @@ function renderSidebar(){
   });
   document.getElementById("sidebar").innerHTML=h;
   updateHdr();
+  if(_currentView === "grade") renderGrade();
 }
 
 function dsStart(e,i){dragSrc=i;e.currentTarget.classList.add("dragging")}
