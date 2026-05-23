@@ -1,25 +1,16 @@
 /* ══════════════════════════════════════════════════════
    TOBALDINE SIGNATURE · FIREBASE ADMIN
-   FIX: init mais robusto, evita conflito com firebase.js
+   FIX: usa firebase.app() já inicializado pelo firebase.js
+        evitando duplicação da firebaseConfig.
+        Adicionado fbSavePedidos para persistência real dos pedidos.
 ══════════════════════════════════════════════════════ */
 
-var firebaseConfig = {
-  apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
-  authDomain:        "tobaldine-signature.firebaseapp.com",
-  databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
-  projectId:         "tobaldine-signature",
-  storageBucket:     "tobaldine-signature.firebasestorage.app",
-  messagingSenderId: "977486037825",
-  appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
-};
-
-/* FIX: usa !firebase.apps.length como guard principal,
-   eliminando o try/catch que causava inicializações duplicadas */
+/* Reutiliza o app já inicializado por firebase.js — sem duplicar config */
 if (typeof firebase !== "undefined" && !firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+  console.warn("firebase-admin.js: Firebase não foi inicializado antes. Verifique a ordem dos scripts.");
 }
 
-var db = (typeof firebase !== "undefined") ? firebase.database() : null;
+var db = (typeof firebase !== "undefined" && firebase.apps.length) ? firebase.database() : null;
 
 if (db) {
   var fbStatus = document.getElementById("fbStatus");
@@ -85,4 +76,5 @@ window.fbSaveProdutos    = function(p) { return db ? db.ref("produtos").set(p)  
 window.fbSaveKits        = function(k) { return db ? db.ref("kits").set(k)        : Promise.reject("Firebase offline"); };
 window.fbSaveDepoimentos = function(d) { return db ? db.ref("depoimentos").set(d) : Promise.reject("Firebase offline"); };
 window.fbSaveCupons      = function(c) { return db ? db.ref("cupons").set(c)      : Promise.reject("Firebase offline"); };
+window.fbSavePedidos     = function(p) { return db ? db.ref("pedidos").set(p)     : Promise.reject("Firebase offline"); }; /* FIX: pedidos agora persistem no servidor */
 window.firebaseDB        = db;

@@ -12,32 +12,11 @@ var CUPOM_ATIVO = null;
 var AFILIADO_IDENTIFICADO = "";
 var CUPONS_DO_SISTEMA = [];
 
-/* ──────────────────────────────
-   PROVA SOCIAL: viewers e estoque
-   Números gerados por produto,
-   variam a cada visita.
-─────────────────────────────── */
-var _viewersCache = {};
-
-function _getViewers(idx) {
-  if (!_viewersCache[idx]) {
-    _viewersCache[idx] = Math.floor(Math.random() * 14) + 4; /* 4–17 */
-  }
-  return _viewersCache[idx];
-}
-
-/* Atualiza viewers a cada ~40s para parecer dinâmico */
-function _startViewerTick() {
-  setInterval(function() {
-    Object.keys(_viewersCache).forEach(function(idx) {
-      var delta = Math.random() < 0.5 ? 1 : -1;
-      var novo = _viewersCache[idx] + delta;
-      _viewersCache[idx] = Math.max(2, Math.min(22, novo));
-      var el = document.getElementById("viewers-" + idx);
-      if (el) el.textContent = _viewersCache[idx] + " pessoas vendo agora";
-    });
-  }, 38000);
-}
+/* ── Prova social de viewers REMOVIDA ──────────────────
+   Números aleatórios de "X pessoas vendo agora" foram
+   removidos por risco legal (CDC art. 37 — publicidade
+   enganosa) e por ferir a confiança da marca.
+──────────────────────────────────────────────────────── */
 
 try {
   CARRINHO = JSON.parse(localStorage.getItem("tb_carrinho") || "[]");
@@ -119,11 +98,6 @@ function renderCatalogo() {
       : '';
     var rankingHtml = p.ranking ? '<p class="promo-banner">' + sanitize(p.ranking) + '</p>' : '';
 
-    /* Contador de pessoas vendo — controlado pela config */
-    var _showViewers = (localStorage.getItem("tb_cfg_viewers") !== "0") && (typeof window._tbConfig === 'undefined' || window._tbConfig.viewers !== false);
-    var viewersHtml = _showViewers
-      ? '<div class="viewers-badge" id="viewers-' + index + '">' + _getViewers(index) + ' pessoas vendo agora</div>'
-      : '';
     /* Estoque — controlado pelo admin Config */
     var estoqueHtml = "";
     if(window._cfgMostrarEstoque && p.estoque > 0 && p.estoque <= 5){
@@ -183,7 +157,6 @@ function renderCatalogo() {
       + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
       + '</div>'
       + estoqueHtml
-      + viewersHtml
       + '</div>'
       + '</div>'
       + '</article>';
@@ -271,7 +244,7 @@ function renderCatalogo() {
   updateCartBadge();
   checkAfiliadoUrl();
   setTimeout(initCarrosselComHint, 100);
-  _startViewerTick();
+  /* _startViewerTick() removido — prova social falsa eliminada */
 }
 
 /* ══════════════════════════════

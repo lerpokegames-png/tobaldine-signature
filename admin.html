@@ -231,7 +231,8 @@ select optgroup{color: var(--gold); font-weight: bold;}
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
-    <button class="btn btn-gold btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
+    <button class="btn btn-outline btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
+    <button class="btn btn-outline btn-sm" style="color:#c04c4c;border-color:rgba(192,76,76,0.3)" onclick="firebase.auth().signOut().then(function(){ toast('Logout realizado.'); })" title="Sair da conta admin">⏻ Sair</button>
   </div>
 </header>
 
@@ -296,7 +297,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
         <select id="bulkSec">
           <option value="originais">Originais (Frascos Lacrados)</option>
           <option value="decants">Decants</option>
-          <option value="Similares">Similares</option>
+          <option value="similares">Similares</option>
           <option value="cosmeticos">Cosméticos</option>
           <option value="autorais">Autorais</option>
         </select>
@@ -365,59 +366,71 @@ select optgroup{color: var(--gold); font-weight: bold;}
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="produtos.js"></script>
 <script src="firebase-admin.js"></script>
 
 <script>
-var SENHA_HASH     = null; /* carregado do Firebase — não fica no HTML */
+/* ══════════════════════════════════════════════════════
+   FIX SEGURANÇA: Autenticação real via Firebase Auth.
+   O sessionStorage foi REMOVIDO — era bypassável via
+   console do navegador com uma linha de código.
+   Agora a verificação é server-side (Firebase).
+
+   ⚙ SETUP ÚNICO (1 vez):
+   1. Acesse console.firebase.google.com → seu projeto
+   2. Authentication → Sign-in method → Email/Senha → Ativar
+   3. Authentication → Users → Add user
+      Email: admin@tobaldine.com  (ou o que quiser)
+      Senha: sua senha forte
+   4. Atualize ADMIN_EMAIL abaixo se usar outro e-mail
+══════════════════════════════════════════════════════ */
+
+var ADMIN_EMAIL    = "admin@tobaldine.com"; /* ← altere se necessário */
 var _loginAttempts = 0;
 var _loginLocked   = false;
-var MAX_ATTEMPTS   = 3;
-var LOCKOUT_MS     = 30000;
+var MAX_ATTEMPTS   = 5;
+var LOCKOUT_MS     = 60000;
 
-async function sha256(message) {
-  var msgBuffer  = new TextEncoder().encode(message);
-  var hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-  var hashArray  = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(function(b) { return b.toString(16).padStart(2,"0"); }).join("");
-}
+/* Observa estado de autenticação — único ponto de controle de acesso */
+firebase.auth().onAuthStateChanged(function(user) {
+  var loginEl = document.getElementById("loginScreen");
+  if (user) {
+    if (loginEl) loginEl.style.display = "none";
+  } else {
+    if (loginEl) loginEl.style.display = "flex";
+  }
+});
 
 async function checkSenha() {
   if (_loginLocked) return;
-  var input  = document.getElementById("senhaInput").value;
+  var senha  = document.getElementById("senhaInput").value;
   var erroEl = document.getElementById("erroSenha");
   var tentEl = document.getElementById("tentativasInfo");
   var btnEl  = document.getElementById("loginBtn");
-  var isValid = false;
 
-  if (!SENHA_HASH) {
-    erroEl.textContent = "Firebase ainda carregando. Aguarde e tente novamente.";
-    return;
-  }
-  if (window.isSecureContext && crypto && crypto.subtle) {
-    var hash = await sha256(input);
-    isValid = (hash === SENHA_HASH);
-  } else {
-    erroEl.textContent = "Navegador não suportado. Use Chrome ou Firefox.";
-    return;
-  }
+  if (!senha) { erroEl.textContent = "Digite a senha."; return; }
 
-  if (isValid) {
-    document.getElementById("loginScreen").style.display = "none";
-    sessionStorage.setItem("tb_auth", "1");
+  btnEl.disabled    = true;
+  btnEl.textContent = "Verificando...";
+
+  try {
+    await firebase.auth().signInWithEmailAndPassword(ADMIN_EMAIL, senha);
+    /* onAuthStateChanged acima cuida de esconder o loginScreen */
     _loginAttempts = 0;
-  } else {
-    _loginAttempts++;
+  } catch (err) {
+    btnEl.disabled    = false;
+    btnEl.textContent = "Entrar";
     document.getElementById("senhaInput").value = "";
+    _loginAttempts++;
 
     if (_loginAttempts >= MAX_ATTEMPTS) {
       _loginLocked = true;
       erroEl.textContent = "Muitas tentativas incorretas.";
-      tentEl.textContent = "Aguarde 30 segundos para tentar novamente.";
+      tentEl.textContent = "Aguarde 60 segundos para tentar novamente.";
       btnEl.disabled = true;
       btnEl.style.opacity = "0.5";
       document.getElementById("senhaInput").disabled = true;
-
       setTimeout(function() {
         _loginLocked   = false;
         _loginAttempts = 0;
@@ -436,14 +449,10 @@ async function checkSenha() {
   }
 }
 
-if (sessionStorage.getItem("tb_auth") === "1") {
-  document.getElementById("loginScreen").style.display = "none";
-}
-
 var SECOES = [
   {id:"decants",   lbl:"Decants"},
   {id:"originais", lbl:"Originais"},
-  {id:"Similares", lbl:"Similares"},
+  {id:"similares", lbl:"Similares"}, /* FIX: era "Similares" com S maiúsculo — inconsistente */
   {id:"cosmeticos",lbl:"Cosméticos"},
   {id:"autorais",  lbl:"Autorais"}
 ];
@@ -467,11 +476,11 @@ function renderEmptyProd() {
 
 function loadData(){
   /* localStorage como fallback — Firebase é a fonte de verdade */
-  try{var s=localStorage.getItem("tb_v3_produtos");if(s){var p=JSON.parse(s);if(p&&p.length>0)produtos=p;}}catch(e){}
-  try{var s=localStorage.getItem("tb_v3_kits");if(s)kits=JSON.parse(s);}catch(e){}
-  try{var s=localStorage.getItem("tb_v3_dep");if(s)depoimentos=JSON.parse(s);}catch(e){}
-  try{var s=localStorage.getItem("tb_v3_cupons");if(s)cupons=JSON.parse(s);}catch(e){}
-  try{var s=localStorage.getItem("tb_v3_hist");if(s)historico=JSON.parse(s);}catch(e){}
+  try{var _s1=localStorage.getItem("tb_v3_produtos");if(_s1){var _p1=JSON.parse(_s1);if(_p1&&_p1.length>0)produtos=_p1;}}catch(e){}
+  try{var _s2=localStorage.getItem("tb_v3_kits");if(_s2)kits=JSON.parse(_s2);}catch(e){}
+  try{var _s3=localStorage.getItem("tb_v3_dep");if(_s3)depoimentos=JSON.parse(_s3);}catch(e){}
+  try{var _s4=localStorage.getItem("tb_v3_cupons");if(_s4)cupons=JSON.parse(_s4);}catch(e){}
+  try{var _s5=localStorage.getItem("tb_v3_hist");if(_s5)historico=JSON.parse(_s5);}catch(e){}
 
   if(!produtos.length&&typeof PRODUTOS!=="undefined"&&PRODUTOS.length){
     produtos=JSON.parse(JSON.stringify(PRODUTOS));
@@ -494,24 +503,21 @@ function loadFromFirebase(db){
     db.ref("produtos").once("value"),
     db.ref("kits").once("value"),
     db.ref("depoimentos").once("value"),
-    db.ref("cupons").once("value")
+    db.ref("cupons").once("value"),
+    db.ref("pedidos").once("value")   /* FIX: pedidos agora persistem no Firebase */
   ]).then(function(snaps){
     var fbProd = toArr(snaps[0].val());
     var fbKits = toArr(snaps[1].val());
     var fbDep  = toArr(snaps[2].val());
     var fbCup  = toArr(snaps[3].val());
+    var fbPed  = toArr(snaps[4].val());
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
-    /* Pedidos ficam só local por enquanto */
-
-  /* Carrega hash da senha do Firebase */
-  db.ref("config/adminHash").once("value", function(snap){
-    var h = snap.val();
-    if(h) SENHA_HASH = h;
-  });
+    /* FIX: adminHash removido — autenticação agora via Firebase Auth */
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
+    if(fbPed && fbPed.length){ pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
 
     var totalFotos = produtos.reduce(function(acc,p){
       return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){return f&&f.trim();}).length : 0);
@@ -659,7 +665,7 @@ function applyManagerFilter() {
         case 'com_estoque': if(!p.estoque || p.estoque <= 0) show = false; break;
         case 'sec_originais': if(p.secao !== 'originais') show = false; break;
         case 'sec_decants': if(p.secao !== 'decants') show = false; break;
-        case 'sec_similares': if(p.secao !== 'Similares') show = false; break;
+        case 'sec_similares': if(p.secao !== 'similares') show = false; break;
         case 'sec_cosmeticos': if(p.secao !== 'cosmeticos') show = false; break;
       }
     }
@@ -1415,22 +1421,29 @@ function salvarGeminiKey(){
   toast("✓ Chave Gemini salva!");
 }
 
+/* FIX: alteração de senha agora via Firebase Auth — sem SHA-256 nu sem salt */
 async function alterarSenha(){
   var s1 = document.getElementById("novaSenha1").value;
   var s2 = document.getElementById("novaSenha2").value;
   if(!s1){ toast("Digite a nova senha"); return; }
   if(s1 !== s2){ toast("As senhas não coincidem"); return; }
   if(s1.length < 6){ toast("Senha deve ter ao menos 6 caracteres"); return; }
-  var novoHash = await sha256(s1);
-  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
-    window.firebaseDB.ref("config/adminHash").set(novoHash).then(function(){
-      SENHA_HASH = novoHash;
-      toast("✓ Senha alterada com sucesso!");
-      document.getElementById("novaSenha1").value="";
-      document.getElementById("novaSenha2").value="";
-    }).catch(function(e){ toast("Erro: "+e); });
-  } else {
-    toast("Firebase indisponível");
+
+  var user = firebase.auth().currentUser;
+  if(!user){ toast("Não autenticado"); return; }
+
+  try {
+    await user.updatePassword(s1);
+    toast("✓ Senha alterada com sucesso!");
+    document.getElementById("novaSenha1").value="";
+    document.getElementById("novaSenha2").value="";
+  } catch(e) {
+    /* Firebase exige re-autenticação recente para alterar senha */
+    if(e.code === "auth/requires-recent-login"){
+      toast("Por segurança, faça logout e login novamente antes de alterar a senha.");
+    } else {
+      toast("Erro: " + e.message);
+    }
   }
 }
 
@@ -1635,10 +1648,19 @@ function clearSearch(){
 /* ══════════════════════════════════════
    PEDIDOS (DROPSHIPPING)
 ══════════════════════════════════════ */
+/* FIX: pedidos agora persistem no Firebase — não se perdem ao limpar o cache */
 var pedidos = [];
-try { var _p=localStorage.getItem("tb_v3_pedidos"); if(_p) pedidos=JSON.parse(_p); } catch(e){}
+try { var _pedStr=localStorage.getItem("tb_v3_pedidos"); if(_pedStr) pedidos=JSON.parse(_pedStr); } catch(e){}
 
-function savePedidos(){ localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
+function savePedidos(){
+  localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos));
+  /* Sincroniza com Firebase — dado de negócio não pode ficar só no localStorage */
+  if(typeof window.firebaseDB !== "undefined" && window.firebaseDB){
+    window.firebaseDB.ref("pedidos").set(pedidos).catch(function(e){
+      console.warn("Erro ao salvar pedidos no Firebase:", e);
+    });
+  }
+}
 
 function renderPedidos(){
   var el = document.getElementById("tPedidos");

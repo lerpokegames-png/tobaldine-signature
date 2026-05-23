@@ -1,0 +1,51 @@
+{
+  "rules": {
+    /*
+      TOBALDINE SIGNATURE · FIREBASE SECURITY RULES
+      ================================================
+      COMO APLICAR:
+      1. Acesse console.firebase.google.com → seu projeto
+      2. Realtime Database → Rules
+      3. Substitua o conteúdo pelas regras abaixo e clique em Publish
+
+      LÓGICA:
+      - produtos / kits / depoimentos / config: leitura pública (catálogo precisa)
+      - cupons: leitura pública (validação de desconto no catálogo)
+      - pedidos / caixa: somente admin autenticado (dados sensíveis de negócio)
+      - Escrita em TUDO: somente admin autenticado (auth != null)
+    */
+
+    "produtos": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "kits": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "depoimentos": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "config": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "cupons": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "pedidos": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "caixa": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}
