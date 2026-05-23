@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tobaldine Signature · Catálogo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Tobaldine Signature — Decants, originais importados, similares e cosméticos VS. Fragrâncias de luxo ao seu alcance." />
+    <meta name="keywords" content="decants, perfumes importados, lattafa, victoria secret, cosméticos, fragrâncias" />
+    <meta property="og:title" content="Tobaldine Signature · Catálogo" />
+    <meta property="og:description" content="Decants, originais 100ml, similares e cosméticos VS." />
+    <meta name="theme-color" content="#080706" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero" id="topo">
+      <svg
+        class="hero-smoke"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <filter
+            id="smoke-luxury"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+            color-interpolation-filters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.0015 0.0015"
+              numOctaves="4"
+              seed="21"
+              result="noise"
+            >
+              <animate
+                attributeName="baseFrequency"
+                dur="40"
+                values="0.0015 0.0015; 0.0020 0.0020; 0.0012 0.0015; 0.0015 0.0015"
+                repeatCount="indefinite"
+              />
+            </feTurbulence>
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0.85
+                  0 0 0 0 0.78
+                  0 0 0 0 0.70
+                  0 0 0 14 -6"
+              result="smokeColor"
+            />
+            <feGaussianBlur stdDeviation="4.5" result="blurred" />
+          </filter>
+          <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#080706" stop-opacity="0" />
+            <stop offset="100%" stop-color="#080706" stop-opacity="0.9" />
+          </radialGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="#080706" />
+        <rect
+          width="100%"
+          height="100%"
+          filter="url(#smoke-luxury)"
+          opacity="0.08"
+        />
+        <rect width="100%" height="100%" fill="url(#vignette)" />
+      </svg>
+
+      <div class="hero-gold-glow"></div>
+
+      <span class="logo-script">Tobaldine</span>
+      <span class="logo-sig">Signature</span>
+      <div class="gold-line"></div>
+      <h1 class="hero-tagline">
+        O perfume certo não é detalhe<br />é a primeira impressão que você deixa.
+      </h1>
+      <p class="hero-sub">
+        Cada fragrância selecionada para fazer você se sentir<br />única(o), poderosa(o) e inesquecível onde quer que vá.
+      </p>
+      <div class="hero-cta-wrap">
+        <a class="hero-cta-btn" href="#masculinos">Ver Catálogo</a>
+        <a class="hero-cta-wpp" href="https://api.whatsapp.com/send?phone=5511941665146&text=Olá!%20Vim%20pelo%20catálogo%20e%20quero%20saber%20mais%20sobre%20os%20perfumes%20✨" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="hero-scroll-hint">Explore a Coleção</div>
+    </header>
+
+    <nav class="sticky-nav" id="nav">
+      <div class="nav-inner">
+        <a class="nav-link" href="#masculinos"><span class="nav-dot"></span>Masculinos</a>
+        <a class="nav-link" href="#femininos"><span class="nav-dot"></span>Femininos</a>
+        <a class="nav-link" href="#unissex"><span class="nav-dot"></span>Unissex</a>
+        <a class="nav-link" href="#kits-cosmeticos"><span class="nav-dot"></span>Kits & Cosméticos</a>
+        <a class="nav-link" href="#sobre"><span class="nav-dot"></span>Sobre</a>
+        <a class="nav-link" href="#depoimentos"><span class="nav-dot"></span>Depoimentos</a>
+      </div>
+    </nav>
+    <div style="background:rgba(201,168,76,0.05);border-bottom:1px solid rgba(201,168,76,0.15);text-align:center;padding:13px 20px;font-size:12px;color:#9a8c78;letter-spacing:0.06em;">
+      · Ninguém esquece quem cheira bem. <strong style="color:#c9a84c;font-weight:400">Ninguém ·</strong>
+    </div>
+
+    <!-- FAIXA: entrega -->
+    <div class="cutoff-strip">
+      <span class="cutoff-icon">🛵</span>
+      <span>Entrega em <strong>Mauá e região</strong> · PIX ou cartão · <strong>Prazo confirmado via WhatsApp</strong></span>
+    </div>
+
+    <!-- SEÇÃO: Como Funciona -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="hiw-inner">
+        <p class="section-eyebrow" style="text-align:center;margin-bottom:8px;">✦ Simples assim ✦</p>
+        <h2 class="hiw-title">Como Comprar</h2>
+        <div class="hiw-steps">
+          <div class="hiw-step">
+            <span class="hiw-num">01</span>
+            <p class="hiw-label">Escolha seu perfume no catálogo</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">02</span>
+            <p class="hiw-label">Clique em <em>"Pedir Agora"</em> ou monte sua sacola</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">03</span>
+            <p class="hiw-label">Confirme e pague via <strong>PIX ou cartão</strong> no WhatsApp</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">04</span>
+            <p class="hiw-label">Entrega em <strong>Mauá</strong> de moto · Outras regiões via app · Prazo combinado no pedido</p>
+          </div>
+        </div>
+        <p class="hiw-obs">· Mauá e região · PIX, cartão no link ou maquininha · Prazo confirmado no WhatsApp ·</p>
+      </div>
+    </section>
+
+    <!-- LOADING STATE: exibido até Firebase / produtos.js carregarem -->
+    <div id="catalogLoading" class="catalog-loading">
+      <div class="catalog-loading-inner">
+        <div class="loading-spinner"></div>
+        <p>Carregando fragrâncias...</p>
+      </div>
+    </div>
+
+    <div class="search-bar-wrap" id="searchBar">
+      <div class="search-inner">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input class="search-input" id="searchInput" type="text" placeholder="Buscar fragrância, marca ou nota..." oninput="filterProducts()" />
+          <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none;">✕</button>
+        </div>
+        <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+          <option value="">Ordenar</option>
+          <option value="preco-asc">Menor preço</option>
+          <option value="preco-desc">Maior preço</option>
+          <option value="nome">A → Z</option>
+        </select>
+      </div>
+
+      <!-- Filtro de notas gerado automaticamente por renderNotesPills() em script.js -->
+      <div class="notes-filter-container">
+        <span class="notes-filter-label">Filtrar por Nota:</span>
+        <div class="notes-pills-scroll" id="notesPills">
+          <button class="note-pill active" data-nota="" onclick="selectNoteFilter(this.dataset.nota, this)">Todas</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="catalog-section gender-section" id="masculinos">
+      <div class="section-header">
+        <p class="section-eyebrow">✦ Pour Homme ✦</p>
+        <h2 class="section-title">Fragrâncias Masculinas</h2>
+        <p class="section-desc">Seleção exclusiva de perfumes imponentes, marcantes e sedutores. Encontre sua assinatura de poder.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="sub-category-title">✨ Decants de Bolso / Miniaturas</div>
+      <div class="cards-track dynamic-grid" id="masculinos-decants"></div>
+      <div class="sub-category-title">📦 Frascos Originais Lacrados</div>
+      <div class="cards-track dynamic-grid" id="masculinos-originais"></div>
+      <div class="sub-category-title">⚜️ Inspirados Premium (Contratipos)</div>
+      <div class="cards-track dynamic-grid" id="masculinos-Similares"></div>
+    </section>
+
+    <section class="catalog-section gender-section" id="femininos">
+      <div class="section-header">
+        <p class="section-eyebrow">✦ Pour Femme ✦</p>
+        <h2 class="section-title">Fragrâncias Femininas</h2>
+        <p class="section-desc">Fragrâncias envolventes, cremosas e inesquecíveis. A expressão máxima da sofisticação e magnetismo femininos.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="sub-category-title">✨ Decants de Bolso / Miniaturas</div>
+      <div class="cards-track dynamic-grid" id="femininos-decants"></div>
+      <div class="sub-category-title">📦 Frascos Originais Lacrados</div>
+      <div class="cards-track dynamic-grid" id="femininos-originais"></div>
+      <div class="sub-category-title">⚜️ Inspirados Premium (Contratipos)</div>
+      <div class="cards-track dynamic-grid" id="femininos-Similares"></div>
+    </section>
+
+    <section class="catalog-section gender-section" id="unissex">
+      <div class="section-header">
+        <p class="section-eyebrow">✦ Partageable ✦</p>
+        <h2 class="section-title">Fragrâncias Unissex</h2>
+        <p class="section-desc">Alta perfumaria compartilhável. Aromas conceituais e sofisticados que transcendem gêneros e se adaptam à pele de forma única.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="sub-category-title">✨ Decants de Bolso / Miniaturas</div>
+      <div class="cards-track dynamic-grid" id="unissex-decants"></div>
+      <div class="sub-category-title">📦 Frascos Originais Lacrados</div>
+      <div class="cards-track dynamic-grid" id="unissex-originais"></div>
+      <div class="sub-category-title">⚜️ Inspirados Premium (Contratipos)</div>
+      <div class="cards-track dynamic-grid" id="unissex-Similares"></div>
+    </section>
+
+
+    <section class="catalog-section" id="kits-cosmeticos">
+      <div class="section-header">
+        <p class="section-eyebrow">✦ Combos & Cuidados ✦</p>
+        <h2 class="section-title">Kits & Cosméticos</h2>
+        <p class="section-desc">Body Splashes altamente desejados da Victoria's Secret e combos montados com descontos especiais para presentear ou se mimar.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="sub-category-title">🎁 Kits & Combos Promocionais</div>
+      <div class="cards-track dynamic-grid" id="kitsTrack" style="margin-bottom: 40px;"></div>
+      <div class="sub-category-title">🧴 Body Splashes & Hidratantes VS</div>
+      <div class="cards-track dynamic-grid" id="cosmeticos-track"></div>
+    </section>
+
+    <!-- SEÇÃO: SOBRE -->
+    <section class="sobre-section" id="sobre">
+      <div class="sobre-inner">
+        <div class="sobre-text">
+          <p class="section-eyebrow">✦ Nossa História ✦</p>
+          <h2 class="sobre-title">Tobaldine Signature</h2>
+          <div class="gold-line" style="margin: 18px 0;"></div>
+          <p class="sobre-desc">
+            A Tobaldine Signature nasceu da crença de que alta perfumaria não precisa ser inacessível.
+            Reunimos uma curadoria criteriosamente selecionada de decants, originais importados, inspirados premium
+            e cosméticos — tudo para que você encontre sua fragrância perfeita sem abrir mão da qualidade.
+          </p>
+          <p class="sobre-desc">
+            Atendemos de forma próxima e personalizada, direto pelo WhatsApp, com entrega em Mauá e região.
+            Cada pedido é tratado com cuidado e atenção — porque acreditamos que o perfume certo é parte
+            da sua identidade.
+          </p>
+          <div class="sobre-values">
+            <div class="sobre-value">
+              <span class="sobre-value-icon">✦</span>
+              <div>
+                <strong>Curadoria Exclusiva</strong>
+                <p>Fragrâncias selecionadas com critério, das mais acessíveis às mais sofisticadas.</p>
+              </div>
+            </div>
+            <div class="sobre-value">
+              <span class="sobre-value-icon">✦</span>
+              <div>
+                <strong>Atendimento Personalizado</strong>
+                <p>Você fala diretamente com quem entende de perfume e quer te ajudar a escolher.</p>
+              </div>
+            </div>
+            <div class="sobre-value">
+              <span class="sobre-value-icon">✦</span>
+              <div>
+                <strong>Entrega Local</strong>
+                <p>Mauá e região com entrega de moto. Outras cidades via aplicativo de entrega.</p>
+              </div>
+            </div>
+          </div>
+          <a class="sobre-wpp-btn" href="https://api.whatsapp.com/send?phone=5511941665146&text=Olá!%20Quero%20saber%20mais%20sobre%20as%20fragrâncias%20da%20Tobaldine%20Signature%20✨" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>
+            Falar com a gente
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="depoimentos-section" id="depoimentos">
+      <div class="section-header">
+        <p class="section-eyebrow">✦ Relatos Reais ✦</p>
+        <h2 class="section-title">Quem Experimentou, Amou</h2>
+        <p class="section-desc">Veja o depoimento de clientes que transformaram sua presença com as fragrâncias da Tobaldine Signature.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="dep-track-wrap">
+        <div class="dep-track" id="depoimentosTrack"></div>
+      </div>
+    </section>
+
+    <footer>
+      <svg class="footer-smoke" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="smoke-luxury-footer" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.0012 0.0012" numOctaves="4" seed="25" result="noise">
+              <animate attributeName="baseFrequency" dur="80s" values="0.0012 0.0012; 0.0018 0.0018; 0.001 0.0014; 0.0012 0.0012" repeatCount="indefinite"/>
+            </feTurbulence>
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0 0.70 0 0 0 14 -6" result="smokeColor"/>
+            <feGaussianBlur in="smokeColor" stdDeviation="3.5" result="blurred"/>
+          </filter>
+          <radialGradient id="vignette-footer" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#080706" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#080706" stop-opacity="0.92"/>
+          </radialGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="#080706"/>
+        <rect width="100%" height="100%" filter="url(#smoke-luxury-footer)" opacity="0.14"/>
+        <rect width="100%" height="100%" fill="url(#vignette-footer)"/>
+      </svg>
+      <div class="footer-gold-glow"></div>
+      <span class="footer-script">Tobaldine</span>
+      <span class="footer-sig">Signature</span>
+      <p class="footer-info">
+        Curadoria de Alta Perfumaria<br />
+        Decants · Originais · Similares · Cosméticos · Kits
+      </p>
+
+      <!-- Redes Sociais -->
+      <div class="footer-social">
+        <a class="footer-social-link" href="https://instagram.com/seuarroba" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @seuarroba
+        </a>
+        <a class="footer-social-link footer-wpp-link" href="https://api.whatsapp.com/send?phone=5511941665146" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Links legais -->
+      <div class="footer-legal">
+        <a href="privacidade.html">Política de Privacidade</a>
+        <span>·</span>
+        <a href="termos.html">Termos de Uso</a>
+        <span>·</span>
+        <a href="#sobre">Sobre Nós</a>
+      </div>
+      <p class="footer-copy">© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados</p>
+
+      <a class="back-top" href="#">Voltar ao topo ↑</a>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a class="wpp-fab" href="https://api.whatsapp.com/send?phone=5511941665146&text=Olá!%20Vim%20pelo%20catálogo%20e%20quero%20saber%20mais%20sobre%20os%20perfumes%20✨" target="_blank" rel="noopener" title="Falar no WhatsApp">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>
+      <span class="wpp-fab-pulse"></span>
+    </a>
+
+    <!-- BANNER LGPD -->
+    <div class="lgpd-banner" id="lgpdBanner">
+      <div class="lgpd-text">
+        <strong>🍪 Privacidade</strong>
+        Este site utiliza dados apenas para funcionamento do catálogo e atendimento via WhatsApp, conforme nossa
+        <a href="privacidade.html">Política de Privacidade</a>.
+        Ao continuar navegando, você concorda com os nossos <a href="termos.html">Termos de Uso</a>.
+      </div>
+      <button class="lgpd-btn" onclick="aceitarLGPD()">Entendi</button>
+    </div>
+
+    <button class="cart-fab" onclick="toggleCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <div class="cart-panel" id="cartPanel">
+      <div class="cart-header">
+        <span>Sacola de Pedidos</span>
+        <button onclick="toggleCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="coupon-area">
+        <input type="text" id="couponInput" placeholder="Cupom ou Ref Afiliado" />
+        <button onclick="applyCoupon()">Aplicar</button>
+        <p id="couponMessage"></p>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-pix-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;stroke:var(--gold)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <strong>PIX</strong> ou <strong>cartão</strong> · Mauá de moto · Outras regiões via app
+        </div>
+        <div class="cart-total" id="cartTotal">Subtotal: R$ 0,00</div>
+        <div class="cart-discount" id="cartDiscount" style="display:none;font-size:12px;color:#4caf79;margin-bottom:8px;">Desconto: -R$ 0,00</div>
+        <div class="cart-final-total" id="cartFinalTotal" style="font-size:14px;font-weight:600;color:var(--gold);margin-bottom:12px;">Total: R$ 0,00</div>
+        <button class="cart-wpp-btn" onclick="sendCartWpp()"><svg style="width:16px;height:16px;fill:#fff" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.273-3.138l.369.219C8.217 21.94 9.948 22.42 11.724 22.42c5.626 0 10.201-4.52 10.203-10.076.001-2.693-1.041-5.226-2.935-7.123C17.1 3.324 14.58 2.28 11.921 2.28c-5.63 0-10.21 4.52-10.213 10.077a9.96 9.96 0 0 0 1.528 5.26l.243.388-1.01 3.693 3.788-.981z"/></svg> Enviar pelo WhatsApp</button>
+        <button class="cart-clear-btn" onclick="clearCart()">Limpar sacola</button>
+      </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <button class="lightbox-prev" onclick="prevLightbox(event)">‹</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()"/>
+      <button class="lightbox-next" onclick="nextLightbox(event)">›</button>
+      <div class="lightbox-dots" id="lightboxDots" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <!-- FIX: Firebase SDK adicionado — catálogo agora sincroniza com o banco de dados.
+         Antes, index.html não carregava o Firebase, então dados do admin nunca apareciam. -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="produtos.js"></script>
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
