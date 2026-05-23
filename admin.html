@@ -1854,7 +1854,14 @@ function aplicarLote(){
   var n = 0;
   _loteSelected.forEach(function(idx){
     if(badge) produtos[idx].badge = badge;
-    if(preco) produtos[idx].preco = parseFloat(preco);
+    if(preco){
+      var precoFmt = "R$ "+parseFloat(preco).toFixed(2).replace(".",",");
+      if(produtos[idx].precos && produtos[idx].precos.length){
+        produtos[idx].precos[0].preco = precoFmt;
+      } else {
+        produtos[idx].preco = parseFloat(preco);
+      }
+    }
     if(marca) produtos[idx].marca = marca;
     if(secao) produtos[idx].secao = secao;
     n++;
