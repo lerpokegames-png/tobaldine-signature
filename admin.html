@@ -911,10 +911,9 @@ function renderGrade(){
 }
 
 function selProdGrade(idx){
-  selectedIdx = idx;
-  /* Mostra o form diretamente no tProdutos com botão voltar à grade */
-  renderForm();
-  /* renderForm já inclui o botão ← Voltar */
+  /* Vai para modo lista com o produto selecionado — mais confiável */
+  setView("lista");
+  selProd(idx);
 }
 
 function renderSidebar(){
