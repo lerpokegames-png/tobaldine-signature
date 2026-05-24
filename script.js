@@ -172,7 +172,7 @@ function renderCatalogo() {
       if (!fragmentos["autorais"]) fragmentos["autorais"] = [];
       fragmentos["autorais"].push({html: cardHtml, subsecao: p.subsecao || ""});
     } else if (p.secao === "cosmeticos") {
-      fragCosmeticos.push({html: cardHtml, subsecao: p.subsecao || ""});
+      fragCosmeticos.push(cardHtml);
     } else {
       var targetId = genero + "-" + (p.secao || "").toLowerCase();
       if (!fragmentos[targetId]) fragmentos[targetId] = [];
@@ -211,7 +211,7 @@ function renderCatalogo() {
     if (el) renderFragmentos(el, fragmentos[id]);
   });
   if (trackCosmeticos && fragCosmeticos.length) {
-    renderFragmentos(trackCosmeticos, fragCosmeticos);
+    trackCosmeticos.innerHTML = fragCosmeticos.join("");
   }
 
   /* Autorais */

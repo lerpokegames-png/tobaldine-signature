@@ -235,6 +235,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
+    <button class="btn btn-outline btn-sm" style="color:#4caf79;border-color:rgba(76,175,121,0.4)" onclick="addProd()" title="Adicionar novo produto">＋ Novo</button>
     <button id="btnAutoPreench" class="btn btn-outline btn-sm" onclick="abrirAutoFill()" title="Preencher descrição e notas olfativas com IA" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)">🤖 Auto-preencher</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
     <button class="btn btn-outline btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
@@ -564,7 +565,13 @@ function loadFromFirebase(db){
     }
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
-    if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
+    if(fbKits && fbKits.length){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
+    else if(typeof KITS !== "undefined" && KITS.length && !kits.length){
+      /* Firebase sem kits — usa fallback do produtos.js e salva */
+      kits = JSON.parse(JSON.stringify(KITS));
+      localStorage.setItem("tb_v3_kits", JSON.stringify(kits));
+      if(typeof fbSaveKits === "function") fbSaveKits(kits).catch(function(){});
+    }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
     if(fbPed && fbPed.length){ pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
