@@ -386,6 +386,8 @@ async function recuperarSenha() {
     erroEl.textContent = "Erro: " + (e.code === "auth/user-not-found" ? "E-mail não cadastrado." : e.message);
   }
 }
+
+async function checkSenha() {
   if (_loginLocked) return;
   var email  = (document.getElementById("emailInput").value || "").trim() || ADMIN_EMAIL;
   var senha  = document.getElementById("senhaInput").value;
