@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Tobaldine · Restaurar Dados</title>
+  <style>
+    body{background:#080706;color:#f0e8d8;font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;flex-direction:column;gap:20px;padding:20px}
+    h1{font-family:Georgia,serif;color:#c9a84c;font-weight:300;margin:0}
+    p{color:#9a8c78;font-size:13px;text-align:center;max-width:480px;line-height:1.6;margin:0}
+    button{padding:14px 32px;background:#c9a84c;border:none;border-radius:8px;color:#080706;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+    button:disabled{opacity:0.5;cursor:not-allowed}
+    #log{background:#111;border:1px solid #222;border-radius:8px;padding:16px;max-width:520px;width:100%;font-size:12px;font-family:monospace;color:#4caf79;min-height:80px;white-space:pre-wrap;line-height:1.6}
+    .warn{color:#c9a84c}.err{color:#c04c4c}
+  </style>
+</head>
+<body>
+<h1>✦ Tobaldine · Restaurar</h1>
+<p>Esta página restaura todos os produtos com fotos direto para o Firebase.<br>Clique no botão abaixo enquanto estiver logado no admin.</p>
+
+<button id="btn" onclick="restaurar()">🔄 Restaurar Produtos com Fotos</button>
+<div id="log">Aguardando...</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="produtos.js"></script>
+<script>
+var cfg = {
+  apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
+  authDomain:        "tobaldine-signature.firebaseapp.com",
+  databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
+  projectId:         "tobaldine-signature",
+  storageBucket:     "tobaldine-signature.firebasestorage.app",
+  messagingSenderId: "977486037825",
+  appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
+};
+firebase.initializeApp(cfg);
+var db   = firebase.database();
+var auth = firebase.auth();
+var log  = document.getElementById("log");
+
+function out(msg, cls){ log.innerHTML += '<span class="'+(cls||"")+'">'+msg+'</span>\n'; }
+
+firebase.auth().onAuthStateChanged(function(user){
+  if(user){
+    out("✓ Logado como: " + user.email);
+  } else {
+    out("⚠ Não está logado. Abra o admin.html, faça login e volte aqui.", "warn");
+  }
+});
+
+async function restaurar(){
+  var btn = document.getElementById("btn");
+  var user = auth.currentUser;
+
+  if(!user){
+    out("✕ Faça login no admin primeiro.", "err");
+    return;
+  }
+
+  btn.disabled = true;
+  log.innerHTML = "";
+
+  /* Usa PRODUTOS do produtos.js carregado */
+  var prods = (typeof PRODUTOS !== "undefined") ? PRODUTOS : [];
+  var kts   = (typeof KITS       !== "undefined") ? KITS       : [];
+  var deps  = (typeof DEPOIMENTOS !== "undefined") ? DEPOIMENTOS : [];
+
+  out("Iniciando restauração...");
+  out("Produtos encontrados: " + prods.length);
+  out("Kits: " + kts.length);
+  out("Depoimentos: " + deps.length);
+
+  /* Conta fotos */
+  var totalFotos = prods.reduce(function(acc, p){
+    return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){return f && !f.startsWith("data:")}).length : 0);
+  }, 0);
+  out("Fotos com URL: " + totalFotos);
+
+  try {
+    out("\nSalvando produtos no Firebase...");
+    await db.ref("produtos").set(prods);
+    out("✓ Produtos salvos!", "");
+
+    if(kts.length){
+      await db.ref("kits").set(kts);
+      out("✓ Kits salvos!");
+    }
+    if(deps.length){
+      await db.ref("depoimentos").set(deps);
+      out("✓ Depoimentos salvos!");
+    }
+
+    out("\n✅ RESTAURAÇÃO COMPLETA!", "");
+    out("Produtos: " + prods.length + " · Fotos: " + totalFotos);
+    out("\nVolte ao admin.html e clique em Sync Completo.");
+  } catch(e){
+    out("✕ Erro: " + e.message, "err");
+    out("Certifique-se de estar logado e com as regras do Firebase atualizadas.", "warn");
+  }
+
+  btn.disabled = false;
+}
+</script>
+</body>
+</html>
