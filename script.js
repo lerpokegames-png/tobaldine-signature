@@ -172,7 +172,7 @@ function renderCatalogo() {
       if (!fragmentos["autorais"]) fragmentos["autorais"] = [];
       fragmentos["autorais"].push({html: cardHtml, subsecao: p.subsecao || ""});
     } else if (p.secao === "cosmeticos") {
-      fragCosmeticos.push(cardHtml);
+      fragCosmeticos.push({html: cardHtml, subsecao: p.subsecao || ""});
     } else {
       var targetId = genero + "-" + (p.secao || "").toLowerCase();
       if (!fragmentos[targetId]) fragmentos[targetId] = [];
@@ -238,7 +238,6 @@ function renderCatalogo() {
   });
 
   renderKits();
-  renderDepoimentos();
   renderNotesPills();
   updateCartBadge();
   checkAfiliadoUrl();
@@ -671,28 +670,6 @@ function renderKits() {
   }).join("");
 }
 
-function renderDepoimentos() {
-  if (typeof DEPOIMENTOS === "undefined" || !DEPOIMENTOS) return;
-  var depContainer = document.getElementById("depoimentosTrack");
-  if (!depContainer) return;
-
-  depContainer.innerHTML = DEPOIMENTOS.map(function(d) {
-    var estrelasStr = "★".repeat(d.estrelas) + "☆".repeat(5 - d.estrelas);
-    var iniciais = (d.nome || "?").trim().split(" ").map(function(w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
-    return '<div class="dep-card">'
-      + '<div class="dep-header">'
-      + '<div class="dep-avatar">' + iniciais + '</div>'
-      + '<div>'
-      + '<div class="dep-stars" style="color:var(--gold)">' + estrelasStr + '</div>'
-      + '<div class="dep-author"><strong>' + sanitize(d.nome) + '</strong> — <span>' + sanitize(d.cidade) + '</span></div>'
-      + '</div>'
-      + '</div>'
-      + '<p class="dep-text">"' + sanitize(d.texto) + '"</p>'
-      + '<div class="dep-produto">📦 Adquiriu: ' + sanitize(d.produto) + '</div>'
-      + '</div>';
-  }).join("");
-}
-
 function clearCart() {
   CARRINHO = [];
   localStorage.removeItem("tb_carrinho");
@@ -815,14 +792,14 @@ function initNavObserver(){
       if(best) setActive(best.target.id);
     }, { rootMargin: "-20% 0px -70% 0px", threshold: [0, 0.1, 0.5] });
 
-    ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre","depoimentos"].forEach(function(id){
+    ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre"].forEach(function(id){
       var el = document.getElementById(id);
       if(el) observer.observe(el);
     });
   } else {
     /* Fallback: scroll event */
     window.addEventListener("scroll", function(){
-      var ids = ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre","depoimentos"];
+      var ids = ["masculinos","femininos","unissex","kits-cosmeticos","autorais","sobre"];
       var cur = "";
       ids.forEach(function(id){
         var el = document.getElementById(id);

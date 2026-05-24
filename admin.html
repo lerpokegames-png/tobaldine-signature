@@ -255,7 +255,6 @@ select optgroup{color: var(--gold); font-weight: bold;}
       <div class="tab active" onclick="switchTab('produtos',this)">Produtos</div>
       <div class="tab" onclick="switchTab('kits',this)">Kits</div>
       <div class="tab" onclick="switchTab('cupons',this)">Cupons & Afiliados</div>
-      <div class="tab" onclick="switchTab('depoimentos',this)">Depoimentos</div>
       <div class="tab" onclick="switchTab('dashboard',this)">Dashboard</div>
       <div class="tab" onclick="switchTab('config',this)">Config</div>
       <div class="tab" onclick="switchTab('historico',this)">Histórico (Backlog)</div>
@@ -271,7 +270,6 @@ select optgroup{color: var(--gold); font-weight: bold;}
 
     <div id="tKits" style="display:none;max-width:800px"></div>
     <div id="tCupons" style="display:none;max-width:800px"></div>
-    <div id="tDep" style="display:none;max-width:700px"></div>
     <div id="tDash" style="display:none"></div>
     <div id="tConf" style="display:none;max-width:600px"></div>
     <div id="tHist" style="display:none;max-width:800px"></div>
@@ -866,7 +864,7 @@ function _restoreMainTabs(){
     +'<div class="tab active" onclick="switchTab(\'produtos\',this)">Produtos</div>'
     +'<div class="tab" onclick="switchTab(\'kits\',this)">Kits</div>'
     +'<div class="tab" onclick="switchTab(\'cupons\',this)">Cupons &amp; Afiliados</div>'
-    +'<div class="tab" onclick="switchTab(\'depoimentos\',this)">Depoimentos</div>'
+    
     +'<div class="tab" onclick="switchTab(\'dashboard\',this)">Dashboard</div>'
     +'<div class="tab" onclick="switchTab(\'config\',this)">Config</div>'
     +'<div class="tab" onclick="switchTab(\'historico\',this)">Histórico (Backlog)</div>'
@@ -880,7 +878,7 @@ function _restoreMainTabs(){
     +'<div id="tTextos" style="display:none;max-width:700px"></div>'
     +'<div id="tKits" style="display:none;max-width:800px"></div>'
     +'<div id="tCupons" style="display:none;max-width:800px"></div>'
-    +'<div id="tDep" style="display:none;max-width:700px"></div>'
+    
     +'<div id="tDash" style="display:none"></div>'
     +'<div id="tConf" style="display:none;max-width:600px"></div>'
     +'<div id="tHist" style="display:none;max-width:800px"></div>';
@@ -908,6 +906,17 @@ function renderGrade(){
       + '</div>';
   } else {
     tProd.innerHTML = gradeHtml;
+  }
+
+  /* Botão + Novo visível na grade (sidebar está oculta) */
+  var container = document.getElementById("gradeContainer");
+  if(container){
+    var btnNovo = document.createElement("button");
+    btnNovo.className = "btn btn-gold btn-sm";
+    btnNovo.style.cssText = "position:fixed;bottom:24px;right:24px;z-index:100;border-radius:50px;padding:10px 20px;box-shadow:0 4px 16px rgba(0,0,0,0.4)";
+    btnNovo.textContent = "+ Novo Produto";
+    btnNovo.onclick = function(){ addProd(); setView("lista"); };
+    container.appendChild(btnNovo);
   }
 
   var wrap = document.getElementById("gradeWrap");
@@ -1283,7 +1292,7 @@ function salvarCupons(){saveData();if(typeof fbSaveCupons==="function") fbSaveCu
 function switchTab(name,btn){
   document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active")});
   btn.classList.add("active");
-  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",depoimentos:"tDep",dashboard:"tDash",config:"tConf",historico:"tHist",pedidos:"tPedidos",caixa:"tCaixa",textos:"tTextos"};
+  var tabs={produtos:"tProdutos",kits:"tKits",cupons:"tCupons",dashboard:"tDash",config:"tConf",historico:"tHist",pedidos:"tPedidos",caixa:"tCaixa",textos:"tTextos"};
   Object.values(tabs).forEach(function(id){var el=document.getElementById(id);if(el)el.style.display="none"});
   var show=tabs[name];
   if(show){
