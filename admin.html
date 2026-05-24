@@ -586,6 +586,12 @@ function loadFromFirebase(db){
       }
     }).catch(function(){});
 
+    /* Carrega textos do site */
+    db.ref("config/textos").once("value").then(function(snap){
+      var t = snap.val();
+      if(t){ _textosSite = t; localStorage.setItem("tb_v3_textos", JSON.stringify(t)); }
+    }).catch(function(){});
+
     db.ref("config/secoes").once("value", function(snap){
       var sl = snap.val();
       if(sl){ SECOES.forEach(function(s){ if(sl[s.id]) s.lbl = sl[s.id]; }); localStorage.setItem("tb_secoes_labels", JSON.stringify(sl)); }
@@ -1555,6 +1561,20 @@ var _TEXTOS_CONFIG = [
 function renderTextos(){
   var el = document.getElementById("tTextos");
   if(!el) return;
+
+  /* Carrega valores atuais do Firebase antes de renderizar */
+  if(window.firebaseDB){
+    window.firebaseDB.ref("config/textos").once("value").then(function(snap){
+      var t = snap.val();
+      if(t){ _textosSite = t; }
+      _renderTextosForm(el);
+    }).catch(function(){ _renderTextosForm(el); });
+  } else {
+    _renderTextosForm(el);
+  }
+}
+
+function _renderTextosForm(el){
   var campos = _TEXTOS_CONFIG.map(function(t){
     var val = _textosSite[t.id] !== undefined ? _textosSite[t.id] : t.def;
     var input = t.tipo === "textarea"
