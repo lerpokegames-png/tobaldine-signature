@@ -338,18 +338,26 @@ select optgroup{color: var(--gold); font-weight: bold;}
 
 <script>
 /* ══════════════════════════════════════════════════════
-   FIX SEGURANÇA: Autenticação real via Firebase Auth.
-   O sessionStorage foi REMOVIDO — era bypassável via
-   console do navegador com uma linha de código.
-   Agora a verificação é server-side (Firebase).
+   INICIALIZAÇÃO FIREBASE — feita aqui para garantir
+   que auth() esteja disponível antes de qualquer uso.
+══════════════════════════════════════════════════════ */
+(function() {
+  var cfg = {
+    apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
+    authDomain:        "tobaldine-signature.firebaseapp.com",
+    databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
+    projectId:         "tobaldine-signature",
+    storageBucket:     "tobaldine-signature.firebasestorage.app",
+    messagingSenderId: "977486037825",
+    appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
+  };
+  if (typeof firebase !== "undefined" && !firebase.apps.length) {
+    firebase.initializeApp(cfg);
+  }
+})();
 
-   ⚙ SETUP ÚNICO (1 vez):
-   1. Acesse console.firebase.google.com → seu projeto
-   2. Authentication → Sign-in method → Email/Senha → Ativar
-   3. Authentication → Users → Add user
-      Email: admin@tobaldine.com  (ou o que quiser)
-      Senha: sua senha forte
-   4. Atualize ADMIN_EMAIL abaixo se usar outro e-mail
+/* ══════════════════════════════════════════════════════
+   AUTENTICAÇÃO REAL VIA FIREBASE AUTH
 ══════════════════════════════════════════════════════ */
 
 var ADMIN_EMAIL    = "admin@tobaldine.com"; /* fallback — sobrescrito pelo campo de e-mail */
