@@ -1338,7 +1338,16 @@ function renderDash(){
   document.getElementById("tDash").innerHTML='<div class="dgrid"><div class="dcard"><div class="num">'+produtos.length+'</div><div class="lbl">Produtos</div></div><div class="dcard"><div class="num">'+kits.length+'</div><div class="lbl">Kits</div></div><div class="dcard"><div class="num">'+cupons.length+'</div><div class="lbl">Cupons / Afiliados</div></div><div class="dcard"><div class="num">'+depoimentos.length+'</div><div class="lbl">Depoimentos</div></div></div>';
 }
 function renderConf(){
+  var telAtual = localStorage.getItem("tb_tel") || "5511941665146";
   document.getElementById("tConf").innerHTML = '<h3 style="font-size:13px;color:var(--gold);margin-bottom:16px">Configuração</h3>'
+    +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px;margin-bottom:14px">'
+    +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">📱 Número WhatsApp</h4>'
+    +'<div style="display:flex;gap:8px">'
+    +'<input type="text" id="telInput" placeholder="5511941665146" style="flex:1;font-size:11px;" value="'+telAtual+'" />'
+    +'<button class="btn btn-gold btn-sm" onclick="salvarTel()">Salvar</button>'
+    +'</div>'
+    +'<p style="font-size:10px;color:var(--muted);margin-top:8px">Somente números, com código do país. Ex: 5511941665146</p>'
+    +'</div>'
     +'<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;max-width:400px">'
     +'<h4 style="font-size:11px;color:var(--gold);margin-bottom:12px">🔑 Alterar Senha do Admin</h4>'
     +'<div style="display:flex;flex-direction:column;gap:10px">'
@@ -1469,6 +1478,19 @@ async function removerFundo(fotoIdx, btn){
   }
 }
 
+function salvarTel(){
+  var tel = (document.getElementById("telInput").value||"").trim().replace(/\D/g,"");
+  if(!tel){ toast("Digite o número"); return; }
+  localStorage.setItem("tb_tel", tel);
+  if(window.firebaseDB){
+    window.firebaseDB.ref("config/tel").set(tel)
+      .then(function(){ toast("✓ WhatsApp salvo! (" + tel + ")"); })
+      .catch(function(){ toast("✓ Salvo localmente"); });
+  } else {
+    toast("✓ Número salvo!");
+  }
+}
+
 function salvarGeminiKey(){
   var key = (document.getElementById("geminiKeyInput").value||"").trim();
   if(!key){ toast("Digite a chave"); return; }
@@ -1545,17 +1567,37 @@ var _textosSite = {};
 try { var _tx=localStorage.getItem("tb_v3_textos"); if(_tx) _textosSite=JSON.parse(_tx); } catch(e){}
 
 var _TEXTOS_CONFIG = [
-  { id:"hero_tagline",   label:"Hero · Frase principal",      tipo:"text",     def:"O perfume certo não é detalhe — é a primeira impressão que você deixa." },
-  { id:"hero_sub",       label:"Hero · Subtítulo",            tipo:"textarea", def:"Cada fragrância selecionada para fazer você se sentir única(o), poderosa(o) e inesquecível onde quer que vá." },
-  { id:"strip_frase",    label:"Faixa dourada · Frase",       tipo:"text",     def:"Ninguém esquece quem cheira bem. Ninguém." },
-  { id:"entrega_faixa",  label:"Faixa de entrega",            tipo:"text",     def:"Entrega em Mauá e região · Até 24h após confirmação · PIX ou cartão" },
-  { id:"sobre_titulo",   label:"Sobre · Título",              tipo:"text",     def:"Tobaldine Signature" },
-  { id:"sobre_desc1",    label:"Sobre · Parágrafo 1",         tipo:"textarea", def:"A Tobaldine Signature nasceu da crença de que alta perfumaria não precisa ser inacessível." },
-  { id:"sobre_desc2",    label:"Sobre · Parágrafo 2",         tipo:"textarea", def:"Atendemos de forma próxima e personalizada, direto pelo WhatsApp, com entrega em Mauá e região." },
-  { id:"footer_copy",    label:"Rodapé · Copyright",          tipo:"text",     def:"© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados" },
-  { id:"sub_decants",    label:"Subcategoria · Decants",       tipo:"text",     def:"Decants de Bolso / Miniaturas" },
-  { id:"sub_originais",  label:"Subcategoria · Originais",     tipo:"text",     def:"Frascos Originais Lacrados" },
-  { id:"sub_similares",  label:"Subcategoria · Similares",     tipo:"text",     def:"Inspirados Premium (Contratipos)" }
+  /* Hero */
+  { id:"hero_tagline",        label:"Hero · Frase principal",           tipo:"text",     def:"O perfume certo não é detalhe — é a primeira impressão que você deixa." },
+  { id:"hero_sub",            label:"Hero · Subtítulo",                 tipo:"textarea", def:"Cada fragrância selecionada para fazer você se sentir única(o), poderosa(o) e inesquecível onde quer que vá." },
+  /* Faixas */
+  { id:"strip_frase",         label:"Faixa dourada · Frase",            tipo:"text",     def:"Ninguém esquece quem cheira bem. Ninguém." },
+  { id:"entrega_faixa",       label:"Faixa de entrega",                 tipo:"text",     def:"Entrega em Mauá e região · Até 24h após confirmação · PIX ou cartão" },
+  /* Seções de gênero */
+  { id:"masculinos_titulo",   label:"Masculinos · Título",              tipo:"text",     def:"Fragrâncias Masculinas" },
+  { id:"masculinos_desc",     label:"Masculinos · Descrição",           tipo:"textarea", def:"Seleção exclusiva de perfumes imponentes, marcantes e sedutores. Encontre sua assinatura de poder." },
+  { id:"femininos_titulo",    label:"Femininos · Título",               tipo:"text",     def:"Fragrâncias Femininas" },
+  { id:"femininos_desc",      label:"Femininos · Descrição",            tipo:"textarea", def:"Fragrâncias envolventes, cremosas e inesquecíveis. A expressão máxima da sofisticação e magnetismo femininos." },
+  { id:"unissex_titulo",      label:"Unissex · Título",                 tipo:"text",     def:"Fragrâncias Unissex" },
+  { id:"unissex_desc",        label:"Unissex · Descrição",              tipo:"textarea", def:"Alta perfumaria compartilhável. Aromas conceituais e sofisticados que transcendem gêneros e se adaptam à pele de forma única." },
+  { id:"kits_titulo",         label:"Kits & Cosméticos · Título",       tipo:"text",     def:"Kits & Cosméticos" },
+  { id:"kits_desc",           label:"Kits & Cosméticos · Descrição",    tipo:"textarea", def:"Body Splashes altamente desejados da Victoria's Secret e combos montados com descontos especiais para presentear ou se mimar." },
+  /* Subcategorias */
+  { id:"sub_decants",         label:"Subcategoria · Decants",           tipo:"text",     def:"Decants de Bolso / Miniaturas" },
+  { id:"sub_originais",       label:"Subcategoria · Originais",         tipo:"text",     def:"Frascos Originais Lacrados" },
+  { id:"sub_similares",       label:"Subcategoria · Similares",         tipo:"text",     def:"Inspirados Premium (Contratipos)" },
+  /* Autorais */
+  { id:"autorais_titulo",     label:"Autorais · Título",                tipo:"text",     def:"Fragrâncias Autorais" },
+  { id:"autorais_desc",       label:"Autorais · Descrição",             tipo:"textarea", def:"Criações exclusivas desenvolvidas pela Tobaldine Signature — fragrâncias únicas que você não encontra em nenhum outro lugar." },
+  /* Depoimentos */
+  { id:"dep_titulo",          label:"Depoimentos · Título",             tipo:"text",     def:"Quem Experimentou, Amou" },
+  { id:"dep_desc",            label:"Depoimentos · Descrição",          tipo:"textarea", def:"Veja o depoimento de clientes que transformaram sua presença com as fragrâncias da Tobaldine Signature." },
+  /* Sobre */
+  { id:"sobre_titulo",        label:"Sobre · Título",                   tipo:"text",     def:"Tobaldine Signature" },
+  { id:"sobre_desc1",         label:"Sobre · Parágrafo 1",              tipo:"textarea", def:"A Tobaldine Signature nasceu da crença de que alta perfumaria não precisa ser inacessível." },
+  { id:"sobre_desc2",         label:"Sobre · Parágrafo 2",              tipo:"textarea", def:"Atendemos de forma próxima e personalizada, direto pelo WhatsApp, com entrega em Mauá e região." },
+  /* Rodapé */
+  { id:"footer_copy",         label:"Rodapé · Copyright",               tipo:"text",     def:"© 2025 Tobaldine Signature · Mauá, SP · Todos os direitos reservados" }
 ];
 
 function renderTextos(){

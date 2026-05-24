@@ -12,12 +12,11 @@ var CUPOM_ATIVO = null;
 var AFILIADO_IDENTIFICADO = "";
 var CUPONS_DO_SISTEMA = [];
 
-/* ── Prova social de viewers REMOVIDA ──────────────────
-   Números aleatórios de "X pessoas vendo agora" foram
-   removidos por risco legal (CDC art. 37 — publicidade
-   enganosa) e por ferir a confiança da marca.
-──────────────────────────────────────────────────────── */
-
+/* ──────────────────────────────
+   PROVA SOCIAL: viewers e estoque
+   Números gerados por produto,
+   variam a cada visita.
+─────────────────────────────── */
 try {
   CARRINHO = JSON.parse(localStorage.getItem("tb_carrinho") || "[]");
 } catch(e) { CARRINHO = []; }
@@ -175,7 +174,7 @@ function renderCatalogo() {
     } else if (p.secao === "cosmeticos") {
       fragCosmeticos.push(cardHtml);
     } else {
-      var targetId = genero + "-" + p.secao;
+      var targetId = genero + "-" + (p.secao || "").toLowerCase();
       if (!fragmentos[targetId]) fragmentos[targetId] = [];
       fragmentos[targetId].push({html: cardHtml, subsecao: p.subsecao || ""});
     }
@@ -244,7 +243,6 @@ function renderCatalogo() {
   updateCartBadge();
   checkAfiliadoUrl();
   setTimeout(initCarrosselComHint, 100);
-  /* _startViewerTick() removido — prova social falsa eliminada */
 }
 
 /* ══════════════════════════════

@@ -99,11 +99,9 @@ var firebaseConfig = {
           if(id === "strip_frase"){
             el.innerHTML = "· "+val+" ·";
           } else if(id === "entrega_faixa"){
-            /* update cutoff strip text */
             var strip = el.closest ? el.closest(".cutoff-strip") : null;
             if(strip){ var sp = strip.querySelector("span:last-child"); if(sp) sp.textContent = val; }
           } else if(id.startsWith("sub_")){
-            /* Sub-category titles: preserve emoji prefix */
             var cur = el.textContent || "";
             var emojiMatch = cur.match(/^[^\w\s]{1,3}\s*/);
             el.textContent = (emojiMatch ? emojiMatch[0] : "") + val;
@@ -111,6 +109,17 @@ var firebaseConfig = {
             el.textContent = val;
           }
         });
+      });
+    });
+
+    /* Telefone / WhatsApp dinâmico */
+    db.ref("config/tel").once("value", function(snap){
+      var tel = snap.val();
+      if(!tel) return;
+      if(typeof TEL !== "undefined") TEL = tel;
+      /* Atualiza todos os links de WhatsApp na página */
+      document.querySelectorAll("a[href*='whatsapp.com/send']").forEach(function(a){
+        a.href = a.href.replace(/phone=\d+/, "phone=" + tel);
       });
     });
 
