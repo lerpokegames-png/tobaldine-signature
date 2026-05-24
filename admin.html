@@ -235,7 +235,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
-    <button id="btnAutoPreench" class="btn btn-outline btn-sm" onclick="autoPreencherTodos()" title="Preencher descrição e notas olfativas com IA" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)">🤖 Auto-preencher</button>
+    <button id="btnAutoPreench" class="btn btn-outline btn-sm" onclick="abrirAutoFill()" title="Preencher descrição e notas olfativas com IA" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)">🤖 Auto-preencher</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
     <button class="btn btn-outline btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
     <button class="btn btn-outline btn-sm" style="color:#c04c4c;border-color:rgba(192,76,76,0.3)" onclick="firebase.auth().signOut().then(function(){ toast('Logout realizado.'); })" title="Sair da conta admin">⏻ Sair</button>
@@ -292,7 +292,45 @@ select optgroup{color: var(--gold); font-weight: bold;}
   </div>
 </div>
 
-<div class="moverlay" id="modalBulk">
+<div class="moverlay" id="modalAutoFill">
+  <div class="modal" style="max-width:420px">
+    <h2>🤖 Auto-preencher com IA</h2>
+    <p style="font-size:11px;color:var(--muted);margin-bottom:16px">Selecione quais campos o Gemini deve gerar para cada produto:</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" id="afDesc"    checked style="width:16px;height:16px;accent-color:var(--gold)">
+        <span style="font-size:13px">Descrição do perfume</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" id="afTopo"    checked style="width:16px;height:16px;accent-color:var(--gold)">
+        <span style="font-size:13px">Notas de Topo</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" id="afCorpo"   checked style="width:16px;height:16px;accent-color:var(--gold)">
+        <span style="font-size:13px">Notas de Coração (Corpo)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" id="afFundo"   checked style="width:16px;height:16px;accent-color:var(--gold)">
+        <span style="font-size:13px">Notas de Fundo</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" id="afRanking" style="width:16px;height:16px;accent-color:var(--gold)">
+        <span style="font-size:13px">
+          Ranking / Faixa Promo
+          <span style="font-size:10px;color:var(--muted);display:block">Ex: ✦ Original 25ml · Miniatura do sofisticado Yara (Lattafa) ✦</span>
+        </span>
+      </label>
+    </div>
+
+    <div style="margin-top:16px;padding:10px;background:rgba(201,168,76,0.04);border:1px solid var(--border);border-radius:6px;font-size:11px;color:var(--muted)" id="afScopeInfo"></div>
+
+    <div class="mactions" style="margin-top:16px">
+      <button class="btn btn-gold" onclick="confirmarAutoFill()">🤖 Preencher</button>
+      <button class="btn btn-outline" onclick="document.getElementById('modalAutoFill').classList.remove('open')">Cancelar</button>
+    </div>
+  </div>
+</div>
   <div class="modal" style="max-width:620px;width:95%">
     <h2>➕ Importação em Massa</h2>
     <p style="font-size:11px;color:var(--muted)">Cole uma lista simples <strong>Nome | Gênero | Preço</strong> ou um JSON gerado por IA. Você verá um preview antes de salvar.</p>
@@ -2112,206 +2150,130 @@ function voltarLista() {
    Usa a chave Gemini configurada na aba Config.
    Rate limit: 1 chamada a cada 1.2s (~50 req/min).
 ══════════════════════════════════════════════════════ */
-async function autoPreencherSelecionados() {
+/* ── Modal de opções do Auto-preencher ── */
+var _autoFillScope = "todos"; /* "todos" ou "selecionados" */
+
+function abrirAutoFill(scope) {
+  _autoFillScope = scope || "todos";
+  var info = document.getElementById("afScopeInfo");
+  if (info) {
+    if (_autoFillScope === "selecionados") {
+      info.textContent = "Serão preenchidos " + _loteSelected.size + " produto(s) selecionado(s) no Lote.";
+    } else {
+      info.textContent = "Serão preenchidos todos os " + produtos.length + " produtos do catálogo.";
+    }
+  }
+  document.getElementById("modalAutoFill").classList.add("open");
+}
+
+function confirmarAutoFill() {
+  document.getElementById("modalAutoFill").classList.remove("open");
+  var campos = {
+    desc:    document.getElementById("afDesc").checked,
+    topo:    document.getElementById("afTopo").checked,
+    corpo:   document.getElementById("afCorpo").checked,
+    fundo:   document.getElementById("afFundo").checked,
+    ranking: document.getElementById("afRanking").checked
+  };
+  var indices = _autoFillScope === "selecionados"
+    ? Array.from(_loteSelected)
+    : produtos.map(function(_,i){return i;});
+  _runAutoFill(indices, campos);
+}
+
+async function _runAutoFill(indices, campos) {
   var geminiKey = (localStorage.getItem("tb_gemini_key") || "").trim();
   if (!geminiKey) { toast("⚠ Configure a chave Gemini na aba Config primeiro"); return; }
+  if (!indices.length) { toast("Nenhum produto para preencher"); return; }
 
-  var indices = Array.from(_loteSelected);
-  if (!indices.length) { toast("Selecione produtos no modo Lote primeiro"); return; }
-
-  if (!confirm("Preencher descrição e notas de " + indices.length + " produto(s) selecionado(s) com IA?")) return;
-
-  var btn    = document.getElementById("btnAutoPreench");
-  var fbSt   = document.getElementById("fbStatus");
-  var okCnt  = 0, errCnt = 0;
-  var total  = indices.length;
+  var btn   = document.getElementById("btnAutoPreench");
+  var fbSt  = document.getElementById("fbStatus");
+  var total = indices.length;
+  var okCnt = 0, errCnt = 0;
 
   btn.disabled    = true;
   btn.textContent = "🤖 Processando...";
+
+  /* Monta os campos solicitados no prompt */
+  var camposJson = [];
+  if (campos.desc)    camposJson.push('"desc":"descrição do perfume em português (2 frases)"');
+  if (campos.topo)    camposJson.push('"topo":"notas de topo separadas por vírgula"');
+  if (campos.corpo)   camposJson.push('"corpo":"notas de coração separadas por vírgula"');
+  if (campos.fundo)   camposJson.push('"fundo":"notas de fundo separadas por vírgula"');
+  if (campos.ranking) camposJson.push('"ranking":"✦ frase criativa e única sobre o perfume ✦"');
+
+  if (!camposJson.length) { btn.disabled=false; btn.textContent="🤖 Auto-preencher"; toast("Selecione pelo menos um campo"); return; }
 
   for (var t = 0; t < indices.length; t++) {
     var i = indices[t];
     var p = produtos[i];
 
     if (fbSt) {
-      fbSt.textContent      = "🤖 " + (t + 1) + "/" + total + " — " + (p.nome || "?");
+      fbSt.textContent      = "🤖 " + (t+1) + "/" + total + " — " + (p.nome||"?");
       fbSt.style.background = "rgba(127,119,221,0.12)";
       fbSt.style.color      = "#7f77dd";
     }
 
-    var prompt = 'Perfume: "' + (p.nome || "") + '"'
-      + (p.marca  ? '. Marca: ' + p.marca   : '')
+    var rankingInstrucao = campos.ranking && (p.badge||"").toLowerCase().includes("25ml")
+      ? '\nPara o campo "ranking", use o formato: ✦ Original 25ml · [frase única sobre este perfume específico] ✦'
+      : campos.ranking
+        ? '\nPara o campo "ranking", crie uma frase curta e única como: ✦ [adjetivo + ocasião ou inspiração] ✦'
+        : "";
+
+    var prompt = 'Perfume: "' + (p.nome||"") + '"'
+      + (p.marca   ? '. Marca: ' + p.marca   : '')
       + (p.familia ? '. Família: ' + p.familia : '')
-      + '.\nResponda SOMENTE com JSON (sem markdown):\n'
-      + '{"desc":"frase descrevendo o perfume em português",'
-      + '"topo":"notas de topo","corpo":"notas de coração","fundo":"notas de fundo"}';
+      + '.\nResponda SOMENTE com JSON (sem markdown):\n{'
+      + camposJson.join(",")
+      + '}' + rankingInstrucao;
 
     var tentativas = 0, sucesso = false;
-
     while (tentativas < 3 && !sucesso) {
       tentativas++;
       try {
         var resp = await fetch(
           "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + geminiKey,
           { method:"POST", headers:{"Content-Type":"application/json"},
-            body: JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.3,maxOutputTokens:1024} }) }
+            body: JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.4,maxOutputTokens:1024} }) }
         );
         if (resp.status === 429) { await new Promise(function(r){setTimeout(r,15000);}); continue; }
         var data = await resp.json();
         if (data.error) throw new Error("API: " + data.error.message);
         var candidates = data.candidates || [];
-        if (!candidates.length) throw new Error("Bloqueado: " + ((data.promptFeedback||{}).blockReason||""));
+        if (!candidates.length) throw new Error("Bloqueado");
         var txt = ((candidates[0].content||{}).parts||[]).map(function(pt){return pt.text||"";}).join("").trim();
         var jsonStr = txt.replace(/^```(?:json)?\s*/i,"").replace(/\s*```\s*$/i,"").trim();
         var objMatch = jsonStr.match(/\{[\s\S]*\}/);
         if (objMatch) jsonStr = objMatch[0];
-        var resultado = JSON.parse(jsonStr);
-        if (resultado.desc)  produtos[i].desc = resultado.desc;
-        if (!produtos[i].notas) produtos[i].notas = {topo:"",corpo:"",fundo:""};
-        if (resultado.topo)  produtos[i].notas.topo  = resultado.topo;
-        if (resultado.corpo) produtos[i].notas.corpo = resultado.corpo;
-        if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
+        var res = JSON.parse(jsonStr);
+        if (campos.desc    && res.desc)    produtos[i].desc = res.desc;
+        if (campos.ranking && res.ranking) produtos[i].ranking = res.ranking;
+        if (campos.topo || campos.corpo || campos.fundo) {
+          if (!produtos[i].notas) produtos[i].notas = {topo:"",corpo:"",fundo:""};
+          if (campos.topo  && res.topo)  produtos[i].notas.topo  = res.topo;
+          if (campos.corpo && res.corpo) produtos[i].notas.corpo = res.corpo;
+          if (campos.fundo && res.fundo) produtos[i].notas.fundo = res.fundo;
+        }
         if (selectedIdx === i) renderForm();
         okCnt++; sucesso = true;
       } catch(e) {
-        console.warn("[Auto-fill selecionados] tentativa " + tentativas + " — " + (p.nome||"?") + ":", e.message);
+        console.warn("[Auto-fill] tentativa " + tentativas + " — " + (p.nome||"?") + ":", e.message);
         if (tentativas < 3) await new Promise(function(r){setTimeout(r,3000);});
       }
     }
     if (!sucesso) errCnt++;
-    if ((t + 1) % 10 === 0) saveData();
+    if ((t+1) % 10 === 0) saveData();
     await new Promise(function(r){setTimeout(r,4100);});
   }
 
   saveData(); fbSync();
   btn.disabled = false; btn.textContent = "🤖 Auto-preencher";
   if (fbSt) { fbSt.textContent="✓ Firebase OK"; fbSt.style.background="rgba(76,175,121,0.15)"; fbSt.style.color="#4caf79"; }
-  toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro" : " · tudo certo!"));
+  toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro (ver F12)" : " · tudo certo!"));
 }
-
 async function autoPreencherTodos() {
-  var geminiKey = (localStorage.getItem("tb_gemini_key") || "").trim();
-  if (!geminiKey) {
-    toast("⚠ Configure a chave Gemini na aba Config primeiro");
-    return;
-  }
-
-  var total = produtos.length;
-  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nCom o limite gratuito do Gemini (15 req/min), isso leva cerca de " + Math.ceil(total * 4.1 / 60) + " minuto(s). O processo roda em segundo plano.")) return;
-
-  var btn    = document.getElementById("btnAutoPreench");
-  var fbSt   = document.getElementById("fbStatus");
-  var okCnt  = 0, errCnt = 0;
-
-  btn.disabled    = true;
-  btn.textContent = "🤖 Processando...";
-
-  for (var i = 0; i < produtos.length; i++) {
-    var p = produtos[i];
-
-    if (fbSt) {
-      fbSt.textContent      = "🤖 " + (i + 1) + "/" + total + " — " + (p.nome || "?");
-      fbSt.style.background = "rgba(127,119,221,0.12)";
-      fbSt.style.color      = "#7f77dd";
-    }
-
-    /* Prompt curto e direto — prompts longos aumentam chance de safety block */
-    var prompt = 'Perfume: "' + (p.nome || "") + '"'
-      + (p.marca  ? '. Marca: ' + p.marca   : '')
-      + (p.familia ? '. Família: ' + p.familia : '')
-      + '.\nResponda SOMENTE com JSON (sem markdown):\n'
-      + '{"desc":"frase descrevendo o perfume em português",'
-      + '"topo":"notas de topo","corpo":"notas de coração","fundo":"notas de fundo"}';
-
-    var tentativas = 0;
-    var sucesso = false;
-
-    while (tentativas < 3 && !sucesso) {
-      tentativas++;
-      try {
-        var resp = await fetch(
-          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + geminiKey,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text: prompt }] }],
-              generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
-            })
-          }
-        );
-
-        /* Rate limit — aguarda e tenta de novo */
-        if (resp.status === 429) {
-          await new Promise(function(r) { setTimeout(r, 15000); }); /* 15s no rate limit */
-          continue;
-        }
-
-        var data = await resp.json();
-
-        if (data.error) throw new Error("API: " + (data.error.message || resp.status));
-
-        /* FIX: safety block — candidates pode estar vazio */
-        var candidates = data.candidates || [];
-        if (!candidates.length) {
-          var reason = ((data.promptFeedback || {}).blockReason) || "sem candidatos";
-          throw new Error("Bloqueado (" + reason + ")");
-        }
-
-        var txt = ((candidates[0].content || {}).parts || [])
-          .map(function(pt) { return pt.text || ""; }).join("").trim();
-
-        /* FIX: remove fences markdown e pega bloco {} mais externo */
-        var jsonStr = txt.replace(/^```(?:json)?\s*/i,"").replace(/\s*```\s*$/i,"").trim();
-        var objMatch = jsonStr.match(/\{[\s\S]*\}/);
-        if (objMatch) jsonStr = objMatch[0];
-
-        if (!jsonStr) throw new Error("Sem JSON: " + txt.substring(0, 60));
-
-        var resultado = JSON.parse(jsonStr);
-
-        if (resultado.desc)  produtos[i].desc = resultado.desc;
-        if (!produtos[i].notas) produtos[i].notas = { topo: "", corpo: "", fundo: "" };
-        if (resultado.topo)  produtos[i].notas.topo  = resultado.topo;
-        if (resultado.corpo) produtos[i].notas.corpo = resultado.corpo;
-        if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
-
-        /* Atualiza o form em tempo real se este produto estiver aberto */
-        if (selectedIdx === i) renderForm();
-
-        okCnt++;
-        sucesso = true;
-
-      } catch (e) {
-        console.warn("[Auto-fill] tentativa " + tentativas + " — " + (p.nome || "?") + ":", e.message);
-        if (tentativas < 3) await new Promise(function(r) { setTimeout(r, 3000); });
-      }
-    }
-
-    if (!sucesso) errCnt++;
-
-    /* Salva a cada 10 produtos */
-    if ((i + 1) % 10 === 0) saveData();
-
-    /* Delay entre chamadas — Gemini free: 15 RPM = 1 req a cada 4s */
-    await new Promise(function(r) { setTimeout(r, 4100); });
-  }
-
-  saveData();
-  fbSync();
-
-  btn.disabled    = false;
-  btn.textContent = "🤖 Auto-preencher";
-
-  if (fbSt) {
-    fbSt.textContent      = "✓ Firebase OK";
-    fbSt.style.background = "rgba(76,175,121,0.15)";
-    fbSt.style.color      = "#4caf79";
-  }
-
-  if (selectedIdx !== null) renderForm();
-
-  toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro (ver console)" : " · tudo certo!"));
+  /* Redireciona para o novo sistema com modal de opções */
+  abrirAutoFill("todos");
 }
 
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
