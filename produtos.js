@@ -2272,5 +2272,491 @@ var DEPOIMENTOS=[
     "nome": "Mariana C.",
     "produto": "Ajwad · Original 100ml",
     "texto": "Atendimento nota 10, produto chegou bem embalado e o Ajwad é viciante! Meu marido também adorou. Virei cliente fiel da Tobaldine!"
-  }
-];
+  },
+{
+"nome": "Afeef",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Unissex",
+"ranking": "✦ Obra-prima da opulência árabe ✦",
+"desc": "Uma essência luxuosa que evoca noites estreladas no Oriente. Harmonia rica de especiarias quentes e madeiras nobres, revelando uma assinatura magnética de pura opulência.",
+"notas": { "topo": "Açafrão, Cardamomo", "corpo": "Rosa, Oud Líquido", "fundo": "Âmbar, Patchouli, Almíscar" },
+"preco": "R$ 445,00"
+},
+{
+"nome": "Ajwad",
+"marca": "LATTAFA",
+"familia": "Floral Amadeirado · Unissex",
+"ranking": "✦ Inspirado no Roses Vanille ✦",
+"desc": "Elixir metálico e doce que irradia modernidade. Pétalas aveludadas encontram baunilha oriental, criando um rastro apaixonante e de fixação impecável.",
+"notas": { "topo": "Notas Frutadas, Lichia", "corpo": "Rosa, Jasmim", "fundo": "Baunilha, Âmbar, Cedro" },
+"preco": "R$ 110,00"
+},
+{
+"nome": "Ajwad Pink",
+"marca": "LATTAFA",
+"familia": "Floral Frutado · Feminino",
+"ranking": "✦ Feminilidade radiante ✦",
+"desc": "Vibrante coquetel de frutas vermelhas e flores cremosas. Uma aura delicada, porém inegavelmente poderosa e luxuosa para todas as ocasiões.",
+"notas": { "topo": "Morango, Framboesa, Cereja", "corpo": "Rosa Damascena, Jasmim Sambac", "fundo": "Almíscar Branco, Baunilha, Sândalo" },
+"preco": "R$ 105,00"
+},
+{
+"nome": "Al Layl",
+"marca": "LATTAFA",
+"familia": "Ambarino Amadeirado · Unissex",
+"ranking": "✦ O segredo das mil e uma noites ✦",
+"desc": "Fragrância noturna profunda e enigmática. Notas balsâmicas dançam sobre madeiras preciosas com projeção avassaladora.",
+"notas": { "topo": "Lavanda, Maçã Verde", "corpo": "Madeiras Preciosas, Cardamomo", "fundo": "Oud, Âmbar, Fava Tonka" },
+"preco": "R$ 105,00"
+},
+{
+"nome": "Al Noble Ameer",
+"marca": "LATTAFA",
+"familia": "Aromático Especiado · Unissex",
+"ranking": "✦ Elegância oriental revigorante ✦",
+"desc": "Composição botânica de frescor condimentado. Uma viagem aos palácios luxuosos, exalando poder, vitalidade e sofisticação exótica.",
+"notas": { "topo": "Maçã, Pimenta Rosa, Alecrim", "corpo": "Cravo, Notas Florais", "fundo": "Oud, Vetiver, Cipreste, Patchouli" },
+"preco": "R$ 155,00"
+},
+{
+"nome": "Al Noble Safeer",
+"marca": "LATTAFA",
+"familia": "Amadeirado Herbal · Unissex",
+"ranking": "✦ Aura verde e aristocrática ✦",
+"desc": "A faceta mais refinada da linha Noble. Abertura cítrica verde fundida a um coração lenhoso, resultando em um aroma misterioso digno da mais alta realeza.",
+"notas": { "topo": "Artemísia, Bergamota", "corpo": "Notas Verdes, Especiarias", "fundo": "Cedro, Madeira de Guaiac, Incenso" },
+"preco": "R$ 155,00"
+},
+{
+"nome": "Al Noble Wazeer",
+"marca": "LATTAFA",
+"familia": "Frutado Especiado · Unissex",
+"ranking": "✦ Indulgência frutada irresistível ✦",
+"desc": "Poção que mescla frutas suculentas, chocolate e madeiras. Um espetáculo denso, adocicado e inebriante para deixar uma marca inesquecível.",
+"notas": { "topo": "Menta, Laranja, Bergamota", "corpo": "Chocolate, Caramelo, Pera, Framboesa", "fundo": "Baunilha, Âmbar, Sândalo" },
+"preco": "R$ 170,00"
+},
+{
+"nome": "Asad",
+"marca": "LATTAFA",
+"familia": "Especiado Quente · Masculino",
+"ranking": "✦ Inspirado no Sauvage Elixir ✦",
+"desc": "Pináculo da masculinidade moderna. Contraste explosivo de especiarias frescas e madeiras ambaradas, garantindo sofisticação inquestionável.",
+"notas": { "topo": "Pimenta Preta, Tabaco, Abacaxi", "corpo": "Café, Patchouli, Íris", "fundo": "Baunilha, Âmbar, Madeira" },
+"preco": "R$ 160,00"
+},
+{
+"nome": "Asad Bourbon",
+"marca": "LATTAFA",
+"familia": "Ambarino Amadeirado · Masculino",
+"ranking": "✦ Reinterpretação intensa e noturna ✦",
+"desc": "Elixir licoroso e amadeirado. Nuances esfumaçadas trazem uma elegância madura que seduz de maneira silenciosa e letal.",
+"notas": { "topo": "Bergamota, Pimenta, Noz-Moscada", "corpo": "Notas Licorosas, Vetiver", "fundo": "Cedro, Âmbar, Baunilha Bourbon" },
+"preco": "R$ 235,00"
+},
+{
+"nome": "Asad Zanzibar",
+"marca": "LATTAFA",
+"familia": "Cítrico Especiado · Masculino",
+"ranking": "✦ Calor exótico das ilhas ✦",
+"desc": "Frescor tropical fundido ao DNA especiado de Asad. Fragrância revigorante e radiante que transporta para destinos paradisíacos.",
+"notas": { "topo": "Pimenta Preta, Bergamota, Notas Marinhas", "corpo": "Lavanda, Íris, Água de Coco", "fundo": "Incenso, Patchouli, Baunilha" },
+"preco": "R$ 160,00"
+},
+{
+"nome": "Atheeri",
+"marca": "LATTAFA",
+"familia": "Couro Especiado · Unissex",
+"ranking": "✦ Alta perfumaria de nicho ✦",
+"desc": "Expressão máxima de status. Couro nobre e resinas orientais em uma obra-prima sedutora, intensamente viciante e exclusiva.",
+"notas": { "topo": "Açafrão, Cardamomo", "corpo": "Couro, Osmanthus, Rosa Turca", "fundo": "Oud, Vetiver, Âmbar, Patchouli" },
+"preco": "R$ 470,00"
+},
+{
+"nome": "Bade’e Noble Blush",
+"marca": "LATTAFA",
+"familia": "Floral Frutado · Feminino",
+"ranking": "✦ Delicadeza e sofisticação ✦",
+"desc": "Poção romântica que encapsula a feminilidade. Frutas cristalizadas e rosas fundem-se em um fundo macio de almíscar hipnotizante.",
+"notas": { "topo": "Frutas Vermelhas, Mandarina", "corpo": "Rosa, Peônia, Orquídea", "fundo": "Baunilha, Almíscar, Madeiras" },
+"preco": "R$ 150,00"
+},
+{
+"nome": "Bad Homme",
+"marca": "MAISON ALHAMBRA",
+"familia": "Especiado Oriental · Masculino",
+"ranking": "✦ Inspirado no Bad Boy ✦",
+"desc": "A dualidade do homem contemporâneo. Frescor elétrico cedendo a um fundo escuro de cacau e fava tonka, garantindo atração magnética.",
+"notas": { "topo": "Pimenta Branca, Bergamota", "corpo": "Sálvia, Cedro", "fundo": "Fava Tonka, Cacau, Madeira" },
+"preco": "R$ 125,00"
+},
+{
+"nome": "Club Woman",
+"marca": "ARMAF",
+"familia": "Floral Oriental · Feminino",
+"ranking": "✦ Inspirado no Coco Mademoiselle ✦",
+"desc": "Puro luxo e empoderamento. Cítricos vibrantes, coração floral romântico e patchouli terroso e sensual.",
+"notas": { "topo": "Laranja, Bergamota, Pêssego", "corpo": "Rosa, Jasmim, Lichia", "fundo": "Patchouli, Baunilha, Almíscar" },
+"preco": "R$ 220,00"
+},
+{
+"nome": "Dalal",
+"marca": "AL REHAB",
+"familia": "Gourmand Oriental · Unissex",
+"ranking": "✦ Doce abraço da realeza árabe ✦",
+"desc": "Delícia olfativa rica. Caramelo dourado com laranjas maduras e sândalo, criando uma nuvem doce, luxuosa e intimista.",
+"notas": { "topo": "Laranja Doce, Bergamota", "corpo": "Caramelo, Baunilha", "fundo": "Sândalo, Almíscar" },
+"preco": "R$ 300,00"
+},
+{
+"nome": "Delilah",
+"marca": "MAISON ALHAMBRA",
+"familia": "Floral Frutado · Feminino",
+"ranking": "✦ Inspirado no Delina ✦",
+"desc": "Dança majestosa de rosas turcas e ruibarbo. Elegância aristocrática com rastro de seda que domina todos os sentidos.",
+"notas": { "topo": "Bergamota, Ruibarbo, Lichia", "corpo": "Rosa Turca, Peônia, Baunilha", "fundo": "Caxemira, Cedro, Vetiver" },
+"preco": "R$ 180,00"
+},
+{
+"nome": "Eclaire Pistache",
+"marca": "PARIS CORNER",
+"familia": "Gourmand · Feminino",
+"ranking": "✦ Inspirado no Bianco Latte ✦",
+"desc": "Experiência gastronômica. Baunilha e pistache cremoso criam uma sobremesa olfativa opulenta, altamente viciante e sensual.",
+"notas": { "topo": "Pistache, Sorvete de Baunilha", "corpo": "Algodão Doce, Leite", "fundo": "Caramelo, Fava Tonka, Almíscar" },
+"preco": "R$ 195,00"
+},
+{
+"nome": "Eterial Vanille",
+"marca": "MAISON ALHAMBRA",
+"familia": "Âmbar Baunilha · Unissex",
+"ranking": "✦ A baunilha mais nobre do Oriente ✦",
+"desc": "Estudo sobre a baunilha. Madeiras e especiarias abraçam o aspecto licoroso, resultando em uma poção escura, rica e envolvente.",
+"notas": { "topo": "Baunilha, Cardamomo", "corpo": "Sândalo, Cedro", "fundo": "Âmbar, Almíscar, Fava Tonka" },
+"preco": "R$ 205,00"
+},
+{
+"nome": "Fakhar Black",
+"marca": "LATTAFA",
+"familia": "Aromático Fougère · Masculino",
+"ranking": "✦ Inspirado no Y EDP ✦",
+"desc": "Espírito da conquista. Maçã verde e sálvia encontram madeiras profundas, entregando elegância, versatilidade e presença.",
+"notas": { "topo": "Maçã, Bergamota, Gengibre", "corpo": "Lavanda, Sálvia, Gerânio", "fundo": "Fava Tonka, Cedro, Vetiver" },
+"preco": "R$ 185,00"
+},
+{
+"nome": "Fakhar Gold",
+"marca": "LATTAFA",
+"familia": "Âmbar Floral · Masculino",
+"ranking": "✦ Inspirado no 1 Million Parfum ✦",
+"desc": "Barra de ouro derretida sobre flores brancas. Atestado de riqueza que brilha intensamente na pele e garante atenção absoluta.",
+"notas": { "topo": "Tuberosa, Sal", "corpo": "Monoi, Couro", "fundo": "Âmbar Gris, Ládano, Caxemira" },
+"preco": "R$ 145,00"
+},
+{
+"nome": "Fakhar Platinum",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Brilho impecável do sucesso ✦",
+"desc": "Assinatura para o homem corporativo. Fusão metálica de especiarias frias e madeiras robustas para um luxo impenetrável.",
+"notas": { "topo": "Pimenta Preta, Cítricos", "corpo": "Gerânio, Lavanda", "fundo": "Cedro, Vetiver, Almíscar" },
+"preco": "R$ 150,00"
+},
+{
+"nome": "Fakhar Rose",
+"marca": "LATTAFA",
+"familia": "Floral Branco · Feminino",
+"ranking": "✦ Inspirado no L'Interdit ✦",
+"desc": "Declaração de ousadia. Tuberosa cremosa e jasmim chocam-se contra vetiver, joia olfativa intensamente feminina e inesquecível.",
+"notas": { "topo": "Frutas, Romã, Aldeídos", "corpo": "Tuberosa, Jasmim, Gardênia", "fundo": "Baunilha, Sândalo, Almíscar" },
+"preco": "R$ 265,00"
+},
+{
+"nome": "Hayaati",
+"marca": "LATTAFA",
+"familia": "Aquático Amadeirado · Masculino",
+"ranking": "✦ Inspirado no Invictus ✦",
+"desc": "Onda revigorante de vitalidade. Notas marinhas com maçã crocante, coroando um campeão moderno com aura vibrante e limpa.",
+"notas": { "topo": "Maçã, Bergamota", "corpo": "Canela, Notas Amadeiradas, Aquáticas", "fundo": "Baunilha, Almíscar, Âmbar" },
+"preco": "R$ 115,00"
+},
+{
+"nome": "Her Confession",
+"marca": "LATTAFA",
+"familia": "Floral Âmbar · Feminino",
+"ranking": "✦ Mistério sedutor ✦",
+"desc": "Feitiço magnético de doces celestiais e base noturna envolvente. Revela o lado ousado da feminilidade com luxo cativante.",
+"notas": { "topo": "Amêndoa, Especiarias", "corpo": "Tuberosa, Flor de Laranjeira, Jasmim", "fundo": "Baunilha, Fava Tonka, Âmbar" },
+"preco": "R$ 225,00"
+},
+{
+"nome": "His Confession",
+"marca": "LATTAFA",
+"familia": "Amadeirado Aromático · Masculino",
+"ranking": "✦ Charme do homem letal ✦",
+"desc": "Combinação de lavanda fresca e resinas esfumaçadas. Assinatura de confiança para o homem que exala magnetismo natural.",
+"notas": { "topo": "Cardamomo, Bergamota, Pimenta", "corpo": "Lavanda, Íris, Madeiras", "fundo": "Patchouli, Vetiver, Baunilha" },
+"preco": "R$ 190,00"
+},
+{
+"nome": "Jean Lowe Immortel",
+"marca": "MAISON ALHAMBRA",
+"familia": "Amadeirado Aquático · Masculino",
+"ranking": "✦ Inspirado no L'Immensité ✦",
+"desc": "Brisa infinita de luxo marítimo. Gengibre e toranja explodem em oceano de ambroxan radiante para desbravar o mundo com classe.",
+"notas": { "topo": "Toranja, Gengibre, Bergamota", "corpo": "Notas Aquáticas, Alecrim, Sálvia", "fundo": "Ambroxan, Âmbar, Ládano, Vetiver" },
+"preco": "R$ 155,00"
+},
+{
+"nome": "Khanjar",
+"marca": "LATTAFA",
+"familia": "Couro Especiado · Unissex",
+"ranking": "✦ Vanguarda da perfumaria árabe ✦",
+"desc": "Afiado e inebriante. Couro, noz-moscada e oud formam aura magistral de luxo intimidador e extremo bom gosto.",
+"notas": { "topo": "Açafrão, Noz-Moscada", "corpo": "Couro Escuro, Patchouli, Resinas", "fundo": "Oud, Almíscar, Incenso" },
+"preco": "R$ 310,00"
+},
+{
+"nome": "Khanrah",
+"marca": "LATTAFA",
+"familia": "Gourmand Especiado · Unissex",
+"ranking": "✦ Inspirado no Angels' Share ✦",
+"desc": "O perfume dos deuses. Conhaque com canela, tâmaras e pralinê derretido. O suprassumo do luxo quente e exótico.",
+"notas": { "topo": "Canela, Noz-Moscada, Bergamota", "corpo": "Tâmaras, Pralinê, Tuberosa", "fundo": "Baunilha, Fava Tonka, Âmbar, Mirra" },
+"preco": "R$ 145,00"
+},
+{
+"nome": "Liquid Brum",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Inspirado no Althaïr ✦",
+"desc": "Indulgente baunilha bourbon infundida com madeiras nobres e especiarias. Carisma magnético para as noites mais exclusivas.",
+"notas": { "topo": "Flor de Laranjeira, Bergamota, Canela", "corpo": "Baunilha Bourbon, Elemi", "fundo": "Madeira de Guaiac, Ambroxan, Pralinê" },
+"preco": "R$ 285,00"
+},
+{
+"nome": "Maison Alpine",
+"marca": "MAISON ALHAMBRA",
+"familia": "Aromático Fougère · Masculino",
+"ranking": "✦ Inspirado no Allure Homme Sport ✦",
+"desc": "Adrenalina e elegância atemporal. Frescor cítrico e aquático evoluindo para um coração sensual de alta classe.",
+"notas": { "topo": "Laranja, Mandarina, Aldeídos", "corpo": "Pimenta, Néroli, Cedro", "fundo": "Fava Tonka, Baunilha, Almíscar" },
+"preco": "R$ 125,00"
+},
+{
+"nome": "Maison Chateau Ottoman",
+"marca": "MAISON ALHAMBRA",
+"familia": "Ambarino Amadeirado · Unissex",
+"ranking": "✦ Esplendor imperial do Oriente ✦",
+"desc": "Mergulho no luxo dos sultões. Madeiras milenares banhadas em resinas quentes, sofisticação densa, madura e inigualável.",
+"notas": { "topo": "Rosa, Açafrão", "corpo": "Oud, Patchouli", "fundo": "Âmbar, Sândalo, Baunilha" },
+"preco": "R$ 115,00"
+},
+{
+"nome": "Maison Dark Aoud",
+"marca": "MAISON ALHAMBRA",
+"familia": "Amadeirado Intenso · Unissex",
+"ranking": "✦ Inspirado no Black Aoud ✦",
+"desc": "Banquete teatral. Rosa medicinal e oud brutal, espetáculo de projeção e longevidade para personalidades intensas.",
+"notas": { "topo": "Pétalas de Rosa, Mandarina", "corpo": "Oud, Patchouli", "fundo": "Almíscar, Sândalo, Âmbar" },
+"preco": "R$ 125,00"
+},
+{
+"nome": "Maison Galactic Men Elixir",
+"marca": "MAISON ALHAMBRA",
+"familia": "Fougère Oriental · Masculino",
+"ranking": "✦ Inspirado no Phantom ✦",
+"desc": "Fusão de lavanda, limão e baunilha amadeirada. Fragrância festiva, moderna e extremamente chamativa para o homem cibernético.",
+"notas": { "topo": "Limão, Lavanda, Maçã", "corpo": "Baunilha, Lavandin, Patchouli", "fundo": "Vetiver, Madeiras Claras, Fava Tonka" },
+"preco": "R$ 110,00"
+},
+{
+"nome": "Maison Intrude",
+"marca": "MAISON ALHAMBRA",
+"familia": "Floral Branco · Feminino",
+"ranking": "✦ Inspirado no L'Interdit ✦",
+"desc": "Convite ao proibido. Flores brancas narcóticas com acorde escuro de vetiver, mistério viciante e luxuosamente audacioso.",
+"notas": { "topo": "Pera, Bergamota", "corpo": "Tuberosa, Flor de Laranjeira, Jasmim", "fundo": "Patchouli, Vetiver, Baunilha" },
+"preco": "R$ 135,00"
+},
+{
+"nome": "Maison Sceptre Amazonite",
+"marca": "MAISON ALHAMBRA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Inspirado no Le Gemme Falkar ✦",
+"desc": "Grandiosidade esculpida em joias. Couro ardente e oud esfumaçado para líderes que exigem o melhor e mais exclusivo.",
+"notas": { "topo": "Noz-Moscada, Canela", "corpo": "Cypriol, Olíbano, Resinas", "fundo": "Oud, Couro Negro, Almíscar" },
+"preco": "R$ 135,00"
+},
+{
+"nome": "Maison Unknown",
+"marca": "MAISON ALHAMBRA",
+"familia": "Oriental Amadeirado · Unissex",
+"ranking": "✦ Mistério sem precedentes ✦",
+"desc": "Odisseia que não precisa de rótulos. Especiarias e madeiras místicas em fundo incensado, provocando sentidos com evolução imprevisível.",
+"notas": { "topo": "Pimenta Rosa, Cítricos", "corpo": "Flores Escuras, Incenso", "fundo": "Âmbar, Sândalo, Baunilha" },
+"preco": "R$ 105,00"
+},
+{
+"nome": "Mashrabya",
+"marca": "LATTAFA",
+"familia": "Amadeirado Floral · Unissex",
+"ranking": "✦ Homenagem à arquitetura árabe ✦",
+"desc": "Passeio pelos palácios do deserto. Madeiras doces, notas florais e almíscar, representação de conforto luxuoso e espiritual.",
+"notas": { "topo": "Rosa, Frutas Cristalizadas", "corpo": "Patchouli, Especiarias", "fundo": "Sândalo, Âmbar, Almíscar" },
+"preco": "R$ 105,00"
+},
+{
+"nome": "Mayar",
+"marca": "LATTAFA",
+"familia": "Frutado Floral · Feminino",
+"ranking": "✦ Inspirado no Angel Nova ✦",
+"desc": "Tempestade rosa de lichia e framboesa. Alegria sedutora e explosiva, embalada em rosa moderna que atrai elogios.",
+"notas": { "topo": "Lichia, Framboesa", "corpo": "Rosa Damascena, Flor de Laranjeira", "fundo": "Baunilha, Almíscar" },
+"preco": "R$ 145,00"
+},
+{
+"nome": "Mishlah",
+"marca": "LATTAFA",
+"familia": "Âmbar Especiado · Unissex",
+"ranking": "✦ Realeza de um manto dourado ✦",
+"desc": "Captura a tradição gloriosa. Blend de âmbar denso, resinas milenares e flores aveludadas, manifesto de poder e presença.",
+"notas": { "topo": "Açafrão, Rosa Turca", "corpo": "Oud, Sândalo", "fundo": "Âmbar, Baunilha, Almíscar" },
+"preco": "R$ 140,00"
+},
+{
+"nome": "Musamam Black",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Fascínio do luxo sombrio ✦",
+"desc": "Mistério letal e elegância imponente. Incenso e couro negro, entregando perfume de personalidade dominadora e refinamento.",
+"notas": { "topo": "Mandarina, Lavanda, Pimenta Preta", "corpo": "Madeira de Âmbar, Couro, Vetiver", "fundo": "Incenso, Patchouli, Sândalo" },
+"preco": "R$ 325,00"
+},
+{
+"nome": "Musamam White",
+"marca": "LATTAFA",
+"familia": "Floral Amadeirado · Unissex",
+"ranking": "✦ Dualidade angelical e luxuosa ✦",
+"desc": "Contraparte solar, pura e reluzente. Flores brancas mergulhadas em coco e sândalo, exótico e cremoso, sofisticação extrema.",
+"notas": { "topo": "Mandarina, Bergamota", "corpo": "Jasmim, Ylang-Ylang, Coco", "fundo": "Sândalo, Baunilha, Almíscar" },
+"preco": "R$ 320,00"
+},
+{
+"nome": "Qaed Branco",
+"marca": "LATTAFA",
+"familia": "Floral Frutado · Unissex",
+"ranking": "✦ Opulência refrescante ✦",
+"desc": "Oásis de coco, baunilha e abacaxi. Viagem de primeira classe a uma ilha deserta, rastro viciante de doçura exótica.",
+"notas": { "topo": "Coco, Cítricos, Abacaxi", "corpo": "Ylang-Ylang, Jasmim", "fundo": "Baunilha, Almíscar, Sândalo" },
+"preco": "R$ 100,00"
+},
+{
+"nome": "Rayhaan Lion",
+"marca": "RAYHAAN",
+"familia": "Amadeirado Aromático · Masculino",
+"ranking": "✦ Majestade do rei da selva ✦",
+"desc": "Assinatura robusta e viril. Abertura fresca com intensidade aromática sobre base terrosa, conferindo confiança e presença luxuosa.",
+"notas": { "topo": "Bergamota, Lavanda, Pimenta", "corpo": "Gerânio, Patchouli", "fundo": "Cedro, Vetiver, Âmbar" },
+"preco": "R$ 205,00"
+},
+{
+"nome": "Sakeena",
+"marca": "LATTAFA",
+"familia": "Floral Frutado · Feminino",
+"ranking": "✦ Doce rubi da realeza ✦",
+"desc": "Explosão ácida e doce de maracujá e framboesa. Encanto exótico para mulheres vibrantes que dominam o ambiente com doçura.",
+"notas": { "topo": "Maracujá, Mandarina", "corpo": "Framboesa, Rosa, Flor de Laranjeira", "fundo": "Pralinê, Baunilha, Almíscar" },
+"preco": "R$ 135,00"
+},
+{
+"nome": "Salvo Elixir",
+"marca": "MAISON ALHAMBRA",
+"familia": "Especiado Quente · Masculino",
+"ranking": "✦ Inspirado no Sauvage Elixir ✦",
+"desc": "Fera engarrafada. Especiarias frescas noturnas com lavanda e madeiras escuras, elegância rústica e sofisticação inebriante.",
+"notas": { "topo": "Canela, Noz-Moscada, Toranja", "corpo": "Lavanda", "fundo": "Sândalo, Alcaçuz, Âmbar" },
+"preco": "R$ 125,00"
+},
+{
+"nome": "Salvo Intense",
+"marca": "MAISON ALHAMBRA",
+"familia": "Aromático Fougère · Masculino",
+"ranking": "✦ Inspirado no Sauvage EDP ✦",
+"desc": "Versatilidade luxuosa. Brilho da bergamota esbarra no ambroxan ardente, assinatura magnética perfeita para ditar as próprias regras.",
+"notas": { "topo": "Bergamota, Pimenta", "corpo": "Lavanda, Vetiver, Gerânio", "fundo": "Ambroxan, Cedro, Ládano" },
+"preco": "R$ 130,00"
+},
+{
+"nome": "Sherif",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Autoridade e nobreza de um líder ✦",
+"desc": "Tradução da honra e respeito. Acorde amadeirado clássico com especiarias raras e âmbar impecável, perfil maduro e magnético.",
+"notas": { "topo": "Limão, Cardamomo", "corpo": "Lavanda, Patchouli", "fundo": "Vetiver, Âmbar, Musgo" },
+"preco": "R$ 130,00"
+},
+{
+"nome": "Teriaq",
+"marca": "LATTAFA",
+"familia": "Gourmand Floral · Unissex",
+"ranking": "✦ Poção do gênio Quentin Bisch ✦",
+"desc": "Luxo contemporâneo. Caramelo salgado e amêndoas com couro macio, obra-prima viciante e fora da curva.",
+"notas": { "topo": "Amêndoa, Caramelo, Damasco", "corpo": "Mel, Rosa Branca, Flor de Laranjeira", "fundo": "Couro, Almíscar, Baunilha" },
+"preco": "R$ 200,00"
+},
+{
+"nome": "The Kingdom",
+"marca": "LATTAFA",
+"familia": "Amadeirado Especiado · Masculino",
+"ranking": "✦ Coroa do homem poderoso ✦",
+"desc": "Fragrância monárquica de presença arrebatadora. Sálvia e incenso coroado por madeiras esfumaçadas que garantem rastro sedutor.",
+"notas": { "topo": "Sálvia, Bergamota", "corpo": "Cardamomo, Elemi", "fundo": "Madeira de Guaiac, Âmbar, Vetiver" },
+"preco": "R$ 190,00"
+},
+{
+"nome": "Tharwah Gold",
+"marca": "LATTAFA",
+"familia": "Floral Branco · Feminino",
+"ranking": "✦ Inspirado no Libre Intense ✦",
+"desc": "Riqueza líquida da mulher indomável. Lavanda sofisticada em baunilha vulcânica e flor de laranjeira, aura dourada de luxo.",
+"notas": { "topo": "Lavanda, Bergamota", "corpo": "Flor de Laranjeira, Jasmim", "fundo": "Baunilha, Âmbar, Vetiver" },
+"preco": "R$ 350,00"
+},
+{
+"nome": "Victoria Lattafa",
+"marca": "LATTAFA",
+"familia": "Aquático Amadeirado · Masculino",
+"ranking": "✦ Inspirado no Invictus ✦",
+"desc": "Frescor dinâmico de campeão. Toranja, notas marítimas e madeira magnética para quem nunca aceita ser o segundo.",
+"notas": { "topo": "Toranja, Notas Oceânicas", "corpo": "Folha de Louro, Jasmim", "fundo": "Madeira de Guaiac, Patchouli, Âmbar" },
+"preco": "R$ 210,00"
+},
+{
+"nome": "Winners Trophy",
+"marca": "LATTAFA",
+"familia": "Oriental Especiado · Masculino",
+"ranking": "✦ Inspirado no Valentino Uomo ✦",
+"desc": "Taça do sucesso. Frescor da violeta fundido a especiarias, fragrância provocativa que carrega o luxo no DNA.",
+"notas": { "topo": "Pimenta Rosa, Mandarina", "corpo": "Folhas de Violeta, Especiarias", "fundo": "Patchouli, Vetiver, Almíscar" },
+"preco": "R$ 140,00"
+},
+{
+"nome": "Yara Elixir",
+"marca": "LATTAFA",
+"familia": "Floral Frutado · Feminino",
+"ranking": "✦ Encanto aveludado supremo ✦",
+"desc": "Evolução rica e magnética. Morangos cremosos, orquídeas e baunilha em chantilly luxuoso, fragrância meiga e irresistível.",
+"notas": { "topo": "Orquídea, Heliotrópio, Mandarina", "corpo": "Frutas Tropicais, Gourmand", "fundo": "Baunilha, Almíscar, Sândalo" },
+"preco": "R$ 235,00"
+},
+{
+"nome": "Yara Tous",
+"marca": "LATTAFA",
+"familia": "Tropical Frutado · Feminino",
+"ranking": "✦ Inspirado no Fame de Rabanne ✦",
+"desc": "Pôr do sol em ilha paradisíaca. Manga suculenta, maracujá e florais, redoma tropical vibrante e cremosa de luxo.",
+"notas": { "topo": "Manga, Coco, Maracujá", "corpo": "Jasmim, Flor de Laranjeira", "fundo": "Baunilha, Almíscar, Cashmeran" },
+"preco": "R$ 140,00"
+},	
+]
