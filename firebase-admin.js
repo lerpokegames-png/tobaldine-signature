@@ -18,72 +18,41 @@ if (typeof firebase !== "undefined" && !firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-var db = (typeof firebase !== "undefined" && firebase.apps.length) ? firebase.database() : null;
+var db = null;
 
-if (db) {
-  var fbStatus = document.getElementById("fbStatus");
-
-  /* Sincroniza Produtos */
-  db.ref("produtos").once("value", function(snap) {
-    var data = snap.val();
-    if (!data) return;
-    var fbProdutos = Array.isArray(data) ? data : Object.values(data);
-    if (!fbProdutos.length) return;
-    localStorage.setItem("tb_v3_produtos", JSON.stringify(fbProdutos));
-    if (typeof produtos !== "undefined") {
-      produtos = fbProdutos;
-      if (typeof renderSidebar === "function") renderSidebar();
-    }
-    if (fbStatus) {
-      fbStatus.textContent = "⚡ Firebase OK";
-      fbStatus.style.background = "rgba(76,175,121,0.15)";
-      fbStatus.style.color = "#4caf79";
-    }
-  });
-
-  /* Sincroniza Kits */
-  db.ref("kits").once("value", function(snap) {
-    var data = snap.val();
-    if (!data) return;
-    var fbKits = Array.isArray(data) ? data : Object.values(data);
-    localStorage.setItem("tb_v3_kits", JSON.stringify(fbKits));
-    if (typeof kits !== "undefined") { kits = fbKits; }
-  });
-
-  /* Sincroniza Depoimentos */
-  db.ref("depoimentos").once("value", function(snap) {
-    var data = snap.val();
-    if (!data) return;
-    var fbDep = Array.isArray(data) ? data : Object.values(data);
-    localStorage.setItem("tb_v3_dep", JSON.stringify(fbDep));
-    if (typeof depoimentos !== "undefined") { depoimentos = fbDep; }
-  });
-
-  /* Sincroniza Cupons */
-  db.ref("cupons").once("value", function(snap) {
-    var data = snap.val();
-    if (!data) return;
-    var fbCupons = Array.isArray(data) ? data : Object.values(data);
-    localStorage.setItem("tb_v3_cupons", JSON.stringify(fbCupons));
-    if (typeof cupons !== "undefined") {
-      cupons = fbCupons;
-      if (typeof renderCupons === "function") renderCupons();
-    }
-  });
-
-} else {
-  var fbStatus = document.getElementById("fbStatus");
-  if (fbStatus) {
-    fbStatus.textContent = "⚠ Firebase indisponível";
-    fbStatus.style.background = "rgba(192,76,76,0.15)";
-    fbStatus.style.color = "#c04c4c";
+/* Lazy: pega o db na hora de usar — evita problema de ordem de carregamento */
+function _db() {
+  if (!db && typeof firebase !== "undefined" && firebase.apps.length) {
+    db = firebase.database();
   }
+  return db;
 }
 
-window.fbSaveProdutos    = function(p) { return db ? db.ref("produtos").set(p)    : Promise.reject("Firebase offline"); };
-window.fbSaveKits        = function(k) { return db ? db.ref("kits").set(k)        : Promise.reject("Firebase offline"); };
-window.fbSaveDepoimentos = function(d) { return db ? db.ref("depoimentos").set(d) : Promise.reject("Firebase offline"); };
-window.fbSaveCupons      = function(c) { return db ? db.ref("cupons").set(c)      : Promise.reject("Firebase offline"); };
-window.fbSavePedidos     = function(p) { return db ? db.ref("pedidos").set(p)     : Promise.reject("Firebase offline"); };
-window.fbSaveHistorico   = function(h) { return db ? db.ref("historico").set(h)   : Promise.reject("Firebase offline"); };
-window.firebaseDB        = db;
+/* Sincronização inicial — roda após DOMContentLoaded para garantir Firebase pronto */
+if(typeof document !== "undefined"){
+  document.addEventListener("DOMContentLoaded", function(){
+    var database = _db();
+    var fbStatus = document.getElementById("fbStatus");
+
+    if (!database) {
+      if (fbStatus) {
+        fbStatus.textContent = "⚠ Firebase indisponível";
+        fbStatus.style.background = "rgba(192,76,76,0.15)";
+        fbStatus.style.color = "#c04c4c";
+      }
+      return;
+    }
+
+    /* O admin.html cuida do carregamento completo via loadFromFirebase().
+       firebase-admin.js só expõe as funções de salvamento. */
+    window.firebaseDB = database;
+  });
+}
+
+window.fbSaveProdutos    = function(p) { return _db() ? _db().ref("produtos").set(p)    : Promise.reject("Firebase offline"); };
+window.fbSaveKits        = function(k) { return _db() ? _db().ref("kits").set(k)        : Promise.reject("Firebase offline"); };
+window.fbSaveDepoimentos = function(d) { return _db() ? _db().ref("depoimentos").set(d) : Promise.reject("Firebase offline"); };
+window.fbSaveCupons      = function(c) { return _db() ? _db().ref("cupons").set(c)      : Promise.reject("Firebase offline"); };
+window.fbSavePedidos     = function(p) { return _db() ? _db().ref("pedidos").set(p)     : Promise.reject("Firebase offline"); };
+window.fbSaveHistorico   = function(h) { return _db() ? _db().ref("historico").set(h)   : Promise.reject("Firebase offline"); };
+window.firebaseDB        = null; /* exposto no DOMContentLoaded acima */
