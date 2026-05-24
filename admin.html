@@ -1333,7 +1333,7 @@ function renderKits(){
     }).join("");
 }
 function addKit(){kits.push({nome:"Novo Kit",desc:"",preco:"R$ 0,00",produtos:[],fotos:[""],ativo:true});saveData();renderKits()}
-function rmKit(i){kits.splice(i,1);saveData();renderKits()}
+function rmKit(i){kits.splice(i,1);saveData();if(typeof fbSaveKits==="function")fbSaveKits(kits).catch(function(){});renderKits()}
 function setKit(i,k,v){if(k==="foto")kits[i].fotos=[v];else kits[i][k]=v;saveData()}
 
 function renderDep(){
@@ -1599,6 +1599,7 @@ var _TEXTOS_CONFIG = [
   { id:"kits_titulo",         label:"Kits & Cosméticos · Título",       tipo:"text",     def:"Kits & Cosméticos" },
   { id:"kits_desc",           label:"Kits & Cosméticos · Descrição",    tipo:"textarea", def:"Body Splashes altamente desejados da Victoria's Secret e combos montados com descontos especiais para presentear ou se mimar." },
   /* Subcategorias */
+  { id:"sub_cosmeticos",       label:"Kits & Cosméticos · Subcategoria",  tipo:"text",     def:"Body Splashes & Hidratantes VS" },
   { id:"sub_decants",         label:"Subcategoria · Decants",           tipo:"text",     def:"Decants de Bolso / Miniaturas" },
   { id:"sub_originais",       label:"Subcategoria · Originais",         tipo:"text",     def:"Frascos Originais Lacrados" },
   { id:"sub_similares",       label:"Subcategoria · Similares",         tipo:"text",     def:"Inspirados Premium (Contratipos)" },
