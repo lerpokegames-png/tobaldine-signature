@@ -7,7 +7,7 @@
    Exemplo: "tobaldine-v5", "tobaldine-v6", etc.
 ══════════════════════════════════════════════════════ */
 
-var CACHE_VERSION = "tobaldine-v5";
+var CACHE_VERSION = "tobaldine-v6";
 var ASSETS = [
   "./index.html",
   "./style.css",

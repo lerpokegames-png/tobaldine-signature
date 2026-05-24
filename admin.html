@@ -331,6 +331,8 @@ select optgroup{color: var(--gold); font-weight: bold;}
     </div>
   </div>
 </div>
+
+<div class="moverlay" id="modalBulk">
   <div class="modal" style="max-width:620px;width:95%">
     <h2>➕ Importação em Massa</h2>
     <p style="font-size:11px;color:var(--muted)">Cole uma lista simples <strong>Nome | Gênero | Preço</strong> ou um JSON gerado por IA. Você verá um preview antes de salvar.</p>
@@ -912,11 +914,11 @@ function renderGrade(){
   if(!wrap) return;
   var h = "";
   SECOES.forEach(function(sec){
-    var secProd = produtos.filter(function(p){ return p.secao === sec.id; });
+    var secProd = produtos.filter(function(p){ return (p.secao||"").toLowerCase() === sec.id.toLowerCase(); });
     if(!secProd.length) return;
     h += '<div class="grade-sec">'+sec.lbl+' ('+secProd.length+')</div>';
     produtos.forEach(function(p, i){
-      if(p.secao !== sec.id) return;
+      if((p.secao||"").toLowerCase() !== sec.id.toLowerCase()) return;
       var foto = (Array.isArray(p.fotos) && p.fotos[0]) ? p.fotos[0] : null;
       var pos  = (p.fotosPos && p.fotosPos[0]) ? p.fotosPos[0] : "50% 50%";
       var zoom = (p.fotosZoom && p.fotosZoom[0]) ? parseFloat(p.fotosZoom[0]) : 1;
