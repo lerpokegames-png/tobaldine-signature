@@ -1,7 +1,5 @@
 /* ══════════════════════════════════════════════════════
    TOBALDINE SIGNATURE · FIREBASE ADMIN
-   Inicializa Firebase se ainda não foi inicializado.
-   Adicionado fbSavePedidos para persistência real dos pedidos.
 ══════════════════════════════════════════════════════ */
 
 var firebaseConfig = {
@@ -14,45 +12,27 @@ var firebaseConfig = {
   appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
 };
 
-if (typeof firebase !== "undefined" && !firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-var db = null;
-
-/* Lazy: pega o db na hora de usar — evita problema de ordem de carregamento */
-function _db() {
-  if (!db && typeof firebase !== "undefined" && firebase.apps.length) {
-    db = firebase.database();
+/* Inicializa Firebase imediatamente */
+try {
+  if (typeof firebase !== "undefined" && !firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
   }
-  return db;
+  window.firebaseDB = firebase.database();
+} catch(e) {
+  console.warn("firebase-admin.js: erro ao inicializar:", e.message);
+  window.firebaseDB = null;
 }
 
-/* Sincronização inicial — roda após DOMContentLoaded para garantir Firebase pronto */
-if(typeof document !== "undefined"){
-  document.addEventListener("DOMContentLoaded", function(){
-    var database = _db();
-    var fbStatus = document.getElementById("fbStatus");
-
-    if (!database) {
-      if (fbStatus) {
-        fbStatus.textContent = "⚠ Firebase indisponível";
-        fbStatus.style.background = "rgba(192,76,76,0.15)";
-        fbStatus.style.color = "#c04c4c";
-      }
-      return;
-    }
-
-    /* O admin.html cuida do carregamento completo via loadFromFirebase().
-       firebase-admin.js só expõe as funções de salvamento. */
-    window.firebaseDB = database;
-  });
+/* Funções de salvamento — usam firebaseDB diretamente */
+function _ref(path){ return window.firebaseDB ? window.firebaseDB.ref(path) : null; }
+function _save(path, data){
+  var r = _ref(path);
+  return r ? r.set(data) : Promise.reject("Firebase offline");
 }
 
-window.fbSaveProdutos    = function(p) { return _db() ? _db().ref("produtos").set(p)    : Promise.reject("Firebase offline"); };
-window.fbSaveKits        = function(k) { return _db() ? _db().ref("kits").set(k)        : Promise.reject("Firebase offline"); };
-window.fbSaveDepoimentos = function(d) { return _db() ? _db().ref("depoimentos").set(d) : Promise.reject("Firebase offline"); };
-window.fbSaveCupons      = function(c) { return _db() ? _db().ref("cupons").set(c)      : Promise.reject("Firebase offline"); };
-window.fbSavePedidos     = function(p) { return _db() ? _db().ref("pedidos").set(p)     : Promise.reject("Firebase offline"); };
-window.fbSaveHistorico   = function(h) { return _db() ? _db().ref("historico").set(h)   : Promise.reject("Firebase offline"); };
-window.firebaseDB        = null; /* exposto no DOMContentLoaded acima */
+window.fbSaveProdutos    = function(p) { return _save("produtos", p);    };
+window.fbSaveKits        = function(k) { return _save("kits", k);        };
+window.fbSaveDepoimentos = function(d) { return _save("depoimentos", d); };
+window.fbSaveCupons      = function(c) { return _save("cupons", c);      };
+window.fbSavePedidos     = function(p) { return _save("pedidos", p);     };
+window.fbSaveHistorico   = function(h) { return _save("historico", h);   };

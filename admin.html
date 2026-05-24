@@ -2072,7 +2072,7 @@ async function autoPreencherTodos() {
   }
 
   var total = produtos.length;
-  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nIsso leva cerca de " + Math.ceil(total * 1.2 / 60) + " minuto(s). O processo roda em segundo plano.")) return;
+  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nCom o limite gratuito do Gemini (15 req/min), isso leva cerca de " + Math.ceil(total * 4.1 / 60) + " minuto(s). O processo roda em segundo plano.")) return;
 
   var btn    = document.getElementById("btnAutoPreench");
   var fbSt   = document.getElementById("fbStatus");
@@ -2118,7 +2118,7 @@ async function autoPreencherTodos() {
 
         /* Rate limit — aguarda e tenta de novo */
         if (resp.status === 429) {
-          await new Promise(function(r) { setTimeout(r, 8000); });
+          await new Promise(function(r) { setTimeout(r, 15000); }); /* 15s no rate limit */
           continue;
         }
 
@@ -2165,8 +2165,8 @@ async function autoPreencherTodos() {
     /* Salva a cada 10 produtos */
     if ((i + 1) % 10 === 0) saveData();
 
-    /* Delay entre chamadas — Gemini free: 15 RPM */
-    await new Promise(function(r) { setTimeout(r, 1200); });
+    /* Delay entre chamadas — Gemini free: 15 RPM = 1 req a cada 4s */
+    await new Promise(function(r) { setTimeout(r, 4100); });
   }
 
   saveData();
