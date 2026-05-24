@@ -770,22 +770,22 @@ function setView(v){
   document.getElementById("btnLista").classList.toggle("active", v === "lista");
   document.getElementById("btnGrade").classList.toggle("active", v === "grade");
   document.getElementById("sidebarWrap").style.display = v === "lista" ? "" : "none";
+  /* FIX: esconde tabBar na grade para não confundir, mas NÃO destrói o tProdutos */
+  var tabBar = document.getElementById("tabBar");
+  if(tabBar) tabBar.style.display = v === "grade" ? "none" : "";
+  document.getElementById("tProdutos").style.display = "";
   if(v === "grade"){
-    document.getElementById("tProdutos").style.display = "";
     renderGrade();
   } else {
+    /* Limpa o conteúdo de grade e mostra estrutura de lista */
     renderSidebar();
+    if(selectedIdx !== null){ renderForm(); } else { renderEmptyProd(); }
   }
 }
 
 function renderGrade(){
-  var main = document.getElementById("main");
-  /* Guarda o conteúdo de edição atual */
-  var editHtml = "";
-  if(selectedIdx !== null){
-    var formEl = document.getElementById("tProdutos");
-    if(formEl) editHtml = formEl ? formEl.innerHTML : "";
-  }
+  var tProd = document.getElementById("tProdutos");
+  if(!tProd) return;
 
   var gradeHtml = '<div id="gradeContainer" style="padding:0">';
   gradeHtml += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">';
@@ -793,14 +793,17 @@ function renderGrade(){
   gradeHtml += '</div>';
   gradeHtml += '<div class="grade-wrap" id="gradeWrap"></div></div>';
 
-  /* Se há produto selecionado, mostra form ao lado */
+  /* FIX: escreve dentro de tProdutos — NÃO substitui main.innerHTML */
   if(selectedIdx !== null){
-    main.innerHTML = '<div style="display:flex;gap:20px;height:100%">'
+    tProd.innerHTML = '<div style="display:flex;gap:20px;height:100%">'
       + '<div style="flex:1;overflow-y:auto">' + gradeHtml + '</div>'
-      + '<div style="width:420px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--border);padding-left:20px" id="gradeEdit"><div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button onclick="selectedIdx=null;renderGrade()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:11px">✕ Fechar</button></div></div>'
+      + '<div style="width:420px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--border);padding-left:20px" id="gradeEdit">'
+      + '<div style="display:flex;justify-content:flex-end;margin-bottom:8px">'
+      + '<button onclick="selectedIdx=null;renderGrade()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:11px">✕ Fechar</button>'
+      + '</div></div>'
       + '</div>';
   } else {
-    main.innerHTML = gradeHtml;
+    tProd.innerHTML = gradeHtml;
   }
 
   var wrap = document.getElementById("gradeWrap");
