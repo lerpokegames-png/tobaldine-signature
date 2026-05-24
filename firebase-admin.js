@@ -1,13 +1,21 @@
 /* ══════════════════════════════════════════════════════
    TOBALDINE SIGNATURE · FIREBASE ADMIN
-   FIX: usa firebase.app() já inicializado pelo firebase.js
-        evitando duplicação da firebaseConfig.
-        Adicionado fbSavePedidos para persistência real dos pedidos.
+   Inicializa Firebase se ainda não foi inicializado.
+   Adicionado fbSavePedidos para persistência real dos pedidos.
 ══════════════════════════════════════════════════════ */
 
-/* Reutiliza o app já inicializado por firebase.js — sem duplicar config */
+var firebaseConfig = {
+  apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
+  authDomain:        "tobaldine-signature.firebaseapp.com",
+  databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
+  projectId:         "tobaldine-signature",
+  storageBucket:     "tobaldine-signature.firebasestorage.app",
+  messagingSenderId: "977486037825",
+  appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
+};
+
 if (typeof firebase !== "undefined" && !firebase.apps.length) {
-  console.warn("firebase-admin.js: Firebase não foi inicializado antes. Verifique a ordem dos scripts.");
+  firebase.initializeApp(firebaseConfig);
 }
 
 var db = (typeof firebase !== "undefined" && firebase.apps.length) ? firebase.database() : null;

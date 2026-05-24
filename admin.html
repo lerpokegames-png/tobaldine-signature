@@ -693,7 +693,7 @@ function processBulk() {
   var sec = document.getElementById("bulkSec").value;
   var vol = (document.getElementById("bulkVol").value || "100 ml").trim();
 
-  if (!confirm("Confirmar adição de " + items.length + " produto(s) na seção "" + sec + ""?")) return;
+  if (!confirm("Confirmar adição de " + items.length + " produto(s) na seção '" + sec + "'?")) return;
 
   addHist("Importação em massa: " + items.length + " produtos adicionados à seção " + sec, true);
 
