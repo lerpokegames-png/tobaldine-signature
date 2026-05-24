@@ -334,16 +334,10 @@ select optgroup{color: var(--gold); font-weight: bold;}
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="produtos.js"></script>
-<script src="firebase-admin.js"></script>
-
 <script>
-/* ══════════════════════════════════════════════════════
-   INICIALIZAÇÃO FIREBASE — feita aqui para garantir
-   que auth() esteja disponível antes de qualquer uso.
-══════════════════════════════════════════════════════ */
-(function() {
-  var cfg = {
+/* Inicializa Firebase AQUI — antes de firebase-admin.js carregar */
+if (!firebase.apps.length) {
+  firebase.initializeApp({
     apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
     authDomain:        "tobaldine-signature.firebaseapp.com",
     databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
@@ -351,17 +345,18 @@ select optgroup{color: var(--gold); font-weight: bold;}
     storageBucket:     "tobaldine-signature.firebasestorage.app",
     messagingSenderId: "977486037825",
     appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
-  };
-  if (typeof firebase !== "undefined" && !firebase.apps.length) {
-    firebase.initializeApp(cfg);
-  }
-})();
+  });
+}
+</script>
+<script src="produtos.js"></script>
+<script src="firebase-admin.js"></script>
 
+<script>
 /* ══════════════════════════════════════════════════════
    AUTENTICAÇÃO REAL VIA FIREBASE AUTH
 ══════════════════════════════════════════════════════ */
 
-var ADMIN_EMAIL    = "admin@tobaldine.com"; /* fallback — sobrescrito pelo campo de e-mail */
+var ADMIN_EMAIL    = "admin@tobaldine.com";
 var _loginAttempts = 0;
 var _loginLocked   = false;
 var MAX_ATTEMPTS   = 5;

@@ -1,1212 +1,2276 @@
-/* TOBALDINE SIGNATURE · CATÁLOGO v3 */
-
 var PRODUTOS=[
   {
-    "secao": "decants",
-    "badge": "Decant",
-    "nome": "Yara",
-    "marca": "LATTAFA PERFUMES",
-    "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Inspirado na elegância cremosa do Sensual Orchid (LM Parfums) ✦",
-    "desc": "Doce, cremoso e irresistível. O Yara é uma celebração da feminilidade moderna. Com uma textura atalcada e macia, ele equilibra a delicadeza da orquídea com a energia de frutas tropicais, encerrando com uma base de baunilha e sândalo que deixa um rastro inesquecível.",
-    "notas": {
-      "topo": "Orquídea, Heliotrópio e Tangerina",
-      "corpo": "Notas Gourmand e Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar e Sândalo"
-    },
-    "precos": [
-      { "vol": "5 ml",  "preco": "R$ 29,90", "slide": 2 },
-      { "vol": "15 ml", "preco": "R$ 54,90", "slide": 1 },
-      { "vol": "30 ml", "preco": "R$ 99,90", "slide": 0 }
-    ],
-    "fotos": [
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902308/Gemini_Generated_Image_kekuuakekuuakeku_cuvlaf.png",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902431/Gemini_Generated_Image_bnc34jbnc34jbnc3_jrrohe.png",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902432/Gemini_Generated_Image_mi4on8mi4on8mi4o_hsgvcz.png"
-    ],
-    "ativo": true, "estoque": 8, "custo": 12, "margem": 60, "promo": null
-  },
-  {
-    "secao": "originais",
+    "ativo": true,
     "badge": "Original Árabe",
-    "nome": "Qaed Branco",
-    "marca": "LATTAFA PERFUMES",
-    "familia": "Âmbar · Unissex",
-    "ranking": "✦ Inspirado na magia cintilante do Baccarat Rouge 540 (MFK)",
+    "custo": 65,
     "desc": "Luminoso, sofisticado e viciante. O Qaed captura a essência do famoso Baccarat Rouge com notas de açafrão, jasmim e cedro ambarado, criando uma assinatura olfativa inesquecível.",
-    "notas": {
-      "topo": "Açafrão e Jasmim",
-      "corpo": "Amêndoa e Âmbar",
-      "fundo": "Cedro, Baunilha e Almíscar"
-    },
-    "precos": [
-      { "vol": "100 ml", "preco": "R$ 149,90" }
-    ],
+    "estoque": 5,
+    "familia": "Âmbar · Unissex",
     "fotos": [
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/1_17a352a1-63bf-4da9-8d37-34b8736451b3_vv4mqm.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/3_0dd94efd-831a-4fd2-9406-53a44ccc280b_vtjxid.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/2_adc89105-b9ab-4e33-8af0-db8095faf47a_ljdwrx.webp"
     ],
-    "ativo": true, "estoque": 5, "custo": 65, "margem": 55, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Ajwad",
     "marca": "LATTAFA PERFUMES",
-    "familia": "Oriental Amadeirado · Unissex",
-    "ranking": "✦ Oriental doce e envolvente, perfeito para o dia a dia",
-    "desc": "Quente, doce e irresistível. O Ajwad combina notas orientais cremosas com um toque amadeirado suave, criando uma fragrância versátil que agrada homens e mulheres com igual intensidade.",
+    "margem": 55,
+    "nome": "Qaed Branco",
     "notas": {
-      "topo": "Bergamota e Especiarias",
-      "corpo": "Rosa e Notas Orientais",
-      "fundo": "Oud, Sândalo e Baunilha"
+      "corpo": "Amêndoa e Âmbar",
+      "fundo": "Cedro, Baunilha e Almíscar",
+      "topo": "Açafrão e Jasmim"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 159,90" }
+      {
+        "preco": "R$ 149,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado na magia cintilante do Baccarat Rouge 540 (MFK)",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 70,
+    "desc": "Quente, doce e irresistível. O Ajwad combina notas orientais cremosas com um toque amadeirado suave, criando uma fragrância versátil que agrada homens e mulheres com igual intensidade.",
+    "estoque": 4,
+    "familia": "Oriental Amadeirado · Unissex",
     "fotos": [
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042746/Ajwad-Pink-to-Pink-1_f07e8195-9952-48c7-8445-1779e409295b_b4jymy.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042746/Ajwad-Pink-to-Pink-3_367280b4-b62c-4821-a4e4-4e4eb6b63a64_x9zzio.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042747/Ajwad-Pink-to-Pink-2_49bf14b4-e60d-48ae-99ba-451736dab7de_rgscdj.webp"
     ],
-    "ativo": true, "estoque": 4, "custo": 70, "margem": 55, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Hayaati",
     "marca": "LATTAFA PERFUMES",
-    "familia": "Floral Âmbar · Feminino",
-    "ranking": "✦ Floral cremoso com toque árabe sofisticado",
-    "desc": "Delicado e encantador, o Hayaati é uma ode à feminilidade. Suas notas florais se mesclam a um coração âmbar quente, deixando um rastro cremoso e sofisticado que dura o dia todo.",
+    "margem": 55,
+    "nome": "Ajwad",
     "notas": {
-      "topo": "Bergamota e Notas Frutais",
-      "corpo": "Rosa, Jasmim e Peônia",
-      "fundo": "Âmbar, Baunilha e Almíscar"
+      "corpo": "Rosa e Notas Orientais",
+      "fundo": "Oud, Sândalo e Baunilha",
+      "topo": "Bergamota e Especiarias"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 169,90" }
+      {
+        "preco": "R$ 159,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Oriental doce e envolvente, perfeito para o dia a dia",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 75,
+    "desc": "Delicado e encantador, o Hayaati é uma ode à feminilidade. Suas notas florais se mesclam a um coração âmbar quente, deixando um rastro cremoso e sofisticado que dura o dia todo.",
+    "estoque": 6,
+    "familia": "Floral Âmbar · Feminino",
     "fotos": [
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/1_c2b7d49b-3b79-4e98-853f-977f7d50e640_r8vvyl.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/3_e623ad28-53fc-4724-89e5-aa57d8f484da_gvepam.webp",
       "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/2_b58ff64d-161d-4bc2-8c2e-acbf73dd4ee2_vqaq48.webp"
     ],
-    "ativo": true, "estoque": 6, "custo": 75, "margem": 55, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Yara Tous",
     "marca": "LATTAFA PERFUMES",
-    "familia": "Floral Frutal · Feminino",
-    "ranking": "✦ Versão vibrante e jovial da linha Yara",
-    "desc": "Jovial, fresco e cativante. O Yara Tous traz uma explosão de notas frutais e florais que evoca leveza e modernidade, perfeito para quem busca um perfume alegre e marcante para o dia a dia.",
+    "margem": 55,
+    "nome": "Hayaati",
     "notas": {
-      "topo": "Frutas Vermelhas e Bergamota",
-      "corpo": "Rosa, Peônia e Jasmim",
-      "fundo": "Almíscar, Âmbar e Sândalo"
+      "corpo": "Rosa, Jasmim e Peônia",
+      "fundo": "Âmbar, Baunilha e Almíscar",
+      "topo": "Bergamota e Notas Frutais"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 199,90" }
+      {
+        "preco": "R$ 169,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Floral cremoso com toque árabe sofisticado",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 90,
+    "desc": "Jovial, fresco e cativante. O Yara Tous traz uma explosão de notas frutais e florais que evoca leveza e modernidade, perfeito para quem busca um perfume alegre e marcante para o dia a dia.",
+    "estoque": 3,
+    "familia": "Floral Frutal · Feminino",
     "fotos": [
       "https://www.lattafa-usa.com/cdn/shop/files/1_5fe75433-0467-4d06-87e9-d9e81ac2da00.png?v=1749487600&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/2_9c54476c-b1d0-45ed-9bc9-f9f0e7678e56.png?v=1749487600&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/3_fc032ecc-f474-4fc1-bb84-285c5b001b32.png?v=1749487600&width=1946"
     ],
-    "ativo": true, "estoque": 3, "custo": 90, "margem": 55, "promo": null
-  },
-  {
-    "secao": "cosmeticos",
-    "badge": "Inspirado",
-    "nome": "Kit Body Splah + Creme Hidratante - Pure Seduction",
-    "marca": "Victoria's Secret",
-    "familia": "Frutal Floral · Feminino",
-    "ranking": "✦ O body splash mais icônico da Victoria's Secret",
-    "desc": "Fresco, sensual e irresistível. O Pure Seduction combina ameixa vermelha e maçã com um toque delicado de gardênia, criando uma fragrância leve e sedutora perfeita para o uso diário.",
+    "marca": "LATTAFA PERFUMES",
+    "margem": 55,
+    "nome": "Yara Tous",
     "notas": {
-      "topo": "Ameixa Vermelha e Maçã",
-      "corpo": "Gardênia e Jasmim",
-      "fundo": "Almíscar e Âmbar"
+      "corpo": "Rosa, Peônia e Jasmim",
+      "fundo": "Almíscar, Âmbar e Sândalo",
+      "topo": "Frutas Vermelhas e Bergamota"
     },
     "precos": [
-      { "vol": "Kit", "preco": "R$ 79,90" }
+      {
+        "preco": "R$ 199,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Versão vibrante e jovial da linha Yara",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Inspirado",
+    "custo": 35,
+    "desc": "Fresco, sensual e irresistível. O Pure Seduction combina ameixa vermelha e maçã com um toque delicado de gardênia, criando uma fragrância leve e sedutora perfeita para o uso diário.",
+    "estoque": 8,
+    "familia": "Frutal Floral · Feminino",
     "fotos": [
       "https://images-na.ssl-images-amazon.com/images/I/51up9BSsqbL._AC_UL495_SR435,495_.jpg"
     ],
-    "ativo": true, "estoque": 8, "custo": 35, "margem": 55, "promo": null
-  },
-  {
-    "secao": "cosmeticos",
-    "badge": "Inspirado",
-    "nome": "Kit Body Splah + Creme Hidratante - Strawberries & Champagne",
     "marca": "Victoria's Secret",
-    "familia": "Frutal · Feminino",
-    "ranking": "✦ Uma celebração em forma de perfume",
-    "desc": "Efervescente, alegre e irresistível. Mistura a frescura dos morangos maduros com a leveza borbulhante do champanhe, criando uma fragrância festiva e jovial que encanta em qualquer ocasião.",
+    "margem": 55,
+    "nome": "Kit Body Splah + Creme Hidratante - Pure Seduction",
     "notas": {
-      "topo": "Morango e Champanhe",
-      "corpo": "Frutas Vermelhas e Jasmim",
-      "fundo": "Almíscar e Âmbar"
+      "corpo": "Gardênia e Jasmim",
+      "fundo": "Almíscar e Âmbar",
+      "topo": "Ameixa Vermelha e Maçã"
     },
     "precos": [
-      { "vol": "Kit", "preco": "R$ 79,90" }
+      {
+        "preco": "R$ 79,90",
+        "vol": "Kit"
+      }
     ],
+    "ranking": "✦ O body splash mais icônico da Victoria's Secret",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Inspirado",
+    "custo": 35,
+    "desc": "Efervescente, alegre e irresistível. Mistura a frescura dos morangos maduros com a leveza borbulhante do champanhe, criando uma fragrância festiva e jovial que encanta em qualquer ocasião.",
+    "estoque": 7,
+    "familia": "Frutal · Feminino",
     "fotos": [
       "https://imageswscdn.wslojas.com.br/files/10991/PROD_345542407208.png"
     ],
-    "ativo": true, "estoque": 7, "custo": 35, "margem": 55, "promo": null
-  },
-  {
-    "secao": "cosmeticos",
-    "badge": "Inspirado",
-    "nome": "Kit Body Splah + Creme Hidratante - Amber Romance",
     "marca": "Victoria's Secret",
-    "familia": "Oriental Âmbar · Feminino",
-    "ranking": "✦ O clássico mais amado da Victoria's Secret",
-    "desc": "Quente, envolvente e romântico. O Amber Romance combina âmbar cremoso com sândalo e cereja, criando uma fragrância reconfortante e sofisticada que evoca aconchego e sensualidade.",
+    "margem": 55,
+    "nome": "Kit Body Splah + Creme Hidratante - Strawberries & Champagne",
     "notas": {
-      "topo": "Cereja e Âmbar",
-      "corpo": "Sândalo e Rosa",
-      "fundo": "Baunilha, Almíscar e Patchouli"
+      "corpo": "Frutas Vermelhas e Jasmim",
+      "fundo": "Almíscar e Âmbar",
+      "topo": "Morango e Champanhe"
     },
     "precos": [
-      { "vol": "Kit", "preco": "R$ 79,90" }
+      {
+        "preco": "R$ 79,90",
+        "vol": "Kit"
+      }
     ],
+    "ranking": "✦ Uma celebração em forma de perfume",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Inspirado",
+    "custo": 35,
+    "desc": "Quente, envolvente e romântico. O Amber Romance combina âmbar cremoso com sândalo e cereja, criando uma fragrância reconfortante e sofisticada que evoca aconchego e sensualidade.",
+    "estoque": 6,
+    "familia": "Oriental Âmbar · Feminino",
     "fotos": [
       "https://m.media-amazon.com/images/I/51WhFzftw7L._AC_SL1080_.jpg"
     ],
-    "ativo": true, "estoque": 6, "custo": 35, "margem": 55, "promo": null
-  },
-  {
-    "secao": "cosmeticos",
-    "badge": "Inspirado",
-    "nome": "Kit Body Splah + Creme Hidratante - Love Spell",
     "marca": "Victoria's Secret",
-    "familia": "Floral Frutal · Feminino",
-    "ranking": "✦ Um feitiço floral que conquista à primeira borrifada",
-    "desc": "Mágico, floral e encantador. Love Spell abre com pêssego e cereja, revelando um coração de jasmim e rosa sobre uma base suave de almíscar, uma fragrância que é pura magia feminina.",
+    "margem": 55,
+    "nome": "Kit Body Splah + Creme Hidratante - Amber Romance",
     "notas": {
-      "topo": "Pêssego e Cereja",
-      "corpo": "Jasmim e Rosa",
-      "fundo": "Almíscar e Sândalo"
+      "corpo": "Sândalo e Rosa",
+      "fundo": "Baunilha, Almíscar e Patchouli",
+      "topo": "Cereja e Âmbar"
     },
     "precos": [
-      { "vol": "Kit", "preco": "R$ 79,90" }
+      {
+        "preco": "R$ 79,90",
+        "vol": "Kit"
+      }
     ],
+    "ranking": "✦ O clássico mais amado da Victoria's Secret",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Inspirado",
+    "custo": 35,
+    "desc": "Mágico, floral e encantador. Love Spell abre com pêssego e cereja, revelando um coração de jasmim e rosa sobre uma base suave de almíscar, uma fragrância que é pura magia feminina.",
+    "estoque": 9,
+    "familia": "Floral Frutal · Feminino",
     "fotos": [
       "https://m.media-amazon.com/images/I/51cakM-PVQL._AC_SL1080_.jpg"
     ],
-    "ativo": true, "estoque": 9, "custo": 35, "margem": 55, "promo": null
-  },
-  {
-    "secao": "cosmeticos",
-    "badge": "Inspirado",
-    "nome": "Kit Body Splah + Creme Hidratante - Coconut Passion",
     "marca": "Victoria's Secret",
-    "familia": "Frutal Tropical · Feminino",
-    "ranking": "✦ Verão em forma de perfume, tropical e irresistível",
-    "desc": "Tropical, doce e apaixonante. O Coconut Passion transporta os sentidos para praias paradisíacas com notas de coco cremoso e baunilha suave, perfeito para os dias quentes e ensolarados.",
+    "margem": 55,
+    "nome": "Kit Body Splah + Creme Hidratante - Love Spell",
     "notas": {
-      "topo": "Coco e Frutas Tropicais",
-      "corpo": "Flor de Coco e Baunilha",
-      "fundo": "Almíscar e Sândalo"
+      "corpo": "Jasmim e Rosa",
+      "fundo": "Almíscar e Sândalo",
+      "topo": "Pêssego e Cereja"
     },
     "precos": [
-      { "vol": "Kit", "preco": "R$ 77,78" }
+      {
+        "preco": "R$ 79,90",
+        "vol": "Kit"
+      }
     ],
+    "ranking": "✦ Um feitiço floral que conquista à primeira borrifada",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Inspirado",
+    "custo": 35,
+    "desc": "Tropical, doce e apaixonante. O Coconut Passion transporta os sentidos para praias paradisíacas com notas de coco cremoso e baunilha suave, perfeito para os dias quentes e ensolarados.",
+    "estoque": 5,
+    "familia": "Frutal Tropical · Feminino",
     "fotos": [
       "https://m.media-amazon.com/images/I/51ce7m5dehL._AC_SL1080_.jpg"
     ],
-    "ativo": true, "estoque": 5, "custo": 35, "margem": 55, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Khanrah",
-    "marca": "LATTAFA PERFUMES",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Amadeirado especiado de personalidade árabe marcante",
-    "desc": "Intenso, quente e sofisticado. O Khanrah é uma fragrância masculina de personalidade forte, com especiarias orientais que se fundem a uma base amadeirada e âmbar, deixando um rastro de presença inconfundível.",
+    "marca": "Victoria's Secret",
+    "margem": 55,
+    "nome": "Kit Body Splah + Creme Hidratante - Coconut Passion",
     "notas": {
-      "topo": "Especiarias e Bergamota",
-      "corpo": "Oud, Rosa e Notas Orientais",
-      "fundo": "Sândalo, Âmbar e Almíscar"
+      "corpo": "Flor de Coco e Baunilha",
+      "fundo": "Almíscar e Sândalo",
+      "topo": "Coco e Frutas Tropicais"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 199,99" }
+      {
+        "preco": "R$ 77,78",
+        "vol": "Kit"
+      }
     ],
+    "ranking": "✦ Verão em forma de perfume, tropical e irresistível",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 90,
+    "desc": "Intenso, quente e sofisticado. O Khanrah é uma fragrância masculina de personalidade forte, com especiarias orientais que se fundem a uma base amadeirada e âmbar, deixando um rastro de presença inconfundível.",
+    "estoque": 5,
+    "familia": "Oriental Amadeirado · Masculino",
     "fotos": [
       "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-1_0ffa4f52-30e3-4dea-9399-9bae4b8cb4af.png?v=1747421472&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-2_34a8222e-a770-40b3-9268-b5ee164ad013.png?v=1747421472&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-3_955c3269-4a1d-4c5a-ac88-b2be98b8fc55.png?v=1747421472&width=1946"
     ],
-    "ativo": true, "estoque": 5, "custo": 90, "margem": 55, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Asad",
     "marca": "LATTAFA PERFUMES",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Aclamado mundialmente como a melhor inspiração do Sauvage Elixir ✦",
-    "desc": "Ousado e imponente como um leão. O Asad abre com um frescor picante de pimenta preta e um toque exótico de abacaxi, evoluindo para um corpo denso de café e patchouli. Sua base é rica em âmbar e baunilha, garantindo uma fixação prolongada e uma aura de elegância absoluta.",
+    "margem": 55,
+    "nome": "Khanrah",
     "notas": {
-      "topo": "Pimenta Preta, Tabaco e Abacaxi",
-      "corpo": "Patchouli, Café e Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca, Benjoim e Ládano"
+      "corpo": "Oud, Rosa e Notas Orientais",
+      "fundo": "Sândalo, Âmbar e Almíscar",
+      "topo": "Especiarias e Bergamota"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 209,90" }
+      {
+        "preco": "R$ 199,99",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Amadeirado especiado de personalidade árabe marcante",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 15,
+    "desc": "Ousado e imponente como um leão. O Asad abre com um frescor picante de pimenta preta e um toque exótico de abacaxi, evoluindo para um corpo denso de café e patchouli. Sua base é rica em âmbar e baunilha, garantindo uma fixação prolongada e uma aura de elegância absoluta.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
     "fotos": [
       "https://www.lattafa-usa.com/cdn/shop/files/Asad-1_ceed76c7-7a80-46b3-b372-68cc309137f4.png?v=1747421311&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/Asad-2_5648df5a-3865-4d87-b7f7-b89f81aab2af.png?v=1747421311&width=1946"
     ],
-    "ativo": true, "estoque": 10, "custo": 15, "margem": 60, "promo": null
-  },
-  {
-    "secao": "originais",
-    "badge": "Original Árabe",
-    "nome": "Yara",
     "marca": "LATTAFA PERFUMES",
-    "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Inspirado na elegância cremosa do Sensual Orchid (LM Parfums) ✦",
-    "desc": "Doce, cremoso e irresistível. O Yara é uma celebração da feminilidade moderna. Com uma textura atalcada e macia, ele equilibra a delicadeza da orquídea com a energia de frutas tropicais, encerrando com uma base de baunilha e sândalo que deixa um rastro inesquecível.",
+    "margem": 60,
+    "nome": "Asad",
     "notas": {
-      "topo": "Orquídea, Heliotrópio e Tangerina",
-      "corpo": "Notas Gourmand e Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar e Sândalo"
+      "corpo": "Patchouli, Café e Íris",
+      "fundo": "Âmbar, Baunilha, Madeira Seca, Benjoim e Ládano",
+      "topo": "Pimenta Preta, Tabaco e Abacaxi"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 209,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Aclamado mundialmente como a melhor inspiração do Sauvage Elixir ✦",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Original Árabe",
+    "custo": 12,
+    "desc": "Doce, cremoso e irresistível. O Yara é uma celebração da feminilidade moderna. Com uma textura atalcada e macia, ele equilibra a delicadeza da orquídea com a energia de frutas tropicais, encerrando com uma base de baunilha e sândalo que deixa um rastro inesquecível.",
+    "estoque": 8,
+    "familia": "Âmbar Baunilha · Feminino",
     "fotos": [
       "https://www.lattafa-usa.com/cdn/shop/files/1_7682153c-2dce-4b60-a9e6-20557f8502cf.png?v=1747500015&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/2_c8edbe08-b556-46ce-b197-6c42938372a8.png?v=1747500015&width=1946",
       "https://www.lattafa-usa.com/cdn/shop/files/9.png?v=1754613955&width=1946"
     ],
-    "ativo": true, "estoque": 8, "custo": 12, "margem": 60, "promo": null
-  },
-  {
-    "secao": "Similares",
-    "badge": "Decant",
-    "nome": "1 Million",
-    "marca": "PACO RABANNE",
-    "familia": "Oriental Especiado · Masculino",
-    "ranking": "✦ Inspirado no icônico 1 Million (Paco Rabanne)",
-    "desc": "Ousado, sedutor e irresistível. O 1 Million é uma declaração de luxo e poder masculino. Com abertura de tangerina e menta, revela um coração de canela e especiarias sobre uma base de couro e âmbar dourado.",
+    "marca": "LATTAFA PERFUMES",
+    "margem": 60,
+    "nome": "Yara",
     "notas": {
-      "topo": "Toranja, Menta e Sangue de Mandarina",
-      "corpo": "Rosa, Canela e Especiarias",
-      "fundo": "Couro, Âmbar e Patchouli"
+      "corpo": "Notas Gourmand e Frutas Tropicais",
+      "fundo": "Baunilha, Almíscar e Sândalo",
+      "topo": "Orquídea, Heliotrópio e Tangerina"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado na elegância cremosa do Sensual Orchid (LM Parfums) ✦",
+    "secao": "originais"
+  },
+  {
+    "ativo": true,
+    "badge": "Decant",
+    "custo": 95,
+    "desc": "Ousado, sedutor e irresistível. O 1 Million é uma declaração de luxo e poder masculino. Com abertura de tangerina e menta, revela um coração de canela e especiarias sobre uma base de couro e âmbar dourado.",
+    "estoque": 4,
+    "familia": "Oriental Especiado · Masculino",
     "fotos": [
       "https://img.lojasrenner.com.br/item/546594103/original/1.jpg",
       "https://img.lojasrenner.com.br/item/546594103/original/2.jpg",
       "https://img.lojasrenner.com.br/item/546594103/original/3.jpg"
     ],
-    "ativo": true, "estoque": 4, "custo": 95, "margem": 56, "promo": null
-  },
-  {
-    "secao": "Similares",
-    "badge": "Decant",
-    "nome": "Good Girl",
-    "marca": "CAROLINA HERRERA",
-    "familia": "Floral Oriental · Feminino",
-    "ranking": "✦ Inspirado na dualidade sedutora do Good Girl (Carolina Herrera)",
-    "desc": "Intrigante como a mulher moderna. O Good Girl equilibra jasmim e tuberosa com cacau e baunilha, criando uma fragrância floral oriental ao mesmo tempo elegante e provocante.",
+    "marca": "PACO RABANNE",
+    "margem": 56,
+    "nome": "1 Million",
     "notas": {
-      "topo": "Bergamota e Limão",
-      "corpo": "Jasmim, Tuberosa e Íris",
-      "fundo": "Cacau, Baunilha e Âmbar"
+      "corpo": "Rosa, Canela e Especiarias",
+      "fundo": "Couro, Âmbar e Patchouli",
+      "topo": "Toranja, Menta e Sangue de Mandarina"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado no icônico 1 Million (Paco Rabanne)",
+    "secao": "Similares"
+  },
+  {
+    "ativo": true,
+    "badge": "Decant",
+    "custo": 95,
+    "desc": "Intrigante como a mulher moderna. O Good Girl equilibra jasmim e tuberosa com cacau e baunilha, criando uma fragrância floral oriental ao mesmo tempo elegante e provocante.",
+    "estoque": 3,
+    "familia": "Floral Oriental · Feminino",
     "fotos": [
       "https://img.lojasrenner.com.br/item/930889993/original/1.jpg",
       "https://img.lojasrenner.com.br/item/930889993/original/2.jpg",
       "https://img.lojasrenner.com.br/item/930889993/original/3.jpg"
     ],
-    "ativo": true, "estoque": 3, "custo": 95, "margem": 56, "promo": null
-  },
-
-  // ── MINIATURAS 25ml ── FEMININOS ──────────────────────────────────────────
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Fakhar Rose",            "marca": "LATTAFA PERFUMES", "familia": "Floral Oriental · Feminino",    "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Frutas, Lírio",     "corpo": "Jasmim, Tuberosa",   "fundo": "Baunilha"  }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Yara Tous",               "marca": "LATTAFA PERFUMES", "familia": "Tropical · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Coco, Manga",      "corpo": "Jasmim",             "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Yara",                    "marca": "LATTAFA PERFUMES", "familia": "Gourmand · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Orquídea, Tangerina", "corpo": "Frutas",           "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Amber Rouge",             "marca": "LATTAFA PERFUMES", "familia": "Amadeirado · Feminino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Açafrão",          "corpo": "Âmbar",              "fundo": "Cedro"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Royal Amber",             "marca": "LATTAFA PERFUMES", "familia": "Oriental · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Notas Cítricas",  "corpo": "Âmbar",              "fundo": "Sândalo"  }, "precos": [{ "vol": "25 ml", "preco": "R$ 50,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Tharwah Gold",            "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Lavanda",          "corpo": "Jasmim",             "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Bade'e Al Oud Amethyst", "marca": "LATTAFA PERFUMES", "familia": "Oriental Amadeirado · Feminino","ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Pimenta",          "corpo": "Rosa",               "fundo": "Oud"      }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Bade'e Al Oud Sublime",  "marca": "LATTAFA PERFUMES", "familia": "Frutado · Feminino",            "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Maçã",             "corpo": "Rosa",               "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Bade'e Al Oud Honor & Glory", "marca": "LATTAFA PERFUMES", "familia": "Especiado · Feminino",   "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Abacaxi",          "corpo": "Canela",             "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Souvenier Floral Bouquet","marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",            "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Notas Florais",   "corpo": "Flores",             "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Emmer",                   "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Notas Cítricas",  "corpo": "Flores",             "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Yara Moi",                "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Pêssego",          "corpo": "Jasmim",             "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Historic Doria",          "marca": "LATTAFA PERFUMES", "familia": "Oriental · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",         "corpo": "Flores",             "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 54,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Musamam White",           "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Laranja",          "corpo": "Coco",               "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Sabah Al Ward",           "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",         "corpo": "Rosa",               "fundo": "Patchouli"}, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Yara Candy",              "marca": "LATTAFA PERFUMES", "familia": "Gourmand · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Morango",          "corpo": "Caramelo",           "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Blush Noble",             "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Notas Florais",   "corpo": "Rosa",               "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Lattafa Nebras",          "marca": "LATTAFA PERFUMES", "familia": "Gourmand · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Bagos Vermelhos", "corpo": "Cacau",              "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Emaan",                   "marca": "LATTAFA PERFUMES", "familia": "Floral · Feminino",             "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Bergamota",        "corpo": "Jasmim",             "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Ajwad",                   "marca": "LATTAFA PERFUMES", "familia": "Floral Amadeirado · Feminino",  "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Frutas",           "corpo": "Rosa",               "fundo": "Oud"      }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Dania",                   "marca": "LATTAFA PERFUMES", "familia": "Oriental · Feminino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Notas Cítricas",  "corpo": "Flores",             "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 50,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-
-  // ── MINIATURAS 25ml ── MASCULINOS ─────────────────────────────────────────
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Al Noble Wazeer",              "marca": "LATTAFA PERFUMES", "familia": "Cítrico Aromático · Masculino",  "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Hortelã",       "corpo": "Íris",       "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Bade'e Al Oud Oud for Glory",  "marca": "LATTAFA PERFUMES", "familia": "Oud Amadeirado · Masculino",     "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Açafrão",      "corpo": "Oud",        "fundo": "Patchouli"}, "precos": [{ "vol": "25 ml", "preco": "R$ 54,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Fakhar Black",                 "marca": "LATTAFA PERFUMES", "familia": "Fougère · Masculino",            "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Maçã",        "corpo": "Lavanda",    "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 50,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Fakhar Gold",                  "marca": "LATTAFA PERFUMES", "familia": "Amadeirado · Masculino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Frutas",      "corpo": "Flores",     "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Asad",                         "marca": "LATTAFA PERFUMES", "familia": "Oriental · Masculino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Pimenta",     "corpo": "Café",       "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Khamrah Qahwa",                "marca": "LATTAFA PERFUMES", "familia": "Oriental Gourmand · Masculino",  "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Café",        "corpo": "Especiarias","fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 54,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Club de Nuit Précieux",        "marca": "ARMAF",            "familia": "Amadeirado · Masculino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",    "corpo": "Flores",     "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Attar Al Wesal",               "marca": "LATTAFA PERFUMES", "familia": "Oriental · Masculino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",    "corpo": "Flores",     "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 54,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Club de Nuit Iconic",          "marca": "ARMAF",            "familia": "Aromático · Masculino",          "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Toranja",     "corpo": "Lavanda",    "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "The Kingdom Men",              "marca": "LATTAFA PERFUMES", "familia": "Amadeirado · Masculino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",    "corpo": "Madeiras",   "fundo": "Âmbar"    }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "9PM Afnan",                    "marca": "AFNAN",            "familia": "Oriental Baunilha · Masculino",  "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Bergamota",  "corpo": "Canela",     "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "World Spectre",                "marca": "LATTAFA PERFUMES", "familia": "Amadeirado · Masculino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Cítricos",    "corpo": "Flores",     "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 46,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Asad Bourbon",                 "marca": "LATTAFA PERFUMES", "familia": "Oriental · Masculino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Especiarias","corpo": "Bourbon",    "fundo": "Baunilha" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Al Noble Ameer",               "marca": "LATTAFA PERFUMES", "familia": "Amadeirado · Masculino",         "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Maçã",        "corpo": "Especiarias","fundo": "Oud"      }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Club de Nuit",                 "marca": "ARMAF",            "familia": "Aromático · Masculino",          "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Limão",       "corpo": "Jasmim",     "fundo": "Madeiras" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-  { "secao": "decants", "badge": "Miniatura 25ml", "nome": "Spectre Ghost",                "marca": "LATTAFA PERFUMES", "familia": "Gourmand · Masculino",           "ranking": "✦ Original 25ml ✦", "desc": "Miniatura 25ml", "notas": { "topo": "Baunilha",    "corpo": "Caramelo",   "fundo": "Almíscar" }, "precos": [{ "vol": "25 ml", "preco": "R$ 47,00" }], "fotos": [], "ativo": true, "estoque": 10 },
-
-  // ── SIMILARES ─────────────────────────────────────────────────────────────
-  {
-    "secao": "Similares",
-    "badge": "Decant",
-    "nome": "Sauvage",
-    "marca": "DIOR",
-    "familia": "Aromático Amadeirado · Masculino",
-    "ranking": "✦ Inspirado na imensidão selvagem do Sauvage (Dior)",
-    "desc": "Selvagem e livre como paisagens infinitas. O Sauvage combina bergamota de Calábria com Ambroxan, criando uma fragrância fresca, aromática e profundamente masculina que evoca céus abertos e noites estreladas.",
+    "marca": "CAROLINA HERRERA",
+    "margem": 56,
+    "nome": "Good Girl",
     "notas": {
-      "topo": "Bergamota e Pimenta",
-      "corpo": "Lavanda e Notas Vetiver",
-      "fundo": "Ambroxan, Cedro e Labdanum"
+      "corpo": "Jasmim, Tuberosa e Íris",
+      "fundo": "Cacau, Baunilha e Âmbar",
+      "topo": "Bergamota e Limão"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado na dualidade sedutora do Good Girl (Carolina Herrera)",
+    "secao": "Similares"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral Oriental · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/ae335427-f487-4086-921b-64e51948a423-5b0f8356a8ea4ecd9717493019264791-1024-1024.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_810804-MLB105087790353_012026-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1,
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Fakhar Rose",
+    "notas": {
+      "corpo": "Jasmim, Tuberosa",
+      "fundo": "Baunilha",
+      "topo": "Frutas, Lírio"
+    },
+    "precos": [
+      {
+        "custo_bruto": 47,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Tropical · Feminino",
+    "fotos": [
+      "https://cdn.awsli.com.br/600x450/699/699313/produto/360334564/perfume-lataffa-yara-tours-brand-25ml-a003-7hl6opr7cs.jpg",
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/yara-tous-de-lattafa-c48403a5ce0e0fd30017203874925750-480-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1,
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Yara Tous",
+    "notas": {
+      "corpo": "Jasmim",
+      "fundo": "Almíscar",
+      "topo": "Coco, Manga"
+    },
+    "precos": [
+      {
+        "custo_bruto": 47,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Gourmand · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/003/644/128/products/img_3865-27aee2d56911d0d3ac17544449325474-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Yara",
+    "notas": {
+      "corpo": "Frutas",
+      "fundo": "Baunilha",
+      "topo": "Orquídea, Tangerina"
+    },
+    "precos": [
+      {
+        "custo_bruto": 47,
+        "frete_prop": 10,
+        "margem_pct": 34.9,
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_663124-MLB107016273593_022026-O.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_843417-MLB104784873144_012026-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1,
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Amber Rouge",
+    "notas": {
+      "corpo": "Âmbar",
+      "fundo": "Cedro",
+      "topo": "Açafrão"
+    },
+    "precos": [
+      {
+        "custo_bruto": 47,
+        "frete_prop": 10,
+        "margem_pct": 34.91,
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Unissex",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_993915-MLB93437659172_092025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Royal Amber",
+    "notas": {
+      "corpo": "Âmbar",
+      "fundo": "Sândalo",
+      "topo": "Notas Cítricas"
+    },
+    "precos": [
+      {
+        "custo_bruto": 50,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 79,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-tharwah-gold-lattafa-eau-de-parfum-feminino-25ml-perfume-arabe-5f465285315674154c17506156413911-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Tharwah Gold",
+    "notas": {
+      "corpo": "Jasmim",
+      "fundo": "Baunilha",
+      "topo": "Lavanda"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-badee-al-oud-amethyst-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-54aac9c86bbd90761417505227375341-640-0.webp",
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/badee-al-oud-amethyst-lattafa-cf744ae7c7e12edf2b16992980908540-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1,
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Bade'e Al Oud Amethyst",
+    "notas": {
+      "corpo": "Rosa",
+      "fundo": "Oud",
+      "topo": "Pimenta"
+    },
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Frutado · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-badee-al-oud-sublime-lattafa-eau-de-parfum-feminino-25ml-perfume-arabe-a9fee7993df36b06d817505230570816-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Bade'e Al Oud Sublime",
+    "notas": {
+      "corpo": "Rosa",
+      "fundo": "Baunilha",
+      "topo": "Maçã"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Especiado · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_794331-MLB89663846477_082025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Bade'e Al Oud Honor & Glory",
+    "notas": {
+      "corpo": "Canela",
+      "fundo": "Âmbar",
+      "topo": "Abacaxi"
+    },
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/solvenir-a022-317603dfba4bd7205b17528847119615-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Souvenier Floral Bouquet",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Almíscar",
+      "topo": "Notas Florais"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://cdn.awsli.com.br/600x450/1107/1107554/produto/374827423/878e18a023d27289cad5f0705d2ad4d5-11lkue7zoa.jpg"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Emmer",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Almíscar",
+      "topo": "Notas Cítricas"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_873666-MLB89649393973_082025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Yara Moi",
+    "notas": {
+      "corpo": "Jasmim",
+      "fundo": "Âmbar",
+      "topo": "Pêssego"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/historic-doria-a023-ce57d969a5144b45ca17528849185568-480-0.webp",
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/historic-doria-30e19d2e72c10dddca17203880440496-480-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1,
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Historic Doria",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Madeiras",
+      "topo": "Cítricos"
+    },
+    "precos": [
+      {
+        "preco": "R$ 54,00",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Unissex",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-musamam-white-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-1c2b1c16d143cf79a617525455606801-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Musamam White",
+    "notas": {
+      "corpo": "Coco",
+      "fundo": "Almíscar",
+      "topo": "Laranja"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_740090-MLB106524357941_022026-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Sabah Al Ward",
+    "notas": {
+      "corpo": "Rosa",
+      "fundo": "Patchouli",
+      "topo": "Cítricos"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Gourmand · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_684337-MLA95498339619_102025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Yara Candy",
+    "notas": {
+      "corpo": "Caramelo",
+      "fundo": "Baunilha",
+      "topo": "Morango"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_809634-MLB95523669082_102025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Blush Noble",
+    "notas": {
+      "corpo": "Rosa",
+      "fundo": "Almíscar",
+      "topo": "Notas Florais"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral · Feminino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_767094-MLA97129713785_112025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Emaan",
+    "notas": {
+      "corpo": "Jasmim",
+      "fundo": "Baunilha",
+      "topo": "Bergamota"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Floral Amadeirado · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-ajwad-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-62af2d1dd5477479e417525469604762-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Ajwad",
+    "notas": {
+      "corpo": "Rosa",
+      "fundo": "Oud",
+      "topo": "Frutas"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Feminino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/arabic-collection-dania-d6f00adf83ec48fb1817696554902026-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Dania",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Madeiras",
+      "topo": "Notas Cítricas"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Cítrico Aromático · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/26-8319b33ddbf67a584817491302291565-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Al Noble Wazeer",
+    "notas": {
+      "corpo": "Íris",
+      "fundo": "Âmbar",
+      "topo": "Hortelã"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oud Amadeirado · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/arabic-a10-gloria-cdae10a49fdd4fb64717474556022195-480-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Bade'e Al Oud Oud for Glory",
+    "notas": {
+      "corpo": "Oud",
+      "fundo": "Patchouli",
+      "topo": "Açafrão"
+    },
+    "precos": [
+      {
+        "custo_bruto": 54,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 85,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Fougère · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/30b71c51-2c34-4c8d-94c0-634ae4ba0868-70502b57afbb09331317493021039716-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Fakhar Black",
+    "notas": {
+      "corpo": "Lavanda",
+      "fundo": "Âmbar",
+      "topo": "Maçã"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/39fe5d92-0e5d-45d0-aa40-ee422e64763b-65c0cc9ffabaf9898417493023695367-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Fakhar Gold",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Âmbar",
+      "topo": "Frutas"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Masculino",
+    "fotos": [
+      "https://cdn.awsli.com.br/600x450/699/699313/produto/360336795/perfume-lataffa-asad-brand-25ml-a001-s0r4kyyqsk.jpg"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Asad",
+    "notas": {
+      "corpo": "Café",
+      "fundo": "Baunilha",
+      "topo": "Pimenta"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental Gourmand · Masculino",
+    "fotos": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiD7zdktZtJRz7tHTCpL4Cs-kHdqOE-S4pg&s"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Khamrah Qahwa",
+    "notas": {
+      "corpo": "Especiarias",
+      "fundo": "Baunilha",
+      "topo": "Café"
+    },
+    "precos": [
+      {
+        "custo_bruto": 54,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 84,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Masculino",
+    "fotos": [
+      "data:image/webp;base64,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"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "ARMAF",
+    "nome": "Club de Nuit Précieux",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Madeiras",
+      "topo": "Cítricos"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/31-c0b70266e30a75880017491308355754-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Attar Al Wesal",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Almíscar",
+      "topo": "Cítricos"
+    },
+    "precos": [
+      {
+        "custo_bruto": 54,
+        "frete_prop": 10,
+        "margem_pct": 30,
+        "preco": "R$ 84,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Aromático · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/iconico-a027-71d7507e1e7b9432df17528852876681-640-0.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "ARMAF",
+    "nome": "Club de Nuit Iconic",
+    "notas": {
+      "corpo": "Lavanda",
+      "fundo": "Madeiras",
+      "topo": "Toranja"
+    },
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Masculino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_Q_NP_853172-MLA95168165788_102025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "The Kingdom Men",
+    "notas": {
+      "corpo": "Madeiras",
+      "fundo": "Âmbar",
+      "topo": "Cítricos"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental Baunilha · Masculino",
+    "fotos": [
+      "https://http2.mlstatic.com/D_NQ_NP_639917-MLA97408107848_112025-O.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "AFNAN",
+    "nome": "9PM Afnan",
+    "notas": {
+      "corpo": "Canela",
+      "fundo": "Baunilha",
+      "topo": "Bergamota"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Masculino",
+    "fotos": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1xfKKDupXMy3IBMiMA8hBAcv6Ig59zPDMXA&s"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "World Spectre",
+    "notas": {
+      "corpo": "Flores",
+      "fundo": "Madeiras",
+      "topo": "Cítricos"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 74,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Oriental · Masculino",
+    "fotos": [
+      "https://cdn.awsli.com.br/2500x2500/2667/2667788/produto/367290747/623b4586115eed82cf9816c25c2baac4-ryru3jnmei.jpg"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Asad Bourbon",
+    "notas": {
+      "corpo": "Bourbon",
+      "fundo": "Baunilha",
+      "topo": "Especiarias"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Miniatura 25ml",
+    "desc": "Miniatura 25ml",
+    "estoque": 10,
+    "familia": "Amadeirado · Masculino",
+    "fotos": [
+      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/26-8319b33ddbf67a584817491302291565-1024-1024.webp"
+    ],
+    "fotosPos": [
+      "50% 50%"
+    ],
+    "fotosZoom": [
+      1
+    ],
+    "marca": "LATTAFA PERFUMES",
+    "nome": "Al Noble Ameer",
+    "notas": {
+      "corpo": "Especiarias",
+      "fundo": "Oud",
+      "topo": "Maçã"
+    },
+    "preco": 76.9,
+    "precos": [
+      {
+        "preco": "R$ 76,90",
+        "vol": "25 ml"
+      }
+    ],
+    "ranking": "✦ Original 25ml ✦",
+    "secao": "decants"
+  },
+  {
+    "ativo": true,
+    "badge": "Decant",
+    "custo": 95,
+    "desc": "Selvagem e livre como paisagens infinitas. O Sauvage combina bergamota de Calábria com Ambroxan, criando uma fragrância fresca, aromática e profundamente masculina que evoca céus abertos e noites estreladas.",
+    "estoque": 5,
+    "familia": "Aromático Amadeirado · Masculino",
     "fotos": [
       "https://img.lojasrenner.com.br/item/550288871/original/8.jpg",
       "https://img.lojasrenner.com.br/item/550288871/original/9.jpg",
       "https://img.lojasrenner.com.br/item/550288871/original/11.jpg"
     ],
-    "ativo": true, "estoque": 5, "custo": 95, "margem": 56, "promo": null
-  },
-  {
-    "secao": "Similares",
-    "badge": "Decant",
-    "nome": "Lady Million",
-    "marca": "PACO RABANNE",
-    "familia": "Floral Amadeirado · Feminino",
-    "ranking": "✦ Inspirado no glamouroso Lady Million (Paco Rabanne)",
-    "desc": "Glamourosa, sedutora e inesquecível. O Lady Million abre com framboesa e neroli, revelando um coração floral opulento sobre uma base de mel e âmbar, celebrando o luxo feminino em cada borrifada.",
+    "marca": "DIOR",
+    "margem": 56,
+    "nome": "Sauvage",
     "notas": {
-      "topo": "Framboesa, Neroli e Toranja",
-      "corpo": "Jasmim, Gardênia e Rosa",
-      "fundo": "Mel, Patchouli e Âmbar"
+      "corpo": "Lavanda e Notas Vetiver",
+      "fundo": "Ambroxan, Cedro e Labdanum",
+      "topo": "Bergamota e Pimenta"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado na imensidão selvagem do Sauvage (Dior)",
+    "secao": "Similares"
+  },
+  {
+    "ativo": true,
+    "badge": "Decant",
+    "custo": 95,
+    "desc": "Glamourosa, sedutora e inesquecível. O Lady Million abre com framboesa e neroli, revelando um coração floral opulento sobre uma base de mel e âmbar, celebrando o luxo feminino em cada borrifada.",
+    "estoque": 4,
+    "familia": "Floral Amadeirado · Feminino",
     "fotos": [
       "https://fimgs.net/mdimg/perfume-thumbs/375x500.9045.jpg",
       "https://otiliaperfumes.com.br/wp-content/uploads/2021/12/lady-million-new.png",
       "https://cdn.awsli.com.br/800x800/578/578851/produto/24444194/6dffd1866d.jpg"
     ],
-    "ativo": true, "estoque": 4, "custo": 95, "margem": 56, "promo": null
-  },
-  {
-    "secao": "Similares",
-    "badge": "Decant",
-    "nome": "212 VIP Rosé",
-    "marca": "CAROLINA HERRERA",
-    "familia": "Floral Frutal · Feminino",
-    "ranking": "✦ Inspirado na efervescência do 212 VIP Rosé (Carolina Herrera)",
-    "desc": "Festivo, radiante e irresistível. O 212 VIP Rosé captura a energia da vida urbana com champanhe rosé e frutas vibrantes, revelando um coração floral leve sobre uma base âmbar suave.",
+    "marca": "PACO RABANNE",
+    "margem": 56,
+    "nome": "Lady Million",
     "notas": {
-      "topo": "Champanhe Rosé e Frutas Vermelhas",
-      "corpo": "Peônia, Rosa e Gardênia",
-      "fundo": "Âmbar, Almíscar e Cedro"
+      "corpo": "Jasmim, Gardênia e Rosa",
+      "fundo": "Mel, Patchouli e Âmbar",
+      "topo": "Framboesa, Neroli e Toranja"
     },
     "precos": [
-      { "vol": "100 ml", "preco": "R$ 219,90" }
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
     ],
+    "ranking": "✦ Inspirado no glamouroso Lady Million (Paco Rabanne)",
+    "secao": "Similares"
+  },
+  {
+    "ativo": true,
+    "badge": "Decant",
+    "custo": 95,
+    "desc": "Festivo, radiante e irresistível. O 212 VIP Rosé captura a energia da vida urbana com champanhe rosé e frutas vibrantes, revelando um coração floral leve sobre uma base âmbar suave.",
+    "estoque": 2,
+    "familia": "Floral Frutal · Feminino",
     "fotos": [
       "https://epocacosmeticos.vteximg.com.br/arquivos/ids/515119-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--1-.jpg?v=638017224316500000",
       "https://epocacosmeticos.vteximg.com.br/arquivos/ids/485849-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--2-.jpg?v=638947761124230000",
       "https://epocacosmeticos.vteximg.com.br/arquivos/ids/485852-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--5-.jpg?v=638947761124400000"
     ],
-    "ativo": true, "estoque": 2, "custo": 95, "margem": 56, "promo": null
+    "marca": "CAROLINA HERRERA",
+    "margem": 56,
+    "nome": "212 VIP Rosé",
+    "notas": {
+      "corpo": "Peônia, Rosa e Gardênia",
+      "fundo": "Âmbar, Almíscar e Cedro",
+      "topo": "Champanhe Rosé e Frutas Vermelhas"
+    },
+    "precos": [
+      {
+        "preco": "R$ 219,90",
+        "vol": "100 ml"
+      }
+    ],
+    "ranking": "✦ Inspirado na efervescência do 212 VIP Rosé (Carolina Herrera)",
+    "secao": "Similares"
   },
   {
-    "secao": "decants",
-    "badge": "Decant",
-    "nome": "Yara (cópia)",
-    "marca": "LATTAFA PERFUMES",
-    "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Inspirado na elegância cremosa do Sensual Orchid (LM Parfums) ✦",
-    "desc": "Doce, cremoso e irresistível. O Yara é uma celebração da feminilidade moderna. Com uma textura atalcada e macia, ele equilibra a delicadeza da orquídea com a energia de frutas tropicais, encerrando com uma base de baunilha e sândalo que deixa um rastro inesquecível.",
-    "notas": {
-      "topo": "Orquídea, Heliotrópio e Tangerina",
-      "corpo": "Notas Gourmand e Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar e Sândalo"
-    },
-    "precos": [
-      { "vol": "5 ml",  "preco": "R$ 29,90", "slide": 2 },
-      { "vol": "15 ml", "preco": "R$ 54,90", "slide": 1 },
-      { "vol": "30 ml", "preco": "R$ 99,90", "slide": 0 }
-    ],
-    "fotos": [
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902308/Gemini_Generated_Image_kekuuakekuuakeku_cuvlaf.png",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902431/Gemini_Generated_Image_bnc34jbnc34jbnc3_jrrohe.png",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1778902432/Gemini_Generated_Image_mi4on8mi4on8mi4o_hsgvcz.png"
-    ],
-    "ativo": true, "estoque": 8, "custo": 12, "margem": 60, "promo": null
-  }
-  // ── ISABELLE LA BELLE · CREMES, PASTAS & BODY SPLASHES ─────────────────
-  ,
-  {
-    "secao": "cosmeticos",
+    "ativo": true,
     "badge": "Hidratante",
-    "nome": "Creme Hidratante Isabelle La Belle · Angel",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Cremoso Gourmand · Feminino",
-    "ranking": "✦ Inspirado no icônico Angel (Thierry Mugler) ✦",
     "desc": "Creme hidratante corporal 200g com a fragrância do lendário Angel. Textura suave, mel e chocolate envolvem a pele com uma aura irresistível. Ideal para uso diário.",
-    "notas": {
-      "topo": "Bergamota, Mel, Frutas Cítricas",
-      "corpo": "Peônia, Orquídea, Baunilha",
-      "fundo": "Chocolate, Patchouli, Almíscar"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 57,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante",
-    "nome": "Creme Hidratante Isabelle La Belle · Good Girl",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Oriental · Feminino",
-    "ranking": "✦ Inspirado no sedutor Good Girl (Carolina Herrera) ✦",
-    "desc": "Creme hidratante corporal 200g com a fragrância do glamouroso Good Girl. Floral sedutor com toque de cacau e baunilha que deixa a pele perfumada o dia todo.",
-    "notas": {
-      "topo": "Bergamota, Limão",
-      "corpo": "Jasmim, Tuberosa, Íris",
-      "fundo": "Cacau, Baunilha, Âmbar"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 57,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante",
-    "nome": "Creme Hidratante Isabelle La Belle · Fantasy",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Frutal Floral · Feminino",
-    "ranking": "✦ Inspirado no doce Fantasy (Britney Spears) ✦",
-    "desc": "Creme hidratante corporal 200g com a fragrância do adorável Fantasy. Frutas tropicais e floral gourmand para uma pele macia e envolvente.",
-    "notas": {
-      "topo": "Maracujá, Kiwi, Lichia",
-      "corpo": "Jasmim, Orquídea, Cupcake",
-      "fundo": "Almíscar, Orris, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 57,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante",
-    "nome": "Creme Hidratante Isabelle La Belle · Scandal",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Mel · Feminino",
-    "ranking": "✦ Inspirado no provocante Scandal (Jean Paul Gaultier) ✦",
-    "desc": "Creme hidratante corporal 200g com a fragrância do ousado Scandal. Mel, gardênia e patchouli criam uma combinação quente e sedutora na pele.",
-    "notas": {
-      "topo": "Toranja, Tangerina, Mel",
-      "corpo": "Gardênia, Mel, Patchouli",
-      "fundo": "Vetiver, Âmbar, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 57,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Club de Nuit",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Amadeirado Aromático · Masculino",
-    "ranking": "✦ Inspirado no premiado Club de Nuit Intense Man (Armaf) ✦",
-    "desc": "Creme hidratante árabe 200g de alta fixação com a essência do Club de Nuit. Fresco amadeirado com projeção marcante e longa duração.",
-    "notas": {
-      "topo": "Limão, Toranja, Abacaxi",
-      "corpo": "Rosa, Jasmim, Bétula",
-      "fundo": "Almíscar, Âmbar, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Khamrah",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Especiado · Masculino",
-    "ranking": "✦ Inspirado no envolvente Khamrah (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância quente e especiada do Khamrah. Oriental intenso com oud e âmbar para uma presença marcante.",
-    "notas": {
-      "topo": "Especiarias, Pimenta, Bergamota",
-      "corpo": "Oud, Âmbar, Notas Orientais",
-      "fundo": "Sândalo, Baunilha, Almíscar"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad Bourbon",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Inspirado no sofisticado Asad Bourbon (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância adocicada e amadeirada do Asad Bourbon. Quente, envolvente e de longa duração na pele.",
-    "notas": {
-      "topo": "Lavanda, Ameixa, Pimenta Rosa",
-      "corpo": "Cacau, Noz-moscada, Davana",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara Tous",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Frutal · Feminino",
-    "ranking": "✦ Inspirado no vibrante Yara Tous (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância tropical e floral do Yara Tous. Frutas vermelhas e florais delicadas para uma pele radiante e perfumada.",
-    "notas": {
-      "topo": "Frutas Vermelhas, Bergamota",
-      "corpo": "Rosa, Peônia, Jasmim",
-      "fundo": "Almíscar, Âmbar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Inspirado no cremoso Yara (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância doce e atalcada do Yara. Baunilha, orquídea e almíscar deixam a pele macia com um rastro irresistível.",
-    "notas": {
-      "topo": "Orquídea, Heliotrópio, Tangerina",
-      "corpo": "Notas Gourmand, Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Royal Amber",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Âmbar · Feminino",
-    "ranking": "✦ Inspirado no luminoso Royal Amber (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância âmbar dourada do Royal Amber. Quente e sofisticada, deixa a pele com um brilho olfativo inesquecível.",
-    "notas": {
-      "topo": "Notas Cítricas, Bergamota",
-      "corpo": "Âmbar, Rosa, Notas Florais",
-      "fundo": "Sândalo, Almíscar, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Rose",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Rosa · Feminino",
-    "ranking": "✦ Inspirado no delicado Fakhar Rose (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância floral e feminina do Fakhar Rose. Rosa e jasmim em uma composição suave e envolvente de longa duração.",
-    "notas": {
-      "topo": "Frutas, Lírio, Bergamota",
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Inspirado no imponente Asad (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância marcante do Asad. Pimenta, café e âmbar criam uma presença poderosa e sofisticada na pele.",
-    "notas": {
-      "topo": "Pimenta Preta, Tabaco, Abacaxi",
-      "corpo": "Patchouli, Café, Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Hidratante Árabe",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Black",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Amadeirado Especiado · Masculino",
-    "ranking": "✦ Inspirado no intenso Fakhar Black (Lattafa) ✦",
-    "desc": "Creme hidratante árabe 200g com a fragrância masculina e amadeirada do Fakhar Black. Maçã, lavanda e âmbar para uma presença elegante e marcante.",
-    "notas": {
-      "topo": "Maçã, Lavanda, Bergamota",
-      "corpo": "Sálvia, Gerânio, Baunilha",
-      "fundo": "Fava Tonka, Âmbar, Couro"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Sabah Al Ward",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Rosa · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Sabah Al Ward (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a delicada fragrância Sabah Al Ward. Alta fixação, fórmula rica com manteiga de karité para pele suave e perfumada.",
-    "notas": {
-      "topo": "Cítricos, Rosa, Frutas",
-      "corpo": "Flores Brancas, Gardênia",
-      "fundo": "Patchouli, Almíscar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Yara",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Yara (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância icônica Yara. Baunilha, orquídea e almíscar com máxima fixação e textura aveludada.",
-    "notas": {
-      "topo": "Orquídea, Heliotrópio, Tangerina",
-      "corpo": "Frutas Tropicais, Gourmand",
-      "fundo": "Baunilha, Almíscar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Asad Bourbon",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Fórmula extra concentrada · Asad Bourbon (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância quente do Asad Bourbon. Máxima fixação, baunilha de bourbon e âmbar para uma presença duradoura.",
-    "notas": {
-      "topo": "Lavanda, Ameixa, Pimenta Rosa",
-      "corpo": "Cacau, Noz-moscada",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Delina",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Frutal · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Delina (Parfums de Marly) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a delicada e luxuosa fragrância Delina. Peônia, rosa e lichia em uma composição ultrafeminina e sofisticada.",
-    "notas": {
-      "topo": "Ruibarbo, Lichia, Pimenta Rosa",
-      "corpo": "Peônia, Rosa, Gardênia",
-      "fundo": "Almíscar, Caxemira, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Royal Amber",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Âmbar · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Royal Amber (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância dourada Royal Amber. Âmbar quente e oriental com máxima fixação para uma pele luminosa.",
-    "notas": {
-      "topo": "Notas Cítricas, Bergamota",
-      "corpo": "Âmbar, Rosa, Notas Florais",
-      "fundo": "Sândalo, Almíscar, Baunilha"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Asad",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Fórmula extra concentrada · Asad (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância poderosa do Asad. Textura cremosa e rica para hidratação intensa com presença olfativa marcante.",
-    "notas": {
-      "topo": "Pimenta Preta, Tabaco, Abacaxi",
-      "corpo": "Patchouli, Café, Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Gold",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Amadeirado Floral · Masculino",
-    "ranking": "✦ Fórmula extra concentrada · Fakhar Gold (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância sofisticada Fakhar Gold. Amadeirado floral de longa duração para homens que apreciam elegância.",
-    "notas": {
-      "topo": "Frutas, Cítricos, Bergamota",
-      "corpo": "Flores, Madeiras Nobres",
-      "fundo": "Âmbar, Sândalo, Almíscar"
-    },
-    "precos": [
-      {
-        "vol": "200g",
-        "preco": "R$ 120,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Angel",
-    "marca": "ISABELLE LA BELLE",
+    "estoque": 10,
     "familia": "Cremoso Gourmand · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Angel (Thierry Mugler) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância lendária Angel. Máxima fixação, chocolate, mel e baunilha para uma pele deliciosamente perfumada.",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Isabelle La Belle · Angel",
     "notas": {
-      "topo": "Bergamota, Mel, Frutas Cítricas",
-      "corpo": "Peônia, Orquídea, Chocolate",
-      "fundo": "Patchouli, Baunilha, Almíscar"
+      "corpo": "Peônia, Orquídea, Baunilha",
+      "fundo": "Chocolate, Patchouli, Almíscar",
+      "topo": "Bergamota, Mel, Frutas Cítricas"
     },
     "precos": [
       {
-        "vol": "200g",
-        "preco": "R$ 120,00"
+        "preco": "R$ 57,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
+    "ranking": "✦ Inspirado no icônico Angel (Thierry Mugler) ✦",
+    "secao": "cosmeticos"
+  },
   {
-    "secao": "cosmeticos",
-    "badge": "Pasta Hidratante",
-    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Rose",
+    "ativo": true,
+    "badge": "Hidratante",
+    "desc": "Creme hidratante corporal 200g com a fragrância do glamouroso Good Girl. Floral sedutor com toque de cacau e baunilha que deixa a pele perfumada o dia todo.",
+    "estoque": 10,
+    "familia": "Floral Oriental · Feminino",
     "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Rosa · Feminino",
-    "ranking": "✦ Fórmula extra concentrada · Fakhar Rose (Lattafa) ✦",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância floral e feminina do Fakhar Rose. Rosa pura e jasmim com máxima fixação para a pele.",
+    "nome": "Creme Hidratante Isabelle La Belle · Good Girl",
     "notas": {
-      "topo": "Frutas, Lírio",
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar, Sândalo"
+      "corpo": "Jasmim, Tuberosa, Íris",
+      "fundo": "Cacau, Baunilha, Âmbar",
+      "topo": "Bergamota, Limão"
     },
     "precos": [
       {
-        "vol": "200g",
-        "preco": "R$ 120,00"
+        "preco": "R$ 57,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
+    "ranking": "✦ Inspirado no sedutor Good Girl (Carolina Herrera) ✦",
+    "secao": "cosmeticos"
+  },
   {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Rose",
+    "ativo": true,
+    "badge": "Hidratante",
+    "desc": "Creme hidratante corporal 200g com a fragrância do adorável Fantasy. Frutas tropicais e floral gourmand para uma pele macia e envolvente.",
+    "estoque": 10,
+    "familia": "Frutal Floral · Feminino",
     "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Rosa · Feminino",
-    "ranking": "✦ Body splash 300ml · Fakhar Rose (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância floral e delicada do Fakhar Rose. Leve, duradouro e perfeito para uso diário após o banho.",
+    "nome": "Creme Hidratante Isabelle La Belle · Fantasy",
     "notas": {
-      "topo": "Frutas, Lírio",
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar"
+      "corpo": "Jasmim, Orquídea, Cupcake",
+      "fundo": "Almíscar, Orris, Baunilha",
+      "topo": "Maracujá, Kiwi, Lichia"
     },
     "precos": [
       {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
+        "preco": "R$ 57,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
+    "ranking": "✦ Inspirado no doce Fantasy (Britney Spears) ✦",
+    "secao": "cosmeticos"
+  },
   {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Asad Bourbon",
+    "ativo": true,
+    "badge": "Hidratante",
+    "desc": "Creme hidratante corporal 200g com a fragrância do ousado Scandal. Mel, gardênia e patchouli criam uma combinação quente e sedutora na pele.",
+    "estoque": 10,
+    "familia": "Floral Mel · Feminino",
     "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Isabelle La Belle · Scandal",
+    "notas": {
+      "corpo": "Gardênia, Mel, Patchouli",
+      "fundo": "Vetiver, Âmbar, Baunilha",
+      "topo": "Toranja, Tangerina, Mel"
+    },
+    "precos": [
+      {
+        "preco": "R$ 57,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no provocante Scandal (Jean Paul Gaultier) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g de alta fixação com a essência do Club de Nuit. Fresco amadeirado com projeção marcante e longa duração.",
+    "estoque": 10,
+    "familia": "Amadeirado Aromático · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Club de Nuit",
+    "notas": {
+      "corpo": "Rosa, Jasmim, Bétula",
+      "fundo": "Almíscar, Âmbar, Baunilha",
+      "topo": "Limão, Toranja, Abacaxi"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no premiado Club de Nuit Intense Man (Armaf) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância quente e especiada do Khamrah. Oriental intenso com oud e âmbar para uma presença marcante.",
+    "estoque": 10,
+    "familia": "Oriental Especiado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Khamrah",
+    "notas": {
+      "corpo": "Oud, Âmbar, Notas Orientais",
+      "fundo": "Sândalo, Baunilha, Almíscar",
+      "topo": "Especiarias, Pimenta, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no envolvente Khamrah (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância adocicada e amadeirada do Asad Bourbon. Quente, envolvente e de longa duração na pele.",
+    "estoque": 10,
     "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Body splash 300ml · Asad Bourbon (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância envolvente do Asad Bourbon. Oriental especiado com baunilha de bourbon para uma presença marcante e sofisticada.",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad Bourbon",
     "notas": {
-      "topo": "Lavanda, Ameixa, Pimenta Rosa",
-      "corpo": "Cacau, Noz-moscada",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver"
+      "corpo": "Cacau, Noz-moscada, Davana",
+      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
+      "topo": "Lavanda, Ameixa, Pimenta Rosa"
     },
     "precos": [
       {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
+        "preco": "R$ 70,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
+    "ranking": "✦ Inspirado no sofisticado Asad Bourbon (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
   {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Sabah Al Ward",
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância tropical e floral do Yara Tous. Frutas vermelhas e florais delicadas para uma pele radiante e perfumada.",
+    "estoque": 10,
+    "familia": "Floral Frutal · Feminino",
     "marca": "ISABELLE LA BELLE",
-    "familia": "Floral Rosa · Feminino",
-    "ranking": "✦ Body splash 300ml · Sabah Al Ward (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância floral e suave do Sabah Al Ward. Rosa e flores brancas para uma frescura feminina duradoura.",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara Tous",
     "notas": {
-      "topo": "Cítricos, Rosa",
-      "corpo": "Flores Brancas, Gardênia",
-      "fundo": "Patchouli, Almíscar, Sândalo"
+      "corpo": "Rosa, Peônia, Jasmim",
+      "fundo": "Almíscar, Âmbar, Sândalo",
+      "topo": "Frutas Vermelhas, Bergamota"
     },
     "precos": [
       {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
+        "preco": "R$ 70,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
+    "ranking": "✦ Inspirado no vibrante Yara Tous (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
   {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Asad",
-    "marca": "ISABELLE LA BELLE",
-    "familia": "Oriental Amadeirado · Masculino",
-    "ranking": "✦ Body splash 300ml · Asad (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância poderosa e marcante do Asad. Pimenta, café e âmbar para uma presença imponente e inesquecível.",
-    "notas": {
-      "topo": "Pimenta Preta, Tabaco, Abacaxi",
-      "corpo": "Patchouli, Café",
-      "fundo": "Âmbar, Baunilha, Madeira Seca"
-    },
-    "precos": [
-      {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
     "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Yara",
-    "marca": "ISABELLE LA BELLE",
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância doce e atalcada do Yara. Baunilha, orquídea e almíscar deixam a pele macia com um rastro irresistível.",
+    "estoque": 10,
     "familia": "Âmbar Baunilha · Feminino",
-    "ranking": "✦ Body splash 300ml · Yara (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância doce e cremosa do Yara. Baunilha, orquídea e almíscar em uma formulação leve e irresistível para o corpo.",
-    "notas": {
-      "topo": "Orquídea, Heliotrópio, Tangerina",
-      "corpo": "Frutas Tropicais, Gourmand",
-      "fundo": "Baunilha, Almíscar, Sândalo"
-    },
-    "precos": [
-      {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
-      }
-    ],
-    "fotos": [],
-    "ativo": true,
-    "estoque": 10
-  }
-  ,
-  {
-    "secao": "cosmeticos",
-    "badge": "Body Splash Árabe",
-    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Black",
     "marca": "ISABELLE LA BELLE",
-    "familia": "Amadeirado Especiado · Masculino",
-    "ranking": "✦ Body splash 300ml · Fakhar Black (Lattafa) ✦",
-    "desc": "Body splash árabe 300ml com a fragrância intensa e amadeirada do Fakhar Black. Maçã, lavanda e couro para um rastro masculino marcante.",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara",
     "notas": {
-      "topo": "Maçã, Lavanda, Bergamota",
-      "corpo": "Sálvia, Gerânio, Baunilha",
-      "fundo": "Fava Tonka, Âmbar, Couro"
+      "corpo": "Notas Gourmand, Frutas Tropicais",
+      "fundo": "Baunilha, Almíscar, Sândalo",
+      "topo": "Orquídea, Heliotrópio, Tangerina"
     },
     "precos": [
       {
-        "vol": "300ml",
-        "preco": "R$ 70,00"
+        "preco": "R$ 70,00",
+        "vol": "200g"
       }
     ],
-    "fotos": [],
+    "ranking": "✦ Inspirado no cremoso Yara (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
     "ativo": true,
-    "estoque": 10
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância âmbar dourada do Royal Amber. Quente e sofisticada, deixa a pele com um brilho olfativo inesquecível.",
+    "estoque": 10,
+    "familia": "Oriental Âmbar · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Royal Amber",
+    "notas": {
+      "corpo": "Âmbar, Rosa, Notas Florais",
+      "fundo": "Sândalo, Almíscar, Baunilha",
+      "topo": "Notas Cítricas, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no luminoso Royal Amber (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância floral e feminina do Fakhar Rose. Rosa e jasmim em uma composição suave e envolvente de longa duração.",
+    "estoque": 10,
+    "familia": "Floral Rosa · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Rose",
+    "notas": {
+      "corpo": "Rosa, Jasmim, Tuberosa",
+      "fundo": "Baunilha, Almíscar, Sândalo",
+      "topo": "Frutas, Lírio, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no delicado Fakhar Rose (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância marcante do Asad. Pimenta, café e âmbar criam uma presença poderosa e sofisticada na pele.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad",
+    "notas": {
+      "corpo": "Patchouli, Café, Íris",
+      "fundo": "Âmbar, Baunilha, Madeira Seca",
+      "topo": "Pimenta Preta, Tabaco, Abacaxi"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no imponente Asad (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Hidratante Árabe",
+    "desc": "Creme hidratante árabe 200g com a fragrância masculina e amadeirada do Fakhar Black. Maçã, lavanda e âmbar para uma presença elegante e marcante.",
+    "estoque": 10,
+    "familia": "Amadeirado Especiado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Black",
+    "notas": {
+      "corpo": "Sálvia, Gerânio, Baunilha",
+      "fundo": "Fava Tonka, Âmbar, Couro",
+      "topo": "Maçã, Lavanda, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Inspirado no intenso Fakhar Black (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a delicada fragrância Sabah Al Ward. Alta fixação, fórmula rica com manteiga de karité para pele suave e perfumada.",
+    "estoque": 10,
+    "familia": "Floral Rosa · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Sabah Al Ward",
+    "notas": {
+      "corpo": "Flores Brancas, Gardênia",
+      "fundo": "Patchouli, Almíscar, Sândalo",
+      "topo": "Cítricos, Rosa, Frutas"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Sabah Al Ward (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância icônica Yara. Baunilha, orquídea e almíscar com máxima fixação e textura aveludada.",
+    "estoque": 10,
+    "familia": "Âmbar Baunilha · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Yara",
+    "notas": {
+      "corpo": "Frutas Tropicais, Gourmand",
+      "fundo": "Baunilha, Almíscar, Sândalo",
+      "topo": "Orquídea, Heliotrópio, Tangerina"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Yara (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância quente do Asad Bourbon. Máxima fixação, baunilha de bourbon e âmbar para uma presença duradoura.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Asad Bourbon",
+    "notas": {
+      "corpo": "Cacau, Noz-moscada",
+      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
+      "topo": "Lavanda, Ameixa, Pimenta Rosa"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Asad Bourbon (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a delicada e luxuosa fragrância Delina. Peônia, rosa e lichia em uma composição ultrafeminina e sofisticada.",
+    "estoque": 10,
+    "familia": "Floral Frutal · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Delina",
+    "notas": {
+      "corpo": "Peônia, Rosa, Gardênia",
+      "fundo": "Almíscar, Caxemira, Baunilha",
+      "topo": "Ruibarbo, Lichia, Pimenta Rosa"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Delina (Parfums de Marly) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância dourada Royal Amber. Âmbar quente e oriental com máxima fixação para uma pele luminosa.",
+    "estoque": 10,
+    "familia": "Oriental Âmbar · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Royal Amber",
+    "notas": {
+      "corpo": "Âmbar, Rosa, Notas Florais",
+      "fundo": "Sândalo, Almíscar, Baunilha",
+      "topo": "Notas Cítricas, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Royal Amber (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância poderosa do Asad. Textura cremosa e rica para hidratação intensa com presença olfativa marcante.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Asad",
+    "notas": {
+      "corpo": "Patchouli, Café, Íris",
+      "fundo": "Âmbar, Baunilha, Madeira Seca",
+      "topo": "Pimenta Preta, Tabaco, Abacaxi"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Asad (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância sofisticada Fakhar Gold. Amadeirado floral de longa duração para homens que apreciam elegância.",
+    "estoque": 10,
+    "familia": "Amadeirado Floral · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Gold",
+    "notas": {
+      "corpo": "Flores, Madeiras Nobres",
+      "fundo": "Âmbar, Sândalo, Almíscar",
+      "topo": "Frutas, Cítricos, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Fakhar Gold (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância lendária Angel. Máxima fixação, chocolate, mel e baunilha para uma pele deliciosamente perfumada.",
+    "estoque": 10,
+    "familia": "Cremoso Gourmand · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Angel",
+    "notas": {
+      "corpo": "Peônia, Orquídea, Chocolate",
+      "fundo": "Patchouli, Baunilha, Almíscar",
+      "topo": "Bergamota, Mel, Frutas Cítricas"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Angel (Thierry Mugler) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Pasta Hidratante",
+    "desc": "Pasta hidratante extra concentrada 200g com a fragrância floral e feminina do Fakhar Rose. Rosa pura e jasmim com máxima fixação para a pele.",
+    "estoque": 10,
+    "familia": "Floral Rosa · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Rose",
+    "notas": {
+      "corpo": "Rosa, Jasmim, Tuberosa",
+      "fundo": "Baunilha, Almíscar, Sândalo",
+      "topo": "Frutas, Lírio"
+    },
+    "precos": [
+      {
+        "preco": "R$ 120,00",
+        "vol": "200g"
+      }
+    ],
+    "ranking": "✦ Fórmula extra concentrada · Fakhar Rose (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância floral e delicada do Fakhar Rose. Leve, duradouro e perfeito para uso diário após o banho.",
+    "estoque": 10,
+    "familia": "Floral Rosa · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Rose",
+    "notas": {
+      "corpo": "Rosa, Jasmim, Tuberosa",
+      "fundo": "Baunilha, Almíscar",
+      "topo": "Frutas, Lírio"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Fakhar Rose (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância envolvente do Asad Bourbon. Oriental especiado com baunilha de bourbon para uma presença marcante e sofisticada.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Asad Bourbon",
+    "notas": {
+      "corpo": "Cacau, Noz-moscada",
+      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
+      "topo": "Lavanda, Ameixa, Pimenta Rosa"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Asad Bourbon (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância floral e suave do Sabah Al Ward. Rosa e flores brancas para uma frescura feminina duradoura.",
+    "estoque": 10,
+    "familia": "Floral Rosa · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Sabah Al Ward",
+    "notas": {
+      "corpo": "Flores Brancas, Gardênia",
+      "fundo": "Patchouli, Almíscar, Sândalo",
+      "topo": "Cítricos, Rosa"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Sabah Al Ward (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância poderosa e marcante do Asad. Pimenta, café e âmbar para uma presença imponente e inesquecível.",
+    "estoque": 10,
+    "familia": "Oriental Amadeirado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Asad",
+    "notas": {
+      "corpo": "Patchouli, Café",
+      "fundo": "Âmbar, Baunilha, Madeira Seca",
+      "topo": "Pimenta Preta, Tabaco, Abacaxi"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Asad (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância doce e cremosa do Yara. Baunilha, orquídea e almíscar em uma formulação leve e irresistível para o corpo.",
+    "estoque": 10,
+    "familia": "Âmbar Baunilha · Feminino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Yara",
+    "notas": {
+      "corpo": "Frutas Tropicais, Gourmand",
+      "fundo": "Baunilha, Almíscar, Sândalo",
+      "topo": "Orquídea, Heliotrópio, Tangerina"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Yara (Lattafa) ✦",
+    "secao": "cosmeticos"
+  },
+  {
+    "ativo": true,
+    "badge": "Body Splash Árabe",
+    "desc": "Body splash árabe 300ml com a fragrância intensa e amadeirada do Fakhar Black. Maçã, lavanda e couro para um rastro masculino marcante.",
+    "estoque": 10,
+    "familia": "Amadeirado Especiado · Masculino",
+    "marca": "ISABELLE LA BELLE",
+    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Black",
+    "notas": {
+      "corpo": "Sálvia, Gerânio, Baunilha",
+      "fundo": "Fava Tonka, Âmbar, Couro",
+      "topo": "Maçã, Lavanda, Bergamota"
+    },
+    "precos": [
+      {
+        "preco": "R$ 70,00",
+        "vol": "300ml"
+      }
+    ],
+    "ranking": "✦ Body splash 300ml · Fakhar Black (Lattafa) ✦",
+    "secao": "cosmeticos"
   }
-
 ];
 
 var KITS=[
   {
-    "nome": "Kit Casal Lattafa",
-    "desc": "O casal que cheira bem junto. Asad + Yara em combo especial com desconto exclusivo.",
-    "produtos": ["Asad", "Yara"],
-    "secao": "decants",
+    "ativo": true,
     "badge": "Kit",
+    "desc": "O casal que cheira bem junto. Asad + Yara em combo especial com desconto exclusivo.",
+    "fotos": [
+      ""
+    ],
+    "nome": "Kit Casal Lattafa",
     "preco": "R$ 54,90",
-    "fotos": [""],
-    "ativo": true
+    "produtos": [
+      "Asad",
+      "Yara"
+    ],
+    "secao": "decants"
   },
   {
-    "nome": "Kit Verão VS",
+    "ativo": true,
+    "badge": "Kit",
     "desc": "Pure Seduction + Coconut Passion — dois ícones da VS no kit perfeito para o calor.",
+    "fotos": [
+      ""
+    ],
+    "nome": "Kit Verão VS",
+    "preco": "R$ 139,90",
     "produtos": [
       "Kit Body Splah + Creme Hidratante - Pure Seduction",
       "Kit Body Splah + Creme Hidratante - Coconut Passion"
     ],
-    "secao": "cosmeticos",
-    "badge": "Kit",
-    "preco": "R$ 139,90",
-    "fotos": [""],
-    "ativo": true
+    "secao": "cosmeticos"
   }
 ];
 
 var DEPOIMENTOS=[
   {
-    "nome": "Juliana R.",
     "cidade": "Rio de Janeiro, RJ",
     "estrelas": 5,
-    "texto": "O Yara é tudo que eu queria — doce, cremoso e feminino sem ser enjoativo. Recebi em 2 dias e veio embaladinho com muito carinho. Indico para todas as minhas amigas!",
+    "foto": "",
+    "nome": "Juliana R.",
     "produto": "Lattafa Yara · Decant 15ml",
-    "foto": ""
+    "texto": "O Yara é tudo que eu queria — doce, cremoso e feminino sem ser enjoativo. Recebi em 2 dias e veio embaladinho com muito carinho. Indico para todas as minhas amigas!"
   },
   {
-    "nome": "Fernanda S.",
     "cidade": "Belo Horizonte, MG",
     "estrelas": 5,
-    "texto": "Pedi o kit Pure Seduction da VS e amei demais! Cheiro inconfundível, shimmer lindo e o body splash dura o dia todo. Com certeza voltarei a comprar.",
+    "foto": "",
+    "nome": "Fernanda S.",
     "produto": "Pure Seduction VS · Kit",
-    "foto": ""
+    "texto": "Pedi o kit Pure Seduction da VS e amei demais! Cheiro inconfundível, shimmer lindo e o body splash dura o dia todo. Com certeza voltarei a comprar."
   },
   {
-    "nome": "Carlos A.",
     "cidade": "Curitiba, PR",
     "estrelas": 5,
-    "texto": "Não acreditava que ia gostar tanto do Qaed Branco. Praticamente igual ao Baccarat Rouge 540 por uma fração do preço. Já recomendei para o pessoal do trampo todo.",
+    "foto": "",
+    "nome": "Carlos A.",
     "produto": "Qaed Branco · Original 100ml",
-    "foto": ""
+    "texto": "Não acreditava que ia gostar tanto do Qaed Branco. Praticamente igual ao Baccarat Rouge 540 por uma fração do preço. Já recomendei para o pessoal do trampo todo."
   },
   {
-    "nome": "Mariana C.",
     "cidade": "Fortaleza, CE",
     "estrelas": 5,
-    "texto": "Atendimento nota 10, produto chegou bem embalado e o Ajwad é viciante! Meu marido também adorou. Virei cliente fiel da Tobaldine!",
+    "foto": "",
+    "nome": "Mariana C.",
     "produto": "Ajwad · Original 100ml",
-    "foto": ""
+    "texto": "Atendimento nota 10, produto chegou bem embalado e o Ajwad é viciante! Meu marido também adorou. Virei cliente fiel da Tobaldine!"
   }
 ];
