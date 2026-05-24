@@ -216,6 +216,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
     <button id="loginBtn" onclick="checkSenha()" style="padding:12px;background:#c9a84c;border:none;border-radius:8px;color:#0d0b09;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Entrar</button>
     <p id="erroSenha" style="color:#c04c4c;font-size:12px;text-align:center;min-height:16px"></p>
     <p id="tentativasInfo" style="color:#9a8c78;font-size:10px;text-align:center;min-height:14px"></p>
+    <button onclick="recuperarSenha()" style="background:transparent;border:none;color:#9a8c78;font-size:11px;cursor:pointer;text-decoration:underline;font-family:inherit;padding:0">Esqueci a senha</button>
   </div>
 </div>
 
@@ -367,7 +368,24 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-async function checkSenha() {
+async function recuperarSenha() {
+  var email = (document.getElementById("emailInput").value || "").trim();
+  var erroEl = document.getElementById("erroSenha");
+  if (!email) {
+    erroEl.style.color = "#c04c4c";
+    erroEl.textContent = "Digite o e-mail acima antes de recuperar.";
+    document.getElementById("emailInput").focus();
+    return;
+  }
+  try {
+    await firebase.auth().sendPasswordResetEmail(email);
+    erroEl.style.color = "#4caf79";
+    erroEl.textContent = "✓ E-mail de redefinição enviado! Verifique sua caixa.";
+  } catch(e) {
+    erroEl.style.color = "#c04c4c";
+    erroEl.textContent = "Erro: " + (e.code === "auth/user-not-found" ? "E-mail não cadastrado." : e.message);
+  }
+}
   if (_loginLocked) return;
   var email  = (document.getElementById("emailInput").value || "").trim() || ADMIN_EMAIL;
   var senha  = document.getElementById("senhaInput").value;
