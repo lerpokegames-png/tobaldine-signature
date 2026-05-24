@@ -566,12 +566,6 @@ function loadFromFirebase(db){
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
     if(fbKits && fbKits.length){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
-    else if(typeof KITS !== "undefined" && KITS.length && !kits.length){
-      /* Firebase sem kits — usa fallback do produtos.js e salva */
-      kits = JSON.parse(JSON.stringify(KITS));
-      localStorage.setItem("tb_v3_kits", JSON.stringify(kits));
-      if(typeof fbSaveKits === "function") fbSaveKits(kits).catch(function(){});
-    }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
     if(fbPed && fbPed.length){ pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
@@ -1333,7 +1327,18 @@ function renderKits(){
     }).join("");
 }
 function addKit(){kits.push({nome:"Novo Kit",desc:"",preco:"R$ 0,00",produtos:[],fotos:[""],ativo:true});saveData();renderKits()}
-function rmKit(i){kits.splice(i,1);saveData();if(typeof fbSaveKits==="function")fbSaveKits(kits).catch(function(){});renderKits()}
+function rmKit(i){
+  kits.splice(i,1);
+  saveData();
+  if(typeof fbSaveKits==="function"){
+    /* Firebase ignora array vazio — salva null explicitamente via set direto */
+    var db = window.firebaseDB;
+    if(db){
+      db.ref("kits").set(kits.length ? kits : null).catch(function(){});
+    }
+  }
+  renderKits();
+}
 function setKit(i,k,v){if(k==="foto")kits[i].fotos=[v];else kits[i][k]=v;saveData()}
 
 function renderDep(){

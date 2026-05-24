@@ -529,7 +529,8 @@ function initCarrosselComHint() {
 ══════════════════════════════ */
 window.atualizarDoFirebase = function(fbProdutos, fbKits, fbDepoimentos, fbCupons) {
   if (fbProdutos   && fbProdutos.length > 0)   window.PRODUTOS        = fbProdutos;
-  if (fbKits       && fbKits.length > 0)        window.KITS            = fbKits;
+  /* Sempre atualiza KITS — null/vazio do Firebase significa intencionalmente sem kits */
+  window.KITS = (fbKits && fbKits.length > 0) ? fbKits : [];
   if (fbDepoimentos && fbDepoimentos.length > 0) window.DEPOIMENTOS    = fbDepoimentos;
   if (fbCupons     && fbCupons.length > 0)      window.CUPONS_DO_SISTEMA = fbCupons;
 
