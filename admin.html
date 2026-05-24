@@ -513,6 +513,19 @@ function loadFromFirebase(db){
     var fbCup  = toArr(snaps[3].val());
     var fbPed  = toArr(snaps[4].val());
 
+    /* PROTEÇÃO: se Firebase tem menos produtos que o local, não sobrescreve sem confirmar */
+    if(fbProd && fbProd.length && produtos.length > 0 && fbProd.length < produtos.length){
+      var msg = "⚠ Firebase tem " + fbProd.length + " produtos mas você tem " + produtos.length
+        + " localmente.\n\nUsar os dados do Firebase (menos produtos) vai apagar os dados locais.\n\nUsar Firebase?";
+      if(!confirm(msg)){
+        /* Mantém dados locais e sincroniza para Firebase */
+        renderSidebar();
+        if(fbSt){ fbSt.textContent="✓ Firebase OK (mantendo dados locais)"; fbSt.style.background="rgba(76,175,121,0.15)"; fbSt.style.color="#4caf79"; }
+        fbSaveProdutos(produtos).catch(function(e){ console.warn("Proteção sync:", e); });
+        return;
+      }
+    }
+
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
@@ -1160,13 +1173,18 @@ function syncCompletoFirebase(){
   if(typeof fbSaveProdutos!=="function"){
     toast("⚠️ Firebase indisponível"); return;
   }
-  var btn = document.getElementById("btnSyncForce");
-  if(btn){ btn.textContent="☁ Enviando..."; btn.disabled=true; }
 
-  /* Conta fotos para mostrar no resumo */
   var totalFotos = produtos.reduce(function(acc, p){
     return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){ return f && f.trim(); }).length : 0);
   }, 0);
+
+  /* Confirmação antes de enviar — evita enviar dados errados por engano */
+  if(!confirm("Enviar " + produtos.length + " produtos e " + totalFotos + " fotos para o Firebase?\n\nIsso vai sobrescrever os dados atuais no servidor.")){
+    return;
+  }
+
+  var btn = document.getElementById("btnSyncForce");
+  if(btn){ btn.textContent="☁ Enviando..."; btn.disabled=true; }
 
   Promise.all([
     fbSaveProdutos(produtos),
