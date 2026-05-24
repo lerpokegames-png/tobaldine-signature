@@ -2272,8 +2272,12 @@ async function _runAutoFill(indices, campos) {
   toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro (ver F12)" : " · tudo certo!"));
 }
 async function autoPreencherTodos() {
-  /* Redireciona para o novo sistema com modal de opções */
   abrirAutoFill("todos");
+}
+
+async function autoPreencherSelecionados() {
+  if (!_loteSelected.size) { toast("Selecione produtos no modo Lote primeiro"); return; }
+  abrirAutoFill("selecionados");
 }
 
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
