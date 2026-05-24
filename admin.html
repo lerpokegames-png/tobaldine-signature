@@ -225,6 +225,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
   <h1>✦ Tobaldine Admin</h1>
   <span style="font-size:11px;color:var(--muted)" id="hdrInfo"></span>
   <span id="fbStatus" style="font-size:11px;padding:3px 8px;border-radius:10px;background:rgba(192,76,76,0.15);color:#c04c4c">⚡ Firebase...</span>
+  <span id="buildVer" style="font-size:10px;color:var(--text-dim,#4a4235)" title="Data/hora do arquivo publicado"></span>
   <div class="ml-auto">
     <div class="view-toggle" title="Alternar visualização">
       <button id="btnLista" class="active" onclick="setView('lista')" title="Lista">☰</button>
@@ -537,6 +538,16 @@ function loadFromFirebase(db){
     }, 0);
 
     /* Carrega nomes de seções */
+    /* Carrega chave Gemini do Firebase — disponível em qualquer dispositivo */
+    db.ref("config/geminiKey").once("value").then(function(snap){
+      var k = snap.val();
+      if(k){
+        localStorage.setItem("tb_gemini_key", k);
+        var inp = document.getElementById("geminiKeyInput");
+        if(inp) inp.value = k;
+      }
+    }).catch(function(){});
+
     db.ref("config/secoes").once("value", function(snap){
       var sl = snap.val();
       if(sl){ SECOES.forEach(function(s){ if(sl[s.id]) s.lbl = sl[s.id]; }); localStorage.setItem("tb_secoes_labels", JSON.stringify(sl)); }
@@ -1418,7 +1429,14 @@ function salvarGeminiKey(){
   var key = (document.getElementById("geminiKeyInput").value||"").trim();
   if(!key){ toast("Digite a chave"); return; }
   localStorage.setItem("tb_gemini_key", key);
-  toast("✓ Chave Gemini salva!");
+  /* Salva no Firebase para funcionar em qualquer dispositivo */
+  if(window.firebaseDB){
+    window.firebaseDB.ref("config/geminiKey").set(key)
+      .then(function(){ toast("✓ Chave Gemini salva! (Firebase + local)"); })
+      .catch(function(){ toast("✓ Chave salva localmente"); });
+  } else {
+    toast("✓ Chave Gemini salva!");
+  }
 }
 
 /* FIX: alteração de senha agora via Firebase Auth — sem SHA-256 nu sem salt */
@@ -2062,6 +2080,17 @@ function gerarPDF(){
   win.document.write(html);
   win.document.close();
 }
+/* ── Versão visível no header: mostra data/hora do arquivo publicado ── */
+(function(){
+  var d = new Date(document.lastModified);
+  var ver = d.getDate().toString().padStart(2,"0") + "/"
+    + (d.getMonth()+1).toString().padStart(2,"0") + " "
+    + d.getHours().toString().padStart(2,"0") + ":"
+    + d.getMinutes().toString().padStart(2,"0");
+  var el = document.getElementById("buildVer");
+  if(el) el.textContent = "· v" + ver;
+})();
+
 /* ── FIX: Voltar funciona tanto na view lista quanto na grade ── */
 function voltarLista() {
   selectedIdx = null;
