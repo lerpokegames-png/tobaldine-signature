@@ -209,6 +209,8 @@ select optgroup{color: var(--gold); font-weight: bold;}
   <span style="font-family:Georgia,serif;font-size:32px;color:#c9a84c;letter-spacing:0.1em">✦ Tobaldine</span>
   <span style="font-size:11px;color:#9a8c78;letter-spacing:0.2em;text-transform:uppercase">Área Administrativa</span>
   <div style="display:flex;flex-direction:column;gap:10px;width:280px;margin-top:8px">
+    <input id="emailInput" type="email" placeholder="E-mail" onkeydown="if(event.key==='Enter')document.getElementById('senhaInput').focus()"
+      style="padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);border-radius:8px;color:#f0e8d8;font-size:14px;outline:none;font-family:inherit"/>
     <input id="senhaInput" type="password" placeholder="Senha" onkeydown="if(event.key==='Enter')checkSenha()"
       style="padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);border-radius:8px;color:#f0e8d8;font-size:14px;outline:none;font-family:inherit"/>
     <button id="loginBtn" onclick="checkSenha()" style="padding:12px;background:#c9a84c;border:none;border-radius:8px;color:#0d0b09;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Entrar</button>
@@ -288,10 +290,10 @@ select optgroup{color: var(--gold); font-weight: bold;}
 </div>
 
 <div class="moverlay" id="modalBulk">
-  <div class="modal" style="max-width: 600px;">
-    <h2>Importação em Massa Avançada</h2>
-    <p style="font-size:11px;color:var(--muted)">Pode colar uma lista simples (<strong>Nome | Género | Preço</strong>) ou um código <strong>JSON completo</strong> gerado por IA.</p>
-    
+  <div class="modal" style="max-width:620px;width:95%">
+    <h2>➕ Importação em Massa</h2>
+    <p style="font-size:11px;color:var(--muted)">Cole uma lista simples <strong>Nome | Gênero | Preço</strong> ou um JSON gerado por IA. Você verá um preview antes de salvar.</p>
+
     <div style="display:flex;gap:10px;margin-bottom:10px">
       <div style="flex:1">
         <label>Seção Destino</label>
@@ -305,62 +307,24 @@ select optgroup{color: var(--gold); font-weight: bold;}
       </div>
       <div style="flex:1">
         <label>Volumetria Padrão</label>
-        <input type="text" id="bulkVol" value="100 ml" />
+        <input type="text" id="bulkVol" value="100 ml"/>
       </div>
     </div>
-    
-    <textarea id="bulkText" style="height:250px" placeholder="Cole aqui a lista simples ou o código JSON estruturado pelo chat..."></textarea>
-    
-    <div class="mactions">
-      <button class="btn btn-gold" onclick="processBulk()">✓ Salvar Produtos</button>
+
+    <textarea id="bulkText" style="height:200px" placeholder="Cole aqui a lista ou JSON..."></textarea>
+
+    <div id="bulkError" style="display:none;margin-top:8px;font-size:11px;color:#c04c4c;background:rgba(192,76,76,0.08);border-radius:6px;padding:8px 12px"></div>
+
+    <!-- Preview aparece aqui antes de confirmar -->
+    <div id="bulkPreview" style="display:none;margin-top:10px;background:rgba(201,168,76,0.04);border:1px solid var(--border);border-radius:8px;padding:12px;max-height:180px;overflow-y:auto">
+      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px" id="bulkPreviewTitle"></div>
+      <div id="bulkPreviewList" style="font-size:12px;color:var(--muted);line-height:1.8;display:flex;flex-direction:column;gap:4px"></div>
+    </div>
+
+    <div class="mactions" style="margin-top:12px">
+      <button class="btn btn-outline" onclick="previewBulk()">🔍 Pré-visualizar</button>
+      <button class="btn btn-gold" id="btnProcessBulk" style="opacity:0.5" disabled onclick="processBulk()">✓ Adicionar produtos</button>
       <button class="btn btn-outline" onclick="closeBulk()">Cancelar</button>
-    </div>
-  </div>
-</div>
-
-<div class="moverlay" id="modalManager">
-  <div class="modal" style="max-width: 650px; width: 95%;">
-    <h2>🗑️ Gerenciador de Lotes e Exclusão</h2>
-    <p style="font-size:11px;color:var(--muted)">Filtre de dezenas de formas diferentes para achar exatamente o que precisa apagar.</p>
-
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 5px;">
-      <input type="text" id="mgrSearch" placeholder="🔍 Buscar por nome..." onkeyup="applyManagerFilter()" style="flex:1; min-width:150px; padding: 10px;">
-      <select id="mgrFilter" onchange="applyManagerFilter()" style="flex:1; min-width:150px; padding: 10px;">
-        <option value="todos">Todos os Produtos</option>
-        <optgroup label="Qualidade de Dados">
-          <option value="sem_foto">⚠️ Sem Foto</option>
-          <option value="sem_desc">⚠️ Sem Descrição</option>
-          <option value="sem_notas">⚠️ Sem Notas Olfativas</option>
-          <option value="sem_marca">⚠️ Sem Marca</option>
-        </optgroup>
-        <optgroup label="Status e Estoque">
-          <option value="ativos">Apenas Ativos (On)</option>
-          <option value="inativos">Apenas Inativos (Off)</option>
-          <option value="esgotados">Esgotados (Estoque = 0)</option>
-          <option value="com_estoque">Em Estoque (Estoque > 0)</option>
-        </optgroup>
-        <optgroup label="Por Seção">
-          <option value="sec_originais">Seção: Originais</option>
-          <option value="sec_decants">Seção: Decants</option>
-          <option value="sec_similares">Seção: Similares</option>
-          <option value="sec_cosmeticos">Seção: Cosméticos</option>
-        </optgroup>
-      </select>
-    </div>
-
-    <div class="bulk-filters" style="justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-       <div>
-         <button class="btn btn-gold btn-sm" onclick="toggleAllManager(true)">Marcar Visíveis</button>
-         <button class="btn btn-outline btn-sm" onclick="toggleAllManager(false)">Desmarcar Tudo</button>
-       </div>
-       <span id="mgrCount" style="font-size: 11px; color: var(--gold); font-weight: bold;">Total: 0</span>
-    </div>
-
-    <div class="bulk-list" id="managerList"></div>
-
-    <div class="mactions" style="margin-top: 14px;">
-      <button class="btn btn-red" onclick="deleteSelectedManager()">Excluir Selecionados</button>
-      <button class="btn btn-outline" onclick="closeManager()">Cancelar / Fechar</button>
     </div>
   </div>
 </div>
@@ -387,7 +351,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
    4. Atualize ADMIN_EMAIL abaixo se usar outro e-mail
 ══════════════════════════════════════════════════════ */
 
-var ADMIN_EMAIL    = "admin@tobaldine.com"; /* ← altere se necessário */
+var ADMIN_EMAIL    = "admin@tobaldine.com"; /* fallback — sobrescrito pelo campo de e-mail */
 var _loginAttempts = 0;
 var _loginLocked   = false;
 var MAX_ATTEMPTS   = 5;
@@ -405,19 +369,20 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 async function checkSenha() {
   if (_loginLocked) return;
+  var email  = (document.getElementById("emailInput").value || "").trim() || ADMIN_EMAIL;
   var senha  = document.getElementById("senhaInput").value;
   var erroEl = document.getElementById("erroSenha");
   var tentEl = document.getElementById("tentativasInfo");
   var btnEl  = document.getElementById("loginBtn");
 
+  if (!email) { erroEl.textContent = "Digite o e-mail."; return; }
   if (!senha) { erroEl.textContent = "Digite a senha."; return; }
 
   btnEl.disabled    = true;
   btnEl.textContent = "Verificando...";
 
   try {
-    await firebase.auth().signInWithEmailAndPassword(ADMIN_EMAIL, senha);
-    /* onAuthStateChanged acima cuida de esconder o loginScreen */
+    await firebase.auth().signInWithEmailAndPassword(email, senha);
     _loginAttempts = 0;
   } catch (err) {
     btnEl.disabled    = false;
@@ -432,18 +397,20 @@ async function checkSenha() {
       btnEl.disabled = true;
       btnEl.style.opacity = "0.5";
       document.getElementById("senhaInput").disabled = true;
+      document.getElementById("emailInput").disabled = true;
       setTimeout(function() {
         _loginLocked   = false;
         _loginAttempts = 0;
         btnEl.disabled = false;
         btnEl.style.opacity = "1";
         document.getElementById("senhaInput").disabled = false;
+        document.getElementById("emailInput").disabled = false;
         erroEl.textContent = "";
         tentEl.textContent = "";
       }, LOCKOUT_MS);
     } else {
       var restantes = MAX_ATTEMPTS - _loginAttempts;
-      erroEl.textContent = "Senha incorreta.";
+      erroEl.textContent = "E-mail ou senha incorretos.";
       tentEl.textContent = restantes + " tentativa(s) restante(s).";
       document.getElementById("senhaInput").focus();
     }
@@ -469,9 +436,7 @@ function renderEmptyProd() {
     +'<div style="font-size:32px;opacity:.3">✦</div>'
     +'<p>Selecione um produto ou adicione novo</p>'
     +'<div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;justify-content:center">'
-    +'<button class="btn btn-outline" onclick="importarPJS()">⬇ Carregar produtos.js</button>'
     +'<button class="btn btn-gold" onclick="openBulk()">➕ Importação em Massa</button>'
-    +'<button class="btn btn-red" onclick="openManager()">🗑️ Excluir Vários</button>'
     +'</div></div>';
 }
 
@@ -625,198 +590,131 @@ function restoreHist(i) {
 }
 
 /* ──────────────────────────────
-   SISTEMA DE EXCLUSÃO AVANÇADA
+   IMPORTAÇÃO EM MASSA HÍBRIDA
 ─────────────────────────────── */
-function openManager() {
-  document.getElementById('mgrSearch').value = "";
-  document.getElementById('mgrFilter').value = "todos";
-  applyManagerFilter();
-  document.getElementById('modalManager').classList.add('open');
+function openBulk() {
+  document.getElementById("modalBulk").classList.add("open");
+  document.getElementById("bulkText").value = "";
+  document.getElementById("bulkPreview").style.display = "none";
+  document.getElementById("bulkError").style.display = "none";
+  var btn = document.getElementById("btnProcessBulk");
+  btn.disabled = true; btn.style.opacity = "0.5";
+}
+function closeBulk() { document.getElementById("modalBulk").classList.remove("open"); }
+
+/* Parseia o texto sem salvar — retorna array de itens ou null */
+function _parseBulkText() {
+  var txt  = (document.getElementById("bulkText").value || "").trim();
+  var vol  = (document.getElementById("bulkVol").value  || "100 ml").trim();
+  var preco = (document.getElementById("bulkPreco").value || "R$ 0,00").trim();
+  var sec  = document.getElementById("bulkSec").value;
+  if (!txt) return null;
+
+  var items = [];
+  try {
+    var parsed = JSON.parse(txt);
+    if (!Array.isArray(parsed)) throw new Error("não é array");
+    parsed.forEach(function(item) {
+      if (!item.nome) return;
+      items.push({
+        nome:   item.nome   || "Novo Produto",
+        marca:  item.marca  || "",
+        familia:item.familia|| "",
+        desc:   item.desc   || "",
+        preco:  item.preco  || preco,
+        notas:  item.notas  || {topo:"",corpo:"",fundo:""}
+      });
+    });
+  } catch(e) {
+    txt.split("\n").forEach(function(line) {
+      line = line.trim();
+      if (!line) return;
+      var parts = line.split("|");
+      if (parts.length < 1) return;
+      items.push({
+        nome:    parts[0].trim(),
+        marca:   "",
+        familia: parts.length >= 3 ? parts[1].trim() : "",
+        desc:    "",
+        preco:   parts.length >= 3 ? parts[2].trim() : (parts[1] || preco).trim(),
+        notas:   {topo:"",corpo:"",fundo:""}
+      });
+    });
+  }
+  return items.length ? items : null;
 }
 
-function closeManager() {
-  document.getElementById('modalManager').classList.remove('open');
+/* Preview em tempo real — mostra lista do que será adicionado */
+function previewBulk() {
+  var previewEl = document.getElementById("bulkPreview");
+  var listEl    = document.getElementById("bulkPreviewList");
+  var titleEl   = document.getElementById("bulkPreviewTitle");
+  var errEl     = document.getElementById("bulkError");
+  var btn       = document.getElementById("btnProcessBulk");
+  var txt       = (document.getElementById("bulkText").value || "").trim();
+
+  if (!txt) {
+    previewEl.style.display = "none";
+    errEl.style.display = "none";
+    btn.disabled = true; btn.style.opacity = "0.5";
+    return;
+  }
+
+  var items = _parseBulkText();
+
+  if (!items) {
+    previewEl.style.display = "none";
+    errEl.style.display = "block";
+    errEl.textContent = "⚠ Não foi possível interpretar o texto. Use o formato Nome | Gênero | Preço (uma por linha) ou JSON válido.";
+    btn.disabled = true; btn.style.opacity = "0.5";
+    return;
+  }
+
+  errEl.style.display = "none";
+  titleEl.textContent = items.length + " produto(s) serão adicionados:";
+  listEl.innerHTML = items.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(201,168,76,0.04);border-radius:4px;border:1px solid var(--border)">'
+      + '<span style="font-size:12px;color:var(--text);font-weight:500">'+ esc(item.nome) +'</span>'
+      + '<span style="font-size:11px;color:var(--muted)">'
+        + (item.familia ? esc(item.familia) + ' · ' : '')
+        + esc(item.preco)
+      + '</span>'
+      + '</div>';
+  }).join("");
+  previewEl.style.display = "block";
+  btn.disabled = false; btn.style.opacity = "1";
+  btn.textContent = "✓ Adicionar " + items.length + " produto(s)";
 }
 
-function applyManagerFilter() {
-  var filter = document.getElementById('mgrFilter').value;
-  var search = document.getElementById('mgrSearch').value.toLowerCase();
-  var html = '';
-  var count = 0;
+function processBulk() {
+  var items = _parseBulkText();
+  if (!items || !items.length) { toast("Nenhum produto para importar"); return; }
 
-  produtos.forEach(function(p, i) {
-    var show = true;
+  var sec = document.getElementById("bulkSec").value;
+  var vol = (document.getElementById("bulkVol").value || "100 ml").trim();
 
-    if (search && (!p.nome || p.nome.toLowerCase().indexOf(search) === -1)) show = false;
+  if (!confirm("Confirmar adição de " + items.length + " produto(s) na seção "" + sec + ""?")) return;
 
-    if (show) {
-      var temFoto = p.fotos && p.fotos.length > 0 && p.fotos[0].trim() !== "";
-      var temDesc = p.desc && p.desc.trim() !== "";
-      var temNotas = p.notas && ((p.notas.topo||"").trim() !== "" || (p.notas.corpo||"").trim() !== "" || (p.notas.fundo||"").trim() !== "");
-      var temMarca = p.marca && p.marca.trim() !== "";
+  addHist("Importação em massa: " + items.length + " produtos adicionados à seção " + sec, true);
 
-      switch(filter) {
-        case 'sem_foto': if(temFoto) show = false; break;
-        case 'sem_desc': if(temDesc) show = false; break;
-        case 'sem_notas': if(temNotas) show = false; break;
-        case 'sem_marca': if(temMarca) show = false; break;
-        case 'ativos': if(p.ativo === false) show = false; break;
-        case 'inativos': if(p.ativo !== false) show = false; break;
-        case 'esgotados': if(p.estoque > 0) show = false; break;
-        case 'com_estoque': if(!p.estoque || p.estoque <= 0) show = false; break;
-        case 'sec_originais': if(p.secao !== 'originais') show = false; break;
-        case 'sec_decants': if(p.secao !== 'decants') show = false; break;
-        case 'sec_similares': if(p.secao !== 'similares') show = false; break;
-        case 'sec_cosmeticos': if(p.secao !== 'cosmeticos') show = false; break;
-      }
-    }
+  var badge = {originais:"Original", decants:"Decant", cosmeticos:"VS"}[sec] || "";
 
-    if (show) {
-      count++;
-      var txtFoto = temFoto ? '<span style="color:#4caf79">📷 Foto OK</span>' : '<span style="color:#c04c4c">📷 Sem Foto</span>';
-      var txtDesc = temDesc ? '<span style="color:#4caf79">📝 Desc OK</span>' : '<span style="color:#c04c4c">📝 Sem Descrição</span>';
-      var txtEstoque = ' &nbsp;|&nbsp; Estoque: <strong>' + (p.estoque || 0) + '</strong>';
-      var txtAtivo = p.ativo !== false ? ' &nbsp;|&nbsp; <span style="color:#4caf79">🟢 On</span>' : ' &nbsp;|&nbsp; <span style="color:#c04c4c">🔴 Off</span>';
-      
-      html += '<label class="bulk-list-item">' +
-              '<input type="checkbox" class="mgr-chk" value="' + i + '" />' +
-              '<div style="flex:1">' +
-              '<div style="font-size:13px; font-weight:bold; color:var(--text);">' + esc(p.nome) + ' <span style="font-size:10px; color:var(--gold); font-weight:normal">(' + esc(p.secao) + ')</span></div>' +
-              '<div style="font-size:11px; margin-top:4px;">' + txtFoto + ' &nbsp;|&nbsp; ' + txtDesc + txtEstoque + txtAtivo + '</div>' +
-              '</div></label>';
-    }
+  items.forEach(function(item) {
+    produtos.push({
+      secao: sec, badge: badge,
+      nome: item.nome, marca: item.marca, familia: item.familia,
+      ranking: "", desc: item.desc,
+      notas: item.notas,
+      precos: [{vol: vol, preco: item.preco, custo_bruto:0, frete_prop:0, margem_pct:0}],
+      fotos: [""], ativo: true, estoque: 5, custo: 0, margem: 55, promo: null
+    });
   });
 
-  if(html === '') html = '<div style="display:flex;flex-direction:column;align-items:center;padding:40px;opacity:0.5"><div style="font-size:30px;margin-bottom:10px">🔍</div><p>Nenhum produto atende a este filtro.</p></div>';
-  document.getElementById('managerList').innerHTML = html;
-  document.getElementById('mgrCount').textContent = count + (count === 1 ? " Produto visível" : " Produtos visíveis");
-}
-
-function toggleAllManager(check) {
-  var checkboxes = document.querySelectorAll('.mgr-chk');
-  checkboxes.forEach(function(cb) { cb.checked = check; });
-}
-
-function deleteSelectedManager() {
-  var checkboxes = document.querySelectorAll('.mgr-chk:checked');
-  if(checkboxes.length === 0) { toast("⚠️ Selecione pelo menos um produto."); return; }
-
-  if(!confirm("Tem certeza absoluta que deseja EXCLUIR os " + checkboxes.length + " produtos marcados?")) return;
-
-  // TIRA FOTOGRAFIA DO SISTEMA ANTES DE APAGAR (BACKLOG)
-  addHist("Exclusão em Lote: " + checkboxes.length + " produtos deletados", true);
-
-  var indices = [];
-  checkboxes.forEach(function(cb) { indices.push(parseInt(cb.value)); });
-  indices.sort(function(a, b) { return b - a; });
-
-  indices.forEach(function(idx) {
-    produtos.splice(idx, 1);
-  });
-
-  selectedIdx = null;
   saveData();
   renderSidebar();
   fbSync();
-  applyManagerFilter();
-  renderEmptyProd();
-  toast("✅ " + indices.length + " produtos excluídos com sucesso!");
-}
-
-/* ──────────────────────────────
-   IMPORTAÇÃO EM MASSA HÍBRIDA
-─────────────────────────────── */
-function openBulk() { document.getElementById("modalBulk").classList.add("open"); }
-function closeBulk() { document.getElementById("modalBulk").classList.remove("open"); }
-
-function processBulk() {
-  var txt = document.getElementById("bulkText").value.trim();
-  var sec = document.getElementById("bulkSec").value;
-  var vol = document.getElementById("bulkVol").value;
-  var added = 0;
-
-  if(!txt) return;
-
-  // TIRA FOTOGRAFIA DO SISTEMA ANTES DA IMPORTAÇÃO (BACKLOG)
-  addHist("Importação em massa iniciada (Antes de adicionar itens novos)", true);
-
-  try {
-    var items = JSON.parse(txt);
-    if (!Array.isArray(items)) throw new Error("Formato não é array");
-
-    items.forEach(function(item) {
-      var badge = sec === "originais" ? "Original" : (sec === "decants" ? "Decant" : (sec === "cosmeticos" ? "VS" : ""));
-      var precoFormatado = item.preco || "R$ 0,00";
-      
-      produtos.push({
-        secao: sec,
-        badge: badge,
-        nome: item.nome || "Novo Produto",
-        marca: item.marca || "",
-        familia: item.familia || "",
-        ranking: item.ranking || "",
-        desc: item.desc || "",
-        notas: item.notas || {topo: "", corpo: "", fundo: ""},
-        precos: [{vol: vol, preco: precoFormatado, custo_bruto: 0, frete_prop: 0, margem_pct: 0}],
-        fotos: [""],
-        ativo: true,
-        estoque: 5,
-        custo: 0,
-        margem: 55,
-        promo: null
-      });
-      added++;
-    });
-
-  } catch (e) {
-    var lines = txt.split("\n");
-    lines.forEach(function(line) {
-      if(!line.trim()) return;
-      var parts = line.split("|");
-      if(parts.length < 2) return;
-      var nome = parts[0].trim();
-      var genero = parts.length === 3 ? parts[1].trim() : "";
-      var precoStr = parts.length === 3 ? parts[2].trim() : parts[1].trim();
-      var badge = sec === "originais" ? "Original" : (sec === "decants" ? "Decant" : "");
-
-      produtos.push({
-        secao: sec, badge: badge, nome: nome, marca: "", familia: genero, ranking: "", desc: "",
-        notas: {topo:"", corpo:"", fundo:""}, precos: [{vol: vol, preco: precoStr, custo_bruto:0, frete_prop:0, margem_pct:0}],
-        fotos: [""], ativo: true, estoque: 5, custo: 0, margem: 55, promo: null
-      });
-      added++;
-    });
-  }
-
-  if(added > 0) {
-    saveData();
-    renderSidebar();
-    toast(added + " produtos importados com sucesso!");
-    fbSync();
-  } else {
-    // Se não importou nada, remove a ultima entrada inútil do backlog
-    historico.shift();
-  }
   closeBulk();
-  document.getElementById("bulkText").value = "";
-}
-
-function importarPJS(){
-  var btn=event.target;btn.textContent="Carregando...";btn.disabled=true;
-  var s=document.createElement("script");s.src="produtos.js?v="+Date.now();
-  s.onload=function(){
-    if(typeof PRODUTOS==="undefined"||!PRODUTOS.length){btn.textContent="⚠ Falha";btn.disabled=false;return;}
-    
-    addHist("Carregamento do arquivo antigo produtos.js", true);
-    
-    produtos=JSON.parse(JSON.stringify(PRODUTOS));
-    kits=typeof KITS!=="undefined"?JSON.parse(JSON.stringify(KITS)):[];
-    depoimentos=typeof DEPOIMENTOS!=="undefined"?JSON.parse(JSON.stringify(DEPOIMENTOS)):[];
-    saveData();renderSidebar();
-    renderEmptyProd();
-    fbSync();
-  };
-  document.head.appendChild(s);
+  toast("✅ " + items.length + " produtos adicionados com sucesso!");
 }
 
 /* ── Controle de visualização ── */
@@ -2080,7 +1978,7 @@ async function autoPreencherTodos() {
   }
 
   var total = produtos.length;
-  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nIsso pode levar alguns minutos. O processo roda em segundo plano.")) return;
+  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nIsso leva cerca de " + Math.ceil(total * 1.2 / 60) + " minuto(s). O processo roda em segundo plano.")) return;
 
   var btn    = document.getElementById("btnAutoPreench");
   var fbSt   = document.getElementById("fbStatus");
@@ -2092,46 +1990,66 @@ async function autoPreencherTodos() {
   for (var i = 0; i < produtos.length; i++) {
     var p = produtos[i];
 
-    /* Atualiza indicador de progresso no header */
     if (fbSt) {
-      fbSt.textContent   = "🤖 " + (i + 1) + "/" + total + " — " + esc(p.nome || "?");
+      fbSt.textContent      = "🤖 " + (i + 1) + "/" + total + " — " + (p.nome || "?");
       fbSt.style.background = "rgba(127,119,221,0.12)";
       fbSt.style.color      = "#7f77dd";
     }
 
-    var prompt = 'Você é um perfumista especialista. Para o perfume "'
-      + (p.nome  || "") + '"'
-      + (p.marca  ? ' da marca ' + p.marca  : '')
-      + (p.familia ? ', família olfativa: ' + p.familia : '')
-      + '.\nResponda APENAS com JSON válido (sem markdown, sem texto extra) neste formato exato:\n'
-      + '{"desc":"2 frases em português descrevendo o perfume, seu caráter e ocasião ideal de uso",'
-      + '"topo":"notas de topo separadas por vírgula em português",'
-      + '"corpo":"notas de coração separadas por vírgula em português",'
-      + '"fundo":"notas de fundo separadas por vírgula em português"}';
+    /* Prompt curto e direto — prompts longos aumentam chance de safety block */
+    var prompt = 'Perfume: "' + (p.nome || "") + '"'
+      + (p.marca  ? '. Marca: ' + p.marca   : '')
+      + (p.familia ? '. Família: ' + p.familia : '')
+      + '.\nResponda SOMENTE com JSON (sem markdown):\n'
+      + '{"desc":"frase descrevendo o perfume em português",'
+      + '"topo":"notas de topo","corpo":"notas de coração","fundo":"notas de fundo"}';
 
-    try {
-      var resp = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + geminiKey,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.4, maxOutputTokens: 350 }
-          })
+    var tentativas = 0;
+    var sucesso = false;
+
+    while (tentativas < 3 && !sucesso) {
+      tentativas++;
+      try {
+        var resp = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + geminiKey,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.3, maxOutputTokens: 500 }
+            })
+          }
+        );
+
+        /* Rate limit — aguarda e tenta de novo */
+        if (resp.status === 429) {
+          await new Promise(function(r) { setTimeout(r, 8000); });
+          continue;
         }
-      );
 
-      var data = await resp.json();
+        var data = await resp.json();
 
-      /* Extrai o texto da resposta */
-      var txt = ((((data.candidates || [])[0] || {}).content || {}).parts || [])
-        .map(function(pt) { return pt.text || ""; }).join("");
+        if (data.error) throw new Error("API: " + (data.error.message || resp.status));
 
-      /* Extrai o JSON do texto */
-      var jsonMatch = txt.match(/\{[\s\S]*?\}/);
-      if (jsonMatch) {
-        var resultado = JSON.parse(jsonMatch[0]);
+        /* FIX: safety block — candidates pode estar vazio */
+        var candidates = data.candidates || [];
+        if (!candidates.length) {
+          var reason = ((data.promptFeedback || {}).blockReason) || "sem candidatos";
+          throw new Error("Bloqueado (" + reason + ")");
+        }
+
+        var txt = ((candidates[0].content || {}).parts || [])
+          .map(function(pt) { return pt.text || ""; }).join("").trim();
+
+        /* FIX: remove fences markdown e pega bloco {} mais externo */
+        var jsonStr = txt.replace(/^```(?:json)?\s*/i,"").replace(/\s*```\s*$/i,"").trim();
+        var objMatch = jsonStr.match(/\{[\s\S]*\}/);
+        if (objMatch) jsonStr = objMatch[0];
+
+        if (!jsonStr) throw new Error("Sem JSON: " + txt.substring(0, 60));
+
+        var resultado = JSON.parse(jsonStr);
 
         if (resultado.desc)  produtos[i].desc = resultado.desc;
         if (!produtos[i].notas) produtos[i].notas = { topo: "", corpo: "", fundo: "" };
@@ -2140,24 +2058,23 @@ async function autoPreencherTodos() {
         if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
 
         okCnt++;
-      } else {
-        errCnt++;
-        console.warn("Auto-preencher: resposta sem JSON para " + p.nome, txt);
-      }
+        sucesso = true;
 
-    } catch (e) {
-      errCnt++;
-      console.warn("Auto-preencher: erro em " + p.nome, e);
+      } catch (e) {
+        console.warn("[Auto-fill] tentativa " + tentativas + " — " + (p.nome || "?") + ":", e.message);
+        if (tentativas < 3) await new Promise(function(r) { setTimeout(r, 3000); });
+      }
     }
 
-    /* Salva a cada 10 produtos para não perder progresso */
+    if (!sucesso) errCnt++;
+
+    /* Salva a cada 10 produtos */
     if ((i + 1) % 10 === 0) saveData();
 
-    /* Delay entre chamadas (rate limit Gemini free: ~15 RPM) */
+    /* Delay entre chamadas — Gemini free: 15 RPM */
     await new Promise(function(r) { setTimeout(r, 1200); });
   }
 
-  /* Salva tudo e sincroniza com Firebase */
   saveData();
   fbSync();
 
@@ -2165,15 +2082,14 @@ async function autoPreencherTodos() {
   btn.textContent = "🤖 Auto-preencher";
 
   if (fbSt) {
-    fbSt.textContent   = "✓ Firebase OK";
+    fbSt.textContent      = "✓ Firebase OK";
     fbSt.style.background = "rgba(76,175,121,0.15)";
     fbSt.style.color      = "#4caf79";
   }
 
-  /* Re-renderiza o form se houver produto selecionado */
   if (selectedIdx !== null) renderForm();
 
-  toast("✅ Concluído! " + okCnt + " preenchidos" + (errCnt ? " · " + errCnt + " com erro" : ""));
+  toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro (ver console)" : " · tudo certo!"));
 }
 
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
