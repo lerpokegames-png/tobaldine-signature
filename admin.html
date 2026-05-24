@@ -505,22 +505,19 @@ function loadFromFirebase(db){
     db.ref("kits").once("value"),
     db.ref("depoimentos").once("value"),
     db.ref("cupons").once("value"),
-    db.ref("pedidos").once("value"),
-    db.ref("historico").once("value")   /* backlog agora no Firebase */
+    db.ref("pedidos").once("value")
   ]).then(function(snaps){
     var fbProd = toArr(snaps[0].val());
     var fbKits = toArr(snaps[1].val());
     var fbDep  = toArr(snaps[2].val());
     var fbCup  = toArr(snaps[3].val());
     var fbPed  = toArr(snaps[4].val());
-    var fbHist = toArr(snaps[5].val());
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
     if(fbPed && fbPed.length){ pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
-    if(fbHist && fbHist.length){ historico = fbHist; localStorage.setItem("tb_v3_hist", JSON.stringify(historico)); }
 
     var totalFotos = produtos.reduce(function(acc,p){
       return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){return f&&f.trim();}).length : 0);
@@ -533,6 +530,15 @@ function loadFromFirebase(db){
     });
     renderSidebar();
     if(fbSt){ fbSt.textContent = "✓ Firebase OK · "+totalFotos+" fotos"; fbSt.style.background = "rgba(76,175,121,0.15)"; fbSt.style.color = "#4caf79"; }
+
+    /* Historico carregado separado — falha silenciosa se regras não atualizadas */
+    db.ref("historico").once("value").then(function(snap){
+      var fbHist = toArr(snap.val());
+      if(fbHist && fbHist.length){ historico = fbHist; localStorage.setItem("tb_v3_hist", JSON.stringify(historico)); }
+    }).catch(function(e){
+      console.warn("Historico Firebase: atualize as regras em database.rules.json →", e.message);
+    });
+
   }).catch(function(err){
     if(fbSt){ fbSt.textContent = "⚠ Firebase offline · usando cache local"; fbSt.style.background = "rgba(192,76,76,0.15)"; fbSt.style.color = "#c04c4c"; }
     console.warn("Falha ao carregar Firebase:", err);
