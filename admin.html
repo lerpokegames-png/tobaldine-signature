@@ -2112,6 +2112,83 @@ function voltarLista() {
    Usa a chave Gemini configurada na aba Config.
    Rate limit: 1 chamada a cada 1.2s (~50 req/min).
 ══════════════════════════════════════════════════════ */
+async function autoPreencherSelecionados() {
+  var geminiKey = (localStorage.getItem("tb_gemini_key") || "").trim();
+  if (!geminiKey) { toast("⚠ Configure a chave Gemini na aba Config primeiro"); return; }
+
+  var indices = Array.from(_loteSelected);
+  if (!indices.length) { toast("Selecione produtos no modo Lote primeiro"); return; }
+
+  if (!confirm("Preencher descrição e notas de " + indices.length + " produto(s) selecionado(s) com IA?")) return;
+
+  var btn    = document.getElementById("btnAutoPreench");
+  var fbSt   = document.getElementById("fbStatus");
+  var okCnt  = 0, errCnt = 0;
+  var total  = indices.length;
+
+  btn.disabled    = true;
+  btn.textContent = "🤖 Processando...";
+
+  for (var t = 0; t < indices.length; t++) {
+    var i = indices[t];
+    var p = produtos[i];
+
+    if (fbSt) {
+      fbSt.textContent      = "🤖 " + (t + 1) + "/" + total + " — " + (p.nome || "?");
+      fbSt.style.background = "rgba(127,119,221,0.12)";
+      fbSt.style.color      = "#7f77dd";
+    }
+
+    var prompt = 'Perfume: "' + (p.nome || "") + '"'
+      + (p.marca  ? '. Marca: ' + p.marca   : '')
+      + (p.familia ? '. Família: ' + p.familia : '')
+      + '.\nResponda SOMENTE com JSON (sem markdown):\n'
+      + '{"desc":"frase descrevendo o perfume em português",'
+      + '"topo":"notas de topo","corpo":"notas de coração","fundo":"notas de fundo"}';
+
+    var tentativas = 0, sucesso = false;
+
+    while (tentativas < 3 && !sucesso) {
+      tentativas++;
+      try {
+        var resp = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + geminiKey,
+          { method:"POST", headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.3,maxOutputTokens:1024} }) }
+        );
+        if (resp.status === 429) { await new Promise(function(r){setTimeout(r,15000);}); continue; }
+        var data = await resp.json();
+        if (data.error) throw new Error("API: " + data.error.message);
+        var candidates = data.candidates || [];
+        if (!candidates.length) throw new Error("Bloqueado: " + ((data.promptFeedback||{}).blockReason||""));
+        var txt = ((candidates[0].content||{}).parts||[]).map(function(pt){return pt.text||"";}).join("").trim();
+        var jsonStr = txt.replace(/^```(?:json)?\s*/i,"").replace(/\s*```\s*$/i,"").trim();
+        var objMatch = jsonStr.match(/\{[\s\S]*\}/);
+        if (objMatch) jsonStr = objMatch[0];
+        var resultado = JSON.parse(jsonStr);
+        if (resultado.desc)  produtos[i].desc = resultado.desc;
+        if (!produtos[i].notas) produtos[i].notas = {topo:"",corpo:"",fundo:""};
+        if (resultado.topo)  produtos[i].notas.topo  = resultado.topo;
+        if (resultado.corpo) produtos[i].notas.corpo = resultado.corpo;
+        if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
+        if (selectedIdx === i) renderForm();
+        okCnt++; sucesso = true;
+      } catch(e) {
+        console.warn("[Auto-fill selecionados] tentativa " + tentativas + " — " + (p.nome||"?") + ":", e.message);
+        if (tentativas < 3) await new Promise(function(r){setTimeout(r,3000);});
+      }
+    }
+    if (!sucesso) errCnt++;
+    if ((t + 1) % 10 === 0) saveData();
+    await new Promise(function(r){setTimeout(r,4100);});
+  }
+
+  saveData(); fbSync();
+  btn.disabled = false; btn.textContent = "🤖 Auto-preencher";
+  if (fbSt) { fbSt.textContent="✓ Firebase OK"; fbSt.style.background="rgba(76,175,121,0.15)"; fbSt.style.color="#4caf79"; }
+  toast("✅ " + okCnt + " preenchidos" + (errCnt ? " · ⚠ " + errCnt + " com erro" : " · tudo certo!"));
+}
+
 async function autoPreencherTodos() {
   var geminiKey = (localStorage.getItem("tb_gemini_key") || "").trim();
   if (!geminiKey) {
@@ -2159,7 +2236,7 @@ async function autoPreencherTodos() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               contents: [{ parts: [{ text: prompt }] }],
-              generationConfig: { temperature: 0.3, maxOutputTokens: 500 }
+              generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
             })
           }
         );
@@ -2198,6 +2275,9 @@ async function autoPreencherTodos() {
         if (resultado.topo)  produtos[i].notas.topo  = resultado.topo;
         if (resultado.corpo) produtos[i].notas.corpo = resultado.corpo;
         if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
+
+        /* Atualiza o form em tempo real se este produto estiver aberto */
+        if (selectedIdx === i) renderForm();
 
         okCnt++;
         sucesso = true;
@@ -2285,6 +2365,7 @@ window.addEventListener("DOMContentLoaded", function(){
     </select>
   </div>
   <button class="btn btn-gold" onclick="aplicarLote()">✓ Aplicar nos selecionados</button>
+  <button class="btn btn-outline btn-sm" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)" onclick="autoPreencherSelecionados()">🤖 Preencher selecionados</button>
   <button class="btn btn-outline btn-sm" style="color:#c04c4c;border-color:rgba(192,76,76,0.3)" onclick="excluirLote()">🗑 Excluir selecionados</button>
   <button class="btn btn-outline btn-sm" onclick="limparSelecaoLote()">✕ Limpar</button>
 </div>
