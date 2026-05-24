@@ -438,7 +438,18 @@ async function checkSenha() {
       }, LOCKOUT_MS);
     } else {
       var restantes = MAX_ATTEMPTS - _loginAttempts;
-      erroEl.textContent = "E-mail ou senha incorretos.";
+      /* Traduz os erros mais comuns do Firebase Auth */
+      var msgErro = {
+        "auth/invalid-credential":       "E-mail ou senha incorretos.",
+        "auth/wrong-password":           "Senha incorreta.",
+        "auth/user-not-found":           "E-mail não cadastrado no Firebase.",
+        "auth/invalid-email":            "Formato de e-mail inválido.",
+        "auth/user-disabled":            "Conta desativada.",
+        "auth/too-many-requests":        "Muitas tentativas. Tente mais tarde.",
+        "auth/operation-not-allowed":    "⚠ Email/Senha não está ativado no Firebase Console → Authentication → Sign-in method.",
+        "auth/network-request-failed":   "Sem conexão com a internet."
+      }[err.code] || ("Erro (" + err.code + "): " + err.message);
+      erroEl.textContent = msgErro;
       tentEl.textContent = restantes + " tentativa(s) restante(s).";
       document.getElementById("senhaInput").focus();
     }
@@ -498,20 +509,22 @@ function loadFromFirebase(db){
     db.ref("kits").once("value"),
     db.ref("depoimentos").once("value"),
     db.ref("cupons").once("value"),
-    db.ref("pedidos").once("value")   /* FIX: pedidos agora persistem no Firebase */
+    db.ref("pedidos").once("value"),
+    db.ref("historico").once("value")   /* backlog agora no Firebase */
   ]).then(function(snaps){
     var fbProd = toArr(snaps[0].val());
     var fbKits = toArr(snaps[1].val());
     var fbDep  = toArr(snaps[2].val());
     var fbCup  = toArr(snaps[3].val());
     var fbPed  = toArr(snaps[4].val());
+    var fbHist = toArr(snaps[5].val());
 
     if(fbProd && fbProd.length){ produtos = fbProd; localStorage.setItem("tb_v3_produtos", JSON.stringify(produtos)); }
-    /* FIX: adminHash removido — autenticação agora via Firebase Auth */
     if(fbKits){ kits = fbKits; localStorage.setItem("tb_v3_kits", JSON.stringify(kits)); }
     if(fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if(fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
     if(fbPed && fbPed.length){ pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
+    if(fbHist && fbHist.length){ historico = fbHist; localStorage.setItem("tb_v3_hist", JSON.stringify(historico)); }
 
     var totalFotos = produtos.reduce(function(acc,p){
       return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){return f&&f.trim();}).length : 0);
@@ -559,7 +572,8 @@ function _autoSyncFirebase(){
     fbSaveProdutos(produtos),
     typeof fbSaveKits         === "function" ? fbSaveKits(kits)               : Promise.resolve(),
     typeof fbSaveDepoimentos  === "function" ? fbSaveDepoimentos(depoimentos) : Promise.resolve(),
-    typeof fbSaveCupons       === "function" ? fbSaveCupons(cupons)           : Promise.resolve()
+    typeof fbSaveCupons       === "function" ? fbSaveCupons(cupons)           : Promise.resolve(),
+    typeof fbSaveHistorico    === "function" ? fbSaveHistorico(historico)     : Promise.resolve()
   ]).then(function(){
     if(fbSt){ fbSt.textContent = "✓ Firebase OK · "+totalFotos+" fotos"; fbSt.style.background = "rgba(76,175,121,0.15)"; fbSt.style.color = "#4caf79"; }
   }).catch(function(err){
@@ -592,9 +606,12 @@ function addHist(msg, snap) {
     snapshot: backupObj
   });
 
-  // Mantém apenas os últimos 30 backups para não pesar o navegador
   if (historico.length > 30) historico = historico.slice(0, 30);
   localStorage.setItem("tb_v3_hist", JSON.stringify(historico));
+  /* Salva backlog no Firebase imediatamente — não pode depender de localStorage */
+  if (typeof fbSaveHistorico === "function") {
+    fbSaveHistorico(historico).catch(function(e){ console.warn("Backlog Firebase:", e); });
+  }
 }
 
 function restoreHist(i) {

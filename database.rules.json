@@ -39,6 +39,10 @@
       ".read": "auth != null",
       ".write": "auth != null"
     },
+    "historico": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
     "caixa": {
       ".read": "auth != null",
       ".write": "auth != null"

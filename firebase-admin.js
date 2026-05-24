@@ -84,5 +84,6 @@ window.fbSaveProdutos    = function(p) { return db ? db.ref("produtos").set(p)  
 window.fbSaveKits        = function(k) { return db ? db.ref("kits").set(k)        : Promise.reject("Firebase offline"); };
 window.fbSaveDepoimentos = function(d) { return db ? db.ref("depoimentos").set(d) : Promise.reject("Firebase offline"); };
 window.fbSaveCupons      = function(c) { return db ? db.ref("cupons").set(c)      : Promise.reject("Firebase offline"); };
-window.fbSavePedidos     = function(p) { return db ? db.ref("pedidos").set(p)     : Promise.reject("Firebase offline"); }; /* FIX: pedidos agora persistem no servidor */
+window.fbSavePedidos     = function(p) { return db ? db.ref("pedidos").set(p)     : Promise.reject("Firebase offline"); };
+window.fbSaveHistorico   = function(h) { return db ? db.ref("historico").set(h)   : Promise.reject("Firebase offline"); };
 window.firebaseDB        = db;
