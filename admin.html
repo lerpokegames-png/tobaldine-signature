@@ -230,6 +230,7 @@ select optgroup{color: var(--gold); font-weight: bold;}
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
+    <button id="btnAutoPreench" class="btn btn-outline btn-sm" onclick="autoPreencherTodos()" title="Preencher descrição e notas olfativas com IA" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)">🤖 Auto-preencher</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora, incluindo fotos">☁ Sync Completo</button>
     <button class="btn btn-outline btn-sm" onclick="salvarTudo()">✓ Salvar Tudo</button>
     <button class="btn btn-outline btn-sm" style="color:#c04c4c;border-color:rgba(192,76,76,0.3)" onclick="firebase.auth().signOut().then(function(){ toast('Logout realizado.'); })" title="Sair da conta admin">⏻ Sair</button>
@@ -1035,7 +1036,11 @@ function renderForm(){
   if(!_fc){ console.warn("tProdutos nao encontrado"); return; }
   _fc.style.display = "";
   _fc.innerHTML=''
-    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">'    +'<button onclick="selectedIdx=null;renderSidebar();renderEmptyProd();" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:4px">← Voltar</button>'    +'<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((p.nome||"Produto").trim())+'</span>'    +'<button onclick="delProd(event,selectedIdx)" style="margin-left:auto;background:transparent;border:1px solid rgba(192,76,76,0.3);color:var(--red);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px">✕ Excluir</button>'    +'</div>'    +'<div class="fg">'    +'<div class="st">Dados do Produto</div>'
+    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">'
+    +'<button onclick="voltarLista()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:4px">← Voltar</button>'
+    +'<span style="font-size:12px;color:var(--text);font-weight:500">'+esc((p.nome||"Produto").trim())+'</span>'
+    +'<button onclick="delProd(event,selectedIdx)" style="margin-left:auto;background:transparent;border:1px solid rgba(192,76,76,0.3);color:var(--red);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px">✕ Excluir</button>'
+    +'</div>'    +'<div class="fg">'    +'<div class="st">Dados do Produto</div>'
     +'<div class="field"><label>Seção</label><select onchange="setF(\'secao\',this.value)">'+opts+'</select></div>'
     +'<div class="field"><label>Badge</label><input type="text" value="'+esc(p.badge||"")+'" onchange="setF(\'badge\',this.value)"/></div>'    +'<div class="field"><label>Subcategoria <span style="font-weight:300;color:var(--muted)">(opcional)</span></label><input type="text" value="'+esc(p.subsecao||"")+'" placeholder="Ex: Inspirados Premium" onchange="setF(\'subsecao\',this.value)"/></div>'
     +'<div class="field"><label>Nome</label><input type="text" value="'+esc((p.nome||"").trim())+'" onchange="setF(\'nome\',this.value)"/></div>'
@@ -2046,6 +2051,131 @@ function gerarPDF(){
   win.document.write(html);
   win.document.close();
 }
+/* ── FIX: Voltar funciona tanto na view lista quanto na grade ── */
+function voltarLista() {
+  selectedIdx = null;
+  if (_currentView === "grade") {
+    /* Na grade: fecha o painel lateral e rerenderiza a grade */
+    var gradeEdit = document.getElementById("gradeEdit");
+    if (gradeEdit) gradeEdit.innerHTML = "";
+    renderGrade();
+  } else {
+    /* Na lista: volta para a sidebar e mostra estado vazio */
+    renderSidebar();
+    renderEmptyProd();
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   AUTO-PREENCHIMENTO COM IA (GEMINI)
+   Preenche descrição + pirâmide olfativa de todos os produtos.
+   Usa a chave Gemini configurada na aba Config.
+   Rate limit: 1 chamada a cada 1.2s (~50 req/min).
+══════════════════════════════════════════════════════ */
+async function autoPreencherTodos() {
+  var geminiKey = (localStorage.getItem("tb_gemini_key") || "").trim();
+  if (!geminiKey) {
+    toast("⚠ Configure a chave Gemini na aba Config primeiro");
+    return;
+  }
+
+  var total = produtos.length;
+  if (!confirm("Preencher descrição e notas olfativas de todos os " + total + " produtos com IA?\n\nIsso pode levar alguns minutos. O processo roda em segundo plano.")) return;
+
+  var btn    = document.getElementById("btnAutoPreench");
+  var fbSt   = document.getElementById("fbStatus");
+  var okCnt  = 0, errCnt = 0;
+
+  btn.disabled    = true;
+  btn.textContent = "🤖 Processando...";
+
+  for (var i = 0; i < produtos.length; i++) {
+    var p = produtos[i];
+
+    /* Atualiza indicador de progresso no header */
+    if (fbSt) {
+      fbSt.textContent   = "🤖 " + (i + 1) + "/" + total + " — " + esc(p.nome || "?");
+      fbSt.style.background = "rgba(127,119,221,0.12)";
+      fbSt.style.color      = "#7f77dd";
+    }
+
+    var prompt = 'Você é um perfumista especialista. Para o perfume "'
+      + (p.nome  || "") + '"'
+      + (p.marca  ? ' da marca ' + p.marca  : '')
+      + (p.familia ? ', família olfativa: ' + p.familia : '')
+      + '.\nResponda APENAS com JSON válido (sem markdown, sem texto extra) neste formato exato:\n'
+      + '{"desc":"2 frases em português descrevendo o perfume, seu caráter e ocasião ideal de uso",'
+      + '"topo":"notas de topo separadas por vírgula em português",'
+      + '"corpo":"notas de coração separadas por vírgula em português",'
+      + '"fundo":"notas de fundo separadas por vírgula em português"}';
+
+    try {
+      var resp = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + geminiKey,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.4, maxOutputTokens: 350 }
+          })
+        }
+      );
+
+      var data = await resp.json();
+
+      /* Extrai o texto da resposta */
+      var txt = ((((data.candidates || [])[0] || {}).content || {}).parts || [])
+        .map(function(pt) { return pt.text || ""; }).join("");
+
+      /* Extrai o JSON do texto */
+      var jsonMatch = txt.match(/\{[\s\S]*?\}/);
+      if (jsonMatch) {
+        var resultado = JSON.parse(jsonMatch[0]);
+
+        if (resultado.desc)  produtos[i].desc = resultado.desc;
+        if (!produtos[i].notas) produtos[i].notas = { topo: "", corpo: "", fundo: "" };
+        if (resultado.topo)  produtos[i].notas.topo  = resultado.topo;
+        if (resultado.corpo) produtos[i].notas.corpo = resultado.corpo;
+        if (resultado.fundo) produtos[i].notas.fundo = resultado.fundo;
+
+        okCnt++;
+      } else {
+        errCnt++;
+        console.warn("Auto-preencher: resposta sem JSON para " + p.nome, txt);
+      }
+
+    } catch (e) {
+      errCnt++;
+      console.warn("Auto-preencher: erro em " + p.nome, e);
+    }
+
+    /* Salva a cada 10 produtos para não perder progresso */
+    if ((i + 1) % 10 === 0) saveData();
+
+    /* Delay entre chamadas (rate limit Gemini free: ~15 RPM) */
+    await new Promise(function(r) { setTimeout(r, 1200); });
+  }
+
+  /* Salva tudo e sincroniza com Firebase */
+  saveData();
+  fbSync();
+
+  btn.disabled    = false;
+  btn.textContent = "🤖 Auto-preencher";
+
+  if (fbSt) {
+    fbSt.textContent   = "✓ Firebase OK";
+    fbSt.style.background = "rgba(76,175,121,0.15)";
+    fbSt.style.color      = "#4caf79";
+  }
+
+  /* Re-renderiza o form se houver produto selecionado */
+  if (selectedIdx !== null) renderForm();
+
+  toast("✅ Concluído! " + okCnt + " preenchidos" + (errCnt ? " · " + errCnt + " com erro" : ""));
+}
+
 function toast(msg){var el=document.getElementById("toastEl");el.textContent=msg;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2500)}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
