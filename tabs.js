@@ -14,7 +14,7 @@ function switchTab(name, btn) {
   var tabs = {
     produtos: "tProdutos", kits: "tKits", cupons: "tCupons",
     dashboard: "tDash", config: "tConf", historico: "tHist",
-    pedidos: "tPedidos", caixa: "tCaixa", textos: "tTextos"
+    textos: "tTextos"
   };
   Object.values(tabs).forEach(function(id){
     var el = document.getElementById(id);
@@ -26,13 +26,10 @@ function switchTab(name, btn) {
     if (name === "produtos" && selectedIdx === null) renderEmptyProd();
   }
   if (name === "cupons")    renderCupons();
-  if (name === "depoimentos") renderDep();
   if (name === "dashboard") renderDash();
   if (name === "config")    renderConf();
   if (name === "historico") renderHist();
   if (name === "kits")      renderKits();
-  if (name === "pedidos")   renderPedidos();
-  if (name === "caixa")     renderCaixa();
   if (name === "textos")    renderTextos();
 }
 
@@ -40,14 +37,9 @@ function switchTab(name, btn) {
 function renderDash() {
   var el = document.getElementById("tDash");
   if (!el) return;
-  var ativos         = produtos.filter(function(p){ return p.ativo !== false; }).length;
-  var semFoto        = produtos.filter(function(p){ return !p.fotos || !p.fotos.filter(function(f){ return f && f.trim(); }).length; }).length;
-  var totalPedidos   = pedidos.length;
-  var pendentes      = pedidos.filter(function(p){ return p.status === "pendente"; }).length;
-  var faturamento    = pedidos.filter(function(p){ return p.status !== "cancelado"; }).reduce(function(acc, p){ return acc + (p.total || 0); }, 0);
-  var totalItensLote = pedidos.filter(function(p){ return p.status === "pendente"; }).reduce(function(acc, p){
-    return acc + (p.itens || []).reduce(function(a, i){ return a + (i.qty || 1); }, 0);
-  }, 0);
+  var ativos   = produtos.filter(function(p){ return p.ativo !== false; }).length;
+  var semFoto  = produtos.filter(function(p){ return !p.fotos || !p.fotos.filter(function(f){ return f && f.trim(); }).length; }).length;
+  var semPreco = produtos.filter(function(p){ return !p.precos || !p.precos.length || !p.precos[0].preco; }).length;
 
   var statCard = function(label, value, sub, color){
     return '<div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;flex:1;min-width:140px">'
@@ -59,14 +51,12 @@ function renderDash() {
 
   el.innerHTML = '<h3 style="font-size:13px;color:var(--gold);margin-bottom:16px">Dashboard</h3>'
     + '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px">'
-    + statCard("Produtos Ativos",    ativos,          produtos.length + " total")
-    + statCard("Sem Foto",           semFoto,         "precisam de foto",       semFoto > 0 ? "#e8a030" : "#4caf79")
-    + statCard("Pedidos Pendentes",  pendentes,       totalPedidos + " total",  pendentes > 0 ? "#e8a030" : "#4caf79")
-    + statCard("Itens no Lote",      totalItensLote,  "mínimo 5 para enviar",   totalItensLote >= 5 ? "#4caf79" : "#e8a030")
-    + statCard("Faturamento",        "R$" + faturamento.toFixed(2).replace(".", ","), "excluindo cancelados", "var(--gold)")
+    + statCard("Produtos Ativos", ativos,   produtos.length + " total")
+    + statCard("Sem Foto",        semFoto,  "precisam de foto",  semFoto  > 0 ? "#e8a030" : "#4caf79")
+    + statCard("Sem Preço",       semPreco, "precisam de preço", semPreco > 0 ? "#e8a030" : "#4caf79")
+    + statCard("Kits",            kits.length, "cadastrados", "var(--gold)")
     + '</div>'
     + '<div style="display:flex;gap:12px;flex-wrap:wrap">'
-    + '<button class="btn btn-outline" onclick="switchTab(&quot;pedidos&quot;,document.querySelectorAll(&quot;.tab&quot;)[6])">📦 Ver Pedidos</button>'
     + '<button class="btn btn-outline" onclick="previewCatalogo()">👁 Ver Catálogo</button>'
     + '</div>';
 }
@@ -89,19 +79,6 @@ function addKit() { kits.push({ nome: "Novo Kit", desc: "", preco: "R$ 0,00", pr
 function rmKit(i) { kits.splice(i, 1); saveData(); renderKits(); }
 function setKit(i, k, v) { if (k === "foto") kits[i].fotos = [v]; else kits[i][k] = v; saveData(); }
 
-/* ── Depoimentos ── */
-function renderDep() {
-  var el = document.getElementById("tDep");
-  if (!el) return;
-  el.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h3 style="font-size:13px;color:var(--gold)">Depoimentos</h3><button class="btn btn-gold btn-sm" onclick="addDep()">+ Novo</button></div>'
-    + depoimentos.map(function(d, i){
-        return '<div class="depf"><div class="dephdr"><span>#' + (i + 1) + '</span><button class="btn btn-red btn-sm" onclick="rmDep(' + i + ')">Remover</button></div>'
-          + '<div class="fg"><div class="field"><label>Nome</label><input type="text" value="' + esc(d.nome) + '" onchange="depoimentos[' + i + '].nome=this.value;saveData()"/></div>'
-          + '<div class="field ff"><label>Texto</label><textarea onchange="depoimentos[' + i + '].texto=this.value;saveData()">' + esc(d.texto) + '</textarea></div></div></div>';
-      }).join("");
-}
-function addDep() { depoimentos.push({ nome: "Nome", cidade: "", estrelas: 5, texto: "Depoimento", produto: "", foto: "" }); saveData(); renderDep(); }
-function rmDep(i) { depoimentos.splice(i, 1); saveData(); renderDep(); }
 
 /* ── Cupons ── */
 function renderCupons() {
@@ -124,7 +101,7 @@ function renderCupons() {
 function addCupom() { cupons.push({ codigo: "CUPOM10", tipo: "porcentagem", valor: 10, afiliado: false, nome: "" }); saveData(); renderCupons(); }
 function rmCupom(i) { if (!confirm("Deletar cupom?")) return; cupons.splice(i, 1); saveData(); renderCupons(); }
 function setCupom(i, k, v) { cupons[i][k] = v; saveData(); }
-function salvarCupons() { saveData(); if (typeof fbSaveCupons === "function") fbSaveCupons(cupons); toast("Cupons gravados!"); }
+function salvarCupons() { saveData(); _fbSaveCupons(); toast("Cupons gravados!"); }
 
 /* ── Histórico (Time Machine) ── */
 function renderHist() {

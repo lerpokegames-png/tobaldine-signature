@@ -23,7 +23,6 @@ try {
 /* ── Estado global ── */
 var produtos    = [];
 var kits        = [];
-var depoimentos = [];
 var cupons      = [];
 var historico   = [];
 var selectedIdx = null;
@@ -55,7 +54,6 @@ function loadData() {
 function saveData() {
   localStorage.setItem("tb_v3_produtos",  JSON.stringify(produtos));
   localStorage.setItem("tb_v3_kits",      JSON.stringify(kits));
-  localStorage.setItem("tb_v3_dep",       JSON.stringify(depoimentos));
   localStorage.setItem("tb_v3_cupons",    JSON.stringify(cupons));
   localStorage.setItem("tb_v3_hist",      JSON.stringify(historico));
   updateHdr();
@@ -65,9 +63,23 @@ function saveData() {
   _syncTimer = setTimeout(function(){ _autoSyncFirebase(); }, 2000);
 }
 
+/* ── Helper: salva kits no Firebase com fallback direto ── */
+function _fbSaveKits() {
+  if (typeof fbSaveKits === "function") return fbSaveKits(kits);
+  /* Fallback: salva direto via window.firebaseDB (não depende de firebase-admin.js) */
+  if (window.firebaseDB) return window.firebaseDB.ref("kits").set(kits);
+  return Promise.resolve();
+}
+
+function _fbSaveCupons() {
+  if (typeof fbSaveCupons === "function") return fbSaveCupons(cupons);
+  if (window.firebaseDB) return window.firebaseDB.ref("cupons").set(cupons);
+  return Promise.resolve();
+}
+
 /* ── Sync silencioso (auto) ── */
 function _autoSyncFirebase() {
-  if (typeof fbSaveProdutos !== "function") return;
+  if (typeof fbSaveProdutos !== "function" && !window.firebaseDB) return;
   var fbSt = document.getElementById("fbStatus");
   if (fbSt) { fbSt.textContent = "☁ Sincronizando..."; fbSt.style.background = "rgba(201,168,76,0.1)"; fbSt.style.color = "#c9a84c"; }
 
@@ -77,9 +89,8 @@ function _autoSyncFirebase() {
 
   Promise.all([
     fbSaveProdutos(produtos),
-    typeof fbSaveKits        === "function" ? fbSaveKits(kits)               : Promise.resolve(),
-    typeof fbSaveDepoimentos === "function" ? fbSaveDepoimentos(depoimentos) : Promise.resolve(),
-    typeof fbSaveCupons      === "function" ? fbSaveCupons(cupons)           : Promise.resolve()
+    _fbSaveKits(),
+    _fbSaveCupons()
   ]).then(function(){
     if (fbSt) { fbSt.textContent = "✓ Firebase OK · " + totalFotos + " fotos"; fbSt.style.background = "rgba(76,175,121,0.15)"; fbSt.style.color = "#4caf79"; }
     if (typeof fbSaveHistorico === "function") {
@@ -93,11 +104,11 @@ function _autoSyncFirebase() {
 
 /* ── Sync manual imediato (usado por fbSync e salvarTudo) ── */
 function fbSync() {
-  if (typeof fbSaveProdutos !== "function") return;
-  fbSaveProdutos(produtos);
-  if (typeof fbSaveKits        === "function") fbSaveKits(kits);
-  if (typeof fbSaveDepoimentos === "function") fbSaveDepoimentos(depoimentos);
-  if (typeof fbSaveCupons      === "function") fbSaveCupons(cupons);
+  if (typeof fbSaveProdutos !== "function" && !window.firebaseDB) return;
+  if (typeof fbSaveProdutos === "function") fbSaveProdutos(produtos);
+  else if (window.firebaseDB) window.firebaseDB.ref("produtos").set(produtos);
+  _fbSaveKits();
+  _fbSaveCupons();
 }
 
 /* ── Sync completo com confirmação ── */
@@ -115,9 +126,8 @@ function syncCompletoFirebase() {
 
   Promise.all([
     fbSaveProdutos(produtos),
-    typeof fbSaveKits        === "function" ? fbSaveKits(kits)               : Promise.resolve(),
-    typeof fbSaveDepoimentos === "function" ? fbSaveDepoimentos(depoimentos) : Promise.resolve(),
-    typeof fbSaveCupons      === "function" ? fbSaveCupons(cupons)           : Promise.resolve()
+    _fbSaveKits(),
+    _fbSaveCupons()
   ]).then(function(){
     if (btn) { btn.textContent = "☁ Sync Completo"; btn.disabled = false; }
     var fbSt = document.getElementById("fbStatus");
@@ -139,15 +149,11 @@ function loadFromFirebase(db) {
   Promise.all([
     db.ref("produtos").once("value"),
     db.ref("kits").once("value"),
-    db.ref("depoimentos").once("value"),
     db.ref("cupons").once("value"),
-    db.ref("pedidos").once("value")
   ]).then(function(snaps){
     var fbProd = toArr(snaps[0].val());
     var fbKits = toArr(snaps[1].val());
-    var fbDep  = toArr(snaps[2].val());
-    var fbCup  = toArr(snaps[3].val());
-    var fbPed  = toArr(snaps[4].val());
+    var fbCup  = toArr(snaps[2].val());
 
     /* Proteção: Firebase com menos produtos que o cache local */
     if (fbProd && fbProd.length && produtos.length > 0 && fbProd.length < produtos.length) {
@@ -166,11 +172,9 @@ function loadFromFirebase(db) {
     else if (typeof KITS !== "undefined" && KITS.length && !kits.length) {
       kits = JSON.parse(JSON.stringify(KITS));
       localStorage.setItem("tb_v3_kits", JSON.stringify(kits));
-      if (typeof fbSaveKits === "function") fbSaveKits(kits).catch(function(){});
+      _fbSaveKits();
     }
-    if (fbDep) { depoimentos = fbDep; localStorage.setItem("tb_v3_dep", JSON.stringify(depoimentos)); }
     if (fbCup) { cupons = fbCup; localStorage.setItem("tb_v3_cupons", JSON.stringify(cupons)); }
-    if (fbPed && fbPed.length) { pedidos = fbPed; localStorage.setItem("tb_v3_pedidos", JSON.stringify(pedidos)); }
 
     var totalFotos = produtos.reduce(function(acc, p){
       return acc + (Array.isArray(p.fotos) ? p.fotos.filter(function(f){ return f && f.trim(); }).length : 0);
@@ -224,7 +228,6 @@ function addHist(msg, snap) {
   var backupObj = snap ? {
     produtos:    JSON.parse(JSON.stringify(produtos)),
     kits:        JSON.parse(JSON.stringify(kits)),
-    depoimentos: JSON.parse(JSON.stringify(depoimentos)),
     cupons:      JSON.parse(JSON.stringify(cupons))
   } : null;
 
@@ -243,7 +246,6 @@ function restoreHist(i) {
 
   produtos    = JSON.parse(JSON.stringify(snap.produtos    || []));
   kits        = JSON.parse(JSON.stringify(snap.kits        || []));
-  depoimentos = JSON.parse(JSON.stringify(snap.depoimentos || []));
   cupons      = JSON.parse(JSON.stringify(snap.cupons      || []));
 
   selectedIdx = null;
