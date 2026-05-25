@@ -27,6 +27,8 @@ var _TEXTOS_CONFIG = [
   { id: "sub_decants",       label: "Subcategoria · Decants",         tipo: "text",     def: "Decants de Bolso / Miniaturas" },
   { id: "sub_originais",     label: "Subcategoria · Originais",       tipo: "text",     def: "Frascos Originais Lacrados" },
   { id: "sub_similares",     label: "Subcategoria · Similares",       tipo: "text",     def: "Inspirados Premium (Contratipos)" },
+  { id: "sub_kits",         label: "Subcategoria · Kits (título)",   tipo: "text",     def: "Kits & Combos" },
+  { id: "sub_cosmeticos",   label: "Subcategoria · Cosméticos",     tipo: "text",     def: "Body Splashes & Hidratantes VS" },
   /* Autorais */
   { id: "autorais_titulo",   label: "Autorais · Título",              tipo: "text",     def: "Fragrâncias Autorais" },
   { id: "autorais_desc",     label: "Autorais · Descrição",           tipo: "textarea", def: "Criações exclusivas desenvolvidas pela Tobaldine Signature — fragrâncias únicas que você não encontra em nenhum outro lugar." },

@@ -79,7 +79,7 @@ function renderKits() {
           + '</div></div>';
       }).join("");
 }
-function addKit() { kits.push({ nome: "Novo Kit", desc: "", preco: "R$ 0,00", produtos: [], fotos: [""], ativo: true }); saveData(); renderKits(); }
+function addKit() { kits.push({ nome: "Novo Kit", desc: "", preco: "R$ 0,00", badge: "Kit", produtos: [], fotos: [""], ativo: true }); saveData(); renderKits(); }
 function rmKit(i) { kits.splice(i, 1); saveData(); renderKits(); }
 function setKit(i, k, v) { if (k === "foto") kits[i].fotos = [v]; else kits[i][k] = v; saveData(); }
 

@@ -650,7 +650,7 @@ function renderKits() {
 
   kitsContainer.innerHTML = KITS.filter(function(k) { return k.ativo !== false; }).map(function(k) {
     var src = (k.fotos && k.fotos[0]) ? k.fotos[0] : "";
-    return '<article class="product-card kit-card" data-name="' + sanitize(k.nome.toLowerCase()) + '">'
+    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
       + '<div class="product-image">'
       + (src
           ? '<img src="' + sanitize(src) + '" />'
@@ -658,8 +658,8 @@ function renderKits() {
       + '<span class="sub-badge kit-badge">Kit</span></div>'
       + '<div class="product-info">'
       + '<p class="product-brand">TOBALDINE · COMBO</p>'
-      + '<h3 class="product-name">' + sanitize(k.nome) + '</h3>'
-      + '<p class="product-family">' + sanitize(k.produtos.join(" + ")) + '</p>'
+      + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
+      + '<p class="product-family">' + sanitize((k.produtos || []).join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
       + '<div class="price-wrap">'
       + '<div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
