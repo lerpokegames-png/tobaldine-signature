@@ -47,6 +47,7 @@
     <button class="btn btn-outline btn-sm" onclick="gerarPDF()">📄 PDF</button>
     <button class="btn btn-outline btn-sm" onclick="openModal()">⬇ Exportar</button>
     <button id="btnLoteMode" class="btn btn-outline btn-sm btn-lote-mode" onclick="toggleLoteMode()" title="Edição em lote">✎ Lote</button>
+    <button class="btn btn-outline btn-sm" style="color:#e8a030;border-color:rgba(232,160,48,0.4)" onclick="openBulk()" title="Importar vários produtos de uma vez">📥 Importar em Massa</button>
     <button class="btn btn-outline btn-sm" style="color:#4caf79;border-color:rgba(76,175,121,0.4)" onclick="addProd()" title="Adicionar novo produto">＋ Novo</button>
     <button id="btnAutoPreench" class="btn btn-outline btn-sm" onclick="abrirAutoFill()" title="Preencher descrição e notas olfativas com IA" style="color:#7f77dd;border-color:rgba(127,119,221,0.4)">🤖 Auto-preencher</button>
     <button class="btn btn-outline btn-sm" id="btnSyncForce" onclick="syncCompletoFirebase()" title="Envia TUDO para o Firebase agora">☁ Sync Completo</button>
@@ -146,8 +147,16 @@
 <!-- Modal: importação em massa -->
 <div class="moverlay" id="modalBulk">
   <div class="modal" style="max-width:620px;width:95%">
-    <h2>➕ Importação em Massa</h2>
-    <p style="font-size:11px;color:var(--muted)">Cole uma lista simples <strong>Nome | Gênero | Preço</strong> ou um JSON gerado por IA. Você verá um preview antes de salvar.</p>
+    <h2>📥 Importação em Massa</h2>
+    <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:12px;margin-bottom:12px">
+      <p style="font-size:11px;color:var(--gold);font-weight:600;margin-bottom:6px">Como usar:</p>
+      <p style="font-size:11px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--text)">Formato simples</strong> — uma por linha:<br>
+        <code style="background:#0d0b09;padding:2px 6px;border-radius:4px;color:#c9a84c">Nome do Perfume | Família Olfativa | R$ 59,90</code><br><br>
+        <strong style="color:var(--text)">Gerar lista com IA</strong> — peça ao ChatGPT ou Gemini:<br>
+        <code style="background:#0d0b09;padding:2px 6px;border-radius:4px;color:#c9a84c;font-size:10px">Crie uma lista de 10 perfumes árabes no formato: Nome | Família | Preço</code>
+      </p>
+    </div>
     <div style="display:flex;gap:10px;margin-bottom:10px">
       <div style="flex:1">
         <label>Seção Destino</label>

@@ -64,7 +64,11 @@ function renderDash() {
 /* ── Kits ── */
 function renderKits() {
   var el = document.getElementById("tKits");
-  el.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="font-size:13px;color:var(--gold)">Kits (' + kits.length + ')</h3><button class="btn btn-gold btn-sm" onclick="addKit()">+ Novo Kit</button></div>'
+  el.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">'
+    + '<h3 style="font-size:13px;color:var(--gold);flex:1">Kits (' + kits.length + ')</h3>'
+    + '<button class="btn btn-outline btn-sm" style="color:#4caf79;border-color:rgba(76,175,121,0.4)" onclick="syncKitsFirebase()" title="Envia os kits para o Firebase agora">☁ Sync Kits</button>'
+    + '<button class="btn btn-gold btn-sm" onclick="addKit()">+ Novo Kit</button>'
+    + '</div>'
     + kits.map(function(k, i){
         return '<div class="depf"><div class="dephdr"><span>' + esc(k.nome || "Kit") + '</span><button class="btn btn-red btn-sm" onclick="rmKit(' + i + ')">Remover</button></div>'
           + '<div class="fg" style="gap:12px">'
@@ -102,6 +106,19 @@ function addCupom() { cupons.push({ codigo: "CUPOM10", tipo: "porcentagem", valo
 function rmCupom(i) { if (!confirm("Deletar cupom?")) return; cupons.splice(i, 1); saveData(); renderCupons(); }
 function setCupom(i, k, v) { cupons[i][k] = v; saveData(); }
 function salvarCupons() { saveData(); _fbSaveCupons(); toast("Cupons gravados!"); }
+
+/* ── Força envio dos kits ao Firebase (botão na aba Kits) ── */
+function syncKitsFirebase() {
+  var btn = event && event.target;
+  if (btn) { btn.textContent = "☁ Enviando..."; btn.disabled = true; }
+  _fbSaveKits().then ? _fbSaveKits().then(function(){
+    toast("✅ " + kits.length + " kits enviados ao Firebase!");
+    if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
+  }).catch(function(e){
+    toast("❌ Erro: " + e.message);
+    if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
+  }) : (toast("✅ Kits sincronizados!"), btn && (btn.textContent = "☁ Sync Kits", btn.disabled = false));
+}
 
 /* ── Histórico (Time Machine) ── */
 function renderHist() {

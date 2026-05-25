@@ -35,7 +35,6 @@ var _syncTimer = null;
 function loadData() {
   try { var _s1 = localStorage.getItem("tb_v3_produtos");    if (_s1) { var _p1 = JSON.parse(_s1); if (_p1 && _p1.length > 0) produtos = _p1; } } catch(e) {}
   try { var _s2 = localStorage.getItem("tb_v3_kits");        if (_s2) kits        = JSON.parse(_s2); } catch(e) {}
-  try { var _s3 = localStorage.getItem("tb_v3_dep");         if (_s3) depoimentos = JSON.parse(_s3); } catch(e) {}
   try { var _s4 = localStorage.getItem("tb_v3_cupons");      if (_s4) cupons      = JSON.parse(_s4); } catch(e) {}
   try { var _s5 = localStorage.getItem("tb_v3_hist");        if (_s5) historico   = JSON.parse(_s5); } catch(e) {}
 
@@ -43,7 +42,6 @@ function loadData() {
   if (!produtos.length && typeof PRODUTOS !== "undefined" && PRODUTOS.length) {
     produtos = JSON.parse(JSON.stringify(PRODUTOS));
     if (typeof KITS        !== "undefined") kits        = JSON.parse(JSON.stringify(KITS));
-    if (typeof DEPOIMENTOS !== "undefined") depoimentos = JSON.parse(JSON.stringify(DEPOIMENTOS));
     saveData();
     fbSync();
   }
@@ -63,17 +61,43 @@ function saveData() {
   _syncTimer = setTimeout(function(){ _autoSyncFirebase(); }, 2000);
 }
 
-/* ── Helper: salva kits no Firebase com fallback direto ── */
+/* ══════════════════════════════════════
+   _sanitize: remove undefined/NaN antes de enviar ao Firebase.
+   Firebase rejeita undefined — substitui por null recursivamente.
+══════════════════════════════════════ */
+function _sanitize(obj) {
+  if (obj === undefined || (typeof obj === "number" && isNaN(obj))) return null;
+  if (obj === null || typeof obj !== "object") return obj;
+  if (Array.isArray(obj)) return obj.map(_sanitize);
+  var out = {};
+  Object.keys(obj).forEach(function(k) {
+    var v = _sanitize(obj[k]);
+    if (v !== undefined) out[k] = v;
+  });
+  return out;
+}
+
+/* ── Obtém instância do Firebase DB de qualquer fonte disponível ── */
+function _getDB() {
+  if (window.firebaseDB)        return window.firebaseDB;
+  if (typeof firebase !== "undefined" && firebase.apps && firebase.apps.length) {
+    try { return firebase.database(); } catch(e) {}
+  }
+  return null;
+}
+
+/* ── Helpers de save com fallback total ── */
 function _fbSaveKits() {
-  if (typeof fbSaveKits === "function") return fbSaveKits(kits);
-  /* Fallback: salva direto via window.firebaseDB (não depende de firebase-admin.js) */
-  if (window.firebaseDB) return window.firebaseDB.ref("kits").set(kits);
+  if (typeof fbSaveKits === "function") return fbSaveKits(_sanitize(kits));
+  var db = _getDB();
+  if (db) return db.ref("kits").set(_sanitize(kits));
   return Promise.resolve();
 }
 
 function _fbSaveCupons() {
-  if (typeof fbSaveCupons === "function") return fbSaveCupons(cupons);
-  if (window.firebaseDB) return window.firebaseDB.ref("cupons").set(cupons);
+  if (typeof fbSaveCupons === "function") return fbSaveCupons(_sanitize(cupons));
+  var db = _getDB();
+  if (db) return db.ref("cupons").set(_sanitize(cupons));
   return Promise.resolve();
 }
 
@@ -88,7 +112,7 @@ function _autoSyncFirebase() {
   }, 0);
 
   Promise.all([
-    fbSaveProdutos(produtos),
+    fbSaveProdutos(_sanitize(produtos)),
     _fbSaveKits(),
     _fbSaveCupons()
   ]).then(function(){
@@ -105,8 +129,8 @@ function _autoSyncFirebase() {
 /* ── Sync manual imediato (usado por fbSync e salvarTudo) ── */
 function fbSync() {
   if (typeof fbSaveProdutos !== "function" && !window.firebaseDB) return;
-  if (typeof fbSaveProdutos === "function") fbSaveProdutos(produtos);
-  else if (window.firebaseDB) window.firebaseDB.ref("produtos").set(produtos);
+  if (typeof fbSaveProdutos === "function") fbSaveProdutos(_sanitize(produtos));
+  else { var _db = _getDB(); if (_db) _db.ref("produtos").set(_sanitize(produtos)); }
   _fbSaveKits();
   _fbSaveCupons();
 }
@@ -125,7 +149,7 @@ function syncCompletoFirebase() {
   if (btn) { btn.textContent = "☁ Enviando..."; btn.disabled = true; }
 
   Promise.all([
-    fbSaveProdutos(produtos),
+    fbSaveProdutos(_sanitize(produtos)),
     _fbSaveKits(),
     _fbSaveCupons()
   ]).then(function(){
