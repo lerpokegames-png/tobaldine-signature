@@ -300,7 +300,7 @@ function salvarTudo() {
 function buildJS() {
   return "var PRODUTOS=" + JSON.stringify(produtos, null, 2)
     + ";\n\nvar KITS=" + JSON.stringify(kits, null, 2)
-    + ";\n\nvar DEPOIMENTOS=" + JSON.stringify(depoimentos, null, 2) + ";\n";
+    + ";\n";
 }
 function openModal()  { document.getElementById("modalPre").textContent = buildJS(); document.getElementById("modal").classList.add("open"); }
 function closeModal() { document.getElementById("modal").classList.remove("open"); }
