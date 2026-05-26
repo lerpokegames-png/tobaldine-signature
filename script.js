@@ -659,7 +659,7 @@ function renderKits() {
       + '<div class="product-info">'
       + '<p class="product-brand">TOBALDINE · COMBO</p>'
       + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
-      + '<p class="product-family">' + sanitize((k.produtos || []).join(" + ")) + '</p>'
+      + '<p class="product-family">' + sanitize((Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {})).join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
       + '<div class="price-wrap">'
       + '<div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
