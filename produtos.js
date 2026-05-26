@@ -2237,6 +2237,50 @@ var KITS=[
       "Kit Body Splah + Creme Hidratante - Coconut Passion"
     ],
     "secao": "cosmeticos"
+  },
+  {
+    "nome": "Kit Casal Premium Lattafa",
+    "desc": "O casal mais pedido do catálogo em frascos originais 100ml. Presente completo para os dois — elegante e marcante.",
+    "preco": "R$ 369,90",
+    "badge": "Kit",
+    "produtos": [
+      "Asad · 100ml (original)",
+      "Yara · 100ml (original)"
+    ],
+    "fotos": [
+      ""
+    ],
+    "ativo": true
+  },
+  {
+    "nome": "Kit Trio Yara",
+    "desc": "As três versões da linha mais icônica da perfumaria árabe. Perfeito para descobrir qual versão combina mais com você.",
+    "preco": "R$ 199,90",
+    "badge": "Kit",
+    "produtos": [
+      "Yara · 25ml",
+      "Yara Candy · 25ml",
+      "Yara Moi · 25ml"
+    ],
+    "fotos": [
+      ""
+    ],
+    "ativo": true
+  },
+  {
+    "nome": "Kit Oud Collection",
+    "desc": "A família Bade'e Al Oud completa — do floral ao amadeirado oriental. Uma jornada pelo oud árabe em três facetas.",
+    "preco": "R$ 199,90",
+    "badge": "Kit",
+    "produtos": [
+      "Bade'e Al Oud Sublime · 25ml",
+      "Bade'e Al Oud Amethyst · 25ml",
+      "Bade'e Al Oud Honor & Glory · 25ml"
+    ],
+    "fotos": [
+      ""
+    ],
+    "ativo": true
   }
 ];
 
