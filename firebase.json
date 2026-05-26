@@ -1,1 +1,1 @@
-{ "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"] } } 
+{ "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"], "rewrites": [{ "source": "/p/**", "destination": "/produto.html" }] } }

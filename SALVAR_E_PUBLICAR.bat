@@ -5,8 +5,8 @@ echo   Tobaldine Signature - Salvar e Publicar
 echo  ========================================
 echo.
 
-:: Garante que firebase.json sempre exclui arquivos desnecessarios
-echo { "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"] } } > firebase.json
+:: Garante que firebase.json sempre inclui os rewrites de produto
+(echo { "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"], "rewrites": [{ "source": "/p/**", "destination": "/produto.html" }] } }) > firebase.json
 
 :: Pede descricao do que mudou
 set /p MSG="O que voce alterou? (ex: atualizei fotos): "

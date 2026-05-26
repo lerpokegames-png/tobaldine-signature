@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title id="pgTitle">Tobaldine Signature</title>
+  <meta name="description"        id="pgDesc"    content="Fragrâncias exclusivas · Tobaldine Signature"/>
+  <meta property="og:type"                       content="product"/>
+  <meta property="og:title"       id="ogTitle"   content="Tobaldine Signature"/>
+  <meta property="og:description" id="ogDesc"    content=""/>
+  <meta property="og:image"       id="ogImage"   content="https://tobaldine-signature.web.app/og-image.png"/>
+  <meta property="og:url"         id="ogUrl"     content=""/>
+  <meta name="twitter:card"                      content="summary_large_image"/>
+  <meta name="theme-color"                       content="#080706"/>
+  <link rel="icon" type="image/png" href="/icon-192.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#c9a84c;--dark:#080706;--card:#0d0b09;--text:#f0e8d8;--muted:#9a8c78;--border:rgba(201,168,76,0.15)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--text);font-family:"DM Sans",sans-serif;font-weight:300;min-height:100vh}
+
+    /* ── Header ── */
+    .site-hdr{
+      position:sticky;top:0;z-index:100;
+      background:rgba(8,7,6,0.96);backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 24px;
+    }
+    .logo{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:300;color:var(--text);text-decoration:none;letter-spacing:.05em}
+    .logo span{color:var(--gold)}
+    .back-btn{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.1em;transition:color .2s;display:flex;align-items:center;gap:6px}
+    .back-btn:hover{color:var(--gold)}
+
+    /* ── Loading ── */
+    .pg-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;gap:14px}
+    .spinner{width:30px;height:30px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ── Not found ── */
+    .pg-404{text-align:center;padding:80px 24px}
+    .pg-404 h1{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:300;color:var(--gold);margin-bottom:8px}
+    .pg-404 p{color:var(--muted);font-size:14px;margin-bottom:28px}
+
+    /* ── Layout produto ── */
+    .prod-wrap{
+      max-width:1060px;margin:0 auto;
+      padding:40px 24px 80px;
+      display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;
+    }
+    @media(max-width:700px){
+      .prod-wrap{grid-template-columns:1fr;gap:24px;padding:20px 16px 60px}
+    }
+
+    /* ── Carrossel ── */
+    .car-outer{position:relative}
+    .car-frame{
+      aspect-ratio:3/4;border-radius:12px;overflow:hidden;
+      background:var(--card);border:1px solid var(--border);position:relative;
+    }
+    .car-track{display:flex;height:100%;transition:transform .35s cubic-bezier(.25,1,.5,1)}
+    .car-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .car-slide img{width:100%;height:100%;object-fit:contain;user-select:none;pointer-events:none}
+    .car-no-img{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:13px;opacity:.4}
+    .car-arrow{
+      position:absolute;top:50%;transform:translateY(-50%);
+      background:rgba(8,7,6,.75);border:1px solid var(--border);color:var(--gold);
+      font-size:22px;border-radius:50%;width:40px;height:40px;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;z-index:2;transition:background .15s;
+    }
+    .car-arrow:hover{background:rgba(201,168,76,.15)}
+    .car-arrow.l{left:10px}.car-arrow.r{right:10px}
+    .car-dots{display:flex;gap:7px;justify-content:center;margin-top:12px}
+    .car-dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s,transform .2s}
+    .car-dot.on{background:var(--gold);transform:scale(1.35)}
+    .car-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+    .car-thumbs::-webkit-scrollbar{display:none}
+    .car-thumb{width:56px;height:72px;flex-shrink:0;border-radius:6px;overflow:hidden;border:1px solid var(--border);cursor:pointer;opacity:.55;background:var(--card);transition:all .15s}
+    .car-thumb.on{border-color:var(--gold);opacity:1}
+    .car-thumb img{width:100%;height:100%;object-fit:contain}
+
+    /* ── Info ── */
+    .badge-pill{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.3);padding:3px 10px;border-radius:20px;margin-bottom:14px}
+    .prod-marca{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .prod-nome{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5vw,44px);font-weight:300;line-height:1.1;margin-bottom:8px}
+    .prod-familia{font-size:12px;color:var(--muted);margin-bottom:18px;letter-spacing:.04em}
+    .prod-desc{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:4px}
+    .ranking{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:6px 12px;margin-bottom:16px;text-align:center;letter-spacing:.03em}
+    .div{height:1px;background:var(--border);margin:22px 0}
+    .sec-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:500}
+
+    /* ── Notas ── */
+    .notes-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .note-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+    .note-type{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:4px}
+    .note-val{font-size:12px;color:var(--text);line-height:1.5}
+
+    /* ── Preços ── */
+    .price-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+    .p-opt{border:1px solid var(--border);border-radius:8px;padding:9px 16px;cursor:pointer;background:transparent;transition:all .15s;text-align:left}
+    .p-opt:hover{border-color:rgba(201,168,76,.45)}
+    .p-opt.on{border-color:var(--gold);background:rgba(201,168,76,.06)}
+    .p-opt .vol{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+    .p-opt .price{font-size:17px;font-weight:500;color:var(--gold)}
+
+    /* ── CTAs ── */
+    .ctas{display:flex;flex-direction:column;gap:10px}
+    .btn-wpp{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      background:var(--gold);color:#080706;border:none;border-radius:8px;
+      padding:16px 24px;font-size:15px;font-weight:500;font-family:"DM Sans",sans-serif;
+      cursor:pointer;transition:opacity .15s;width:100%;
+    }
+    .btn-wpp:hover{opacity:.88}
+    .btn-wpp svg{width:20px;height:20px;fill:#080706;flex-shrink:0}
+    .btn-share{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      border:1px solid var(--border);border-radius:8px;
+      padding:13px 24px;font-size:13px;color:var(--muted);
+      font-family:"DM Sans",sans-serif;background:transparent;
+      cursor:pointer;transition:all .15s;width:100%;
+    }
+    .btn-share:hover{border-color:rgba(201,168,76,.4);color:var(--gold)}
+    .btn-share.ok{color:#4caf79;border-color:rgba(76,175,121,.4)}
+
+    /* ── Toast ── */
+    .toast{
+      position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);
+      background:#1a1714;border:1px solid var(--border);color:var(--text);
+      font-size:13px;padding:10px 20px;border-radius:8px;
+      opacity:0;transition:all .3s;z-index:999;pointer-events:none;white-space:nowrap;
+    }
+    .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* ── Footer ── */
+    footer{text-align:center;padding:24px;border-top:1px solid var(--border);font-size:10px;color:#4a4235}
+    footer a{color:var(--gold);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+
+<header class="site-hdr">
+  <a href="/" class="logo">✦ Tobaldine <span>Signature</span></a>
+  <a href="/" class="back-btn">← Voltar ao catálogo</a>
+</header>
+
+<div id="pgLoad" class="pg-loading">
+  <div class="spinner"></div>
+  <span style="font-size:12px;color:var(--muted);letter-spacing:.08em">Carregando produto...</span>
+</div>
+
+<div id="pg404" style="display:none" class="pg-404">
+  <h1>404</h1>
+  <p>Produto não encontrado no catálogo.</p>
+  <a href="/" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#080706;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:500">← Ver catálogo</a>
+</div>
+
+<div id="pgOk" style="display:none">
+  <div class="prod-wrap" id="prodWrap"></div>
+</div>
+
+<div class="toast" id="toastEl"></div>
+
+<footer>
+  <p>© 2025 Tobaldine Signature · Mauá, SP ·
+    <a href="/termos.html">Termos</a> ·
+    <a href="/privacidade.html">Privacidade</a> ·
+    <a href="/">Catálogo</a>
+  </p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+/* ════════════════════════════════════
+   produto.html — Tobaldine Signature
+   Página individual de produto com URL
+   própria. Ex: /p/yara-lattafa
+════════════════════════════════════ */
+
+var TEL = "5511941665146";
+var _cur = 0, _fotos = [], _precoSel = null;
+
+/* ── Utilitários ── */
+function toSlug(str) {
+  return (str || "").toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function esc(s) {
+  return String(s || "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+
+function parsePreco(str) {
+  return parseFloat(String(str||"0").replace("R$","").replace(/\./g,"").replace(",",".").trim())||0;
+}
+
+function toast(msg) {
+  var el = document.getElementById("toastEl");
+  el.textContent = msg; el.classList.add("on");
+  setTimeout(function(){ el.classList.remove("on"); }, 2500);
+}
+
+/* ── Slug da URL atual ── */
+var slug = window.location.pathname.replace(/^\/p\/?/, "").replace(/\/+$/,"");
+
+/* ── Carrossel ── */
+function goTo(idx) {
+  if (idx < 0) idx = _fotos.length - 1;
+  if (idx >= _fotos.length) idx = 0;
+  _cur = idx;
+  var t = document.getElementById("carTrack");
+  if (t) t.style.transform = "translateX(-" + (idx * 100) + "%)";
+  document.querySelectorAll(".car-dot").forEach(function(d,i){ d.classList.toggle("on", i===idx); });
+  document.querySelectorAll(".car-thumb").forEach(function(t,i){ t.classList.toggle("on", i===idx); });
+}
+
+/* ── Selecionar preço ── */
+function selOpt(el, pr) {
+  document.querySelectorAll(".p-opt").forEach(function(o){ o.classList.remove("on"); });
+  el.classList.add("on");
+  _precoSel = pr;
+}
+
+/* ── Pedir no WhatsApp ── */
+function pedirWpp() {
+  if (!_precoSel) return;
+  var nome  = (document.getElementById("pNome")  || {}).textContent || "";
+  var marca = (document.getElementById("pMarca") || {}).textContent || "";
+  var txt = "Olá, Tobaldine Signature! Gostaria de fazer o pedido:\n\n"
+    + "• *" + nome + "* (" + marca + ")\n"
+    + "• Volumetria: " + (_precoSel.vol || "Kit") + "\n"
+    + "• Valor: " + (_precoSel.preco || "") + "\n\n"
+    + "Pode me informar o endereço de entrega? 😊\n"
+    + "Aceitamos *PIX* e *cartão*. Entrega em Mauá de moto, outras regiões via Uber/99.";
+  window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(txt), "_blank");
+}
+
+/* ── Compartilhar link ── */
+function compartilhar() {
+  var url = window.location.href;
+  var btn = document.getElementById("btnShare");
+  var orig = btn ? btn.innerHTML : "";
+  if (navigator.share) {
+    navigator.share({ title: document.title, url: url }); return;
+  }
+  navigator.clipboard.writeText(url).then(function(){
+    toast("✓ Link copiado!");
+    if (btn) { btn.classList.add("ok"); btn.textContent = "✓ Link copiado!"; }
+    setTimeout(function(){ if(btn){ btn.classList.remove("ok"); btn.innerHTML = orig; } }, 2500);
+  }).catch(function(){ toast("Link: " + url); });
+}
+
+/* ── Renderiza o produto ── */
+function renderProduto(p) {
+  /* Normaliza arrays que podem vir como objeto do Firebase */
+  function toArr(v) { return !v ? [] : Array.isArray(v) ? v : Object.values(v); }
+
+  _fotos = toArr(p.fotos).filter(function(f){ return f && f.trim() && !f.startsWith("data:"); });
+  if (!_fotos.length) _fotos = [""];
+
+  var precos = toArr(p.precos);
+  _precoSel = precos[0] || null;
+  var notas  = p.notas || {};
+
+  /* ── Meta tags dinâmicas ── */
+  var pageUrl = "https://tobaldine-signature.web.app/p/" + slug;
+  var ogDesc  = p.desc || ("Fragrância " + (p.familia||"") + " · Tobaldine Signature");
+  document.getElementById("pgTitle").textContent  = (p.nome||"Produto") + " · Tobaldine Signature";
+  document.getElementById("pgDesc").setAttribute("content",  ogDesc);
+  document.getElementById("ogTitle").setAttribute("content", (p.nome||"") + " · Tobaldine Signature");
+  document.getElementById("ogDesc").setAttribute("content",  ogDesc);
+  document.getElementById("ogUrl").setAttribute("content",   pageUrl);
+  if (_fotos[0] && _fotos[0].startsWith("http")) {
+    document.getElementById("ogImage").setAttribute("content", _fotos[0]);
+  }
+
+  /* ── Carrossel ── */
+  var slides = _fotos.map(function(f){
+    return '<div class="car-slide">'
+      + (f ? '<img src="' + esc(f) + '" alt="' + esc(p.nome) + '"/>'
+           : '<div class="car-no-img"><svg width="48" height="48" viewBox="0 0 24 24"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 7.5-3.5-4.5-2.5 3-1.5-2L7 17h12.5z"/></svg><span>Sem foto</span></div>')
+      + '</div>';
+  }).join("");
+
+  var dots = _fotos.length > 1 ? _fotos.map(function(_, i){
+    return '<span class="car-dot' + (i===0?" on":"") + '" onclick="goTo(' + i + ')"></span>';
+  }).join("") : "";
+
+  var thumbs = _fotos.length > 1 ? _fotos.map(function(f, i){
+    return '<div class="car-thumb' + (i===0?" on":"") + '" onclick="goTo(' + i + ')">'
+      + (f ? '<img src="' + esc(f) + '"/>' : '') + '</div>';
+  }).join("") : "";
+
+  var arrows = _fotos.length > 1
+    ? '<button class="car-arrow l" onclick="goTo(_cur-1)">‹</button><button class="car-arrow r" onclick="goTo(_cur+1)">›</button>'
+    : "";
+
+  /* ── Notas olfativas ── */
+  var notasHtml = '<div class="sec-lbl">Pirâmide olfativa</div>'
+    + '<div class="notes-row">'
+    + '<div class="note-box"><span class="note-type">Topo</span><span class="note-val">'  + esc(notas.topo  ||"—") + '</span></div>'
+    + '<div class="note-box"><span class="note-type">Corpo</span><span class="note-val">' + esc(notas.corpo ||"—") + '</span></div>'
+    + '<div class="note-box"><span class="note-type">Fundo</span><span class="note-val">' + esc(notas.fundo ||"—") + '</span></div>'
+    + '</div>';
+
+  /* ── Opções de preço ── */
+  var optsHtml = precos.length
+    ? '<div class="sec-lbl" style="margin-top:22px">Escolha a volumetria</div>'
+      + '<div class="price-opts">'
+      + precos.map(function(pr, i){
+          return '<div class="p-opt' + (i===0?" on":"") + '" onclick="selOpt(this,' + JSON.stringify(pr) + ')">'
+            + '<span class="vol">' + esc(pr.vol||"Kit") + '</span>'
+            + '<span class="price">' + esc(pr.preco||"—") + '</span>'
+            + '</div>';
+        }).join("")
+      + '</div>'
+    : "";
+
+  var WPP = '<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>';
+
+  document.getElementById("prodWrap").innerHTML =
+    /* Coluna esquerda: carrossel */
+    '<div class="car-outer">'
+    + '<div class="car-frame">'
+    +   '<div class="car-track" id="carTrack">' + slides + '</div>'
+    +   arrows
+    + '</div>'
+    + (dots   ? '<div class="car-dots">' + dots + '</div>' : '')
+    + (thumbs ? '<div class="car-thumbs">' + thumbs + '</div>' : '')
+    + '</div>'
+    /* Coluna direita: info */
+    + '<div>'
+    + (p.ranking ? '<div class="ranking">' + esc(p.ranking) + '</div>' : '')
+    + '<div class="badge-pill">' + esc(p.badge||"Fragrância") + '</div>'
+    + '<div class="prod-marca" id="pMarca">' + esc(p.marca||"") + '</div>'
+    + '<h1 class="prod-nome" id="pNome">' + esc(p.nome||"") + '</h1>'
+    + (p.familia ? '<div class="prod-familia">' + esc(p.familia) + '</div>' : '')
+    + (p.desc    ? '<p class="prod-desc">' + esc(p.desc) + '</p>' : '')
+    + '<div class="div"></div>'
+    + notasHtml
+    + optsHtml
+    + '<div class="div"></div>'
+    + '<div class="ctas">'
+    +   '<button class="btn-wpp" onclick="pedirWpp()">' + WPP + 'Pedir no WhatsApp</button>'
+    +   '<button class="btn-share" id="btnShare" onclick="compartilhar()">🔗 Copiar link deste produto</button>'
+    + '</div>'
+    + '</div>';
+
+  /* ── Touch swipe no carrossel ── */
+  var track = document.getElementById("carTrack");
+  var sx = 0;
+  track.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener("touchend",   function(e){
+    var dx = sx - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 45) goTo(dx > 0 ? _cur+1 : _cur-1);
+  }, {passive:true});
+
+  document.getElementById("pgLoad").style.display = "none";
+  document.getElementById("pgOk").style.display   = "";
+}
+
+/* ════════════════════════════════════
+   Firebase — busca produto pelo slug
+════════════════════════════════════ */
+(function(){
+  var cfg = {
+    apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
+    authDomain:        "tobaldine-signature.firebaseapp.com",
+    databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
+    projectId:         "tobaldine-signature",
+    storageBucket:     "tobaldine-signature.firebasestorage.app",
+    messagingSenderId: "977486037825",
+    appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
+  };
+  if (!firebase.apps.length) firebase.initializeApp(cfg);
+  var db = firebase.database();
+
+  /* Telefone dinâmico do Firebase */
+  db.ref("config/tel").once("value").then(function(s){ if (s.val()) TEL = s.val(); }).catch(function(){});
+
+  db.ref("produtos").once("value").then(function(snap){
+    var data = snap.val();
+    if (!data) { showNotFound(); return; }
+
+    var arr = Array.isArray(data) ? data : Object.values(data);
+    var prod = null;
+
+    /* 1ª tentativa: match exato pelo slug do nome */
+    arr.forEach(function(p){
+      if (!prod && p && p.ativo !== false && toSlug(p.nome) === slug) prod = p;
+    });
+
+    /* 2ª tentativa: slug com sufixo numérico ex: /p/yara-lattafa-2 */
+    if (!prod) {
+      var m = slug.match(/^(.+)-(\d+)$/);
+      if (m) {
+        var base = m[1], nth = parseInt(m[2]) - 1, cnt = 0;
+        arr.forEach(function(p){
+          if (!prod && p && p.ativo !== false && toSlug(p.nome) === base) {
+            if (cnt === nth) prod = p;
+            cnt++;
+          }
+        });
+      }
+    }
+
+    if (!prod) { showNotFound(); return; }
+    renderProduto(prod);
+  }).catch(function(){ showNotFound(); });
+
+  function showNotFound() {
+    document.getElementById("pgLoad").style.display  = "none";
+    document.getElementById("pg404").style.display   = "";
+  }
+})();
+</script>
+</body>
+</html>
