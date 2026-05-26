@@ -179,7 +179,8 @@ function confirmarAutoFill() {
     topo:    document.getElementById("afTopo").checked,
     corpo:   document.getElementById("afCorpo").checked,
     fundo:   document.getElementById("afFundo").checked,
-    ranking: document.getElementById("afRanking").checked
+    ranking: document.getElementById("afRanking").checked,
+    familia: !!(document.getElementById("afGenero") && document.getElementById("afGenero").checked)
   };
   var indices = _autoFillScope === "selecionados"
     ? Array.from(_loteSelected)
@@ -206,6 +207,7 @@ async function _runAutoFill(indices, campos) {
   if (campos.corpo)   camposJson.push('"corpo":"notas de coração separadas por vírgula"');
   if (campos.fundo)   camposJson.push('"fundo":"notas de fundo separadas por vírgula"');
   if (campos.ranking) camposJson.push('"ranking":"✦ frase criativa e única sobre o perfume ✦"');
+  if (campos.familia) camposJson.push('"familia":"gênero e família olfativa no formato: Masculino · Amadeirado Oriental (ou Feminino, Unissex)"');
 
   if (!camposJson.length) { btn.disabled = false; btn.textContent = "🤖 Auto-preencher"; toast("Selecione pelo menos um campo"); return; }
 
@@ -253,6 +255,7 @@ async function _runAutoFill(indices, campos) {
         var res = JSON.parse(jsonStr);
         if (campos.desc    && res.desc)    produtos[i].desc = res.desc;
         if (campos.ranking && res.ranking) produtos[i].ranking = res.ranking;
+        if (campos.familia && res.familia) produtos[i].familia = res.familia;
         if (campos.topo || campos.corpo || campos.fundo) {
           if (!produtos[i].notas) produtos[i].notas = { topo: "", corpo: "", fundo: "" };
           if (campos.topo  && res.topo)  produtos[i].notas.topo  = res.topo;
