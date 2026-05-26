@@ -1,0 +1,26 @@
+# Executáveis — proibidos no plano Spark
+**/*.exe
+**/*.bat
+**/*.msi
+**/*.dll
+**/*.cmd
+
+# Dependências e ferramentas
+node_modules/**
+.firebase/**
+.git/**
+
+# Arquivos de config local (não precisam ir pro hosting)
+firebase.json
+.firebaseignore
+.gitignore
+.firebaserc
+*.log
+*.map
+
+# Backups e temporários
+*.bak
+*.tmp
+*.cache
+hosting_.cache
+_produtos_clean.json

@@ -1,1 +1,1 @@
-{ "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "*.bat", "*.exe", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc"], "rewrites": [{ "source": "/p/**", "destination": "/produto.html" }] } }
+{ "hosting": { "public": ".", "ignore": [".git/**", ".firebase/**", "node_modules/**", "**/*.exe", "**/*.bat", "**/*.msi", "**/*.dll", "firebase.json", ".firebaseignore", ".gitignore", ".firebaserc", "*.log", "hosting_.cache", "_produtos_clean.json"], "rewrites": [{ "source": "/p/**", "destination": "/produto.html" }] } }
