@@ -75,13 +75,29 @@ function renderKits() {
           + '<div class="field"><label>Nome</label><input type="text" value="' + esc(k.nome || "") + '" onchange="setKit(' + i + ',\'nome\',this.value)"/></div>'
           + '<div class="field"><label>Preço</label><input type="text" value="' + esc(k.preco || "") + '" onchange="setKit(' + i + ',\'preco\',this.value)"/></div>'
           + '<div class="field ff"><label>Descrição</label><textarea onchange="setKit(' + i + ',\'desc\',this.value)">' + esc(k.desc || "") + '</textarea></div>'
-          + '<div class="field ff"><label>Foto (URL)</label><input type="text" value="' + esc((k.fotos && k.fotos[0]) || "") + '" onchange="setKit(' + i + ',\'foto\',this.value)"/></div>'
+          + '<div class="field ff"><label>Fotos</label>'          + (k.fotos || [""]).map(function(f, fi){              return '<div style="display:flex;gap:6px;margin-bottom:6px">'                + '<input type="text" value="' + esc(f || "") + '" placeholder="URL da foto" style="flex:1" onchange="setKitFoto(' + i + ',' + fi + ',this.value)"/>'                + '<button class="btn btn-outline btn-sm" onclick="rmKitFoto(' + i + ',' + fi + ')" style="color:#c04c4c;border-color:rgba(192,76,76,0.3);flex-shrink:0">✕</button>'                + '</div>';            }).join("")          + '<button class="addrow" onclick="addKitFoto(' + i + ')">+ Foto</button>'          + '</div>'
           + '</div></div>';
       }).join("");
 }
 function addKit() { kits.push({ nome: "Novo Kit", desc: "", preco: "R$ 0,00", badge: "Kit", produtos: [], fotos: [""], ativo: true }); saveData(); renderKits(); }
 function rmKit(i) { kits.splice(i, 1); saveData(); renderKits(); }
 function setKit(i, k, v) { if (k === "foto") kits[i].fotos = [v]; else kits[i][k] = v; saveData(); }
+
+function addKitFoto(i) {
+  if (!Array.isArray(kits[i].fotos)) kits[i].fotos = [kits[i].fotos && kits[i].fotos[0] ? kits[i].fotos[0] : ""];
+  kits[i].fotos.push("");
+  saveData(); renderKits();
+}
+function rmKitFoto(i, fi) {
+  if (Array.isArray(kits[i].fotos)) kits[i].fotos.splice(fi, 1);
+  if (!kits[i].fotos || !kits[i].fotos.length) kits[i].fotos = [""];
+  saveData(); renderKits();
+}
+function setKitFoto(i, fi, v) {
+  if (!Array.isArray(kits[i].fotos)) kits[i].fotos = [""];
+  kits[i].fotos[fi] = v;
+  saveData();
+}
 
 
 /* ── Cupons ── */
@@ -111,23 +127,13 @@ function salvarCupons() { saveData(); _fbSaveCupons(); toast("Cupons gravados!")
 function syncKitsFirebase() {
   var btn = event && event.target;
   if (btn) { btn.textContent = "☁ Enviando..."; btn.disabled = true; }
-
-  /* FIX: guardar o retorno uma única vez antes de verificar o .then
-     O bug anterior chamava _fbSaveKits() duas vezes: uma pra checar
-     se tem .then e outra pra chamar — causando dois writes no Firebase. */
-  var promise = _fbSaveKits();
-  if (promise && typeof promise.then === "function") {
-    promise.then(function(){
-      toast("✅ " + kits.length + " kits enviados ao Firebase!");
-      if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
-    }).catch(function(e){
-      toast("❌ Erro: " + (e && e.message ? e.message : e));
-      if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
-    });
-  } else {
-    toast("✅ Kits sincronizados!");
+  _fbSaveKits().then ? _fbSaveKits().then(function(){
+    toast("✅ " + kits.length + " kits enviados ao Firebase!");
     if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
-  }
+  }).catch(function(e){
+    toast("❌ Erro: " + e.message);
+    if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
+  }) : (toast("✅ Kits sincronizados!"), btn && (btn.textContent = "☁ Sync Kits", btn.disabled = false));
 }
 
 /* ── Histórico (Time Machine) ── */

@@ -668,17 +668,40 @@ function renderKits() {
   if (!kitsContainer) return;
 
   kitsContainer.innerHTML = KITS.filter(function(k) { return k.ativo !== false; }).map(function(k) {
-    var src = (k.fotos && k.fotos[0]) ? k.fotos[0] : "";
+    /* Normaliza fotos — Firebase pode retornar objeto em vez de array */
+    var fotos = Array.isArray(k.fotos) ? k.fotos : Object.values(k.fotos || {});
+    var fotosValidas = fotos.filter(function(f){ return f && f.trim() && !f.startsWith("data:"); });
+    var temFoto = fotosValidas.length > 0;
+
+    /* Monta slides do carrossel (igual aos produtos normais) */
+    var slotsHtml = "";
+    var dotsHtml  = "";
+    var itens = temFoto ? fotosValidas : [""];
+
+    itens.forEach(function(f, fIdx) {
+      slotsHtml += '<div class="carousel-slide">'
+        + (f ? '<img src="' + sanitize(f) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="object-fit:cover;"/>' 
+             : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
+        + '</div>';
+      dotsHtml += '<span class="dot' + (fIdx === 0 ? ' active' : '') + '" data-index="' + fIdx + '"></span>';
+    });
+
+    var setasHtml = (temFoto && fotosValidas.length > 1)
+      ? '<button class="track-arrow arrow-left" onclick="moveTrackManual(this,-1,event)">‹</button><button class="track-arrow arrow-right" onclick="moveTrackManual(this,1,event)">›</button>'
+      : '';
+
+    var produtosArr = Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {});
+
     return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
-      + '<div class="product-image" style="overflow:hidden;position:relative;">'
-      + (src
-          ? '<img src="' + sanitize(src) + '" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />'
-          : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
+      + '<div class="product-image">'
+      + '<div class="carousel-track">' + slotsHtml + '</div>'
+      + (temFoto && fotosValidas.length > 1 ? '<div class="carousel-dots-container">' + dotsHtml + '</div>' : '')
+      + setasHtml
       + '<span class="sub-badge kit-badge">Kit</span></div>'
       + '<div class="product-info">'
       + '<p class="product-brand">TOBALDINE · COMBO</p>'
       + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
-      + '<p class="product-family">' + sanitize((Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {})).join(" + ")) + '</p>'
+      + '<p class="product-family">' + sanitize(produtosArr.join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
       + '<div class="price-wrap">'
       + '<div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
