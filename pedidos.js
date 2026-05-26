@@ -46,7 +46,10 @@ function renderPedidos() {
 
   /* Form de novo pedido */
   var prodOptions = produtos.filter(function(p){ return p.ativo !== false; }).map(function(p, i){
-    return '<option value="' + i + '">' + esc(p.nome || "?") + (p.preco ? ' · R$' + parseFloat(p.preco).toFixed(2).replace(".", ",") : '') + '</option>';
+    var precoNum = parsePreco(
+      (p.precos && p.precos[0] && p.precos[0].preco) || p.preco || "0"
+    );
+    return '<option value="' + i + '">' + esc(p.nome || "?") + (precoNum ? ' · R$' + precoNum.toFixed(2).replace(".", ",") : '') + '</option>';
   }).join("");
 
   var formHtml = '<div class="novo-pedido-form">'
@@ -78,7 +81,7 @@ function renderPedidos() {
           + '<span class="pedido-status ' + statusCls + '">' + p.status.toUpperCase() + '</span></div>'
           + '<div class="pedido-itens">' + esc(itensText) + '</div>'
           + '<div style="display:flex;justify-content:space-between;align-items:center">'
-          + '<span class="pedido-total">R$ ' + parseFloat(p.total || 0).toFixed(2).replace(".", ",") + '</span>'
+          + '<span class="pedido-total">R$ ' + parsePreco(p.total || 0).toFixed(2).replace(".", ",") + '</span>'
           + '<div style="display:flex;gap:6px">'
           + (p.status === "pendente"   ? '<button class="btn btn-green btn-sm" onclick="setStatusPedido(' + i + ',&quot;confirmado&quot;)">Confirmar</button>' : '')
           + (p.status === "confirmado" ? '<button class="btn btn-gold btn-sm" onclick="setStatusPedido(' + i + ',&quot;entregue&quot;)">Entregue</button>' : '')
@@ -118,7 +121,7 @@ function salvarPedido() {
     if (!sel || !sel.value) return;
     var p = produtos[parseInt(sel.value)];
     if (!p) return;
-    var preco = parseFloat(p.preco) || 0;
+    var preco = parsePreco((p.precos && p.precos[0] && p.precos[0].preco) || p.preco || "0");
     itens.push({ nome: p.nome, preco: preco, qty: qty, idx: parseInt(sel.value) });
     total += preco * qty;
   });
@@ -144,9 +147,9 @@ function setStatusPedido(i, status) {
 function abrirWhats(i) {
   var p        = pedidos[i];
   var itensText = (p.itens || []).map(function(it){
-    return it.qty + "x " + it.nome + " (R$" + parseFloat(it.preco).toFixed(2).replace(".", ",") + ")";
+    return it.qty + "x " + it.nome + " (R$" + parsePreco(it.preco).toFixed(2).replace(".", ",") + ")";
   }).join("%0A");
-  var msg = "Olá " + p.cliente + "!%0A%0ASeu pedido:%0A" + itensText + "%0A%0ATotal: R$" + parseFloat(p.total).toFixed(2).replace(".", ",");
+  var msg = "Olá " + p.cliente + "!%0A%0ASeu pedido:%0A" + itensText + "%0A%0ATotal: R$" + parsePreco(p.total).toFixed(2).replace(".", ",");
   window.open("https://wa.me/55" + (p.tel || "").replace(/\D/g, "") + "?text=" + msg, "_blank");
 }
 

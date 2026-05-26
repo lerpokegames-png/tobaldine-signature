@@ -18,3 +18,16 @@ function esc(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
+
+/* ── parsePreco: converte "R$ 59,90" ou 59.9 para número float ──
+   Compartilhada entre admin (pedidos.js, caixa.js) e catálogo.
+   parseFloat("R$ 59,90") retorna NaN — esta função resolve isso. */
+function parsePreco(str) {
+  return parseFloat(
+    String(str || "0")
+      .replace("R$", "")
+      .replace(/\./g, "")
+      .replace(",", ".")
+      .trim()
+  ) || 0;
+}

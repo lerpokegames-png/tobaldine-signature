@@ -111,13 +111,23 @@ function salvarCupons() { saveData(); _fbSaveCupons(); toast("Cupons gravados!")
 function syncKitsFirebase() {
   var btn = event && event.target;
   if (btn) { btn.textContent = "☁ Enviando..."; btn.disabled = true; }
-  _fbSaveKits().then ? _fbSaveKits().then(function(){
-    toast("✅ " + kits.length + " kits enviados ao Firebase!");
+
+  /* FIX: guardar o retorno uma única vez antes de verificar o .then
+     O bug anterior chamava _fbSaveKits() duas vezes: uma pra checar
+     se tem .then e outra pra chamar — causando dois writes no Firebase. */
+  var promise = _fbSaveKits();
+  if (promise && typeof promise.then === "function") {
+    promise.then(function(){
+      toast("✅ " + kits.length + " kits enviados ao Firebase!");
+      if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
+    }).catch(function(e){
+      toast("❌ Erro: " + (e && e.message ? e.message : e));
+      if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
+    });
+  } else {
+    toast("✅ Kits sincronizados!");
     if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
-  }).catch(function(e){
-    toast("❌ Erro: " + e.message);
-    if (btn) { btn.textContent = "☁ Sync Kits"; btn.disabled = false; }
-  }) : (toast("✅ Kits sincronizados!"), btn && (btn.textContent = "☁ Sync Kits", btn.disabled = false));
+  }
 }
 
 /* ── Histórico (Time Machine) ── */

@@ -20,7 +20,7 @@ function renderCaixa() {
   var saldo    = entradas - saidas;
 
   var pedidosPendentes = pedidos.filter(function(p){ return p.status === "pendente"; });
-  var totalPendente    = pedidosPendentes.reduce(function(a, p){ return a + (p.total || 0); }, 0);
+  var totalPendente    = pedidosPendentes.reduce(function(a, p){ return a + parsePreco(p.total || 0); }, 0);
   var itensPendentes   = pedidosPendentes.reduce(function(a, p){ return a + (p.itens || []).reduce(function(b, i){ return b + (i.qty || 1); }, 0); }, 0);
 
   var cor = function(v){ return v >= 0 ? "#4caf79" : "#c04c4c"; };

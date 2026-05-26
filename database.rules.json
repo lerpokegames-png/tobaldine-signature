@@ -28,8 +28,19 @@
       ".write": "auth != null"
     },
     "config": {
-      ".read": true,
-      ".write": "auth != null"
+      /*
+        Sub-nós públicos (catálogo precisa ler sem autenticação):
+        textos, secoes, mostrarEstoque, tel
+        Sub-nós privados (chaves de API — nunca públicas):
+        geminiKey, removebgKey
+      */
+      "textos":         { ".read": true,            ".write": "auth != null" },
+      "secoes":         { ".read": true,            ".write": "auth != null" },
+      "mostrarEstoque": { ".read": true,            ".write": "auth != null" },
+      "tel":            { ".read": true,            ".write": "auth != null" },
+      "geminiKey":      { ".read": "auth != null",  ".write": "auth != null" },
+      "removebgKey":    { ".read": "auth != null",  ".write": "auth != null" },
+      "$configOther":   { ".read": false,           ".write": false }
     },
     "cupons": {
       ".read": true,
