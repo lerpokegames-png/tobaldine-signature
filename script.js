@@ -48,32 +48,6 @@ function parsePreco(str) {
   ) || 0;
 }
 
-/* ── toSlug: converte nome do produto para URL amigável ──
-   "Yara Lattafa" → "yara-lattafa"
-   Usado para gerar /p/{slug} compartilhável. */
-function toSlug(str) {
-  return (str || "").toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-/* ── Compartilha link direto do produto ── */
-function compartilharProduto(nome, e) {
-  if (e) e.stopPropagation();
-  var url = window.location.origin + "/p/" + toSlug(nome);
-  var btn = e && e.currentTarget;
-  if (navigator.share) {
-    navigator.share({ title: nome + " · Tobaldine Signature", url: url });
-    return;
-  }
-  navigator.clipboard.writeText(url).then(function(){
-    if (btn) { var orig = btn.textContent; btn.textContent = "✓"; setTimeout(function(){ btn.textContent = orig; }, 1800); }
-    /* Reutiliza o toast existente do catálogo */
-    var t = document.getElementById("toastEl");
-    if (t) { t.textContent = "🔗 Link copiado!"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
-  }).catch(function(){ alert("Link: " + url); });
-}
-
 /* ══════════════════════════════
    RENDERIZAÇÃO DO CATÁLOGO
 ══════════════════════════════ */
@@ -180,7 +154,6 @@ function renderCatalogo() {
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">' + WPP_ICON + 'Pedir Agora</button>'
       + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
-      + '<button title="Copiar link do produto" onclick="compartilharProduto(' + JSON.stringify(p.nome||"") + ',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0;color:var(--gold,#c9a84c)">🔗</button>'
       + '</div>'
       + estoqueHtml
       + '</div>'
@@ -680,7 +653,7 @@ function renderKits() {
     return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
       + '<div class="product-image">'
       + (src
-          ? '<img src="' + sanitize(src) + '" />'
+          ? '<img src="' + sanitize(src) + '" style="width:100%;height:100%;object-fit:cover;display:block;" />'
           : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
       + '<span class="sub-badge kit-badge">Kit</span></div>'
       + '<div class="product-info">'
