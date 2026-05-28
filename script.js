@@ -428,12 +428,13 @@ function sendCartWpp() {
     desconto = Math.min(subtotal, desconto);
     texto += "\n*Cupom Utilizado:* " + CUPOM_ATIVO.codigo + " (-R$ " + desconto.toFixed(2).replace(".", ",") + ")\n";
   }
-  if (AFILIADO_IDENTIFICADO) {
-    texto += "*Afiliado Relacionado:* " + AFILIADO_IDENTIFICADO + " (Comissão Ativa)\n";
-  }
   var finalTotal = subtotal - desconto;
-  texto += "\n*Total Geral:* R$ " + finalTotal.toFixed(2).replace(".", ",");
-  texto += "\n\nQuais as formas de pagamento disponíveis? 😊";
+  texto += "\n*Total:* R$ " + finalTotal.toFixed(2).replace(".", ",");
+  texto += "\n\nQuero confirmar esse pedido! 😊";
+  /* Afiliado rastreado internamente mas não exibido ao cliente */
+  if (AFILIADO_IDENTIFICADO) {
+    window._lastAfiliado = AFILIADO_IDENTIFICADO; /* guarda pra log interno */
+  }
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -446,8 +447,7 @@ function buyDirect(btn) {
   var vol   = selectedOpt.dataset.vol;
   var preco = selectedOpt.dataset.price;
   var texto = "Olá! Gostaria de fazer o pedido do seguinte perfume:\n\n• *" + nome + "* (" + brand + ")\n• Volumetria: " + vol + "\n• Valor: " + preco + "\n";
-  if (AFILIADO_IDENTIFICADO) { texto += "\n*Indicação Afiliado:* " + AFILIADO_IDENTIFICADO + "\n"; }
-  texto += "\nQuero fazer esse pedido! Como prossigo? 😊";
+  texto += "\nQuero confirmar esse pedido! Como prossigo? 😊";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 

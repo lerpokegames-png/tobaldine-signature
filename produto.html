@@ -410,7 +410,30 @@ function renderProduto(p) {
       }
     }
 
-    if (!prod) { showNotFound(); return; }
+    if (!prod) {
+      /* Tenta buscar nos kits */
+      db.ref("kits").once("value").then(function(snapK) {
+        var kData = snapK.val();
+        if (!kData) { showNotFound(); return; }
+        var kArr = Array.isArray(kData) ? kData : Object.values(kData);
+        var kit = null;
+        kArr.forEach(function(k){ if (!kit && k && toSlug(k.nome) === slug) kit = k; });
+        if (!kit) { showNotFound(); return; }
+        /* Adapta kit para renderProduto */
+        var kitAdaptado = {
+          nome:   kit.nome,
+          marca:  "Tobaldine · Kit",
+          badge:  kit.badge || "Kit",
+          desc:   kit.desc || "",
+          preco:  kit.preco,
+          fotos:  Array.isArray(kit.fotos) ? kit.fotos : Object.values(kit.fotos || {}),
+          notas:  {},
+          precos: [{ vol: "Kit", preco: kit.preco }]
+        };
+        renderProduto(kitAdaptado);
+      }).catch(function(){ showNotFound(); });
+      return;
+    }
     renderProduto(prod);
   }).catch(function(){ showNotFound(); });
 

@@ -75,29 +75,13 @@ function renderKits() {
           + '<div class="field"><label>Nome</label><input type="text" value="' + esc(k.nome || "") + '" onchange="setKit(' + i + ',\'nome\',this.value)"/></div>'
           + '<div class="field"><label>Preço</label><input type="text" value="' + esc(k.preco || "") + '" onchange="setKit(' + i + ',\'preco\',this.value)"/></div>'
           + '<div class="field ff"><label>Descrição</label><textarea onchange="setKit(' + i + ',\'desc\',this.value)">' + esc(k.desc || "") + '</textarea></div>'
-          + '<div class="field ff"><label>Fotos</label>'          + (k.fotos || [""]).map(function(f, fi){              return '<div style="display:flex;gap:6px;margin-bottom:6px">'                + '<input type="text" value="' + esc(f || "") + '" placeholder="URL da foto" style="flex:1" onchange="setKitFoto(' + i + ',' + fi + ',this.value)"/>'                + '<button class="btn btn-outline btn-sm" onclick="rmKitFoto(' + i + ',' + fi + ')" style="color:#c04c4c;border-color:rgba(192,76,76,0.3);flex-shrink:0">✕</button>'                + '</div>';            }).join("")          + '<button class="addrow" onclick="addKitFoto(' + i + ')">+ Foto</button>'          + '</div>'
+          + '<div class="field ff"><label>Foto (URL)</label><input type="text" value="' + esc((k.fotos && k.fotos[0]) || "") + '" onchange="setKit(' + i + ',\'foto\',this.value)"/></div>'
           + '</div></div>';
       }).join("");
 }
 function addKit() { kits.push({ nome: "Novo Kit", desc: "", preco: "R$ 0,00", badge: "Kit", produtos: [], fotos: [""], ativo: true }); saveData(); renderKits(); }
 function rmKit(i) { kits.splice(i, 1); saveData(); renderKits(); }
 function setKit(i, k, v) { if (k === "foto") kits[i].fotos = [v]; else kits[i][k] = v; saveData(); }
-
-function addKitFoto(i) {
-  if (!Array.isArray(kits[i].fotos)) kits[i].fotos = [kits[i].fotos && kits[i].fotos[0] ? kits[i].fotos[0] : ""];
-  kits[i].fotos.push("");
-  saveData(); renderKits();
-}
-function rmKitFoto(i, fi) {
-  if (Array.isArray(kits[i].fotos)) kits[i].fotos.splice(fi, 1);
-  if (!kits[i].fotos || !kits[i].fotos.length) kits[i].fotos = [""];
-  saveData(); renderKits();
-}
-function setKitFoto(i, fi, v) {
-  if (!Array.isArray(kits[i].fotos)) kits[i].fotos = [""];
-  kits[i].fotos[fi] = v;
-  saveData();
-}
 
 
 /* ── Cupons ── */
@@ -114,6 +98,7 @@ function renderCupons() {
           + '<div class="field"><label>Tipo de Desconto</label><select onchange="setCupom(' + i + ',\'tipo\',this.value)"><option value="porcentagem"' + (c.tipo === "porcentagem" ? " selected" : "") + '>Porcentagem (%)</option><option value="fixo"' + (c.tipo === "fixo" ? " selected" : "") + '>Fixo (R$)</option></select></div>'
           + '<div class="field"><label>Valor do Desconto</label><input type="number" value="' + (c.valor || 0) + '" onchange="setCupom(' + i + ',\'valor\',parseFloat(this.value)||0)"/></div>'
           + '<div class="field"><label>Afiliado?</label><select onchange="setCupom(' + i + ',\'afiliado\',this.value===\'true\')"><option value="false"' + (!c.afiliado ? " selected" : "") + '>Não</option><option value="true"' + (c.afiliado ? " selected" : "") + '>Sim</option></select></div>'
+          + (c.afiliado ? '<div class="field ff"><label>Link de Afiliado</label><div style="display:flex;gap:6px"><input type="text" readonly value="https://tobaldine-signature.web.app?ref=' + (c.codigo||'').toUpperCase() + '" style="flex:1;font-size:11px;color:var(--gold)"/><button class="btn btn-gold btn-sm" onclick="copiarLinkAfiliado(\'' + (c.codigo||'').toUpperCase() + '\')">Copiar</button></div></div>' : '')
           + '</div></div>';
       }).join("")
     + '<button class="btn btn-gold" style="margin-top:12px" onclick="salvarCupons()">✓ Salvar Cupons</button>';
@@ -122,6 +107,15 @@ function addCupom() { cupons.push({ codigo: "CUPOM10", tipo: "porcentagem", valo
 function rmCupom(i) { if (!confirm("Deletar cupom?")) return; cupons.splice(i, 1); saveData(); renderCupons(); }
 function setCupom(i, k, v) { cupons[i][k] = v; saveData(); }
 function salvarCupons() { saveData(); _fbSaveCupons(); toast("Cupons gravados!"); }
+
+function copiarLinkAfiliado(codigo) {
+  var url = "https://tobaldine-signature.web.app?ref=" + codigo;
+  navigator.clipboard.writeText(url).then(function(){
+    toast("✓ Link do afiliado " + codigo + " copiado!");
+  }).catch(function(){ 
+    prompt("Copie o link abaixo:", url);
+  });
+}
 
 /* ── Força envio dos kits ao Firebase (botão na aba Kits) ── */
 function syncKitsFirebase() {
