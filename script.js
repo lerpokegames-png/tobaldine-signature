@@ -182,7 +182,7 @@ function renderCatalogo() {
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">' + WPP_ICON + 'Pedir Agora</button>'
       + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
-      + '<button title="Copiar link" onclick="compartilharProduto(' + JSON.stringify(p.nome||"") + ',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">🔗</button>'
+      + '<button title="Copiar link" onclick="compartilharProduto(\'' + (p.nome||"") + '\',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">🔗</button>'
       + '</div>'
       + estoqueHtml
       + '</div>'
@@ -729,7 +729,7 @@ function renderKits() {
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Kit</button>'
       + '<button class="add-cart-btn" onclick="addToCart(this)">&#65291;</button>'
-      + '<button title="Copiar link" onclick="compartilharProduto(' + JSON.stringify(k.nome||"") + ',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">&#128279;</button>'
+      + '<button title="Copiar link" onclick="compartilharProduto(\'' + (k.nome||"") + '\',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">&#128279;</button>'
       + '</div></div></div></article>';
   }).join("");
 }
