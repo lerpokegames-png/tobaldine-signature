@@ -709,7 +709,7 @@ function renderKits() {
         + '<button class="track-arrow arrow-right" onclick="moveTrackManual(this,1,event)">&#8250;</button>'
       : "";
     var produtosArr = Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {});
-    var fotosJson = temFoto ? JSON.stringify(fotosValidas) : "[]";
+    var fotosJson = temFoto ? JSON.stringify(fotosValidas).replace(/"/g, '&quot;') : "[]";
     return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || "").toLowerCase()) + '">'
       + '<div class="product-image" onclick="openLightboxComFotos(' + fotosJson + ')" style="cursor:' + (temFoto ? "pointer" : "default") + ';position:relative;overflow:hidden;">'
       + '<div class="carousel-track">' + slotsHtml + '</div>'
