@@ -254,7 +254,7 @@ body {
 .section-line { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 16px auto 0; }
 .sub-category-title { max-width: 1200px; margin: 40px auto 16px; padding: 0 24px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); font-weight: 500; display: flex; align-items: center; gap: 10px; }
 .sub-category-title::after { content: ""; flex: 1; height: 1px; background: rgba(201,168,76,0.1); }
-.dynamic-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; padding: 0 16px 20px !important; max-width: 1200px; margin: 0 auto; }
+.dynamic-grid { display: grid !important; grid-template-columns: repeat(1, 1fr) !important; gap: 12px !important; padding: 0 16px 20px !important; max-width: 1200px; margin: 0 auto; }
 
 /* ══════════════════════════════════
    CARROSSEL DO CARD DE PRODUTO
@@ -263,7 +263,11 @@ body {
 .product-image { width: 100%; aspect-ratio: 3/4; background: var(--dark3); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1); cursor: e-resize; }
 .carousel-slide { min-width: 100%; width: 100%; height: 100%; flex-shrink: 0; overflow: hidden; }
-.carousel-slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #0d0b09; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; background: #0d0b09; }
+.kit-card .product-image { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+.kit-card .carousel-track { height: 100%; }
+.kit-card .carousel-slide { height: 100%; }
+.kit-card .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .carousel-dots-container { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; }
 .carousel-dots-container .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); box-shadow: 0 1px 3px rgba(0,0,0,0.6); cursor: pointer; transition: all 0.2s ease; }
 .carousel-dots-container .dot.active { background: var(--gold); width: 14px; border-radius: 3px; }
@@ -291,10 +295,10 @@ body {
 
 /* INFO INTERNAS */
 .product-info { padding: 14px; flex: 1; display: flex; flex-direction: column; }
-.product-brand { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 2px; }
+.product-brand { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px; }
 .product-name { font-family: "Cormorant Garamond", serif; font-size: 18px; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 2px; }
 .product-family { font-size: 10px; color: var(--gold); font-style: italic; margin-bottom: 10px; }
-.product-desc { font-size: 11px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+.product-desc { font-size: 13px; color: #c8b89a; line-height: 1.7; margin-bottom: 14px; }
 .notes-wrap { border-top: 1px solid var(--border); padding-top: 10px; margin-bottom: 14px; margin-top: auto; }
 .section-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
 .notes-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; text-align: center; }
@@ -803,5 +807,5 @@ footer > *:not(.footer-smoke):not(.footer-gold-glow) { position: relative; z-ind
   .hero-cta-wrap { flex-direction: column; align-items: center; }
 }
 /* RESPONSIVIDADE */
-@media (min-width: 768px) { .dynamic-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; } }
-@media (min-width: 1024px) { .dynamic-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; } }
+@media (min-width: 768px) { .dynamic-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; } }
+@media (min-width: 1024px) { .dynamic-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; } }

@@ -50,7 +50,7 @@ function parsePreco(str) {
 
 function toSlug(str) {
   return (str || "").toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
@@ -62,7 +62,7 @@ function compartilharProduto(nome, e) {
   navigator.clipboard.writeText(url).then(function(){
     if (btn) { var orig = btn.textContent; btn.textContent = "✓"; setTimeout(function(){ btn.textContent = orig; }, 1800); }
     var t = document.getElementById("toastEl");
-    if (t) { t.textContent = "🔗 Link copiado!"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
+    if (t) { t.textContent = "Link copiado!"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
   }).catch(function(){ alert("Link: " + url); });
 }
 
@@ -74,34 +74,6 @@ function openLightboxComFotos(fotos, startIdx) {
   if (!lb) return;
   lb.classList.add("open");
   updateLightboxView();
-}
-
-function filterByVolume(tipo, btn) {
-  document.querySelectorAll(".note-pill").forEach(function(p){
-    var oc = p.getAttribute("onclick") || "";
-    if (["todos","decants","originais","similares","kits"].some(function(t){ return oc.includes("'" + t + "'"); })) {
-      p.classList.remove("active");
-    }
-  });
-  if (btn) btn.classList.add("active");
-  var tipos = ["decants", "originais", "similares"];
-  tipos.forEach(function(t) {
-    var mostrar = (tipo === "todos" || tipo === t);
-    document.querySelectorAll("[id$='-" + t + "']").forEach(function(g){ g.style.display = mostrar ? "" : "none"; });
-    document.querySelectorAll(".sub-category-title[data-secao='" + t + "']").forEach(function(el){ el.style.display = mostrar ? "" : "none"; });
-  });
-  document.querySelectorAll(".gender-section").forEach(function(sec) {
-    if (tipo === "todos") { sec.style.display = ""; return; }
-    if (tipo === "kits") { sec.style.display = "none"; return; }
-    var temVisivel = Array.from(sec.querySelectorAll(".dynamic-grid")).some(function(g){
-      return g.style.display !== "none" && g.children.length > 0;
-    });
-    sec.style.display = temVisivel ? "" : "none";
-  });
-  if (tipo === "kits") {
-    var kSec = document.getElementById("kits-cosmeticos");
-    if (kSec) kSec.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
 }
 
 /* ══════════════════════════════
@@ -485,10 +457,10 @@ function sendCartWpp() {
     desconto = Math.min(subtotal, desconto);
     texto += "\n*Cupom Utilizado:* " + CUPOM_ATIVO.codigo + " (-R$ " + desconto.toFixed(2).replace(".", ",") + ")\n";
   }
-  /* afiliado rastreado internamente */
   var finalTotal = subtotal - desconto;
-  texto += "\n*Total Geral:* R$ " + finalTotal.toFixed(2).replace(".", ",");
+  texto += "\n*Total:* R$ " + finalTotal.toFixed(2).replace(".", ",");
   texto += "\n\nQuero confirmar esse pedido! 😊";
+  if (AFILIADO_IDENTIFICADO) texto += "\n_ref: " + AFILIADO_IDENTIFICADO + "_";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -500,9 +472,24 @@ function buyDirect(btn) {
   if (!selectedOpt) return;
   var vol   = selectedOpt.dataset.vol;
   var preco = selectedOpt.dataset.price;
-  var texto = "Olá! Gostaria de fazer o pedido do seguinte perfume:\n\n• *" + nome + "* (" + brand + ")\n• Volumetria: " + vol + "\n• Valor: " + preco + "\n";
-  
-  texto += "\nQuero fazer esse pedido! Como prossigo? 😊";
+  /* Aplica cupom se houver ativo */
+  var precoNum = parsePreco(preco);
+  var desconto = 0;
+  if (CUPOM_ATIVO) {
+    if (CUPOM_ATIVO.regra.tipo === "porcentagem") desconto = precoNum * (CUPOM_ATIVO.regra.valor / 100);
+    else if (CUPOM_ATIVO.regra.tipo === "fixo")   desconto = CUPOM_ATIVO.regra.valor;
+    desconto = Math.min(precoNum, desconto);
+  }
+  var totalFinal = precoNum - desconto;
+  var texto = "Olá, Tobaldine Signature! Gostaria de fazer o pedido:\n\n";
+  texto += "• *" + nome + "* (" + vol + ") — " + preco + "\n";
+  if (CUPOM_ATIVO && desconto > 0) {
+    texto += "Cupom " + CUPOM_ATIVO.codigo + ": -R$ " + desconto.toFixed(2).replace(".", ",") + "\n";
+  }
+  texto += "\n*Total:* R$ " + totalFinal.toFixed(2).replace(".", ",");
+  texto += "\n\nQuero confirmar esse pedido! 😊";
+  if (AFILIADO_IDENTIFICADO) window._lastAfiliado = AFILIADO_IDENTIFICADO;
+  if (AFILIADO_IDENTIFICADO) texto += "\n_ref: " + AFILIADO_IDENTIFICADO + "_";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -712,7 +699,7 @@ function renderKits() {
     var dotsHtml = "";
     itens.forEach(function(f, fIdx) {
       slotsHtml += '<div class="carousel-slide">'
-        + (f ? '<img src="' + sanitize(f) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="object-fit:cover;"/>'
+        + (f ? '<img src="' + sanitize(f) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>'
              : '<div class="kit-placeholder"><span>&#127873;</span><p>' + sanitize(k.nome) + '</p></div>')
         + '</div>';
       dotsHtml += '<span class="dot' + (fIdx === 0 ? ' active' : '') + '" data-index="' + fIdx + '"></span>';
@@ -720,20 +707,20 @@ function renderKits() {
     var setasHtml = (temFoto && fotosValidas.length > 1)
       ? '<button class="track-arrow arrow-left" onclick="moveTrackManual(this,-1,event)">&#8249;</button>'
         + '<button class="track-arrow arrow-right" onclick="moveTrackManual(this,1,event)">&#8250;</button>'
-      : '';
+      : "";
     var produtosArr = Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {});
-    var fotosJson = temFoto ? JSON.stringify(fotosValidas) : '[]';
-    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
-      + '<div class="product-image" onclick="openLightboxComFotos(' + fotosJson + ')" style="cursor:' + (temFoto ? 'pointer' : 'default') + ';">'
+    var fotosJson = temFoto ? JSON.stringify(fotosValidas) : "[]";
+    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || "").toLowerCase()) + '">'
+      + '<div class="product-image" onclick="openLightboxComFotos(' + fotosJson + ')" style="cursor:' + (temFoto ? "pointer" : "default") + ';position:relative;overflow:hidden;">'
       + '<div class="carousel-track">' + slotsHtml + '</div>'
-      + (temFoto && fotosValidas.length > 1 ? '<div class="carousel-dots-container">' + dotsHtml + '</div>' : '')
+      + (temFoto && fotosValidas.length > 1 ? '<div class="carousel-dots-container">' + dotsHtml + '</div>' : "")
       + setasHtml
       + '<span class="sub-badge kit-badge">Kit</span>'
-      + (temFoto ? '<button class="zoom-btn">&#128269;</button>' : '')
+      + (temFoto ? '<button class="zoom-btn">&#128269;</button>' : "")
       + '</div>'
       + '<div class="product-info">'
       + '<p class="product-brand">TOBALDINE &#183; COMBO</p>'
-      + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
+      + '<h3 class="product-name">' + sanitize(k.nome || "Kit") + '</h3>'
       + '<p class="product-family">' + sanitize(produtosArr.join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
       + '<div class="price-wrap">'
