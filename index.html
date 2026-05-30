@@ -10,27 +10,8 @@
     />
     <meta name="description" content="Tobaldine Signature — Decants, originais importados, similares e cosméticos VS. Fragrâncias de luxo ao seu alcance." />
     <meta name="keywords" content="decants, perfumes importados, lattafa, victoria secret, cosméticos, fragrâncias" />
-
-    <!-- Open Graph — WhatsApp, Facebook, Instagram, Telegram -->
-    <meta property="og:type"        content="website" />
-    <meta property="og:url"         content="https://tobaldine-signature.web.app" />
-    <meta property="og:title"       content="Tobaldine Signature · Catálogo de Perfumes" />
-    <meta property="og:description" content="Originais 100ml, Decants, Similares premium, Cosméticos & Miniaturas Entrega em Mauá e região. Pague via PIX ou cartão." />
-    <meta property="og:image"       content="https://tobaldine-signature.web.app/og-image.png" />
-    <meta property="og:image:width"  content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale"      content="pt_BR" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Tobaldine Signature · Catálogo de Perfumes" />
-    <meta name="twitter:description" content="Decants, originais 100ml, similares premium e cosméticos VS. Entrega em Mauá e região." />
-    <meta name="twitter:image"       content="https://tobaldine-signature.web.app/og-image.png" />
-
-    <!-- Favicon e ícones -->
-    <link rel="icon"             type="image/png" sizes="32x32" href="icon-192.png" />
-    <link rel="apple-touch-icon" sizes="180x180"               href="icon-192.png" />
-
+    <meta property="og:title" content="Tobaldine Signature · Catálogo" />
+    <meta property="og:description" content="Decants, originais 100ml, similares e cosméticos VS." />
     <meta name="theme-color" content="#080706" />
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="style.css" />
@@ -132,35 +113,46 @@
       <span>Entrega em <strong>Mauá e região</strong> · <strong>Até 24h após confirmação</strong> · PIX ou cartão · Prazo confirmado via WhatsApp</span>
     </div>
 
-    <!-- SEÇÃO: Como Funciona -->
-    <section class="how-it-works" id="como-funciona">
-      <div class="hiw-inner">
-        <p class="section-eyebrow" style="text-align:center;margin-bottom:8px;">✦ Simples assim ✦</p>
-        <h2 class="hiw-title">Como Comprar</h2>
-        <div class="hiw-steps">
-          <div class="hiw-step">
-            <span class="hiw-num">01</span>
-            <p class="hiw-label">Escolha seu perfume no catálogo</p>
-          </div>
-          <div class="hiw-divider">—</div>
-          <div class="hiw-step">
-            <span class="hiw-num">02</span>
-            <p class="hiw-label">Clique em <em>"Pedir Agora"</em> ou monte sua sacola</p>
-          </div>
-          <div class="hiw-divider">—</div>
-          <div class="hiw-step">
-            <span class="hiw-num">03</span>
-            <p class="hiw-label">Confirme e pague via <strong>PIX ou cartão</strong> no WhatsApp</p>
-          </div>
-          <div class="hiw-divider">—</div>
-          <div class="hiw-step">
-            <span class="hiw-num">04</span>
-            <p class="hiw-label">Entrega em <strong>Mauá e região</strong> de moto em até 24h · Outras regiões via app · Prazo confirmado no WhatsApp</p>
-          </div>
-        </div>
-        <p class="hiw-obs">· Mauá e região · PIX, cartão no link ou maquininha · Prazo confirmado no WhatsApp ·</p>
+
+
+    <!-- CATEGORIAS VISUAIS -->
+    <div class="cat-cards-wrap" id="catCards">
+      <button class="cat-card active" onclick="catFilter('todos',this)">
+        <span class="cat-icon">✦</span>
+        <span class="cat-label">Todos</span>
+      </button>
+      <button class="cat-card" onclick="catFilter('decants',this)">
+        <span class="cat-icon">🧪</span>
+        <span class="cat-label">Miniaturas 25ml</span>
+        <span class="cat-sub">a partir de R$54</span>
+      </button>
+      <button class="cat-card" onclick="catFilter('originais',this)">
+        <span class="cat-icon">💎</span>
+        <span class="cat-label">Originais 100ml</span>
+        <span class="cat-sub">importados lacrados</span>
+      </button>
+      <button class="cat-card" onclick="catFilter('similares',this)">
+        <span class="cat-icon">⚜️</span>
+        <span class="cat-label">Similares</span>
+        <span class="cat-sub">premium 100ml</span>
+      </button>
+      <button class="cat-card" onclick="catFilter('kits',this)">
+        <span class="cat-icon">🎁</span>
+        <span class="cat-label">Kits</span>
+        <span class="cat-sub">combos especiais</span>
+      </button>
+    </div>
+
+    <!-- DESTAQUES -->
+    <section class="destaques-section" id="destaquesSection" style="display:none">
+      <div class="destaques-header">
+        <span class="section-eyebrow">✦ Mais pedidos ✦</span>
+        <h2 class="destaques-title">Em Destaque</h2>
       </div>
+      <div class="dynamic-grid destaques-grid" id="destaquesGrid"></div>
     </section>
+
+    <div id="searchEmptyState"></div>
 
     <!-- LOADING STATE: exibido até Firebase / produtos.js carregarem -->
     <div id="catalogLoading" class="catalog-loading">
@@ -302,6 +294,36 @@
     </section>
 
 
+    <!-- SEÇÃO: Como Funciona -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="hiw-inner">
+        <p class="section-eyebrow" style="text-align:center;margin-bottom:8px;">✦ Simples assim ✦</p>
+        <h2 class="hiw-title">Como Comprar</h2>
+        <div class="hiw-steps">
+          <div class="hiw-step">
+            <span class="hiw-num">01</span>
+            <p class="hiw-label">Escolha seu perfume no catálogo</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">02</span>
+            <p class="hiw-label">Clique em <em>"Pedir Agora"</em> ou monte sua sacola</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">03</span>
+            <p class="hiw-label">Confirme e pague via <strong>PIX ou cartão</strong> no WhatsApp</p>
+          </div>
+          <div class="hiw-divider">—</div>
+          <div class="hiw-step">
+            <span class="hiw-num">04</span>
+            <p class="hiw-label">Entrega em <strong>Mauá e região</strong> de moto em até 24h · Outras regiões via app · Prazo confirmado no WhatsApp</p>
+          </div>
+        </div>
+        <p class="hiw-obs">· Mauá e região · PIX, cartão no link ou maquininha · Prazo confirmado no WhatsApp ·</p>
+      </div>
+    </section>
+
     <footer>
       <svg class="footer-smoke" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -368,6 +390,7 @@
     <!-- BOTÃO WHATSAPP FLUTUANTE -->
     <a class="wpp-fab" href="https://api.whatsapp.com/send?phone=5511941665146&text=Olá!%20Vim%20pelo%20catálogo%20e%20quero%20saber%20mais%20sobre%20os%20perfumes%20✨" target="_blank" rel="noopener" title="Falar no WhatsApp">
       <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458-.112-.612.112-.174.495-.571.693-.819.198-.248.272-.421.421-.719.149-.297.074-.571-.038-.793-.11-.224-.942-2.277-1.292-3.119-.34-.823-.688-.713-.943-.726l-.8-.016c-.272 0-.719.101-1.093.512-.374.412-1.43 1.397-1.43 3.407 0 2.01 1.46 3.949 1.662 4.22.199.273 2.876 4.394 6.967 6.158.974.42 1.733.67 2.327.86 1.054.334 2.011.286 2.766.175.845-.124 2.595-.916 2.962-1.802.367-.887.367-1.648.257-1.802-.11-.153-.42-.248-.718-.398z"/></svg>
+      <span class="wpp-fab-label">Falar conosco</span>
       <span class="wpp-fab-pulse"></span>
     </a>
 
@@ -381,6 +404,8 @@
       </div>
       <button class="lgpd-btn" onclick="aceitarLGPD()">Entendi</button>
     </div>
+
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
 
     <button class="cart-fab" onclick="toggleCart()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>

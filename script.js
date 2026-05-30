@@ -48,34 +48,6 @@ function parsePreco(str) {
   ) || 0;
 }
 
-function toSlug(str) {
-  return (str || "").toLowerCase()
-    .normalize("NFD").replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-function compartilharProduto(nome, e) {
-  if (e) e.stopPropagation();
-  var url = window.location.origin + "/p/" + toSlug(nome);
-  var btn = e && e.currentTarget;
-  if (navigator.share) { navigator.share({ title: nome + " · Tobaldine Signature", url: url }); return; }
-  navigator.clipboard.writeText(url).then(function(){
-    if (btn) { var orig = btn.textContent; btn.textContent = "✓"; setTimeout(function(){ btn.textContent = orig; }, 1800); }
-    var t = document.getElementById("toastEl");
-    if (t) { t.textContent = "Link copiado!"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
-  }).catch(function(){ alert("Link: " + url); });
-}
-
-function openLightboxComFotos(fotos, startIdx) {
-  if (!fotos || !fotos.length) return;
-  LIGHTBOX_FOTOS = fotos;
-  LIGHTBOX_INDEX = startIdx || 0;
-  var lb = document.getElementById("lightbox");
-  if (!lb) return;
-  lb.classList.add("open");
-  updateLightboxView();
-}
-
 /* ══════════════════════════════
    RENDERIZAÇÃO DO CATÁLOGO
 ══════════════════════════════ */
@@ -182,7 +154,6 @@ function renderCatalogo() {
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">' + WPP_ICON + 'Pedir Agora</button>'
       + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
-      + '<button title="Copiar link" onclick="compartilharProduto(\'' + (p.nome||"") + '\',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">🔗</button>'
       + '</div>'
       + estoqueHtml
       + '</div>'
@@ -338,6 +309,18 @@ function filterProducts() {
     });
   });
 }
+  /* Empty state */
+  var q2 = document.getElementById("searchInput").value;
+  var totalVisiveis = document.querySelectorAll(".product-card:not([style*='display: none']):not([style*='display:none'])").length;
+  var emptyEl = document.getElementById("searchEmptyState");
+  if (emptyEl) {
+    if (q2 && totalVisiveis === 0) {
+      emptyEl.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#9a8c78"><p style="font-size:28px;margin-bottom:12px">🔍</p><p style="font-size:15px;color:#f0e8d8;margin-bottom:8px">Nenhum resultado para <strong style=\'color:#c9a84c\'>\"' + q2 + '\"</strong></p><p style="font-size:13px">Tente buscar por marca, família olfativa ou nota</p><button onclick=\'clearSearch()\' style=\'margin-top:14px;padding:8px 20px;background:#c9a84c;border:none;border-radius:6px;color:#080706;font-size:13px;font-weight:600;cursor:pointer\'>Limpar busca</button></div>';
+      emptyEl.style.display = "";
+    } else {
+      emptyEl.style.display = "none";
+    }
+  }
 
 function clearSearch() {
   var input = document.getElementById("searchInput");
@@ -457,10 +440,12 @@ function sendCartWpp() {
     desconto = Math.min(subtotal, desconto);
     texto += "\n*Cupom Utilizado:* " + CUPOM_ATIVO.codigo + " (-R$ " + desconto.toFixed(2).replace(".", ",") + ")\n";
   }
+  if (AFILIADO_IDENTIFICADO) {
+    texto += "*Afiliado Relacionado:* " + AFILIADO_IDENTIFICADO + " (Comissão Ativa)\n";
+  }
   var finalTotal = subtotal - desconto;
-  texto += "\n*Total:* R$ " + finalTotal.toFixed(2).replace(".", ",");
-  texto += "\n\nQuero confirmar esse pedido! 😊";
-  if (AFILIADO_IDENTIFICADO) texto += "\n_ref: " + AFILIADO_IDENTIFICADO + "_";
+  texto += "\n*Total Geral:* R$ " + finalTotal.toFixed(2).replace(".", ",");
+  texto += "\n\nPode me informar o endereço de entrega com referência? 😊\nAceitamos *PIX* e *cartão* (link ou maquininha). Entrega em Mauá de moto, outras regiões via Uber/99. Prazo confirmado aqui!";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -472,24 +457,9 @@ function buyDirect(btn) {
   if (!selectedOpt) return;
   var vol   = selectedOpt.dataset.vol;
   var preco = selectedOpt.dataset.price;
-  /* Aplica cupom se houver ativo */
-  var precoNum = parsePreco(preco);
-  var desconto = 0;
-  if (CUPOM_ATIVO) {
-    if (CUPOM_ATIVO.regra.tipo === "porcentagem") desconto = precoNum * (CUPOM_ATIVO.regra.valor / 100);
-    else if (CUPOM_ATIVO.regra.tipo === "fixo")   desconto = CUPOM_ATIVO.regra.valor;
-    desconto = Math.min(precoNum, desconto);
-  }
-  var totalFinal = precoNum - desconto;
-  var texto = "Olá, Tobaldine Signature! Gostaria de fazer o pedido:\n\n";
-  texto += "• *" + nome + "* (" + vol + ") — " + preco + "\n";
-  if (CUPOM_ATIVO && desconto > 0) {
-    texto += "Cupom " + CUPOM_ATIVO.codigo + ": -R$ " + desconto.toFixed(2).replace(".", ",") + "\n";
-  }
-  texto += "\n*Total:* R$ " + totalFinal.toFixed(2).replace(".", ",");
-  texto += "\n\nQuero confirmar esse pedido! 😊";
-  if (AFILIADO_IDENTIFICADO) window._lastAfiliado = AFILIADO_IDENTIFICADO;
-  if (AFILIADO_IDENTIFICADO) texto += "\n_ref: " + AFILIADO_IDENTIFICADO + "_";
+  var texto = "Olá! Gostaria de fazer o pedido do seguinte perfume:\n\n• *" + nome + "* (" + brand + ")\n• Volumetria: " + vol + "\n• Valor: " + preco + "\n";
+  if (AFILIADO_IDENTIFICADO) { texto += "\n*Indicação Afiliado:* " + AFILIADO_IDENTIFICADO + "\n"; }
+  texto += "\nPode me informar o endereço de entrega com referência? 😊\nAceitamos *PIX* e *cartão* (link ou maquininha). Entrega em Mauá de moto, outras regiões via Uber/99. Prazo confirmado aqui!";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -691,45 +661,24 @@ function renderKits() {
   if (!kitsContainer) return;
 
   kitsContainer.innerHTML = KITS.filter(function(k) { return k.ativo !== false; }).map(function(k) {
-    var fotos = Array.isArray(k.fotos) ? k.fotos : Object.values(k.fotos || {});
-    var fotosValidas = fotos.filter(function(f){ return f && f.trim() && !f.startsWith("data:"); });
-    var temFoto = fotosValidas.length > 0;
-    var itens = temFoto ? fotosValidas : [""];
-    var slotsHtml = "";
-    var dotsHtml = "";
-    itens.forEach(function(f, fIdx) {
-      slotsHtml += '<div class="carousel-slide">'
-        + (f ? '<img src="' + sanitize(f) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>'
-             : '<div class="kit-placeholder"><span>&#127873;</span><p>' + sanitize(k.nome) + '</p></div>')
-        + '</div>';
-      dotsHtml += '<span class="dot' + (fIdx === 0 ? ' active' : '') + '" data-index="' + fIdx + '"></span>';
-    });
-    var setasHtml = (temFoto && fotosValidas.length > 1)
-      ? '<button class="track-arrow arrow-left" onclick="moveTrackManual(this,-1,event)">&#8249;</button>'
-        + '<button class="track-arrow arrow-right" onclick="moveTrackManual(this,1,event)">&#8250;</button>'
-      : "";
-    var produtosArr = Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {});
-    var fotosJson = temFoto ? JSON.stringify(fotosValidas).replace(/"/g, '&quot;') : "[]";
-    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || "").toLowerCase()) + '">'
-      + '<div class="product-image" onclick="openLightboxComFotos(' + fotosJson + ')" style="cursor:' + (temFoto ? "pointer" : "default") + ';position:relative;overflow:hidden;">'
-      + '<div class="carousel-track">' + slotsHtml + '</div>'
-      + (temFoto && fotosValidas.length > 1 ? '<div class="carousel-dots-container">' + dotsHtml + '</div>' : "")
-      + setasHtml
-      + '<span class="sub-badge kit-badge">Kit</span>'
-      + (temFoto ? '<button class="zoom-btn">&#128269;</button>' : "")
-      + '</div>'
+    var src = (k.fotos && k.fotos[0]) ? k.fotos[0] : "";
+    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
+      + '<div class="product-image">'
+      + (src
+          ? '<img src="' + sanitize(src) + '" />'
+          : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
+      + '<span class="sub-badge kit-badge">Kit</span></div>'
       + '<div class="product-info">'
-      + '<p class="product-brand">TOBALDINE &#183; COMBO</p>'
-      + '<h3 class="product-name">' + sanitize(k.nome || "Kit") + '</h3>'
-      + '<p class="product-family">' + sanitize(produtosArr.join(" + ")) + '</p>'
+      + '<p class="product-brand">TOBALDINE · COMBO</p>'
+      + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
+      + '<p class="product-family">' + sanitize((k.produtos || []).join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
       + '<div class="price-wrap">'
       + '<div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
       + '<span class="vol">Kit</span><span class="price">' + sanitize(k.preco) + '</span></div></div>'
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Kit</button>'
-      + '<button class="add-cart-btn" onclick="addToCart(this)">&#65291;</button>'
-      + '<button title="Copiar link" onclick="compartilharProduto(\'' + (k.nome||"") + '\',event)" style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">&#128279;</button>'
+      + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
       + '</div></div></div></article>';
   }).join("");
 }
@@ -808,6 +757,137 @@ function updateLightboxView() {
 function closeLightbox() { document.getElementById("lightbox").classList.remove("open"); }
 function prevLightbox(e) { e.stopPropagation(); LIGHTBOX_INDEX = (LIGHTBOX_INDEX === 0) ? LIGHTBOX_FOTOS.length - 1 : LIGHTBOX_INDEX - 1; updateLightboxView(); }
 function nextLightbox(e) { e.stopPropagation(); LIGHTBOX_INDEX = (LIGHTBOX_INDEX === LIGHTBOX_FOTOS.length - 1) ? 0 : LIGHTBOX_INDEX + 1; updateLightboxView(); }
+
+
+/* ══════════════════════════════
+   DESTAQUES — mais pedidos
+══════════════════════════════ */
+var PRODUTOS_DESTAQUE = ["Asad","Yara","Khamrah Qahwa","Bade\'e Al Oud Sublime","Kit Trio Yara","Kit Casal Premium Lattafa"];
+
+function renderDestaques() {
+  var grid = document.getElementById("destaquesGrid");
+  var sec  = document.getElementById("destaquesSection");
+  if (!grid || typeof PRODUTOS === "undefined") return;
+
+  var cards = [];
+  PRODUTOS_DESTAQUE.forEach(function(nome) {
+    var p = PRODUTOS.find(function(x){ return x.nome && x.nome.toLowerCase().includes(nome.toLowerCase()); });
+    if (!p) return;
+    var pr    = (p.precos||[{}])[0];
+    var preco = pr.preco || "R$ --";
+    var fotos = (p.fotos||[]).filter(function(f){ return f && !f.startsWith("data:"); });
+    var foto  = fotos[0] || "";
+    cards.push(
+      '<article class="product-card destaque-card" data-name="' + sanitize(p.nome.toLowerCase()) + '">'
+      + '<div class="product-image" ' + (foto ? 'onclick="openLightboxComFotos([&quot;' + foto + '&quot;])"' : '') + ' style="cursor:' + (foto?'pointer':'default') + ';position:relative;overflow:hidden;">'
+      + (foto ? '<img src="' + sanitize(foto) + '" alt="' + sanitize(p.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>'
+             : '<div class="kit-placeholder"><span>🌟</span></div>')
+      + '<span class="sub-badge hot-badge">⭐ Mais pedido</span>'
+      + '</div>'
+      + '<div class="product-info">'
+      + '<p class="product-brand">' + sanitize((p.marca||"Lattafa").toUpperCase()) + '</p>'
+      + '<h3 class="product-name">' + sanitize(p.nome) + '</h3>'
+      + '<div class="price-wrap"><div class="price-options">'
+      + '<div class="price-opt selected" data-vol="' + sanitize(pr.vol||"25ml") + '" data-price="' + sanitize(preco) + '">'
+      + '<span class="vol">' + sanitize(pr.vol||"25ml") + '</span>'
+      + '<span class="price">' + sanitize(preco) + '</span>'
+      + '</div></div>'
+      + '<div class="card-actions" style="margin-top:10px;display:flex;gap:6px;">'
+      + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Agora</button>'
+      + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
+      + '</div></div></div></article>'
+    );
+  });
+
+  // Adiciona kits destaque
+  if (typeof KITS !== "undefined") {
+    PRODUTOS_DESTAQUE.forEach(function(nome) {
+      var k = KITS.find(function(x){ return x.nome && x.nome.toLowerCase().includes(nome.toLowerCase()); });
+      if (!k) return;
+      var fotos = (Array.isArray(k.fotos) ? k.fotos : Object.values(k.fotos||{})).filter(function(f){ return f && !f.startsWith("data:"); });
+      var foto  = fotos[0] || "";
+      cards.push(
+        '<article class="product-card kit-card destaque-card" data-name="' + sanitize((k.nome||"").toLowerCase()) + '">'
+        + '<div class="product-image">'
+        + (foto ? '<img src="' + sanitize(foto) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>'
+               : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
+        + '<span class="sub-badge hot-badge">⭐ Mais pedido</span>'
+        + '<span class="sub-badge kit-badge" style="top:auto;bottom:8px">Kit</span>'
+        + '</div>'
+        + '<div class="product-info">'
+        + '<p class="product-brand">TOBALDINE · COMBO</p>'
+        + '<h3 class="product-name">' + sanitize(k.nome||"Kit") + '</h3>'
+        + '<div class="price-wrap"><div class="price-options">'
+        + '<div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
+        + '<span class="vol">Kit</span><span class="price">' + sanitize(k.preco) + '</span>'
+        + '</div></div>'
+        + '<div class="card-actions" style="margin-top:10px;display:flex;gap:6px;">'
+        + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Kit</button>'
+        + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
+        + '</div></div></div></article>'
+      );
+    });
+  }
+
+  if (cards.length > 0) {
+    grid.innerHTML = cards.join("");
+    if (sec) sec.style.display = "";
+  }
+}
+
+/* ══════════════════════════════
+   FILTRO DE CATEGORIA VISUAL
+══════════════════════════════ */
+function catFilter(tipo, btn) {
+  document.querySelectorAll(".cat-card").forEach(function(c){ c.classList.remove("active"); });
+  if (btn) btn.classList.add("active");
+
+  var destSec = document.getElementById("destaquesSection");
+  var tipos = ["decants","originais","similares"];
+
+  if (tipo === "todos") {
+    document.querySelectorAll(".gender-section, #kits-cosmeticos").forEach(function(s){ s.style.display = ""; });
+    tipos.forEach(function(t){
+      document.querySelectorAll("[id$='-" + t + "']").forEach(function(g){ g.style.display = ""; });
+      document.querySelectorAll(".sub-category-title[data-secao='" + t + "']").forEach(function(el){ el.style.display = ""; });
+    });
+    if (destSec) destSec.style.display = "";
+    return;
+  }
+
+  if (tipo === "kits") {
+    document.querySelectorAll(".gender-section").forEach(function(s){ s.style.display = "none"; });
+    var kSec = document.getElementById("kits-cosmeticos");
+    if (kSec) { kSec.style.display = ""; kSec.scrollIntoView({ behavior:"smooth", block:"start" }); }
+    if (destSec) destSec.style.display = "none";
+    return;
+  }
+
+  // Filtra por tipo (decants/originais/similares)
+  document.querySelectorAll(".gender-section").forEach(function(sec) {
+    tipos.forEach(function(t) {
+      var mostrar = (t === tipo);
+      sec.querySelectorAll("[id$='-" + t + "']").forEach(function(g){ g.style.display = mostrar ? "" : "none"; });
+      sec.querySelectorAll(".sub-category-title[data-secao='" + t + "']").forEach(function(el){ el.style.display = mostrar ? "" : "none"; });
+    });
+    var kits = document.getElementById("kits-cosmeticos");
+    if (kits) kits.style.display = "none";
+    var temVisivel = Array.from(sec.querySelectorAll(".dynamic-grid")).some(function(g){
+      return g.style.display !== "none" && g.children.length > 0;
+    });
+    sec.style.display = temVisivel ? "" : "none";
+  });
+  if (destSec) destSec.style.display = "none";
+}
+
+/* ══════════════════════════════
+   VOLTAR AO TOPO
+══════════════════════════════ */
+window.addEventListener("scroll", function() {
+  var btn = document.getElementById("backToTop");
+  if (!btn) return;
+  btn.classList.toggle("visible", window.scrollY > 400);
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   renderCatalogo();
