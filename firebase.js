@@ -5,15 +5,7 @@
         atualizarDoFirebase chamado com todos os 4 params.
 ══════════════════════════════════════════════════════ */
 
-var firebaseConfig = {
-  apiKey:            "AIzaSyDeUg_04Rf4iaVrtG2BStWIaogAThowm8Q",
-  authDomain:        "tobaldine-signature.firebaseapp.com",
-  databaseURL:       "https://tobaldine-signature-default-rtdb.firebaseio.com",
-  projectId:         "tobaldine-signature",
-  storageBucket:     "tobaldine-signature.firebasestorage.app",
-  messagingSenderId: "977486037825",
-  appId:             "1:977486037825:web:b21ab195b35bf3377cd7c0"
-};
+/* firebaseConfig definido em firebase-config.js */
 
 (function() {
   try {

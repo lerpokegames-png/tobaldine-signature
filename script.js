@@ -60,6 +60,8 @@ function renderCatalogo() {
   /* Esconde o loading ao renderizar */
   var loadingEl = document.getElementById("catalogLoading");
   if (loadingEl) loadingEl.style.display = "none";
+  /* Mostra skeleton antes do primeiro render */
+  if (PRODUTOS.length === 0 && loadingEl) loadingEl.style.display = "";
 
   document.querySelectorAll(".dynamic-grid").forEach(function(el) { el.innerHTML = ""; });
   var trackCosmeticos = document.getElementById("cosmeticos-track");
@@ -122,7 +124,7 @@ function renderCatalogo() {
 
     /* FIX: data-sort-idx adicionado para sortProducts() restaurar ordem original.
        data-price adicionado para ordenação por preço funcionar corretamente. */
-    var cardHtml = '<article class="product-card" id="prod-' + index + '"'
+    var cardHtml = '<article class="product-card" id="prod-' + index + '" data-secao="' + (p.secao||"") + '"'
       + ' data-name="' + sanitize((p.nome || "").toLowerCase()) + '"'
       + ' data-notas="' + sanitize(notasTexto) + '"'
       + ' data-sort-idx="' + index + '"'
@@ -131,12 +133,16 @@ function renderCatalogo() {
       + '<div class="carousel-track">' + slotsHtml + '</div>'
       + '<div class="carousel-dots-container">' + dotsHtml + '</div>'
       + setasHtml
-      + '<span class="sub-badge">' + sanitize(p.badge) + '</span>'
+      + (function(){var tops=['asad','yara','khamrah',"bade'e al oud",'fakhar','9pm'];return tops.some(function(n){return (p.nome||'').toLowerCase().indexOf(n)!==-1;})?'<span class="hot-badge">\u2b50 Mais pedido</span>':'';})()
+      + (p.badge?'<span class="sub-badge">'+sanitize(p.badge)+'</span>':'')
       + '<button class="zoom-btn">🔍</button>'
       + '</div>'
       + rankingHtml
       + '<div class="product-info">'
+      + '<div class="card-top-row">'
       + '<p class="product-brand">' + sanitize(p.marca) + '</p>'
+      + (p.secao==='decants'?'<span class="vol-pill">25ml</span>':p.secao==='originais'?'<span class="vol-pill vol-pill-ori">100ml</span>':p.secao==='similares'?'<span class="vol-pill vol-pill-sim">Similar</span>':'')
+      + '</div>'
       + '<h3 class="product-name">' + sanitize(p.nome) + '</h3>'
       + '<p class="product-family">' + sanitize(p.familia) + '</p>'
       + '<p class="product-desc">' + sanitize(p.desc) + '</p>'
@@ -174,9 +180,9 @@ function renderCatalogo() {
     } else if (p.secao === "cosmeticos") {
       fragCosmeticos.push(cardHtml);
     } else {
-      var targetId = genero + "-" + (p.secao || "").toLowerCase();
+      var targetId = genero + "-todos";
       if (!fragmentos[targetId]) fragmentos[targetId] = [];
-      fragmentos[targetId].push({html: cardHtml, subsecao: p.subsecao || ""});
+      fragmentos[targetId].push({html: cardHtml, subsecao: ""});
     }
   });
 
@@ -238,6 +244,7 @@ function renderCatalogo() {
   });
 
   renderKits();
+  renderDestaques();
   renderNotesPills();
   updateCartBadge();
   checkAfiliadoUrl();
@@ -294,8 +301,9 @@ function filterProducts() {
 
     var matchBusca = !q || name.includes(q) || brand.includes(q) || notas.includes(q);
     var matchNota  = !NOTA_FILTRO_ATIVA || notas.includes(NOTA_FILTRO_ATIVA);
-
-    card.style.display = (matchBusca && matchNota) ? "" : "none";
+    var cardPreco  = parseFloat(card.dataset.price||0);
+    var matchPreco = cardPreco >= PRECO_MIN && cardPreco <= PRECO_MAX;
+    card.style.display = (matchBusca && matchNota && matchPreco) ? "" : "none";
   });
 
   document.querySelectorAll(".gender-section, #kits-cosmeticos").forEach(function(sec) {
@@ -309,18 +317,6 @@ function filterProducts() {
     });
   });
 }
-  /* Empty state */
-  var q2 = document.getElementById("searchInput").value;
-  var totalVisiveis = document.querySelectorAll(".product-card:not([style*='display: none']):not([style*='display:none'])").length;
-  var emptyEl = document.getElementById("searchEmptyState");
-  if (emptyEl) {
-    if (q2 && totalVisiveis === 0) {
-      emptyEl.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#9a8c78"><p style="font-size:28px;margin-bottom:12px">🔍</p><p style="font-size:15px;color:#f0e8d8;margin-bottom:8px">Nenhum resultado para <strong style=\'color:#c9a84c\'>\"' + q2 + '\"</strong></p><p style="font-size:13px">Tente buscar por marca, família olfativa ou nota</p><button onclick=\'clearSearch()\' style=\'margin-top:14px;padding:8px 20px;background:#c9a84c;border:none;border-radius:6px;color:#080706;font-size:13px;font-weight:600;cursor:pointer\'>Limpar busca</button></div>';
-      emptyEl.style.display = "";
-    } else {
-      emptyEl.style.display = "none";
-    }
-  }
 
 function clearSearch() {
   var input = document.getElementById("searchInput");
@@ -440,12 +436,9 @@ function sendCartWpp() {
     desconto = Math.min(subtotal, desconto);
     texto += "\n*Cupom Utilizado:* " + CUPOM_ATIVO.codigo + " (-R$ " + desconto.toFixed(2).replace(".", ",") + ")\n";
   }
-  if (AFILIADO_IDENTIFICADO) {
-    texto += "*Afiliado Relacionado:* " + AFILIADO_IDENTIFICADO + " (Comissão Ativa)\n";
-  }
   var finalTotal = subtotal - desconto;
-  texto += "\n*Total Geral:* R$ " + finalTotal.toFixed(2).replace(".", ",");
-  texto += "\n\nPode me informar o endereço de entrega com referência? 😊\nAceitamos *PIX* e *cartão* (link ou maquininha). Entrega em Mauá de moto, outras regiões via Uber/99. Prazo confirmado aqui!";
+  texto += "\n*Total:* R$ " + finalTotal.toFixed(2).replace(".", ",");
+  texto += "\n\nQuero confirmar esse pedido! 😊";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -457,9 +450,19 @@ function buyDirect(btn) {
   if (!selectedOpt) return;
   var vol   = selectedOpt.dataset.vol;
   var preco = selectedOpt.dataset.price;
-  var texto = "Olá! Gostaria de fazer o pedido do seguinte perfume:\n\n• *" + nome + "* (" + brand + ")\n• Volumetria: " + vol + "\n• Valor: " + preco + "\n";
-  if (AFILIADO_IDENTIFICADO) { texto += "\n*Indicação Afiliado:* " + AFILIADO_IDENTIFICADO + "\n"; }
-  texto += "\nPode me informar o endereço de entrega com referência? 😊\nAceitamos *PIX* e *cartão* (link ou maquininha). Entrega em Mauá de moto, outras regiões via Uber/99. Prazo confirmado aqui!";
+  var _pNum = parsePreco(preco);
+  var _desc = 0;
+  if (CUPOM_ATIVO) {
+    if (CUPOM_ATIVO.regra.tipo === "porcentagem") _desc = _pNum * (CUPOM_ATIVO.regra.valor/100);
+    else if (CUPOM_ATIVO.regra.tipo === "fixo") _desc = CUPOM_ATIVO.regra.valor;
+    _desc = Math.min(_pNum, _desc);
+  }
+  var _total = _pNum - _desc;
+  var texto = "Olá, Tobaldine Signature! Quero fazer o pedido:\n\n";
+  texto += "\u2022 *" + nome + "* (" + vol + ") \u2014 " + preco + "\n";
+  if (CUPOM_ATIVO && _desc > 0) texto += "Cupom " + CUPOM_ATIVO.codigo + ": -R$ " + _desc.toFixed(2).replace(".",",") + "\n";
+  texto += "\n*Total:* R$ " + _total.toFixed(2).replace(".",",");
+  texto += "\n\nQuero confirmar esse pedido! \U0001f60a";
   window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
 }
 
@@ -550,6 +553,9 @@ window.atualizarDoFirebase = function(fbProdutos, fbKits, fbDepoimentos, fbCupon
   if (window.CUPONS_DO_SISTEMA) CUPONS_DO_SISTEMA = window.CUPONS_DO_SISTEMA;
 
   renderCatalogo();
+  renderKits();
+  renderDestaques();
+  renderNotasPills();
   /* Inicia nav observer após produtos renderizados */
   setTimeout(initNavObserver, 300);
 
@@ -659,26 +665,43 @@ function renderKits() {
   if (typeof KITS === "undefined" || !KITS) return;
   var kitsContainer = document.getElementById("kitsTrack");
   if (!kitsContainer) return;
-
-  kitsContainer.innerHTML = KITS.filter(function(k) { return k.ativo !== false; }).map(function(k) {
-    var src = (k.fotos && k.fotos[0]) ? k.fotos[0] : "";
-    return '<article class="product-card kit-card" data-name="' + sanitize((k.nome || '').toLowerCase()) + '">'
-      + '<div class="product-image">'
-      + (src
-          ? '<img src="' + sanitize(src) + '" />'
-          : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
-      + '<span class="sub-badge kit-badge">Kit</span></div>'
-      + '<div class="product-info">'
-      + '<p class="product-brand">TOBALDINE · COMBO</p>'
-      + '<h3 class="product-name">' + sanitize(k.nome || 'Kit') + '</h3>'
-      + '<p class="product-family">' + sanitize((k.produtos || []).join(" + ")) + '</p>'
+  kitsContainer.innerHTML = KITS.filter(function(k){ return k.ativo !== false; }).map(function(k){
+    var fotos = Array.isArray(k.fotos) ? k.fotos : Object.values(k.fotos || {});
+    var fv = fotos.filter(function(f){ return f && f.trim() && f.indexOf("data:") === -1; });
+    var temFoto = fv.length > 0;
+    var itens = temFoto ? fv : [""];
+    var slotsHtml = ""; var dotsHtml = "";
+    itens.forEach(function(f, fIdx){
+      slotsHtml += '<div class="carousel-slide">'
+        + (f ? '<img src="' + sanitize(f) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>'
+             : '<div class="kit-placeholder"><span>&#127873;</span><p>' + sanitize(k.nome) + '</p></div>')
+        + '</div>';
+      dotsHtml += '<span class="dot' + (fIdx===0?' active':'') + '" data-index="' + fIdx + '"></span>';
+    });
+    var setasHtml = (temFoto && fv.length > 1)
+      ? '<button class="track-arrow arrow-left" onclick="moveTrackManual(this,-1,event)">&#8249;</button>'
+        + '<button class="track-arrow arrow-right" onclick="moveTrackManual(this,1,event)">&#8250;</button>'
+      : "";
+    var produtosArr = Array.isArray(k.produtos) ? k.produtos : Object.values(k.produtos || {});
+    var fj = temFoto ? JSON.stringify(fv).replace(/"/g, '&quot;') : "[]";
+    var nomeEsc = (k.nome||"").replace(/'/g, "\'");
+    return '<article class="product-card kit-card" data-secao="kits" data-name="' + sanitize((k.nome||"").toLowerCase()) + '">'
+      + '<div class="product-image" ' + (temFoto ? 'onclick="openLightboxComFotos(' + fj + ')" style="cursor:pointer;"' : 'style="cursor:default;"') + '>'
+      + '<div class="carousel-track">' + slotsHtml + '</div>'
+      + (temFoto && fv.length > 1 ? '<div class="carousel-dots-container">' + dotsHtml + '</div>' : "")
+      + setasHtml + '<span class="sub-badge kit-badge">Kit</span>'
+      + (temFoto ? '<button class="zoom-btn">&#128269;</button>' : "")
+      + '</div><div class="product-info">'
+      + '<div class="card-top-row"><p class="product-brand">TOBALDINE &#183; COMBO</p></div>'
+      + '<h3 class="product-name">' + sanitize(k.nome||"Kit") + '</h3>'
+      + '<p class="product-family">' + sanitize(produtosArr.join(" + ")) + '</p>'
       + '<p class="product-desc">' + sanitize(k.desc) + '</p>'
-      + '<div class="price-wrap">'
-      + '<div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
+      + '<div class="price-wrap"><div class="price-options"><div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
       + '<span class="vol">Kit</span><span class="price">' + sanitize(k.preco) + '</span></div></div>'
       + '<div class="card-actions" style="margin-top:12px;display:flex;gap:6px;">'
       + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Kit</button>'
-      + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
+      + '<button class="add-cart-btn" onclick="addToCart(this)">&#65291;</button>'
+      + '<button title="Copiar link" onclick="compartilharProduto(\'' + nomeEsc + '\',event)" style="width:36px;height:36px;border:1px solid rgba(212,168,76,0.2);background:transparent;border-radius:6px;cursor:pointer;font-size:15px;flex-shrink:0">&#128279;</button>'
       + '</div></div></div></article>';
   }).join("");
 }
@@ -736,161 +759,583 @@ function toggleCart() {
 ══════════════════════════════ */
 var LIGHTBOX_INDEX = 0;
 var LIGHTBOX_FOTOS = [];
+var LIGHTBOX_PRODUTO = null;
 
 function openLightboxFromCard(prodIdx) {
   var p = PRODUTOS[prodIdx];
-  if (!p || !p.fotos || p.fotos.length === 0 || p.fotos[0] === "") return;
-  LIGHTBOX_FOTOS = p.fotos;
+  if (!p) return;
+  var fotosRaw = Array.isArray(p.fotos) ? p.fotos : Object.values(p.fotos || {});
+  var fotos = fotosRaw.filter(function(f){ return f && f.trim() && f.indexOf("data:image/svg") === -1; });
+  if (fotos.length === 0) return;
+  LIGHTBOX_FOTOS = fotos;
+  LIGHTBOX_PRODUTO = p;
   LIGHTBOX_INDEX = 0;
   document.getElementById("lightbox").classList.add("open");
-  updateLightboxView();
+  document.body.style.overflow = "hidden";
+  setTimeout(updateLightboxView, 10);
 }
 
 function updateLightboxView() {
-  document.getElementById("lightboxImg").src = LIGHTBOX_FOTOS[LIGHTBOX_INDEX];
-  document.getElementById("lightboxDots").innerHTML = LIGHTBOX_FOTOS.map(function(_, idx) {
-    var act = (idx === LIGHTBOX_INDEX) ? "background:#c9a84c" : "background:rgba(255,255,255,0.4)";
-    return '<span class="dot" style="width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 3px;' + act + '"></span>';
+  var imgEl = document.getElementById("lightboxImg");
+  if (imgEl) imgEl.src = LIGHTBOX_FOTOS[LIGHTBOX_INDEX] || "";
+  var dotsEl = document.getElementById("lightboxDots");
+  if (dotsEl) dotsEl.innerHTML = LIGHTBOX_FOTOS.map(function(_, idx) {
+    var act = (idx === LIGHTBOX_INDEX) ? "background:#d4a84c" : "background:rgba(255,255,255,0.35)";
+    return '<span style="width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 3px;cursor:pointer;' + act + '" onclick="LIGHTBOX_INDEX=' + idx + ';updateLightboxView()"></span>';
   }).join("");
+  var infoEl = document.getElementById("lightboxInfo");
+  if (!infoEl) return;
+  var p = LIGHTBOX_PRODUTO;
+  if (!p) { infoEl.innerHTML = ""; return; }
+  var nT = (p.notas && p.notas.topo)  ? p.notas.topo  : "\u2014";
+  var nC = (p.notas && p.notas.corpo) ? p.notas.corpo : "\u2014";
+  var nF = (p.notas && p.notas.fundo) ? p.notas.fundo : "\u2014";
+  var precos = (p.precos || [{}]);
+  infoEl.innerHTML =
+    '<p class="lb-brand">' + sanitize(p.marca||"") + (p.familia ? " \u00b7 " + sanitize(p.familia) : "") + '</p>'
+    + '<h2 class="lb-name">' + sanitize(p.nome||"") + '</h2>'
+    + '<p class="lb-desc">' + sanitize((p.desc||"").substring(0,200)) + '</p>'
+    + '<div class="lb-notes">'
+    + '<div class="lb-note-row"><span class="lb-note-lbl">Topo</span><span class="lb-note-val">' + sanitize(nT) + '</span></div>'
+    + '<div class="lb-note-row"><span class="lb-note-lbl">Corpo</span><span class="lb-note-val">' + sanitize(nC) + '</span></div>'
+    + '<div class="lb-note-row"><span class="lb-note-lbl">Fundo</span><span class="lb-note-val">' + sanitize(nF) + '</span></div>'
+    + '</div>'
+    + '<div class="lb-price-row">'
+    + precos.map(function(o,i){
+        return '<div class="lb-price-opt' + (i===0?' selected':'') + '" data-price="' + sanitize(o.preco||"") + '" data-vol="' + sanitize(o.vol||"") + '" onclick="var s=this.parentNode.querySelectorAll(\'.lb-price-opt\');s.forEach(function(x){x.classList.remove(\'selected\')});this.classList.add(\'selected\')">'
+          + '<span>' + sanitize(o.vol||"") + '</span><strong>' + sanitize(o.preco||"") + '</strong></div>';
+      }).join("")
+    + '</div>'
+    + '<button class="lb-buy-btn" onclick="buyFromLightbox()">\ud83d\udcac Pedir no WhatsApp</button>'
+    + '<button class="lb-share-btn" onclick="compartilharProduto(\'' + (p.nome||"").replace(/'/g,"\\'") + '\',event)">\ud83d\udd17 Copiar link</button>';
 }
 
-function closeLightbox() { document.getElementById("lightbox").classList.remove("open"); }
+function buyFromLightbox() {
+  if (!LIGHTBOX_PRODUTO) return;
+  var p = LIGHTBOX_PRODUTO;
+  var infoEl = document.getElementById("lightboxInfo");
+  var selOpt = infoEl ? infoEl.querySelector(".lb-price-opt.selected") : null;
+  var vol   = selOpt ? selOpt.dataset.vol   : ((p.precos||[{}])[0].vol||"");
+  var preco = selOpt ? selOpt.dataset.price : ((p.precos||[{}])[0].preco||"");
+  var precoNum = parsePreco(preco);
+  var desc = 0;
+  if (CUPOM_ATIVO) {
+    if (CUPOM_ATIVO.regra.tipo === "porcentagem") desc = precoNum * (CUPOM_ATIVO.regra.valor/100);
+    else if (CUPOM_ATIVO.regra.tipo === "fixo") desc = CUPOM_ATIVO.regra.valor;
+    desc = Math.min(precoNum, desc);
+  }
+  var total = precoNum - desc;
+  var texto = "Ol\u00e1, Tobaldine Signature! Gostaria de fazer o pedido:\n\n";
+  texto += "\u2022 *" + p.nome + "* (" + vol + ") \u2014 " + preco + "\n";
+  if (CUPOM_ATIVO && desc > 0) texto += "Cupom " + CUPOM_ATIVO.codigo + ": -R$ " + desc.toFixed(2).replace(".",",") + "\n";
+  texto += "\n*Total:* R$ " + total.toFixed(2).replace(".",",");
+  texto += "\n\nQuero confirmar esse pedido! \ud83d\ude0a";
+  closeLightbox();
+  window.open("https://api.whatsapp.com/send?phone=" + TEL + "&text=" + encodeURIComponent(texto), "_blank");
+}
+
+function closeLightbox() { document.getElementById("lightbox").classList.remove("open"); document.body.style.overflow = ""; }
 function prevLightbox(e) { e.stopPropagation(); LIGHTBOX_INDEX = (LIGHTBOX_INDEX === 0) ? LIGHTBOX_FOTOS.length - 1 : LIGHTBOX_INDEX - 1; updateLightboxView(); }
 function nextLightbox(e) { e.stopPropagation(); LIGHTBOX_INDEX = (LIGHTBOX_INDEX === LIGHTBOX_FOTOS.length - 1) ? 0 : LIGHTBOX_INDEX + 1; updateLightboxView(); }
 
 
-/* ══════════════════════════════
-   DESTAQUES — mais pedidos
-══════════════════════════════ */
-var PRODUTOS_DESTAQUE = ["Asad","Yara","Khamrah Qahwa","Bade\'e Al Oud Sublime","Kit Trio Yara","Kit Casal Premium Lattafa"];
 
-function renderDestaques() {
-  var grid = document.getElementById("destaquesGrid");
-  var sec  = document.getElementById("destaquesSection");
-  if (!grid || typeof PRODUTOS === "undefined") return;
+function toSlug(str) {
+  return (str || "").toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
 
-  var cards = [];
-  PRODUTOS_DESTAQUE.forEach(function(nome) {
-    var p = PRODUTOS.find(function(x){ return x.nome && x.nome.toLowerCase().includes(nome.toLowerCase()); });
-    if (!p) return;
-    var pr    = (p.precos||[{}])[0];
-    var preco = pr.preco || "R$ --";
-    var fotos = (p.fotos||[]).filter(function(f){ return f && !f.startsWith("data:"); });
-    var foto  = fotos[0] || "";
-    cards.push(
-      '<article class="product-card destaque-card" data-name="' + sanitize(p.nome.toLowerCase()) + '">'
-      + '<div class="product-image" ' + (foto ? 'onclick="openLightboxComFotos([&quot;' + foto + '&quot;])"' : '') + ' style="cursor:' + (foto?'pointer':'default') + ';position:relative;overflow:hidden;">'
-      + (foto ? '<img src="' + sanitize(foto) + '" alt="' + sanitize(p.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>'
-             : '<div class="kit-placeholder"><span>🌟</span></div>')
-      + '<span class="sub-badge hot-badge">⭐ Mais pedido</span>'
-      + '</div>'
-      + '<div class="product-info">'
-      + '<p class="product-brand">' + sanitize((p.marca||"Lattafa").toUpperCase()) + '</p>'
-      + '<h3 class="product-name">' + sanitize(p.nome) + '</h3>'
-      + '<div class="price-wrap"><div class="price-options">'
-      + '<div class="price-opt selected" data-vol="' + sanitize(pr.vol||"25ml") + '" data-price="' + sanitize(preco) + '">'
-      + '<span class="vol">' + sanitize(pr.vol||"25ml") + '</span>'
-      + '<span class="price">' + sanitize(preco) + '</span>'
-      + '</div></div>'
-      + '<div class="card-actions" style="margin-top:10px;display:flex;gap:6px;">'
-      + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Agora</button>'
-      + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
-      + '</div></div></div></article>'
-    );
-  });
+function compartilharProduto(nome, e) {
+  if (e) e.stopPropagation();
+  var url = window.location.origin + "/p/" + toSlug(nome);
+  var btn = e && e.currentTarget;
+  if (navigator.share) { navigator.share({ title: nome + " \u00b7 Tobaldine Signature", url: url }); return; }
+  navigator.clipboard.writeText(url).then(function(){
+    if (btn) { var orig = btn.textContent; btn.textContent = "\u2713"; setTimeout(function(){ btn.textContent = orig; }, 1800); }
+    var t = document.getElementById("toastEl");
+    if (t) { t.textContent = "Link copiado!"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
+  }).catch(function(){ alert("Link: " + url); });
+}
 
-  // Adiciona kits destaque
-  if (typeof KITS !== "undefined") {
-    PRODUTOS_DESTAQUE.forEach(function(nome) {
-      var k = KITS.find(function(x){ return x.nome && x.nome.toLowerCase().includes(nome.toLowerCase()); });
-      if (!k) return;
-      var fotos = (Array.isArray(k.fotos) ? k.fotos : Object.values(k.fotos||{})).filter(function(f){ return f && !f.startsWith("data:"); });
-      var foto  = fotos[0] || "";
-      cards.push(
-        '<article class="product-card kit-card destaque-card" data-name="' + sanitize((k.nome||"").toLowerCase()) + '">'
-        + '<div class="product-image">'
-        + (foto ? '<img src="' + sanitize(foto) + '" alt="' + sanitize(k.nome) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>'
-               : '<div class="kit-placeholder"><span>🎁</span><p>' + sanitize(k.nome) + '</p></div>')
-        + '<span class="sub-badge hot-badge">⭐ Mais pedido</span>'
-        + '<span class="sub-badge kit-badge" style="top:auto;bottom:8px">Kit</span>'
-        + '</div>'
-        + '<div class="product-info">'
-        + '<p class="product-brand">TOBALDINE · COMBO</p>'
-        + '<h3 class="product-name">' + sanitize(k.nome||"Kit") + '</h3>'
-        + '<div class="price-wrap"><div class="price-options">'
-        + '<div class="price-opt selected" data-vol="Kit" data-price="' + sanitize(k.preco) + '">'
-        + '<span class="vol">Kit</span><span class="price">' + sanitize(k.preco) + '</span>'
-        + '</div></div>'
-        + '<div class="card-actions" style="margin-top:10px;display:flex;gap:6px;">'
-        + '<button class="wpp-btn" style="flex:1" onclick="buyDirect(this)">Pedir Kit</button>'
-        + '<button class="add-cart-btn" onclick="addToCart(this)">＋</button>'
-        + '</div></div></div></article>'
-      );
-    });
+function openLightboxComFotos(fotos, startIdx) {
+  if (!fotos || !fotos.length) return;
+  LIGHTBOX_FOTOS = fotos;
+  LIGHTBOX_PRODUTO = null;
+  LIGHTBOX_INDEX = startIdx || 0;
+  var lb = document.getElementById("lightbox");
+  if (!lb) return;
+  lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+  setTimeout(updateLightboxView, 10);
+}
+
+var PRECO_MIN = 0, PRECO_MAX = 9999;
+function filterByPrice(min, max, btn) {
+  PRECO_MIN = min; PRECO_MAX = max;
+  if (btn) {
+    btn.closest(".notes-pills-scroll").querySelectorAll(".note-pill").forEach(function(p){ p.classList.remove("active"); });
+    btn.classList.add("active");
   }
+  filterProducts();
+}
 
-  if (cards.length > 0) {
-    grid.innerHTML = cards.join("");
-    if (sec) sec.style.display = "";
+function filterByVolume(tipo, btn) {
+  document.querySelectorAll(".note-pill").forEach(function(p){
+    var oc = p.getAttribute("onclick") || "";
+    if (["todos","decants","originais","similares","kits"].some(function(t){ return oc.indexOf("'"+t+"'") !== -1; }))
+      p.classList.remove("active");
+  });
+  if (btn) btn.classList.add("active");
+  var tipos = ["decants","originais","similares"];
+  tipos.forEach(function(t){
+    var mostrar = (tipo === "todos" || tipo === t);
+    document.querySelectorAll("[id$='-"+t+"']").forEach(function(g){ g.style.display = mostrar ? "" : "none"; });
+    document.querySelectorAll(".sub-category-title[data-secao='"+t+"']").forEach(function(el){ el.style.display = mostrar ? "" : "none"; });
+  });
+  document.querySelectorAll(".gender-section").forEach(function(sec){
+    if (tipo === "todos") { sec.style.display = ""; return; }
+    if (tipo === "kits") { sec.style.display = "none"; return; }
+    var ok = Array.from(sec.querySelectorAll(".dynamic-grid")).some(function(g){ return g.style.display !== "none" && g.children.length > 0; });
+    sec.style.display = ok ? "" : "none";
+  });
+  if (tipo === "kits") { var kSec = document.getElementById("kits-cosmeticos"); if (kSec) kSec.scrollIntoView({behavior:"smooth"}); }
+}
+
+function catFilter(tipo, btn) {
+  document.querySelectorAll(".cat-pill, .cat-card").forEach(function(c){ c.classList.remove("active"); });
+  if (btn) btn.classList.add("active");
+  var destSec = document.getElementById("destaquesSection");
+  if (tipo === "todos") {
+    /* Mostra todos os cards do gênero atual sem filtro de tipo */
+    document.querySelectorAll(".product-card").forEach(function(c){ c.style.display = ""; });
+    /* Reseta ml-pills */
+    document.querySelectorAll(".ml-pill").forEach(function(p){ p.classList.remove("active"); });
+    var ml0 = document.querySelector(".ml-pill");
+    if (ml0) ml0.classList.add("active");
+    /* Mostra seções de gênero respeitando a rota — kits só aparece se rota = kits */
+    var generoRoutes = ["masculinos","femininos","unissex"];
+    generoRoutes.forEach(function(g){
+      var el = document.getElementById(g);
+      if (!el) return;
+      if (!CURRENT_ROUTE || CURRENT_ROUTE === "") {
+        el.style.display = "";
+      } else {
+        el.style.display = (g === CURRENT_ROUTE) ? "" : "none";
+      }
+    });
+    var kSec = document.getElementById("kits-cosmeticos");
+    if (kSec) kSec.style.display = (CURRENT_ROUTE === "kits") ? "" : "none";
+    /* Scroll para o topo do catálogo */
+    var catalogHeader = document.getElementById("catalogPageHeader");
+    if (catalogHeader) catalogHeader.scrollIntoView({behavior:"smooth", block:"start"});
+    return;
+  }
+  /* kits, decants, originais, similares — tudo filtra em lugar */
+  if (tipo === "kits" || tipo === "decants" || tipo === "originais" || tipo === "similares") {
+    document.querySelectorAll(".product-card").forEach(function(c){
+      c.style.display = ((c.dataset.secao||"") === tipo) ? "" : "none";
+    });
+    /* Re-aplica rota para não mostrar seções erradas */
+    if (CURRENT_ROUTE && CURRENT_ROUTE !== "") {
+      var secs = ['masculinos','femininos','unissex'];
+      secs.forEach(function(g){
+        var el = document.getElementById(g);
+        if (el) el.style.display = (g === CURRENT_ROUTE || CURRENT_ROUTE === 'kits') ? '' : 'none';
+      });
+      var k = document.getElementById('kits-cosmeticos');
+      if (k) k.style.display = '';
+    }
+    return;
+  }
+  document.querySelectorAll(".gender-section").forEach(function(s){ s.style.display = ""; });
+  document.querySelectorAll(".product-card").forEach(function(c){
+    c.style.display = ((c.dataset.secao || "") === tipo) ? "" : "none";
+  });
+  var kSec2 = document.getElementById("kits-cosmeticos");
+  if (kSec2) kSec2.style.display = "none";
+  if (destSec) destSec.style.display = "none";
+  document.querySelectorAll(".gender-section").forEach(function(sec){
+    var temVisivel = Array.from(sec.querySelectorAll(".product-card")).some(function(c){ return c.style.display !== "none"; });
+    sec.style.display = temVisivel ? "" : "none";
+  });
+  /* Re-aplica rota para não mostrar seções fora da rota atual */
+  if (CURRENT_ROUTE && CURRENT_ROUTE !== "") {
+    showCatalogSection(CURRENT_ROUTE);
   }
 }
 
-/* ══════════════════════════════
-   FILTRO DE CATEGORIA VISUAL
-══════════════════════════════ */
-function catFilter(tipo, btn) {
-  document.querySelectorAll(".cat-card").forEach(function(c){ c.classList.remove("active"); });
-  if (btn) btn.classList.add("active");
+function toggleMobileMenu() {
+  var menu = document.getElementById("mobileMenu");
+  var overlay = document.getElementById("mobileMenuOverlay");
+  if (!menu) return;
+  var open = menu.classList.toggle("open");
+  if (overlay) overlay.classList.toggle("open", open);
+  document.body.style.overflow = open ? "hidden" : "";
+}
 
-  var destSec = document.getElementById("destaquesSection");
-  var tipos = ["decants","originais","similares"];
+var PRODUTOS_DESTAQUE = ["Asad","Yara","Khamrah","Bade'e Al Oud Sublime","Kits"];
+function renderDestaques() {
+  var grid = document.getElementById("destaquesGrid");
+  var sec  = document.getElementById("destaquesSection");
+  if (!grid || typeof PRODUTOS === "undefined" || !PRODUTOS.length) return;
 
-  if (tipo === "todos") {
-    document.querySelectorAll(".gender-section, #kits-cosmeticos").forEach(function(s){ s.style.display = ""; });
-    tipos.forEach(function(t){
-      document.querySelectorAll("[id$='-" + t + "']").forEach(function(g){ g.style.display = ""; });
-      document.querySelectorAll(".sub-category-title[data-secao='" + t + "']").forEach(function(el){ el.style.display = ""; });
+  var nomes = ["Asad","Yara","Khamrah","Bade","Fakhar","9PM","Arabic","Lattafa"];
+  var encontrados = [];
+  /* Tenta por nome primeiro */
+  nomes.forEach(function(n){
+    var p = PRODUTOS.find(function(x){ return x.nome && x.nome.toLowerCase().indexOf(n.toLowerCase()) !== -1; });
+    if (p && encontrados.indexOf(p) === -1 && encontrados.length < 5) encontrados.push(p);
+  });
+  /* Fallback: pega os primeiros 5 com foto */
+  if (encontrados.length < 3) {
+    PRODUTOS.forEach(function(p){
+      if (encontrados.indexOf(p) !== -1) return;
+      var f = Array.isArray(p.fotos) ? p.fotos : Object.values(p.fotos||{});
+      var temFoto = f.some(function(x){ return x && x.trim() && x.indexOf("data:image/svg")===-1; });
+      if (temFoto && encontrados.length < 5) encontrados.push(p);
     });
+  }
+  if (encontrados.length === 0) return;
+
+  var destaque = encontrados[0];
+  var mini = encontrados.slice(1);
+
+  function foto(p) {
+    var f = Array.isArray(p.fotos) ? p.fotos : Object.values(p.fotos||{});
+    return f.filter(function(x){ return x && x.trim() && x.indexOf("data:image/svg")===-1; })[0] || "";
+  }
+  function pr(p) { return (p.precos||[{}])[0]; }
+
+  var f0 = foto(destaque), pr0 = pr(destaque), idx0 = PRODUTOS.indexOf(destaque);
+  var label = destaque.secao==="decants"?"Miniatura 25ml":destaque.secao==="originais"?"Original 100ml":"Perfume";
+
+  var html = '<div class="dest-editorial">';
+  html += '<div class="dest-main" onclick="openLightboxFromCard('+idx0+')">';
+  html += '<div class="dest-main-img">'+(f0?'<img src="'+sanitize(f0)+'" alt="'+sanitize(destaque.nome)+'"/>':'<span style="font-size:48px;opacity:.2">&#127869;</span>')+'</div>';
+  html += '<div class="dest-main-info">';
+  html += '<p class="dest-main-eyebrow">'+sanitize(label)+(destaque.familia?' &middot; '+sanitize(destaque.familia):'')+'</p>';
+  html += '<h2 class="dest-main-name">'+sanitize(destaque.nome)+'</h2>';
+  html += '<p class="dest-main-desc">'+sanitize((destaque.desc||"").substring(0,160))+'</p>';
+  html += '<div class="dest-main-footer"><span class="dest-main-price">'+sanitize(pr0.preco||"")+'</span>';
+  html += '<button class="dest-main-btn" onclick="event.stopPropagation();buyDirect(this)" data-name="'+sanitize(destaque.nome)+'" data-brand="'+sanitize(destaque.marca||"")+'" data-vol="'+sanitize(pr0.vol||"")+'" data-price="'+sanitize(pr0.preco||"")+'">Pedir agora</button>';
+  html += '</div></div></div>';
+
+  if (mini.length > 0) {
+    html += '<div class="dest-mini-grid">';
+    mini.forEach(function(p){
+      var f1=foto(p), pr1=pr(p), idx1=PRODUTOS.indexOf(p);
+      html += '<div class="dest-mini" onclick="openLightboxFromCard('+idx1+')">';
+      html += '<div class="dest-mini-img">'+(f1?'<img src="'+sanitize(f1)+'" alt="'+sanitize(p.nome)+'"/>':'')+'</div>';
+      html += '<div><p class="dest-mini-brand">'+sanitize(p.marca||"")+'</p>';
+      html += '<p class="dest-mini-name">'+sanitize(p.nome)+'</p>';
+      html += '<p class="dest-mini-price">'+sanitize(pr1.preco||"")+'</p></div></div>';
+    });
+    html += '</div>';
+  }
+  html += '</div>';
+  grid.innerHTML = html;
+  if (sec) sec.style.display = "";
+}
+
+window.addEventListener("scroll", function() {
+  var btn = document.getElementById("backToTop");
+  if (btn) btn.classList.toggle("visible", window.scrollY > 400);
+});
+
+
+/* ══ TABS DE GÊNERO ══ */
+var GENERO_ATIVO = null;
+
+function filtrarGenero(genero, linkEl) {
+  var catalog = document.getElementById("masculinos") || document.querySelector(".gender-section");
+  if (!catalog) return;
+
+  /* Se clicar no mesmo → volta para "todos" */
+  if (GENERO_ATIVO === genero) {
+    GENERO_ATIVO = null;
+    document.querySelectorAll(".nav-link[data-genero]").forEach(function(l){ l.classList.remove("genero-ativo"); });
+    document.querySelectorAll(".gender-section").forEach(function(s){ s.style.display = ""; s.style.opacity = "1"; });
+    var destSec = document.getElementById("destaquesSection");
     if (destSec) destSec.style.display = "";
     return;
   }
 
-  if (tipo === "kits") {
-    document.querySelectorAll(".gender-section").forEach(function(s){ s.style.display = "none"; });
-    var kSec = document.getElementById("kits-cosmeticos");
-    if (kSec) { kSec.style.display = ""; kSec.scrollIntoView({ behavior:"smooth", block:"start" }); }
-    if (destSec) destSec.style.display = "none";
-    return;
+  GENERO_ATIVO = genero;
+
+  /* Marca tab ativo */
+  document.querySelectorAll(".nav-link[data-genero]").forEach(function(l){
+    l.classList.toggle("genero-ativo", l.dataset.genero === genero);
+  });
+
+  /* Mostra só o gênero selecionado */
+  document.querySelectorAll(".gender-section").forEach(function(s){
+    var mostrar = s.id === genero;
+    s.style.display = mostrar ? "" : "none";
+    s.style.opacity = mostrar ? "1" : "0";
+  });
+
+  /* Rola suavemente para a seção */
+  var sec = document.getElementById(genero);
+  if (sec) {
+    var navH = document.querySelector(".sticky-nav");
+    var offset = navH ? navH.offsetHeight + 12 : 60;
+    var top = sec.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
 
-  // Filtra por tipo (decants/originais/similares)
-  document.querySelectorAll(".gender-section").forEach(function(sec) {
-    tipos.forEach(function(t) {
-      var mostrar = (t === tipo);
-      sec.querySelectorAll("[id$='-" + t + "']").forEach(function(g){ g.style.display = mostrar ? "" : "none"; });
-      sec.querySelectorAll(".sub-category-title[data-secao='" + t + "']").forEach(function(el){ el.style.display = mostrar ? "" : "none"; });
-    });
-    var kits = document.getElementById("kits-cosmeticos");
-    if (kits) kits.style.display = "none";
-    var temVisivel = Array.from(sec.querySelectorAll(".dynamic-grid")).some(function(g){
-      return g.style.display !== "none" && g.children.length > 0;
-    });
-    sec.style.display = temVisivel ? "" : "none";
-  });
-  if (destSec) destSec.style.display = "none";
+  /* Oculta destaques quando em view de gênero */
+  var destSec2 = document.getElementById("destaquesSection");
+  if (destSec2) destSec2.style.display = "none";
 }
 
-/* ══════════════════════════════
-   VOLTAR AO TOPO
-══════════════════════════════ */
-window.addEventListener("scroll", function() {
-  var btn = document.getElementById("backToTop");
-  if (!btn) return;
-  btn.classList.toggle("visible", window.scrollY > 400);
+
+/* ══════════════════════════════════════════════════════
+   ROUTER — hash-based SPA navigation
+══════════════════════════════════════════════════════ */
+var CURRENT_ROUTE = '';
+
+var CATALOG_TITLES = {
+  masculinos: 'Masculino',
+  femininos: 'Feminino',
+  unissex: 'Unissex',
+  kits: 'Kits & Cosméticos'
+};
+
+function navigate(route) {
+  CURRENT_ROUTE = route || '';
+  /* Previne erros de analytics durante pushState */
+  try {
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', route ? '/#' + route : '/');
+    }
+  } catch(e) {}
+  renderRoute(CURRENT_ROUTE);
+}
+
+function renderRoute(route) {
+  var isLanding = !route || route === 'home';
+  var landingEl = document.getElementById('view-landing');
+  var catalogEl = document.getElementById('view-catalog');
+  if (!landingEl || !catalogEl) return;
+
+  landingEl.style.display = isLanding ? '' : 'none';
+  catalogEl.style.display = isLanding ? 'none' : '';
+
+  /* Atualiza nav ativo */
+  document.querySelectorAll('.nav-link[data-route]').forEach(function(l) {
+    l.classList.toggle('active', l.dataset.route === route);
+  });
+
+  if (!isLanding) {
+    showCatalogSection(route);
+    window.scrollTo(0, 0);
+  }
+}
+
+function showCatalogSection(genero) {
+  /* Caso especial: sobre */
+  if (genero === 'sobre') {
+    ['masculinos','femininos','unissex'].forEach(function(g){
+      var el = document.getElementById(g); if(el) el.style.display='none';
+    });
+    var k = document.getElementById('kits-cosmeticos'); if(k) k.style.display='none';
+    var s = document.getElementById('sobre'); if(s) s.style.display='';
+    var h = document.getElementById('how-it-works'); if(h) h.style.display='';
+    var titleEl = document.getElementById('catalogPageTitle');
+    if(titleEl) titleEl.textContent = 'Sobre';
+    return;
+  }
+  /* Mostra só a seção do gênero solicitado */
+  var secs = ['masculinos','femininos','unissex'];
+  secs.forEach(function(g) {
+    var el = document.getElementById(g);
+    if (el) el.style.display = (g === genero) ? '' : 'none';
+  });
+  var kitsSec = document.getElementById('kits-cosmeticos');
+  /* Kits aparecem em todas as páginas — filtro acontece por data-secao */
+  if (kitsSec) kitsSec.style.display = (genero === 'sobre') ? 'none' : '';
+  /* Oculta seções que não pertencem ao catálogo de produto */
+  ['sobre','autorais','how-it-works'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+
+  /* Atualiza título */
+  var titleEl = document.getElementById('catalogPageTitle');
+  if (titleEl) titleEl.textContent = CATALOG_TITLES[genero] || genero;
+
+  /* Mostra/oculta pills de tipo conforme o gênero */
+  var typePills = document.querySelectorAll('.type-filter-pill');
+  if (genero === 'kits') {
+    typePills.forEach(function(p){ p.style.display = 'none'; });
+  } else {
+    typePills.forEach(function(p){ p.style.display = ''; });
+  }
+
+  /* Reseta filtros */
+  PRECO_MIN = 0; PRECO_MAX = 9999;
+  /* Só mexe no pill se for rota de kits — nas outras o filtro de tipo persiste */
+  if (genero === 'kits') {
+    document.querySelectorAll('.cat-pill').forEach(function(p) {
+      var oc = p.getAttribute('onclick') || '';
+      p.classList.toggle('active', oc.indexOf("'kits'") !== -1);
+    });
+  } else if (genero === 'sobre') {
+    /* Sobre: nenhum pill de tipo ativo */
+    document.querySelectorAll('.cat-pill').forEach(function(p){ p.classList.remove('active'); });
+  }
+  /* ml-pill: reseta apenas ao trocar de rota para evitar confusão */
+  document.querySelectorAll('.ml-pill').forEach(function(p){ p.classList.remove('active'); });
+  var mlTodos = document.querySelector('.ml-pill');
+  if (mlTodos) mlTodos.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(function(c) { c.style.display = ''; });
+}
+
+/* Inicialização e navegação do browser */
+window.addEventListener('popstate', function() {
+  var hash = window.location.hash.replace(/^#\//, '').replace(/^#/, '');
+  renderRoute(hash);
 });
 
+/* catFilter 'kits' → navega para rota */
+var _catFilterOriginal = catFilter;
+catFilter = function(tipo, btn) {
+  _catFilterOriginal(tipo, btn);
+};
+
+
+/* ══ FILTRO POR VOLUME/TIPO ══ */
+function filterByML(tipo, btn) {
+  /* Atualiza pill ativo */
+  document.querySelectorAll(".ml-pill").forEach(function(p){ p.classList.remove("active"); });
+  if (btn) btn.classList.add("active");
+
+  /* Filtra cards pelo data-secao */
+  document.querySelectorAll(".product-card").forEach(function(c){
+    if (tipo === "todos") { c.style.display = ""; return; }
+    var secao = c.dataset.secao || "";
+    c.style.display = (secao === tipo) ? "" : "none";
+  });
+
+  /* Garante seções visíveis sem resetar os cards filtrados */
+  if (CURRENT_ROUTE && CURRENT_ROUTE !== "") {
+    var generoRoutes = ["masculinos","femininos","unissex"];
+    generoRoutes.forEach(function(g){
+      var el = document.getElementById(g);
+      if (el) el.style.display = (g === CURRENT_ROUTE) ? "" : "none";
+    });
+    var kSec = document.getElementById("kits-cosmeticos");
+    if (kSec) kSec.style.display = (CURRENT_ROUTE === "kits" || tipo === "kits") ? "" : "none";
+  }
+}
+
+
+/* ══ FILTRO DE NOTAS DINÂMICO ══ */
+var NOTA_EMOJIS = {
+  "bergamota":"🍋","limão":"🍋","cítrico":"🍊","laranja":"🍊","toranja":"🍊",
+  "almíscar":"🌫️","musk":"🌫️","musgo":"🌿","madeira":"🪵","amadeirado":"🪵","cedro":"🌲","sândalo":"🌲",
+  "baunilha":"🍦","pralinê":"🍫","doce":"🍬","caramelo":"🍮","mel":"🍯",
+  "rosa":"🌹","floral":"🌸","jasmim":"🌸","íris":"💜","peônia":"🌸","violeta":"💜",
+  "âmbar":"✨","oud":"🔥","incenso":"🔥","defumado":"🔥","oriental":"🔮",
+  "patchouli":"🌿","vetiver":"🌱","musgo de carvalho":"🍄",
+  "pimenta":"🌶️","especiarias":"🌶️","cardamomo":"🫚","gengibre":"🫚",
+  "frutado":"🍑","frutas":"🍑","pêssego":"🍑","maçã":"🍎","morango":"🍓",
+  "aquático":"💧","marinho":"💧","fresco":"💨","ozônico":"💨",
+  "café":"☕","tabaco":"🪵","couro":"🤎","benjoim":"✨","tonka":"✨",
+  "fava tonka":"✨","coco":"🥥","ylang":"🌺","neroli":"🌸","bergamota":"🍋"
+};
+
+function getNotaEmoji(nota) {
+  var n = nota.toLowerCase().trim();
+  for (var key in NOTA_EMOJIS) {
+    if (n.indexOf(key) !== -1) return NOTA_EMOJIS[key];
+  }
+  return "✦";
+}
+
+function renderNotasPills() {
+  var container = document.getElementById("notesPills");
+  if (!container || typeof PRODUTOS === "undefined" || !PRODUTOS.length) return;
+
+  /* Coleta todas as notas únicas */
+  var notasSet = {};
+  PRODUTOS.forEach(function(p) {
+    if (!p.notas) return;
+    ["topo","corpo","fundo"].forEach(function(camada) {
+      var val = p.notas[camada] || "";
+      val.split(/[,;·]+/).forEach(function(n) {
+        n = n.trim();
+        if (n && n.length > 1 && n !== "—") {
+          /* Normaliza para lowercase como chave */
+          var key = n.toLowerCase();
+          if (!notasSet[key]) notasSet[key] = n;
+        }
+      });
+    });
+  });
+
+  /* Ordena alfabeticamente */
+  var notas = Object.values(notasSet).sort(function(a,b){
+    return a.toLowerCase().localeCompare(b.toLowerCase(), 'pt');
+  });
+
+  /* Gera pills */
+  var pills = '<button class="note-pill active" data-nota="" onclick="selectNoteFilter(this.dataset.nota, this)">Todas</button>';
+  notas.forEach(function(nota) {
+    var emoji = getNotaEmoji(nota);
+    pills += '<button class="note-pill" data-nota="' + nota.toLowerCase() + '" onclick="selectNoteFilter(this.dataset.nota, this)">'
+      + emoji + ' ' + nota + '</button>';
+  });
+
+  container.innerHTML = pills;
+  console.log("Notas geradas:", notas.length);
+}
+
+
+function atualizarBadgeNota() {
+  var badge = document.getElementById("badgeNota");
+  if (!badge) return;
+  if (NOTA_FILTRO_ATIVA) {
+    badge.textContent = "· " + NOTA_FILTRO_ATIVA;
+    badge.style.display = "";
+  } else {
+    badge.style.display = "none";
+  }
+}
+
+/* Tratamento especial para autorais no catFilter */
+var _catFilterBase = catFilter;
+catFilter = function(tipo, btn) {
+  if (tipo === "autorais") {
+    document.querySelectorAll(".cat-pill, .cat-card").forEach(function(c){ c.classList.remove("active"); });
+    if (btn) btn.classList.add("active");
+    var autoSection = document.getElementById("autorais");
+    document.querySelectorAll(".gender-section").forEach(function(s){ s.style.display = "none"; });
+    document.getElementById("kits-cosmeticos") && (document.getElementById("kits-cosmeticos").style.display = "none");
+    if (autoSection) { autoSection.style.display = ""; }
+    document.querySelectorAll(".product-card").forEach(function(c){ c.style.display = ""; });
+    return;
+  }
+  _catFilterBase(tipo, btn);
+};
+
+/* Nudge sacola vazia */
+function verificarNudgeSacola() {
+  var cartCount = document.querySelector(".cart-count");
+  var nudge = document.getElementById("cartNudge");
+  if (!nudge) return;
+  var empty = !cartCount || cartCount.textContent === "0" || cartCount.style.display === "none";
+  nudge.style.display = empty ? "" : "none";
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+  var _h = window.location.hash.replace(/^#\//, "").replace(/^#/, "");
+  renderRoute(_h || "");
   renderCatalogo();
+  /* Retry renderDestaques após Firebase carregar */
+  setTimeout(function(){ if(typeof PRODUTOS!=="undefined"&&PRODUTOS.length){ renderDestaques(); renderNotasPills(); } }, 1200);
+  setTimeout(function(){ if(typeof PRODUTOS!=="undefined"&&PRODUTOS.length) renderDestaques(); }, 3000);
 
   /* LGPD: mostra banner se não aceito ainda */
   if (!localStorage.getItem("tb_lgpd_aceito")) {
