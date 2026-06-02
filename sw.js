@@ -4,10 +4,10 @@
         atualização quando arquivos forem modificados.
    INSTRUÇÃO: ao fazer deploy de novos arquivos,
    atualize o valor de CACHE_VERSION abaixo.
-   Exemplo: "tobaldine-v46", "tobaldine-v6", etc.
+   Exemplo: "tobaldine-v47", "tobaldine-v6", etc.
 ══════════════════════════════════════════════════════ */
 
-var CACHE_VERSION = "tobaldine-v46";
+var CACHE_VERSION = "tobaldine-v47";
 var ASSETS = [
   "./index.html",
   "./style.css",
