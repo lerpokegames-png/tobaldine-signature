@@ -1,2288 +1,7852 @@
 var PRODUTOS=[
   {
     "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 65,
-    "desc": "Luminoso, sofisticado e viciante. O Qaed captura a essência do famoso Baccarat Rouge com notas de açafrão, jasmim e cedro ambarado, criando uma assinatura olfativa inesquecível.",
-    "estoque": 5,
-    "familia": "Âmbar · Unissex",
-    "fotos": [
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/1_17a352a1-63bf-4da9-8d37-34b8736451b3_vv4mqm.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/3_0dd94efd-831a-4fd2-9406-53a44ccc280b_vtjxid.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779040136/2_adc89105-b9ab-4e33-8af0-db8095faf47a_ljdwrx.webp"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 55,
-    "nome": "Qaed Branco",
-    "notas": {
-      "corpo": "Amêndoa e Âmbar",
-      "fundo": "Cedro, Baunilha e Almíscar",
-      "topo": "Açafrão e Jasmim"
-    },
+    "secao": "autorais",
+    "nome": "212 Heroes",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 149,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado na magia cintilante do Baccarat Rouge 540 (MFK)",
-    "secao": "originais"
+    "fotos": [
+      "imagens/212-heroes.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, framboesa",
+      "corpo": "jasmim, flor de laranjeira",
+      "fundo": "cedro, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 70,
-    "desc": "Quente, doce e irresistível. O Ajwad combina notas orientais cremosas com um toque amadeirado suave, criando uma fragrância versátil que agrada homens e mulheres com igual intensidade.",
-    "estoque": 4,
-    "familia": "Oriental Amadeirado · Unissex",
-    "fotos": [
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042746/Ajwad-Pink-to-Pink-1_f07e8195-9952-48c7-8445-1779e409295b_b4jymy.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042746/Ajwad-Pink-to-Pink-3_367280b4-b62c-4821-a4e4-4e4eb6b63a64_x9zzio.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042747/Ajwad-Pink-to-Pink-2_49bf14b4-e60d-48ae-99ba-451736dab7de_rgscdj.webp"
+    "secao": "autorais",
+    "nome": "212 NYC",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
     ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 55,
+    "fotos": [
+      "imagens/212-nyc.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, bergamota, mandarina",
+      "corpo": "camélia, gardênia, lírio",
+      "fundo": "sândalo, almíscar branco"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 Sexy",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-sexy.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, mandarina, bergamota",
+      "corpo": "gardênia, algodão-doce, flores, rosa",
+      "fundo": "baunilha, almíscar, sândalo, patchouli, caramelo, violeta"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip.jpg"
+    ],
+    "notas": {
+      "topo": "rum, maracujá",
+      "corpo": "gardênia, almíscar",
+      "fundo": "baunilha, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Rose",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-rose.jpg"
+    ],
+    "notas": {
+      "topo": "champanhe rosé, pimenta rosa",
+      "corpo": "flor de pêssego, rosa",
+      "fundo": "almíscar branco, notas amadeiradas, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Rose Red",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-rose-red.jpg"
+    ],
+    "notas": {
+      "topo": "licor, tomate, framboesa",
+      "corpo": "tiramisu, especiarias, rosa búlgara",
+      "fundo": "patchouli, almíscar, notas amadeiradas (queenwood)"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Wins",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-wins.jpg"
+    ],
+    "notas": {
+      "topo": "notas verdes, mandarina",
+      "corpo": "romã, rosa",
+      "fundo": "almíscar, notas amadeiradas, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Acqua Kenzo",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/acqua-kenzo.jpg"
+    ],
+    "notas": {
+      "topo": "tangerina, folha de framboesa, limão",
+      "corpo": "magnólia, rosa, jasmim, hedione, notas verdes, maçã",
+      "fundo": "oriza, vetiver, sândalo, baunilha, madeira de cashmere"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Afeef",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/afeef.jpg"
+    ],
+    "notas": {
+      "topo": "pêssego, pimenta rosa, bergamota",
+      "corpo": "tuberosa, jasmim, flor de laranjeira",
+      "fundo": "sândalo, âmbar, pralinê, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
     "nome": "Ajwad",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/ajwad.jpg"
+    ],
     "notas": {
-      "corpo": "Rosa e Notas Orientais",
-      "fundo": "Oud, Sândalo e Baunilha",
-      "topo": "Bergamota e Especiarias"
-    },
+      "topo": "notas frutadas",
+      "corpo": "rosa, jasmim",
+      "fundo": "baunilha, almíscar, âmbar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ajwad Pink",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/ajwad-pink.jpg"
+    ],
+    "notas": {
+      "topo": "goiaba, toranja rosa, lichia, pimenta rosa",
+      "corpo": "rosa, peônia, magnólia",
+      "fundo": "almíscar, couro, baunilha, âmbar-gris, musgo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Alien",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 159,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Oriental doce e envolvente, perfeito para o dia a dia",
-    "secao": "originais"
+    "fotos": [
+      "imagens/alien.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim sambac",
+      "corpo": "madeira cashmeran",
+      "fundo": "âmbar branco"
+    }
   },
   {
     "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 75,
-    "desc": "Delicado e encantador, o Hayaati é uma ode à feminilidade. Suas notas florais se mesclam a um coração âmbar quente, deixando um rastro cremoso e sofisticado que dura o dia todo.",
-    "estoque": 6,
-    "familia": "Floral Âmbar · Feminino",
-    "fotos": [
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/1_c2b7d49b-3b79-4e98-853f-977f7d50e640_r8vvyl.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/3_e623ad28-53fc-4724-89e5-aa57d8f484da_gvepam.webp",
-      "https://res.cloudinary.com/doz2iofsu/image/upload/v1779042964/2_b58ff64d-161d-4bc2-8c2e-acbf73dd4ee2_vqaq48.webp"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 55,
-    "nome": "Hayaati",
-    "notas": {
-      "corpo": "Rosa, Jasmim e Peônia",
-      "fundo": "Âmbar, Baunilha e Almíscar",
-      "topo": "Bergamota e Notas Frutais"
-    },
+    "secao": "autorais",
+    "nome": "Allure",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 169,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Floral cremoso com toque árabe sofisticado",
-    "secao": "originais"
+    "fotos": [
+      "imagens/allure.jpg"
+    ],
+    "notas": {
+      "topo": "limão, mandarina, pêssego, maracujá, bergamota",
+      "corpo": "madressilva, jasmim, magnólia, frésia, vitória-régia, flor de laranjeira, peônia, rosa de maio",
+      "fundo": "baunilha, sândalo, âmbar, vetiver, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 90,
-    "desc": "Jovial, fresco e cativante. O Yara Tous traz uma explosão de notas frutais e florais que evoca leveza e modernidade, perfeito para quem busca um perfume alegre e marcante para o dia a dia.",
-    "estoque": 3,
-    "familia": "Floral Frutal · Feminino",
-    "fotos": [
-      "https://www.lattafa-usa.com/cdn/shop/files/1_5fe75433-0467-4d06-87e9-d9e81ac2da00.png?v=1749487600&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/2_9c54476c-b1d0-45ed-9bc9-f9f0e7678e56.png?v=1749487600&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/3_fc032ecc-f474-4fc1-bb84-285c5b001b32.png?v=1749487600&width=1946"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 55,
-    "nome": "Yara Tous",
-    "notas": {
-      "corpo": "Rosa, Peônia e Jasmim",
-      "fundo": "Almíscar, Âmbar e Sândalo",
-      "topo": "Frutas Vermelhas e Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Allure Chanel",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 199,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Versão vibrante e jovial da linha Yara",
-    "secao": "originais"
+    "fotos": [
+      "imagens/allure-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "limão, mandarina, pêssego, maracujá, bergamota",
+      "corpo": "madressilva, jasmim, magnólia, frésia, vitória-régia, flor de laranjeira, peônia, rosa de maio",
+      "fundo": "baunilha, sândalo, âmbar, vetiver, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Inspirado",
-    "custo": 35,
-    "desc": "Fresco, sensual e irresistível. O Pure Seduction combina ameixa vermelha e maçã com um toque delicado de gardênia, criando uma fragrância leve e sedutora perfeita para o uso diário.",
-    "estoque": 8,
-    "familia": "Frutal Floral · Feminino",
-    "fotos": [
-      "https://images-na.ssl-images-amazon.com/images/I/51up9BSsqbL._AC_UL495_SR435,495_.jpg"
-    ],
-    "marca": "Victoria's Secret",
-    "margem": 55,
-    "nome": "Kit Body Splah + Creme Hidratante - Pure Seduction",
-    "notas": {
-      "corpo": "Gardênia e Jasmim",
-      "fundo": "Almíscar e Âmbar",
-      "topo": "Ameixa Vermelha e Maçã"
-    },
+    "secao": "autorais",
+    "nome": "Amarige",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 79,90",
-        "vol": "Kit"
-      }
-    ],
-    "ranking": "✦ O body splash mais icônico da Victoria's Secret",
-    "secao": "cosmeticos"
-  },
-  {
-    "ativo": true,
-    "badge": "Inspirado",
-    "custo": 35,
-    "desc": "Efervescente, alegre e irresistível. Mistura a frescura dos morangos maduros com a leveza borbulhante do champanhe, criando uma fragrância festiva e jovial que encanta em qualquer ocasião.",
-    "estoque": 7,
-    "familia": "Frutal · Feminino",
-    "fotos": [
-      "https://imageswscdn.wslojas.com.br/files/10991/PROD_345542407208.png"
-    ],
-    "marca": "Victoria's Secret",
-    "margem": 55,
-    "nome": "Kit Body Splah + Creme Hidratante - Strawberries & Champagne",
-    "notas": {
-      "corpo": "Frutas Vermelhas e Jasmim",
-      "fundo": "Almíscar e Âmbar",
-      "topo": "Morango e Champanhe"
-    },
-    "precos": [
-      {
-        "preco": "R$ 79,90",
-        "vol": "Kit"
-      }
-    ],
-    "ranking": "✦ Uma celebração em forma de perfume",
-    "secao": "cosmeticos"
-  },
-  {
-    "ativo": true,
-    "badge": "Inspirado",
-    "custo": 35,
-    "desc": "Quente, envolvente e romântico. O Amber Romance combina âmbar cremoso com sândalo e cereja, criando uma fragrância reconfortante e sofisticada que evoca aconchego e sensualidade.",
-    "estoque": 6,
-    "familia": "Oriental Âmbar · Feminino",
-    "fotos": [
-      "https://m.media-amazon.com/images/I/51WhFzftw7L._AC_SL1080_.jpg"
-    ],
-    "marca": "Victoria's Secret",
-    "margem": 55,
-    "nome": "Kit Body Splah + Creme Hidratante - Amber Romance",
-    "notas": {
-      "corpo": "Sândalo e Rosa",
-      "fundo": "Baunilha, Almíscar e Patchouli",
-      "topo": "Cereja e Âmbar"
-    },
-    "precos": [
-      {
-        "preco": "R$ 79,90",
-        "vol": "Kit"
-      }
-    ],
-    "ranking": "✦ O clássico mais amado da Victoria's Secret",
-    "secao": "cosmeticos"
-  },
-  {
-    "ativo": true,
-    "badge": "Inspirado",
-    "custo": 35,
-    "desc": "Mágico, floral e encantador. Love Spell abre com pêssego e cereja, revelando um coração de jasmim e rosa sobre uma base suave de almíscar, uma fragrância que é pura magia feminina.",
-    "estoque": 9,
-    "familia": "Floral Frutal · Feminino",
-    "fotos": [
-      "https://m.media-amazon.com/images/I/51cakM-PVQL._AC_SL1080_.jpg"
-    ],
-    "marca": "Victoria's Secret",
-    "margem": 55,
-    "nome": "Kit Body Splah + Creme Hidratante - Love Spell",
-    "notas": {
-      "corpo": "Jasmim e Rosa",
-      "fundo": "Almíscar e Sândalo",
-      "topo": "Pêssego e Cereja"
-    },
-    "precos": [
-      {
-        "preco": "R$ 79,90",
-        "vol": "Kit"
-      }
-    ],
-    "ranking": "✦ Um feitiço floral que conquista à primeira borrifada",
-    "secao": "cosmeticos"
-  },
-  {
-    "ativo": true,
-    "badge": "Inspirado",
-    "custo": 35,
-    "desc": "Tropical, doce e apaixonante. O Coconut Passion transporta os sentidos para praias paradisíacas com notas de coco cremoso e baunilha suave, perfeito para os dias quentes e ensolarados.",
-    "estoque": 5,
-    "familia": "Frutal Tropical · Feminino",
-    "fotos": [
-      "https://m.media-amazon.com/images/I/51ce7m5dehL._AC_SL1080_.jpg"
-    ],
-    "marca": "Victoria's Secret",
-    "margem": 55,
-    "nome": "Kit Body Splah + Creme Hidratante - Coconut Passion",
-    "notas": {
-      "corpo": "Flor de Coco e Baunilha",
-      "fundo": "Almíscar e Sândalo",
-      "topo": "Coco e Frutas Tropicais"
-    },
-    "precos": [
-      {
-        "preco": "R$ 77,78",
-        "vol": "Kit"
-      }
-    ],
-    "ranking": "✦ Verão em forma de perfume, tropical e irresistível",
-    "secao": "cosmeticos"
-  },
-  {
-    "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 90,
-    "desc": "Intenso, quente e sofisticado. O Khanrah é uma fragrância masculina de personalidade forte, com especiarias orientais que se fundem a uma base amadeirada e âmbar, deixando um rastro de presença inconfundível.",
-    "estoque": 5,
-    "familia": "Oriental Amadeirado · Masculino",
-    "fotos": [
-      "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-1_0ffa4f52-30e3-4dea-9399-9bae4b8cb4af.png?v=1747421472&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-2_34a8222e-a770-40b3-9268-b5ee164ad013.png?v=1747421472&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/Khamrah-3_955c3269-4a1d-4c5a-ac88-b2be98b8fc55.png?v=1747421472&width=1946"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 55,
-    "nome": "Khanrah",
-    "notas": {
-      "corpo": "Oud, Rosa e Notas Orientais",
-      "fundo": "Sândalo, Âmbar e Almíscar",
-      "topo": "Especiarias e Bergamota"
-    },
-    "precos": [
-      {
-        "preco": "R$ 199,99",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Amadeirado especiado de personalidade árabe marcante",
-    "secao": "originais"
+    "fotos": [
+      "imagens/amarige.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, pêssego, ameixa, néroli, pau-rosa, tangerina, violeta",
+      "corpo": "tuberosa, mimosa, gardênia, ylang ylang, jasmim, acácia branca, rosa",
+      "fundo": "sândalo, baunilha, âmbar, almíscar, madeiras nobres"
+    }
   },
   {
     "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 15,
-    "desc": "Ousado e imponente como um leão. O Asad abre com um frescor picante de pimenta preta e um toque exótico de abacaxi, evoluindo para um corpo denso de café e patchouli. Sua base é rica em âmbar e baunilha, garantindo uma fixação prolongada e uma aura de elegância absoluta.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "fotos": [
-      "https://www.lattafa-usa.com/cdn/shop/files/Asad-1_ceed76c7-7a80-46b3-b372-68cc309137f4.png?v=1747421311&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/Asad-2_5648df5a-3865-4d87-b7f7-b89f81aab2af.png?v=1747421311&width=1946"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 60,
-    "nome": "Asad",
-    "notas": {
-      "corpo": "Patchouli, Café e Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca, Benjoim e Ládano",
-      "topo": "Pimenta Preta, Tabaco e Abacaxi"
-    },
+    "secao": "autorais",
+    "nome": "Amber Romance",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 209,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
-      }
-    ],
-    "ranking": "✦ Aclamado mundialmente como a melhor inspiração do Sauvage Elixir ✦",
-    "secao": "originais"
-  },
-  {
-    "ativo": true,
-    "badge": "Original Árabe",
-    "custo": 12,
-    "desc": "Doce, cremoso e irresistível. O Yara é uma celebração da feminilidade moderna. Com uma textura atalcada e macia, ele equilibra a delicadeza da orquídea com a energia de frutas tropicais, encerrando com uma base de baunilha e sândalo que deixa um rastro inesquecível.",
-    "estoque": 8,
-    "familia": "Âmbar Baunilha · Feminino",
-    "fotos": [
-      "https://www.lattafa-usa.com/cdn/shop/files/1_7682153c-2dce-4b60-a9e6-20557f8502cf.png?v=1747500015&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/2_c8edbe08-b556-46ce-b197-6c42938372a8.png?v=1747500015&width=1946",
-      "https://www.lattafa-usa.com/cdn/shop/files/9.png?v=1754613955&width=1946"
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "margem": 60,
-    "nome": "Yara",
-    "notas": {
-      "corpo": "Notas Gourmand e Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar e Sândalo",
-      "topo": "Orquídea, Heliotrópio e Tangerina"
-    },
-    "precos": [
+      },
       {
-        "preco": "R$ 219,90",
-        "vol": "100 ml"
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado na elegância cremosa do Sensual Orchid (LM Parfums) ✦",
-    "secao": "originais"
-  },
-  {
-    "ativo": true,
-    "badge": "Decant",
-    "custo": 95,
-    "desc": "Ousado, sedutor e irresistível. O 1 Million é uma declaração de luxo e poder masculino. Com abertura de tangerina e menta, revela um coração de canela e especiarias sobre uma base de couro e âmbar dourado.",
-    "estoque": 4,
-    "familia": "Oriental Especiado · Masculino",
     "fotos": [
-      "https://img.lojasrenner.com.br/item/546594103/original/1.jpg",
-      "https://img.lojasrenner.com.br/item/546594103/original/2.jpg",
-      "https://img.lojasrenner.com.br/item/546594103/original/3.jpg"
+      "imagens/amber-romance.jpg"
     ],
-    "marca": "PACO RABANNE",
-    "margem": 56,
-    "nome": "1 Million",
     "notas": {
-      "corpo": "Rosa, Canela e Especiarias",
-      "fundo": "Couro, Âmbar e Patchouli",
-      "topo": "Toranja, Menta e Sangue de Mandarina"
-    },
-    "precos": [
-      {
-        "preco": "R$ 219,90",
-        "vol": "100 ml"
-      }
-    ],
-    "ranking": "✦ Inspirado no icônico 1 Million (Paco Rabanne)",
-    "secao": "Similares"
+      "topo": "cereja preta/azeda",
+      "corpo": "creme/baunilha (creme anglaise), açúcar",
+      "fundo": "âmbar, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Decant",
-    "custo": 95,
-    "desc": "Intrigante como a mulher moderna. O Good Girl equilibra jasmim e tuberosa com cacau e baunilha, criando uma fragrância floral oriental ao mesmo tempo elegante e provocante.",
-    "estoque": 3,
-    "familia": "Floral Oriental · Feminino",
-    "fotos": [
-      "https://img.lojasrenner.com.br/item/930889993/original/1.jpg",
-      "https://img.lojasrenner.com.br/item/930889993/original/2.jpg",
-      "https://img.lojasrenner.com.br/item/930889993/original/3.jpg"
-    ],
-    "marca": "CAROLINA HERRERA",
-    "margem": 56,
-    "nome": "Good Girl",
-    "notas": {
-      "corpo": "Jasmim, Tuberosa e Íris",
-      "fundo": "Cacau, Baunilha e Âmbar",
-      "topo": "Bergamota e Limão"
-    },
-    "precos": [
-      {
-        "preco": "R$ 219,90",
-        "vol": "100 ml"
-      }
-    ],
-    "ranking": "✦ Inspirado na dualidade sedutora do Good Girl (Carolina Herrera)",
-    "secao": "Similares"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral Oriental · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/ae335427-f487-4086-921b-64e51948a423-5b0f8356a8ea4ecd9717493019264791-1024-1024.webp",
-      "https://http2.mlstatic.com/D_NQ_NP_810804-MLB105087790353_012026-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%",
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1,
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Fakhar Rose",
-    "notas": {
-      "corpo": "Jasmim, Tuberosa",
-      "fundo": "Baunilha",
-      "topo": "Frutas, Lírio"
-    },
-    "precos": [
-      {
-        "custo_bruto": 47,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Tropical · Feminino",
-    "fotos": [
-      "https://cdn.awsli.com.br/600x450/699/699313/produto/360334564/perfume-lataffa-yara-tours-brand-25ml-a003-7hl6opr7cs.jpg",
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/yara-tous-de-lattafa-c48403a5ce0e0fd30017203874925750-480-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%",
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1,
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Yara Tous",
-    "notas": {
-      "corpo": "Jasmim",
-      "fundo": "Almíscar",
-      "topo": "Coco, Manga"
-    },
-    "precos": [
-      {
-        "custo_bruto": 47,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Gourmand · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/003/644/128/products/img_3865-27aee2d56911d0d3ac17544449325474-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Yara",
-    "notas": {
-      "corpo": "Frutas",
-      "fundo": "Baunilha",
-      "topo": "Orquídea, Tangerina"
-    },
-    "precos": [
-      {
-        "custo_bruto": 47,
-        "frete_prop": 10,
-        "margem_pct": 34.9,
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Feminino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_663124-MLB107016273593_022026-O.webp",
-      "https://http2.mlstatic.com/D_NQ_NP_843417-MLB104784873144_012026-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%",
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1,
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
+    "secao": "autorais",
     "nome": "Amber Rouge",
-    "notas": {
-      "corpo": "Âmbar",
-      "fundo": "Cedro",
-      "topo": "Açafrão"
-    },
-    "precos": [
-      {
-        "custo_bruto": 47,
-        "frete_prop": 10,
-        "margem_pct": 34.91,
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/amber-rouge.jpg"
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "notas": {
+      "topo": "jasmim, açafrão",
+      "corpo": "madeira de âmbar, âmbar gris",
+      "fundo": "resina de abeto, cedro"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Unissex",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_993915-MLB93437659172_092025-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Royal Amber",
-    "notas": {
-      "corpo": "Âmbar",
-      "fundo": "Sândalo",
-      "topo": "Notas Cítricas"
-    },
+    "secao": "autorais",
+    "nome": "Amnia",
+    "familia": "Feminino",
     "precos": [
       {
-        "custo_bruto": 50,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 79,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/amnia.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, pimenta rosa",
+      "corpo": "tuberosa, flor de laranjeira",
+      "fundo": "baunilha, fava tonka, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-tharwah-gold-lattafa-eau-de-parfum-feminino-25ml-perfume-arabe-5f465285315674154c17506156413911-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Tharwah Gold",
-    "notas": {
-      "corpo": "Jasmim",
-      "fundo": "Baunilha",
-      "topo": "Lavanda"
-    },
-    "preco": 76.9,
+    "secao": "autorais",
+    "nome": "Amor Amor",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/amor-amor.jpg"
+    ],
+    "notas": {
+      "topo": "groselha preta (cassis), laranja, tangerina, toranja, cássia, bergamota",
+      "corpo": "rosa, damasco, jasmim, lírio, lírio-do-vale",
+      "fundo": "âmbar, fava tonka, baunilha, cedro da virgínia, almíscar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-badee-al-oud-amethyst-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-54aac9c86bbd90761417505227375341-640-0.webp",
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/badee-al-oud-amethyst-lattafa-cf744ae7c7e12edf2b16992980908540-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%",
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1,
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Bade'e Al Oud Amethyst",
-    "notas": {
-      "corpo": "Rosa",
-      "fundo": "Oud",
-      "topo": "Pimenta"
-    },
+    "secao": "autorais",
+    "nome": "Ange Ou Demon",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/ange-ou-demon.jpg"
+    ],
+    "notas": {
+      "topo": "tangerina, açafrão, tomilho branco",
+      "corpo": "lírio, ylang-ylang, orquídea",
+      "fundo": "fava tonka, baunilha, pau-rosa, musgo de carvalho"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Frutado · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-badee-al-oud-sublime-lattafa-eau-de-parfum-feminino-25ml-perfume-arabe-a9fee7993df36b06d817505230570816-1024-1024.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Bade'e Al Oud Sublime",
-    "notas": {
-      "corpo": "Rosa",
-      "fundo": "Baunilha",
-      "topo": "Maçã"
-    },
+    "secao": "autorais",
+    "nome": "Angel",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/angel.jpg"
+    ],
+    "notas": {
+      "topo": "melão, coco, tangerina, cássia, jasmim, bergamota, algodão-doce, abacaxi, pimenta rosa",
+      "corpo": "mel, damasco, amora, ameixa, orquídea, pêssego, jasmim, lírio-do-vale, bagas vermelhas, rosa",
+      "fundo": "fava tonka, âmbar, patchouli, almíscar, baunilha, chocolate amargo, caramelo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Especiado · Feminino",
+    "secao": "autorais",
+    "nome": "Angel Muse Mugler",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
     "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_794331-MLB89663846477_082025-O.webp"
+      "imagens/angel-muse-mugler.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
+    "notas": {
+      "topo": "toranja, pimenta rosa",
+      "corpo": "avelã (chantilly de avelã/cacau), rosa",
+      "fundo": "vetiver, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Angel Nova",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/angel-nova.jpg"
     ],
-    "fotosZoom": [
-      1
+    "notas": {
+      "topo": "framboesa, lichia",
+      "corpo": "rosa damascena",
+      "fundo": "akigalawood, benjoim"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Angel Nova Mugler",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
     ],
-    "marca": "LATTAFA PERFUMES",
+    "fotos": [
+      "imagens/angel-nova-mugler.jpg"
+    ],
+    "notas": {
+      "topo": "framboesa, lichia",
+      "corpo": "rosa damascena",
+      "fundo": "akigalawood, benjoim"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Aqua Kiss",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/aqua-kiss.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, freesia, aloe vera",
+      "corpo": "margarida, camomila, flor de ameixa",
+      "fundo": "notas doces, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Armani Code",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/armani-code.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim, laranja italiana, laranja amarga",
+      "corpo": "flor de laranjeira, jasmim, gengibre",
+      "fundo": "mel, baunilha, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Atheeri",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/atheeri.jpg"
+    ],
+    "notas": {
+      "topo": "flor de maracujá, gota de orvalho",
+      "corpo": "orquídea, jasmim",
+      "fundo": "madeira de âmbar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Aventus",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/aventus.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde, bergamota, limão, patchouli, pimenta rosa, violeta",
+      "corpo": "almíscar, rosa, sândalo, styrax",
+      "fundo": "groselha preta (cassis), pêssego, âmbar, lilás, ylang ylang"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Wanted Girl",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-wanted-girl.jpg"
+    ],
+    "notas": {
+      "topo": "flor de gengibre, flor de laranjeira, pimenta rosa, romã",
+      "corpo": "doce de leite, datura",
+      "fundo": "fava tonka, patchouli, vetiver do Haiti"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Baccarat Rouge",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/baccarat-rouge.jpg"
+    ],
+    "notas": {
+      "topo": "açafrão, jasmim",
+      "corpo": "madeira de âmbar, âmbar cinzento",
+      "fundo": "resina de abeto, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Baccarat Rouge Extrait",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/baccarat-rouge-extrait.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa amarga, açafrão",
+      "corpo": "jasmim egípcio, cedro",
+      "fundo": "âmbar cinzento, notas amadeiradas, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
     "nome": "Bade'e Al Oud Honor & Glory",
-    "notas": {
-      "corpo": "Canela",
-      "fundo": "Âmbar",
-      "topo": "Abacaxi"
-    },
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/bade-e-al-oud-honor-glory.jpg"
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "notas": {
+      "topo": "abacaxi, creme brulee",
+      "corpo": "canela, açafrão-da-terra, pimenta preta, benjoim",
+      "fundo": "baunilha, sândalo, cashmeran, musgo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
+    "secao": "autorais",
+    "nome": "Bade'e Al Oud Sublime",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/solvenir-a022-317603dfba4bd7205b17528847119615-640-0.webp"
+      "imagens/bade-e-al-oud-sublime.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Souvenier Floral Bouquet",
     "notas": {
-      "corpo": "Flores",
-      "fundo": "Almíscar",
-      "topo": "Notas Florais"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "maçã, lichia, rosa",
+      "corpo": "ameixa, jasmim",
+      "fundo": "musgo, baunilha, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
+    "secao": "autorais",
+    "nome": "Bade'e Noble Blush",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://cdn.awsli.com.br/600x450/1107/1107554/produto/374827423/878e18a023d27289cad5f0705d2ad4d5-11lkue7zoa.jpg"
+      "imagens/bade-e-noble-blush.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Emmer",
     "notas": {
-      "corpo": "Flores",
-      "fundo": "Almíscar",
-      "topo": "Notas Cítricas"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "rosa com leite (rose milk)",
+      "corpo": "amêndoa, merengue",
+      "fundo": "sândalo, baunilha, almíscar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
+    "secao": "autorais",
+    "nome": "Bade'el Al Oud Amethyst",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_873666-MLB89649393973_082025-O.webp"
+      "imagens/bade-el-al-oud-amethyst.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Yara Moi",
     "notas": {
-      "corpo": "Jasmim",
-      "fundo": "Âmbar",
-      "topo": "Pêssego"
-    },
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "pimenta rosa, bergamota",
+      "corpo": "rosa turca, rosa búlgara, jasmim",
+      "fundo": "oud (madeira de águila), âmbar, baunilha"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/historic-doria-a023-ce57d969a5144b45ca17528849185568-480-0.webp",
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/historic-doria-30e19d2e72c10dddca17203880440496-480-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%",
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1,
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Historic Doria",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Madeiras",
-      "topo": "Cítricos"
-    },
+    "secao": "autorais",
+    "nome": "Bare Vanilla",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 54,00",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/bare-vanilla.jpg"
+    ],
+    "notas": {
+      "topo": "leve doçura adocicada",
+      "corpo": "baunilha",
+      "fundo": "cashmeran (madeira almiscarada)"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Unissex",
+    "secao": "autorais",
+    "nome": "Because It's You",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-musamam-white-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-1c2b1c16d143cf79a617525455606801-1024-1024.webp"
+      "imagens/because-it-s-you.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Musamam White",
     "notas": {
-      "corpo": "Coco",
-      "fundo": "Almíscar",
-      "topo": "Laranja"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "framboesa, limão, néroli",
+      "corpo": "rosa",
+      "fundo": "baunilha, almíscar, amberwood"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_740090-MLB106524357941_022026-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Sabah Al Ward",
-    "notas": {
-      "corpo": "Rosa",
-      "fundo": "Patchouli",
-      "topo": "Cítricos"
-    },
-    "preco": 76.9,
+    "secao": "autorais",
+    "nome": "Black Opium",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [],
+    "notas": {
+      "topo": "pera, flor de laranjeira, pimenta rosa",
+      "corpo": "café, jasmim, amêndoa amarga, alcaçuz",
+      "fundo": "baunilha, patchouli, cedro, caxemira"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Gourmand · Feminino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_684337-MLA95498339619_102025-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Yara Candy",
-    "notas": {
-      "corpo": "Caramelo",
-      "fundo": "Baunilha",
-      "topo": "Morango"
-    },
-    "preco": 76.9,
+    "secao": "autorais",
+    "nome": "Black XS",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/black-xs.jpg"
+    ],
+    "notas": {
+      "topo": "cranberry, pimenta rosa, tamarindo",
+      "corpo": "cacau, rosa, violeta negra",
+      "fundo": "baunilha, patchouli, madeira de massoia"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_809634-MLB95523669082_102025-O.webp"
+    "secao": "autorais",
+    "nome": "Black XS Los Angeles",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
+    "fotos": [],
+    "notas": {
+      "topo": "água de coco, cranberry, tamarindo",
+      "corpo": "heliotrópio, rum, orquídea",
+      "fundo": "baunilha, âmbar, caramelo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
     "nome": "Blush Noble",
-    "notas": {
-      "corpo": "Rosa",
-      "fundo": "Almíscar",
-      "topo": "Notas Florais"
-    },
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/blush-noble.jpg"
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "notas": {
+      "topo": "bergamota, mandarina",
+      "corpo": "rosa, peônia",
+      "fundo": "almíscar, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral · Feminino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_767094-MLA97129713785_112025-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Emaan",
-    "notas": {
-      "corpo": "Jasmim",
-      "fundo": "Baunilha",
-      "topo": "Bergamota"
-    },
-    "preco": 76.9,
+    "secao": "autorais",
+    "nome": "Burberry Goddess",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/burberry-goddess.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, baunilha, cacau, gengibre",
+      "corpo": "caviar de baunilha",
+      "fundo": "absoluto de baunilha"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Floral Amadeirado · Feminino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/004/297/279/products/miniatura-ajwad-lattafa-eau-de-parfum-unissex-25ml-perfume-arabe-62af2d1dd5477479e417525469604762-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Ajwad",
-    "notas": {
-      "corpo": "Rosa",
-      "fundo": "Oud",
-      "topo": "Frutas"
-    },
+    "secao": "autorais",
+    "nome": "Burberry Her",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "fotos": [
+      "imagens/burberry-her.jpg"
+    ],
+    "notas": {
+      "topo": "morango, framboesa, amora, cereja, groselha preta",
+      "corpo": "violeta, jasmim",
+      "fundo": "almíscar, baunilha, âmbar, notas amadeiradas"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Feminino",
+    "secao": "autorais",
+    "nome": "Bvlgari Omnia",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
     "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/arabic-collection-dania-d6f00adf83ec48fb1817696554902026-640-0.webp"
+      "imagens/bvlgari-omnia.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
+    "notas": {
+      "topo": "gengibre, cardamomo, pimenta, açafrão",
+      "corpo": "chá chai, canela, noz-moscada, trevo",
+      "fundo": "chocolate branco, sândalo, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari Omnia Amethyste",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
     ],
-    "fotosZoom": [
-      1
+    "fotos": [
+      "imagens/bvlgari-omnia-amethyste.jpg"
     ],
-    "marca": "LATTAFA PERFUMES",
+    "notas": {
+      "topo": "notas verdes, toranja rosa",
+      "corpo": "íris, rosa búlgara",
+      "fundo": "notas amadeiradas, heliotrópio"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari Omnia Crystalline",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bvlgari-omnia-crystalline.jpg"
+    ],
+    "notas": {
+      "topo": "bambu, pera",
+      "corpo": "lótus, chá, cássia",
+      "fundo": "almíscar, madeira guaiac, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari Omnia Green Jade",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bvlgari-omnia-green-jade.jpg"
+    ],
+    "notas": {
+      "topo": "tangerina, notas verdes",
+      "corpo": "jasmim, flor de pêssego, peônia",
+      "fundo": "almíscar, notas amadeiradas, pistache"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Carolina Herrera CH",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/carolina-herrera-ch.jpg"
+    ],
+    "notas": {
+      "topo": "fruta tropical, bergamota, toranja, notas aquáticas",
+      "corpo": "pralinê, canela, flor de laranjeira, jasmim",
+      "fundo": "camurça, patchouli, âmbar, sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "CH",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/ch.jpg"
+    ],
+    "notas": {
+      "topo": "fruta tropical, bergamota, toranja, notas aquáticas",
+      "corpo": "pralinê, canela, flor de laranjeira, jasmim",
+      "fundo": "camurça, patchouli, âmbar, sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Chance Chanel",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/chance-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa",
+      "corpo": "jasmim, íris",
+      "fundo": "patchouli, baunilha, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Chloe",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/chloe.jpg"
+    ],
+    "notas": {
+      "topo": "peônia, lichia, frésia",
+      "corpo": "rosa, lírio-do-vale, magnólia",
+      "fundo": "cedro da Virgínia, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Cloud Ariana Grande",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/cloud-ariana-grande.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, pera, bergamota",
+      "corpo": "chantilly, pralinê, coco, orquídea baunilha",
+      "fundo": "almíscar, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Club Woman",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/club-woman.jpg"
+    ],
+    "notas": {
+      "topo": "laranja, tangerina",
+      "corpo": "jasmim, rosa",
+      "fundo": "patchouli, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Coco Chanel",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/coco-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "coentro, mandarina, pêssego, jasmim, rosa búlgara",
+      "corpo": "mimosa, cravo, flor de laranjeira, trevo",
+      "fundo": "ládano, âmbar, sândalo, fava tonka, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Coco Mademoiselle",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/coco-mademoiselle.jpg"
+    ],
+    "notas": {
+      "topo": "laranja, mandarina, bergamota, flor de laranjeira",
+      "corpo": "rosa turca, jasmim, mimosa, ylang-ylang",
+      "fundo": "patchouli, almíscar branco, baunilha, fava tonka, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Coco Noir Chanel Paris",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/coco-noir-chanel-paris.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, bergamota da Calábria",
+      "corpo": "rosa, jasmim, narciso, gerânio",
+      "fundo": "patchouli, fava tonka, sândalo, baunilha, almíscar branco"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Coconut Passion",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/coconut-passion.jpg"
+    ],
+    "notas": {
+      "topo": "coco, camomila",
+      "corpo": "aloe vera, lírio-do-vale",
+      "fundo": "baunilha, notas doces"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dalal",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/dalal.jpg"
+    ],
+    "notas": {
+      "topo": "laranja, notas doces",
+      "corpo": "caramelo, sândalo",
+      "fundo": "baunilha, heliotrópio"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
     "nome": "Dania",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Madeiras",
-      "topo": "Notas Cítricas"
-    },
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/dania.jpg"
     ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+    "notas": {
+      "topo": "notas frutadas, cítricos",
+      "corpo": "notas florais, jasmim",
+      "fundo": "almíscar, âmbar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Cítrico Aromático · Masculino",
+    "secao": "autorais",
+    "nome": "Delilah",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/26-8319b33ddbf67a584817491302291565-1024-1024.webp"
+      "imagens/delilah.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Al Noble Wazeer",
     "notas": {
-      "corpo": "Íris",
-      "fundo": "Âmbar",
-      "topo": "Hortelã"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "lichia, ruibarbo, bergamota",
+      "corpo": "rosa turca, peônia, lírio-do-vale",
+      "fundo": "baunilha, almíscar, cashmeran"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oud Amadeirado · Masculino",
+    "secao": "autorais",
+    "nome": "Delina",
+    "familia": "Feminino",
+    "precos": [],
     "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/arabic-a10-gloria-cdae10a49fdd4fb64717474556022195-480-0.webp"
+      "imagens/delina.jpg"
     ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Bade'e Al Oud Oud for Glory",
     "notas": {
-      "corpo": "Oud",
-      "fundo": "Patchouli",
-      "topo": "Açafrão"
-    },
-    "precos": [
-      {
-        "custo_bruto": 54,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 85,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
+      "topo": "lichia, ruibarbo, bergamota, noz-moscada",
+      "corpo": "rosa turca, peônia, almíscar, baunilha",
+      "fundo": "cashmeran, incenso, cedro, vetiver"
+    }
   },
   {
     "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Fougère · Masculino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/30b71c51-2c34-4c8d-94c0-634ae4ba0868-70502b57afbb09331317493021039716-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Fakhar Black",
-    "notas": {
-      "corpo": "Lavanda",
-      "fundo": "Âmbar",
-      "topo": "Maçã"
-    },
+    "secao": "autorais",
+    "nome": "Delina Valaya",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Masculino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/374/798/products/39fe5d92-0e5d-45d0-aa40-ee422e64763b-65c0cc9ffabaf9898417493023695367-1024-1024.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Fakhar Gold",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Âmbar",
-      "topo": "Frutas"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Masculino",
-    "fotos": [
-      "https://cdn.awsli.com.br/600x450/699/699313/produto/360336795/perfume-lataffa-asad-brand-25ml-a001-s0r4kyyqsk.jpg"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Asad",
-    "notas": {
-      "corpo": "Café",
-      "fundo": "Baunilha",
-      "topo": "Pimenta"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental Gourmand · Masculino",
-    "fotos": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiD7zdktZtJRz7tHTCpL4Cs-kHdqOE-S4pg&s"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Khamrah Qahwa",
-    "notas": {
-      "corpo": "Especiarias",
-      "fundo": "Baunilha",
-      "topo": "Café"
-    },
-    "precos": [
-      {
-        "custo_bruto": 54,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 84,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Masculino",
-    "fotos": [
-      "data:image/webp;base64,UklGRjgRAABXRUJQVlA4ICwRAADQTQCdASq0AMwAPkUejESioaEUOM5cKAREtJfVN4ARDbM56m9bXwp/G/oX83/a/3D5bXVXmZ9MX4P+B9sH8l+vnj78dtQj2N/qvlA9uv+b7mrZf89/yvUI9ifoH/E+4r1If7L0K+wP+l+4D7AP5L/SP9b6wf9Dxv/vX+99gn+Xf0X/cf3j2PP+rzVfWH/u/znwIfzb+2f9j/B9rj0d/2gETa7B6rXbYZyIDuw46lXWDSqnTbfw13RTdtMGpFShE2m2sA8JTnttSECTwX0WtS2Z9++HJWBX2AWm4Gw1XxwDFpLpX03uKhi91FEATUngWRUL2oqvA/plHXbVdcXNCHJGjI8Z+YwKmiPpX+Deluf+GkGL1ger3h3ZM4cGTPD6gfSzkT5vfCHa5LIum4cpnSOlZp07a9W2XyqqtzvI5i3jkZrkxGqK/1SwMwoqgXq7E7X2BDnamuDoAxO+3XNBFoTv+hTm6gIBU92viVz92/RG6Bba8jDWD63RNtOhl/mnAhNSa1p6WaLrXgWj80D6QMR3aGttRgZ2TzRz5+za7tjrlnT89XCyH+YNY50jpfVBZGFN3fWGgSzmMgFkQFoTd2ejkeooDg40cGhgJyy5iPR/kgYcUMYXMcYJhJDCmeHft0OZ5DNUyNsQPrda5Xh+eHTyWZKKHGaeEgLBAFQB816ATAnNSM4WIR1MHw5JDfaBu8BpON4MwME9Iw3VcwdA/0dgR50EjF07Tuqlvz2OS8artTXzRtgj/bocmECyh2E7FYF7EgKEFUtH+dZ4fTQYtyDs46oulkSd0QKry9gcV2gunpAW3DzyLZw3rJdbFuUWNb9XZeRbHXAAAP78dSzxDtI3f+q9MX+YbFH2jeTH3Jr1F+vh0gFf/95K0py95f0x7PPfpkLj4Q4H5VmZPtxP2DwrBHvVUaBXEm2HVCe+9A+B5XofCuNd2LAg6ITsOIeszphiIjau/8yKQdT43eHoDrOqeuCGcyEOKdwYNtejYGFCKKQgM3DXKi7TftVnHsnW6g2SZ2wRXrU3IpeokqYLF+kuVdeYMnWzDwERZqojApDiAIUvc+o7ersv4uwpuhicM5JwjG43buqnUrCZl60kLLyEwNy8N/iC/PIOVOJmHt0VfmHMptmej1gcEbpzqaDUEMersJvrTyc6M99Vk5gLeWKMdLGjdR6B2qN5RjCZLfBbrwu5QGOeODHy0FKQoA6ApSv2EY6mXqsnF53gjTeQN6Fb8oGth46lrbLK4q6CbY281oM31SvNYKoE2fInMlaOm4dmBGQ0TgOmM9+xWAKP4Kt3WqCTZzEaD2QD4W82qgIdJvYjDzpvEV6DPqvnV7+hh5PVekyzghaSQ8KA93otkTIN02c3SUfk6pBx65Hv9ZCI3uA7wH4YQIt/hK3uYycWK327AsKxmh8CFLd88JAR/4fdkfO/7W6KSIJHHbsNFpdq/Rda75lGYn2L8NX5YYgIXPEofZXoRYNOGfbFmdjU2mFW8P6xGJU57pjbkTUh78nK6ZvFxm8Bei1WqJz1qYot22GQsCQymceLmWYGr34N9P3zh9KSrNtDLwpz/+b4/yqMvLTtBewdNLUe7tH9uL7tKecakBrOaT+8pc0w0lgiiNWAeMRDsheOVKsQQpaCPtRmhEgYpX86yDwsvTETUPw511mwwOHzDmsWQ3dG0FqJO5RLICFfHbnEllfLqDvtqYG05wuMWZM7q+/aqe6Fq5FA2MrY7NJFtDM+LC3xqj6/01oro0WI1PN2Y6ZQnoxVkRAte9wtqkyzFgNMQ2MxkgaHc2UcVep54Fq4oZKXo83YUgWYgtQhH5UuGL9U4abY4bWebjeBb2AM7uByD+f9+mKxLnYmTuZ4PB1guEUwcmyY5xe+7b1JZFg1tN0d4b/GkJvQxL5aP3ebnyesPLKtO00hIHBF+NI3bvKnbQTIBe8Isg9cFkpk2x5f0+Zm5KdlufA3q/SStwJENTZM9xIDmUFz7zCj5VzWVoX641Gzng46eRHDzVy1Vkh/F+If7WC6YR6OTZQ0jQu4KB9pRx5oMe/yjL/3VfNSORDMK5b8k+A7PSiKoufB82rONy0zVjAmNghd18R2+xORpQfrCha0f24kgFbbc6lh4Yh6ez+QGPxLqiExDS86LzPpHdDdoRTXFp/2a1x8qENEu2Bg0ZzLfd4MNjuxEVa/yR0yoK7tbb8YBnbwmpkZutCg0x2gnCb6wgyBcIOCd/KD4O/629zAP0avB0Oo72ZnZzIUsQBh5fKYKUUQDOotJV7TnnE3JHMBiKfbK6DUmaTVCysirXiNDXt5ifuDW3PJJHpQ6Sp71lY9UeoSGKV+EzoXW6GCiPUwzrV3+zrbSlAFCaDT8AxohmCxSP8DP47YkmNDGJ4Xrq8NggdgI+WCYslE4SlSsukHhJ5vrzw5CM984fo29K4YOe1BYRKOjI7KllvwXOxeQqj8Eo4Edk0OLagRYxMdxlcMmdwHC9pF//a/jPA/ot8sHcHt6chnc5Pjs0sxfoUgSv0VDzlcMShPV92lzajhatfygPMY1Jmx+iJeF4BY+9fcx1nly6lSieaswycHp4+iFozSPCzZU8nlZ9zWvJZLElBKCC8buDVa4AvVeqb5jSpwnYxPdYCz/sdei443s2+LW3uV4vlt1q2L7CAopuKW6G02VgnE3wgYnBRolBSz4Z/13gjMv22rpl/hT6o+vupYUtxZrH+tlQQYF6GD4EN35OEwv46KYUymn1rOQ8rPDjcoKAxx0ibQIqHAh9x+Z3zGcTyICFXtGnazp/9iLJcgUv2aaTqSB84aDmzzbFVKwbU8aTmllk9IQ9RPXBFc/fp7+AGiEGr58fXUoXqgEq0leuF5zpX/NYs+A24+KvgswOQ22uDykGaCVLosMUWW0euOGI9h0wb5hLIhJfK15ydHrXe2TK4OLAqo46UT0rvbmkYAshIp4DfGgqK669ZpLg1k2ADEasrVPlqO8rVumX5XZk73D24dt/xJ8P4P7f9XpNx5RJ9Tk46PlWXCUpDTYCuL3LPRrpF/MfkiEHqNE8RwPz7oHHgwaqKET8Qp2Xu1+ckQND9mF7O6LXjBq9Ei3KrPOPMiiS2R7mA1Ndyy1bxakZKSWIqOM0IhX5rbAg1216bcOx8hzm9RJfB9umLyXpb5KC6XnZgQXIuIRSpFjtbsPhi2QIJkLkonudNwF2MrEAPqIJsltwC1qopmUxqwCCdQdi5/Nn+1LACtzKpmVbhjHwy5e0tizVpZ/GJ2SMopxEjb1chDIqYdD3/M/N0cYShIBomYL6eJtmkVgv1KoyTGaWQacyDdo264j5N8o/TS98t2XYe0MtFiRE1gVPRvxnLDQTYXha4Lpp9BUZhKQ4rjuTXTRhfljWxKOhoOEx9CEH/jti+Y4icmSydW9XKbSgrGDvpc2jRP3MdVBo4BrWRKsUutyGqVRkGWEiThE40sSM520TvcBockp7TVFQXm2iIGGb14JkiyWlWMdCMR8RyjL0ERVhRJdftiT/40/U25rUdtMpDX+hXvaT7KIbehOzEZrGfBNlm+j9GAMVVq7bPoeY7NOvMwrCbrhgJhgzRpZqQ8UP322A6zReQBt1SjIOtwm7Lc95Tpum3Gbd9SWNvkaijHlq9nL8NCKRJs3dPelqsntOPq/Ebj/VniQgzE3hpr3q7mIs0aLLKqPOLOcwkho60zp98wLpl7V2foDSYZBMwsGCBskUUtyra8SRCy9/HdtC/k3VqaYB1iv3QpZwNhUAafzzZDnzDEV8m/Y+/su+vMhn90Ee3ebOh75oPW5qcZWXpuF5wO7UM1kvORHdveirEmcGiqWgBIg00AeKcd2dEZXEbd7FYMpdt0CGK8dDYuMai/1AXyLxl3ZIDfUslGRTHITNTgJFyMJqIYTqLn6DduGy0JbeFnzNn0vo53oFepvDN4M56iXSJ6im+N7dW97buC6GQiffGAT3NpXgkyvZr+4YoRAwiae5rhwuMZUZngvjnQhJ90M3wRF+Xh3HF30ypzSem7lDa8BnEYjfPFPn2vHIzeZ/GH8uizkvGCuO6G9/WjpZOu3zP3T0+ByzKSJHA+2FNDmXUQjnHhUKAhZPiuuEUB6oxpuDlfxgGeoJAzPV0RZDn5cCqlwqzhPbZdTRPYplvONjrw/aUiAo8wRBe0k3SQoLrAY1/lBJN9z9k38Hh4AHlEjRdVxwDYbe3lVV/5VGRUI5jfM/2xDqkebRHg19jTx7MwD9FBTvSWKNuT3H+cWaceqT11IkxvklSc8A9ngTnLBSNQyFjLpaYR333CGm37tAKWFHS9YJ1zBwN+IDu+C5FJiDrBZkyBvNy7sFQNpf0vGWvUCN+S4TB28FxLn1tvrg/EQk+ll39IsAIOHjS3UGP1YYdYr11plfVnbMClkkQpl9lTMKEpSusxRn6i7LuE7JNQWN9MFwq8V0mYN6tz0vIZO5rlBde9IotRoXR8x1f+7vDORBMzVJQjJ2v2FVthchWJ1HEjIVCAO4n+DNvgWWjh9dkeuuaNzdaCJBOC37AyEbaCZP/jgw5YbmoA1ySVsYdVotolXGDu2++WUkqduW9PepHJTUuRQw6VwlCby9J1X4l20WRgz3Jhv/5JgqyqZOMy2aLf+vM9v5Tcc2Thp8oL06ry7FF1lkrfAXUtXkZ4nrdXUsq6HDUTLrsw8X7IkQEaCbrEL/ELmsrJ/AhV+hL6lnBe/i17LJ/gt87ypvG00C5L15Z4XTRuJCmdIfxmWpkV6rlI4QLd/nYKHJvwpeSU3pLAYMr22KVBdznAhv2z/PfvqePMH/rLKxQftnnE10nGkd1mHN6Wf0JFxBtZazV3aJmlZXK0n29o6bjKbaBhaqr13tLMGVQgXV4TOw/dkitWA07D/Virj4n3chsWMLR2Y6ONGMQCbw2iG+XqGm2KTmC+v7FguHTGIZx5FyzmUk11y46xIzsjLueoTE3iei/c2NC5GBR2GsG1Rsgf4JBZ6tDl4Qk4+XOVZsTouLNeSCWGCBcsD3aW1WK6M2mc9ZpfFiCkWsuCidTGqE55SuxrNzT/XCDnTWLhw1/jN2o9W7zWKFSrK4rUSxejAzml4/Q0Yb/BlgbrLcPreAKR0BDZGa/azG2wbPcIU+CYYC0Gu8YNnoBqR34ZiOQOTIfQ4KGjnc6oXGiU37596lexHth+cVPYPq19uMySRIiO2XhYeZcQpTK16KuQgLuPULv5hu3n+HMMRx0UEg6HOTbm3dE76gVHzedRUgE7NEdUrRpOi03QZf9RKxYb/j68pJi9DI9kbRcf0hOQ9JstgL9siXEK9dbrpnBpDgF0sxeLidCH1xaYO2UXWQXQxxPqjSWn2ZCBHhVLz2SwMOAGxJnU6KMyLGGtYUTtriuXe6NRid//ae9Mhtmfz2VMyto9sKXlBwW+p2KqD4uUzousVtWcya69J8DBqrgKTpEoDSaEyOjbEX4ARZCzQ31E6gXNTszmtoHSEpvotKm1M0oZ38wzJJP0BDFrNxBqWoA6g+z7J72OA+6xQmpVX+RZ+iB6zcymdQOXih5Q5DWJbFxRYUcGSkVrbxtgrGoyT4wKXCBh3qhDJqZ4P3XpNSoiZGjACq8pDZ1OgU/S9bmJ3VJNpxjDTCgyl822LWYvyPB5H/BubdVer47+1tgrUynRSp+ktUXcR7WaWdUN2QAMKCZhY58nMgqN9BjWO3RueV0sFdlD0ckg1j2/6eYrpb60ODhX8oSjNto6OTDNsYLJsUT89soeecyMJ5BRxiq2DGPTUS/QEwlEOdyDtj80c7b9a0d5zsJGHphLWcvUE3rnCd2GvRpdIaThpvLusX+eU+kXgi36FBWw+nE+ltX+k6AAAAsMbZ/p5hHU7UBOZ0mHt5aAAAAA"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "ARMAF",
-    "nome": "Club de Nuit Précieux",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Madeiras",
-      "topo": "Cítricos"
-    },
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Masculino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/31-c0b70266e30a75880017491308355754-1024-1024.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Attar Al Wesal",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Almíscar",
-      "topo": "Cítricos"
-    },
-    "precos": [
-      {
-        "custo_bruto": 54,
-        "frete_prop": 10,
-        "margem_pct": 30,
-        "preco": "R$ 84,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Aromático · Masculino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/031/418/products/iconico-a027-71d7507e1e7b9432df17528852876681-640-0.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "ARMAF",
-    "nome": "Club de Nuit Iconic",
-    "notas": {
-      "corpo": "Lavanda",
-      "fundo": "Madeiras",
-      "topo": "Toranja"
-    },
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Masculino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_Q_NP_853172-MLA95168165788_102025-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "The Kingdom Men",
-    "notas": {
-      "corpo": "Madeiras",
-      "fundo": "Âmbar",
-      "topo": "Cítricos"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental Baunilha · Masculino",
-    "fotos": [
-      "https://http2.mlstatic.com/D_NQ_NP_639917-MLA97408107848_112025-O.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "AFNAN",
-    "nome": "9PM Afnan",
-    "notas": {
-      "corpo": "Canela",
-      "fundo": "Baunilha",
-      "topo": "Bergamota"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Masculino",
-    "fotos": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1xfKKDupXMy3IBMiMA8hBAcv6Ig59zPDMXA&s"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "World Spectre",
-    "notas": {
-      "corpo": "Flores",
-      "fundo": "Madeiras",
-      "topo": "Cítricos"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 74,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Oriental · Masculino",
-    "fotos": [
-      "https://cdn.awsli.com.br/2500x2500/2667/2667788/produto/367290747/623b4586115eed82cf9816c25c2baac4-ryru3jnmei.jpg"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Asad Bourbon",
-    "notas": {
-      "corpo": "Bourbon",
-      "fundo": "Baunilha",
-      "topo": "Especiarias"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Miniatura 25ml",
-    "desc": "Miniatura 25ml",
-    "estoque": 10,
-    "familia": "Amadeirado · Masculino",
-    "fotos": [
-      "https://acdn-us.mitiendanube.com/stores/001/073/145/products/26-8319b33ddbf67a584817491302291565-1024-1024.webp"
-    ],
-    "fotosPos": [
-      "50% 50%"
-    ],
-    "fotosZoom": [
-      1
-    ],
-    "marca": "LATTAFA PERFUMES",
-    "nome": "Al Noble Ameer",
-    "notas": {
-      "corpo": "Especiarias",
-      "fundo": "Oud",
-      "topo": "Maçã"
-    },
-    "preco": 76.9,
-    "precos": [
-      {
-        "preco": "R$ 76,90",
-        "vol": "25 ml"
-      }
-    ],
-    "ranking": "✦ Original 25ml ✦",
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Decant",
-    "custo": 95,
-    "desc": "Selvagem e livre como paisagens infinitas. O Sauvage combina bergamota de Calábria com Ambroxan, criando uma fragrância fresca, aromática e profundamente masculina que evoca céus abertos e noites estreladas.",
-    "estoque": 5,
-    "familia": "Aromático Amadeirado · Masculino",
-    "fotos": [
-      "https://img.lojasrenner.com.br/item/550288871/original/8.jpg",
-      "https://img.lojasrenner.com.br/item/550288871/original/9.jpg",
-      "https://img.lojasrenner.com.br/item/550288871/original/11.jpg"
-    ],
-    "marca": "DIOR",
-    "margem": 56,
-    "nome": "Sauvage",
-    "notas": {
-      "corpo": "Lavanda e Notas Vetiver",
-      "fundo": "Ambroxan, Cedro e Labdanum",
-      "topo": "Bergamota e Pimenta"
-    },
-    "precos": [
-      {
-        "preco": "R$ 219,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado na imensidão selvagem do Sauvage (Dior)",
-    "secao": "Similares"
+    "fotos": [
+      "imagens/delina-valaya.jpg"
+    ],
+    "notas": {
+      "topo": "aldeídos, pêssego branco, mandarina, bergamota",
+      "corpo": "flor de laranjeira, lírio-do-vale, mahonial",
+      "fundo": "almíscar, ambroxan, akigalawood"
+    }
   },
   {
     "ativo": true,
-    "badge": "Decant",
-    "custo": 95,
-    "desc": "Glamourosa, sedutora e inesquecível. O Lady Million abre com framboesa e neroli, revelando um coração floral opulento sobre uma base de mel e âmbar, celebrando o luxo feminino em cada borrifada.",
-    "estoque": 4,
-    "familia": "Floral Amadeirado · Feminino",
-    "fotos": [
-      "https://fimgs.net/mdimg/perfume-thumbs/375x500.9045.jpg",
-      "https://otiliaperfumes.com.br/wp-content/uploads/2021/12/lady-million-new.png",
-      "https://cdn.awsli.com.br/800x800/578/578851/produto/24444194/6dffd1866d.jpg"
+    "secao": "autorais",
+    "nome": "Delisa",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
     ],
-    "marca": "PACO RABANNE",
-    "margem": 56,
+    "fotos": [],
+    "notas": {
+      "topo": "notas frutadas, notas florais",
+      "corpo": "notas doces, jasmim",
+      "fundo": "âmbar, almíscar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Devotion",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/devotion.jpg"
+    ],
+    "notas": {
+      "topo": "limão cristalizado",
+      "corpo": "flor de laranjeira, panetone",
+      "fundo": "baunilha de madagascar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dolce & Gabbana Light Blue",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/dolce-gabbana-light-blue.jpg"
+    ],
+    "notas": {
+      "topo": "limão siciliano, maçã verde, cedro, jacinto silvestre",
+      "corpo": "bambu, jasmim, rosa branca",
+      "fundo": "cedro, almíscar, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dolce & Gabbana The One",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/dolce-gabbana-the-one.jpg"
+    ],
+    "notas": {
+      "topo": "pêssego, lichia, mandarina, bergamota",
+      "corpo": "lírio, ameixa, jasmim",
+      "fundo": "baunilha, âmbar, almíscar, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dolce Gabbana Pour Femme",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/dolce-gabbana-pour-femme.jpg"
+    ],
+    "notas": {
+      "topo": "framboesa, néroli, mandarina",
+      "corpo": "flor de laranjeira, jasmim",
+      "fundo": "marshmallow, baunilha, sândalo, heliotrópio"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Durrat Al Aroos",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/durrat-al-aroos.jpg"
+    ],
+    "notas": {
+      "topo": "almíscar branco, óleo de cipriol",
+      "corpo": "açafrão, cardamomo, baunilha",
+      "fundo": "âmbar, madeira guaiac, cumaru"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eclaire",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/eclaire.jpg"
+    ],
+    "notas": {
+      "topo": "caramelo, leite, açúcar",
+      "corpo": "mel, notas florais",
+      "fundo": "baunilha, pralinê, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eclaire Pistache",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/eclaire-pistache.jpg"
+    ],
+    "notas": {
+      "topo": "pistache, amêndoa",
+      "corpo": "heliotrópio, notas florais",
+      "fundo": "baunilha, caramelo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eden",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/eden.jpg"
+    ],
+    "notas": {
+      "topo": "pêssego, bergamota, mandarina, limão",
+      "corpo": "melão, lótus, mimosa, tuberosa, jasmim",
+      "fundo": "patchouli, acácia negra, sândalo, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Elie Saab",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/elie-saab.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira africana",
+      "corpo": "jasmim",
+      "fundo": "mel de néon, patchouli, rosa, cedro da Virgínia"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Emaan",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/emaan.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, bergamota, groselha preta",
+      "corpo": "tuberosa, jasmim, calone",
+      "fundo": "baunilha, almíscar branco, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Emmer",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/emmer.jpg"
+    ],
+    "notas": {
+      "topo": "notas verdes, notas cítricas",
+      "corpo": "flores brancas",
+      "fundo": "sândalo, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eterial Vanille",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/eterial-vanille.jpg"
+    ],
+    "notas": {
+      "topo": "baunilha, açúcar",
+      "corpo": "notas atalcadas",
+      "fundo": "baunilha Bourbon, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eternity",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/eternity.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, mandarina, bergamota, limão",
+      "corpo": "coentro, lírio, flor de laranjeira, bagas de zimbro, jasmim, sábia, lírio-do-vale, gerânio",
+      "fundo": "sândalo, âmbar, almíscar, vetiver, pau-brasil"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Euphoria",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/euphoria.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, pimenta",
+      "corpo": "manjericão negro, sálvia, cedro",
+      "fundo": "âmbar, patchouli, pau-brasil, camurça"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fakhar Lattafa",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fakhar-lattafa.jpg"
+    ],
+    "notas": {
+      "topo": "lírio, romã, notas frutadas, aldeídos",
+      "corpo": "tuberosa, jasmim, gardênia, ylang-ylang, rosa",
+      "fundo": "baunilha, almíscar branco, sândalo, ambroxan"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fakhar Rose",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/fakhar-rose.jpg"
+    ],
+    "notas": {
+      "topo": "frutas vermelhas, lírio, romã, aldeídos",
+      "corpo": "tuberosa, jasmim, gardênia, ylang-ylang, rosa",
+      "fundo": "baunilha, almíscar branco, sândalo, ambroxan"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fame",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/fame.jpg"
+    ],
+    "notas": {
+      "topo": "manga, bergamota",
+      "corpo": "jasmim, olíbano",
+      "fundo": "baunilha, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fame Paco Rabanne",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fame-paco-rabanne.jpg"
+    ],
+    "notas": {
+      "topo": "manga, bergamota",
+      "corpo": "jasmim, olíbano",
+      "fundo": "baunilha, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fantasy",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fantasy.jpg"
+    ],
+    "notas": {
+      "topo": "kiwi, lichia vermelha, marmeleiro",
+      "corpo": "chocolate branco, cupcake, orquídea, jasmim",
+      "fundo": "almíscar, notas amadeiradas, raiz de íris"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fantasy Britney In Bloom",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fantasy-britney-in-bloom.jpg"
+    ],
+    "notas": {
+      "topo": "bagas vermelhas, tangerina, flor de cerejeira",
+      "corpo": "osmanthus, jasmim, tuberosa",
+      "fundo": "sândalo, âmbar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fantasy Britney Spears",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/fantasy-britney-spears.jpg"
+    ],
+    "notas": {
+      "topo": "kiwi, lichia vermelha, marmeleiro",
+      "corpo": "chocolate branco, cupcake, orquídea, jasmim",
+      "fundo": "almíscar, notas amadeiradas, raiz de íris"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Flowberry Kenzo",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/flowberry-kenzo.jpg"
+    ],
+    "notas": {
+      "topo": "groselha preta, flor de espinheiro",
+      "corpo": "rosa búlgara, jasmim, violeta",
+      "fundo": "baunilha, almíscar branco, incenso"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Flowerbomb",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/flowerbomb.jpg"
+    ],
+    "notas": {
+      "topo": "chá, bergamota, osmanthus",
+      "corpo": "orquídea, jasmim, rosa, flor de laranjeira, freesia",
+      "fundo": "patchouli, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Gabriela Sabatini",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/gabriela-sabatini.jpg"
+    ],
+    "notas": {
+      "topo": "aldeídos, notas frutadas, bergamota, limão, mandarina",
+      "corpo": "jasmim, madressilva, flor de laranjeira, heliotrópio",
+      "fundo": "baunilha, mel, sândalo, âmbar, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Gabrielle Chanel",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/gabrielle-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, mandarina, groselha preta",
+      "corpo": "flor de laranjeira, jasmim, ylang-ylang, tuberosa",
+      "fundo": "almíscar, sândalo, cashmeran, íris"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, café, bergamota, limão",
+      "corpo": "jasmim sambac, tuberosa, lírio, flor de laranjeira",
+      "fundo": "fava tonka, cacau, sândalo, baunilha, pralinê"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl Blush",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl-blush.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, amêndoa amarga",
+      "corpo": "peônia, ylang-ylang",
+      "fundo": "baunilha, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl Its So Good To Be Bad",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl-its-so-good-to-be-bad.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, café",
+      "corpo": "jasmim sambac, tuberosa",
+      "fundo": "fava tonka, cacau"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl Legere",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/good-girl-legere.jpg"
+    ],
+    "notas": {
+      "topo": "ylang-ylang, mandarina, bergamota, limão",
+      "corpo": "jasmim, tuberosa, doce de leite, flor de laranjeira",
+      "fundo": "fava tonka, sândalo, pralinê, canela, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl New York",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl-new-york.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, café, bergamota, limão",
+      "corpo": "jasmim sambac, tuberosa, lírio, flor de laranjeira",
+      "fundo": "fava tonka, cacau, sândalo, baunilha, pralinê"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl Sparkling Ice",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl-sparkling-ice.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, café",
+      "corpo": "tuberosa, jasmim",
+      "fundo": "fava tonka, cacau, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Good Girl Velvet Fatale",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/good-girl-velvet-fatale.jpg"
+    ],
+    "notas": {
+      "topo": "amêndoa, café, limão, bergamota",
+      "corpo": "jasmim, tuberosa, rosa, raiz de íris",
+      "fundo": "fava tonka, cacau, sândalo, baunilha, pralinê"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Gucci Bloom",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/gucci-bloom.jpg"
+    ],
+    "notas": {
+      "topo": "notas verdes, laranja",
+      "corpo": "jasmim madressilva, tuberosa",
+      "fundo": "raiz de íris, sândalo, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Gucci Guilty",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/gucci-guilty.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, mandarina, bergamota",
+      "corpo": "lilás, violeta, gerânio, jasmim",
+      "fundo": "patchouli, âmbar, baunilha, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Haya Lattafa",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/haya-lattafa.jpg"
+    ],
+    "notas": {
+      "topo": "champanhe rosé, bagas vermelhas, tangerina, blood orange",
+      "corpo": "gardênia, jasmim, orquídea baunilha",
+      "fundo": "âmbar, sândalo, castanha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Her Confession",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/her-confession.jpg"
+    ],
+    "notas": {
+      "topo": "frutas vermelhas, notas doces",
+      "corpo": "orquídea, jasmim",
+      "fundo": "baunilha, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Historic Doria",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/historic-doria.jpg"
+    ],
+    "notas": {
+      "topo": "framboesa, flor de laranjeira, limão",
+      "corpo": "jasmim, gardênia",
+      "fundo": "mel, patchouli, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Hugo Boss The Scent For Her",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/hugo-boss-the-scent-for-her.jpg"
+    ],
+    "notas": {
+      "topo": "pêssego, freesia",
+      "corpo": "osmanthus",
+      "fundo": "cacau"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Hypnose",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/hypnose.jpg"
+    ],
+    "notas": {
+      "topo": "flor de maracujá",
+      "corpo": "jasmim, gardênia",
+      "fundo": "baunilha, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Hypnotic Poison",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/hypnotic-poison.jpg"
+    ],
+    "notas": {
+      "topo": "coco, ameixa, damasco",
+      "corpo": "pau-brasil, jasmim, alcaravia, tuberosa, rosa, lírio-do-vale",
+      "fundo": "baunilha, amêndoa, sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Idole",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/idole.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota, pimenta rosa",
+      "corpo": "rosa turca, rosa de maio, jasmim indiano",
+      "fundo": "almíscar branco, baunilha, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Idole Nectar",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/idole-nectar.jpg"
+    ],
+    "notas": {
+      "topo": "rosa de grasse, rosa turca",
+      "corpo": "pipoca, caramelo",
+      "fundo": "baunilha Bourbon"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Insolence",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/insolence.jpg"
+    ],
+    "notas": {
+      "topo": "violeta, bagas vermelhas",
+      "corpo": "íris, flor de laranjeira",
+      "fundo": "fava tonka, sândalo, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Irresistible",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/irresistible.jpg"
+    ],
+    "notas": {
+      "topo": "pera, ambreta",
+      "corpo": "rosa essencial, lírio",
+      "fundo": "cedro da Virgínia, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Issey Miyake",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/issey-miyake.jpg"
+    ],
+    "notas": {
+      "topo": "lótus, melão, frésia, água de rosas, ciclame",
+      "corpo": "lírio-do-vale, lírio, peônia aquática, cravo",
+      "fundo": "almíscar, tuberosa, sândalo, âmbar exótico, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "J'Adore",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/j-adore.jpg"
+    ],
+    "notas": {
+      "topo": "pera, melão, magnólia, pêssego, mandarina, bergamota",
+      "corpo": "jasmim, lírio-do-vale, tuberosa, frésia, rosa, orquídea",
+      "fundo": "almíscar, baunilha, amora, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "J'Adore L'Or",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/j-adore-l-or.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim, rosa, ylang-ylang, tuberosa",
+      "corpo": "notas solares, fava tonka",
+      "fundo": "baunilha, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul Gaultier Classique",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/jean-paul-gaultier-classique.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, estrela-de-anis, rosa, mandarina, pera",
+      "corpo": "íris, gengibre, ameixa, orquídea, ylang-ylang",
+      "fundo": "baunilha, âmbar, almíscar, canela"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul Gaultier Divine",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/jean-paul-gaultier-divine.jpg"
+    ],
+    "notas": {
+      "topo": "calypsone, sal, bagas vermelhas",
+      "corpo": "lírio, ylang-ylang, jasmim",
+      "fundo": "merengue, almíscar, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul Gaultier Le Belle",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/jean-paul-gaultier-le-belle.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota",
+      "corpo": "notas florais, couro",
+      "fundo": "baunilha, fava tonka, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul La Belle",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/jean-paul-la-belle.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota",
+      "corpo": "notas florais, couro",
+      "fundo": "baunilha, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Joop Femme",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/joop-femme.jpg"
+    ],
+    "notas": {
+      "topo": "aldeídos, notas frutadas, coentro, bergamota",
+      "corpo": "jasmim, flor de laranjeira, rosa, lírio-do-vale",
+      "fundo": "algália, sândalo, fava tonka, âmbar, baunilha, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "L'Interdit",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/l-interdit.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota",
+      "corpo": "tuberosa, flor de laranjeira, jasmim sambac",
+      "fundo": "patchouli, baunilha, ambroxan, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "L'Interdit Givenchy",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/l-interdit-givenchy.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota",
+      "corpo": "tuberosa, flor de laranjeira, jasmim sambac",
+      "fundo": "patchouli, baunilha, ambroxan, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "L'Interdit Rouge",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/l-interdit-rouge.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, laranja de sangue",
+      "corpo": "tuberosa, jasmim, folha de pimento",
+      "fundo": "patchouli, sândalo, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Bomba",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-bomba.jpg"
+    ],
+    "notas": {
+      "topo": "frutas tropicais, pimenta rosa",
+      "corpo": "jasmim, rosa",
+      "fundo": "baunilha, caramelo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Nuit Tresor",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-nuit-tresor.jpg"
+    ],
+    "notas": {
+      "topo": "pera, tangerina, bergamota",
+      "corpo": "morango, orquídea baunilha, rosa negra, maracujá",
+      "fundo": "pralinê, caramelo, lichia, baunilha, patchouli, incenso"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Vie Est Belle",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-vie-est-belle.jpg"
+    ],
+    "notas": {
+      "topo": "groselha preta, pera",
+      "corpo": "íris, jasmim, flor de laranjeira",
+      "fundo": "pralinê, baunilha, patchouli, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Vie Est Belle Intensement",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-vie-est-belle-intensement.jpg"
+    ],
+    "notas": {
+      "topo": "framboesa, pimenta rosa, bergamota",
+      "corpo": "heliotrópio, jasmim sambac, flor de laranjeira",
+      "fundo": "baunilha, íris, benjoim, sândalo, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Vie Est Belle Soleil Cristal",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-vie-est-belle-soleil-cristal.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, pimenta rosa, bergamota",
+      "corpo": "ylang-ylang, íris, flor de laranjeira, jasmim",
+      "fundo": "coco, baunilha, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Lacoste Rose",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/lacoste-rose.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina verde, hortelã",
+      "corpo": "rosa frutada, jasmim",
+      "fundo": "almíscar, madeira de sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
     "nome": "Lady Million",
-    "notas": {
-      "corpo": "Jasmim, Gardênia e Rosa",
-      "fundo": "Mel, Patchouli e Âmbar",
-      "topo": "Framboesa, Neroli e Toranja"
-    },
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 219,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no glamouroso Lady Million (Paco Rabanne)",
-    "secao": "Similares"
-  },
-  {
-    "ativo": true,
-    "badge": "Decant",
-    "custo": 95,
-    "desc": "Festivo, radiante e irresistível. O 212 VIP Rosé captura a energia da vida urbana com champanhe rosé e frutas vibrantes, revelando um coração floral leve sobre uma base âmbar suave.",
-    "estoque": 2,
-    "familia": "Floral Frutal · Feminino",
     "fotos": [
-      "https://epocacosmeticos.vteximg.com.br/arquivos/ids/515119-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--1-.jpg?v=638017224316500000",
-      "https://epocacosmeticos.vteximg.com.br/arquivos/ids/485849-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--2-.jpg?v=638947761124230000",
-      "https://epocacosmeticos.vteximg.com.br/arquivos/ids/485852-800-800/212-sexy-men-eau-de-toilette-carolina-herrera-kit-perfume-masculino-locao-pos-barba-125ml--5-.jpg?v=638947761124400000"
+      "imagens/lady-million.jpg"
     ],
-    "marca": "CAROLINA HERRERA",
-    "margem": 56,
-    "nome": "212 VIP Rosé",
     "notas": {
-      "corpo": "Peônia, Rosa e Gardênia",
-      "fundo": "Âmbar, Almíscar e Cedro",
-      "topo": "Champanhe Rosé e Frutas Vermelhas"
-    },
+      "topo": "framboesa, néroli, limão de Amalfi",
+      "corpo": "jasmim, flor de laranjeira africana, gardênia",
+      "fundo": "mel branco, patchouli, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Lady Million Prive",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 219,90",
+        "preco": "R$ 109,90",
         "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado na efervescência do 212 VIP Rosé (Carolina Herrera)",
-    "secao": "Similares"
+    "fotos": [
+      "imagens/lady-million-prive.jpg"
+    ],
+    "notas": {
+      "topo": "notas amadeiradas, flor de laranjeira",
+      "corpo": "baunilha, framboesa, heliotrópio",
+      "fundo": "cacau, mel, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante",
-    "desc": "Creme hidratante corporal 200g com a fragrância do lendário Angel. Textura suave, mel e chocolate envolvem a pele com uma aura irresistível. Ideal para uso diário.",
-    "estoque": 10,
-    "familia": "Cremoso Gourmand · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Isabelle La Belle · Angel",
-    "notas": {
-      "corpo": "Peônia, Orquídea, Baunilha",
-      "fundo": "Chocolate, Patchouli, Almíscar",
-      "topo": "Bergamota, Mel, Frutas Cítricas"
-    },
+    "secao": "autorais",
+    "nome": "Laguna",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 57,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no icônico Angel (Thierry Mugler) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/laguna.jpg"
+    ],
+    "notas": {
+      "topo": "abacaxi, gálbano, mandarina, pêssego, toranja",
+      "corpo": "lírio, jasmim, rosa, pau-brasil",
+      "fundo": "sândalo, fava tonka, âmbar, baunilha, cedro"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante",
-    "desc": "Creme hidratante corporal 200g com a fragrância do glamouroso Good Girl. Floral sedutor com toque de cacau e baunilha que deixa a pele perfumada o dia todo.",
-    "estoque": 10,
-    "familia": "Floral Oriental · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Isabelle La Belle · Good Girl",
-    "notas": {
-      "corpo": "Jasmim, Tuberosa, Íris",
-      "fundo": "Cacau, Baunilha, Âmbar",
-      "topo": "Bergamota, Limão"
-    },
+    "secao": "autorais",
+    "nome": "Lapidus Woman",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 57,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no sedutor Good Girl (Carolina Herrera) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/lapidus-woman.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, frésia, notas greens",
+      "corpo": "jasmim, ciclame, flor de laranjeira",
+      "fundo": "baunilha, sândalo, almíscar, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante",
-    "desc": "Creme hidratante corporal 200g com a fragrância do adorável Fantasy. Frutas tropicais e floral gourmand para uma pele macia e envolvente.",
-    "estoque": 10,
-    "familia": "Frutal Floral · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Isabelle La Belle · Fantasy",
-    "notas": {
-      "corpo": "Jasmim, Orquídea, Cupcake",
-      "fundo": "Almíscar, Orris, Baunilha",
-      "topo": "Maracujá, Kiwi, Lichia"
-    },
-    "precos": [
-      {
-        "preco": "R$ 57,00",
-        "vol": "200g"
-      }
+    "secao": "autorais",
+    "nome": "Lattafa Nebras",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/lattafa-nebras.jpg"
     ],
-    "ranking": "✦ Inspirado no doce Fantasy (Britney Spears) ✦",
-    "secao": "cosmeticos"
+    "notas": {
+      "topo": "bagas vermelhas, mandarina",
+      "corpo": "cacau, rosa, baunilha",
+      "fundo": "âmbar, almíscar, fava tonka"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante",
-    "desc": "Creme hidratante corporal 200g com a fragrância do ousado Scandal. Mel, gardênia e patchouli criam uma combinação quente e sedutora na pele.",
-    "estoque": 10,
-    "familia": "Floral Mel · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Isabelle La Belle · Scandal",
-    "notas": {
-      "corpo": "Gardênia, Mel, Patchouli",
-      "fundo": "Vetiver, Âmbar, Baunilha",
-      "topo": "Toranja, Tangerina, Mel"
-    },
+    "secao": "autorais",
+    "nome": "Libre",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 57,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no provocante Scandal (Jean Paul Gaultier) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/libre.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, mandarina, groselha preta, petitgrain",
+      "corpo": "lavanda, flor de laranjeira, jasmim",
+      "fundo": "baunilha de madagascar, almíscar, cedro, âmbar cinzento"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g de alta fixação com a essência do Club de Nuit. Fresco amadeirado com projeção marcante e longa duração.",
-    "estoque": 10,
-    "familia": "Amadeirado Aromático · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Club de Nuit",
-    "notas": {
-      "corpo": "Rosa, Jasmim, Bétula",
-      "fundo": "Almíscar, Âmbar, Baunilha",
-      "topo": "Limão, Toranja, Abacaxi"
-    },
+    "secao": "autorais",
+    "nome": "Lily",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no premiado Club de Nuit Intense Man (Armaf) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/lily.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, pera, pêssego, damasco",
+      "corpo": "lírio, jasmim, gardênia, rosa, íris",
+      "fundo": "sândalo, baunilha, almíscar, âmbar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância quente e especiada do Khamrah. Oriental intenso com oud e âmbar para uma presença marcante.",
-    "estoque": 10,
-    "familia": "Oriental Especiado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Khamrah",
-    "notas": {
-      "corpo": "Oud, Âmbar, Notas Orientais",
-      "fundo": "Sândalo, Baunilha, Almíscar",
-      "topo": "Especiarias, Pimenta, Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Lou Lou",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no envolvente Khamrah (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/lou-lou.jpg"
+    ],
+    "notas": {
+      "topo": "mimosa, íris, lírio, ameixa, violeta, jasmim, canela",
+      "corpo": "tuberosa, flor de laranjeira, heliotrópio, ylang-ylang",
+      "fundo": "sândalo, almíscar, benjoim, baunilha, incenso"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância adocicada e amadeirada do Asad Bourbon. Quente, envolvente e de longa duração na pele.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad Bourbon",
-    "notas": {
-      "corpo": "Cacau, Noz-moscada, Davana",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
-      "topo": "Lavanda, Ameixa, Pimenta Rosa"
-    },
+    "secao": "autorais",
+    "nome": "Love Animale",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no sofisticado Asad Bourbon (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/love-animale.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, bergamota, pimenta rosa",
+      "corpo": "jasmim, orquídea, gardênia",
+      "fundo": "sândalo, âmbar, almíscar, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância tropical e floral do Yara Tous. Frutas vermelhas e florais delicadas para uma pele radiante e perfumada.",
-    "estoque": 10,
-    "familia": "Floral Frutal · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara Tous",
-    "notas": {
-      "corpo": "Rosa, Peônia, Jasmim",
-      "fundo": "Almíscar, Âmbar, Sândalo",
-      "topo": "Frutas Vermelhas, Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Love Spell",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no vibrante Yara Tous (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/love-spell.jpg"
+    ],
+    "notas": {
+      "topo": "pêssego, flor de cerejeira, red apple",
+      "corpo": "lilás, jasmim, lírio-do-vale",
+      "fundo": "almíscar, tamarindo, notas brancas"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância doce e atalcada do Yara. Baunilha, orquídea e almíscar deixam a pele macia com um rastro irresistível.",
-    "estoque": 10,
-    "familia": "Âmbar Baunilha · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Yara",
-    "notas": {
-      "corpo": "Notas Gourmand, Frutas Tropicais",
-      "fundo": "Baunilha, Almíscar, Sândalo",
-      "topo": "Orquídea, Heliotrópio, Tangerina"
-    },
+    "secao": "autorais",
+    "nome": "Mademoiselle",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no cremoso Yara (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/mademoiselle.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, bergamota, laranja",
+      "corpo": "rosa, jasmim, mimosa",
+      "fundo": "patchouli, almíscar, baunilha"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância âmbar dourada do Royal Amber. Quente e sofisticada, deixa a pele com um brilho olfativo inesquecível.",
-    "estoque": 10,
-    "familia": "Oriental Âmbar · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Royal Amber",
-    "notas": {
-      "corpo": "Âmbar, Rosa, Notas Florais",
-      "fundo": "Sândalo, Almíscar, Baunilha",
-      "topo": "Notas Cítricas, Bergamota"
-    },
-    "precos": [
-      {
-        "preco": "R$ 70,00",
-        "vol": "200g"
-      }
+    "secao": "autorais",
+    "nome": "Maison Chateau Ottoman",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-chateau-ottoman.jpg"
     ],
-    "ranking": "✦ Inspirado no luminoso Royal Amber (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "notas": {
+      "topo": "fumaça, incenso",
+      "corpo": "rosa, patchouli",
+      "fundo": "âmbar, madeira guaiac"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância floral e feminina do Fakhar Rose. Rosa e jasmim em uma composição suave e envolvente de longa duração.",
-    "estoque": 10,
-    "familia": "Floral Rosa · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Rose",
-    "notas": {
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar, Sândalo",
-      "topo": "Frutas, Lírio, Bergamota"
-    },
-    "precos": [
-      {
-        "preco": "R$ 70,00",
-        "vol": "200g"
-      }
+    "secao": "autorais",
+    "nome": "Maison Intrude",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-intrude.jpg"
     ],
-    "ranking": "✦ Inspirado no delicado Fakhar Rose (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "notas": {
+      "topo": "pera, bergamota",
+      "corpo": "tuberosa, jasmim",
+      "fundo": "patchouli, baunilha"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância marcante do Asad. Pimenta, café e âmbar criam uma presença poderosa e sofisticada na pele.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Asad",
-    "notas": {
-      "corpo": "Patchouli, Café, Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca",
-      "topo": "Pimenta Preta, Tabaco, Abacaxi"
-    },
+    "secao": "autorais",
+    "nome": "Marc Jacobs",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Inspirado no imponente Asad (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/marc-jacobs.jpg"
+    ],
+    "notas": {
+      "topo": "gardênia, bergamota",
+      "corpo": "jasmim, madressilva, pimenta branca",
+      "fundo": "almíscar, cedro, gengibre"
+    }
   },
   {
     "ativo": true,
-    "badge": "Hidratante Árabe",
-    "desc": "Creme hidratante árabe 200g com a fragrância masculina e amadeirada do Fakhar Black. Maçã, lavanda e âmbar para uma presença elegante e marcante.",
-    "estoque": 10,
-    "familia": "Amadeirado Especiado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Creme Hidratante Árabe Isabelle La Belle · Fakhar Black",
-    "notas": {
-      "corpo": "Sálvia, Gerânio, Baunilha",
-      "fundo": "Fava Tonka, Âmbar, Couro",
-      "topo": "Maçã, Lavanda, Bergamota"
-    },
-    "precos": [
-      {
-        "preco": "R$ 70,00",
-        "vol": "200g"
-      }
+    "secao": "autorais",
+    "nome": "Mayar",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/mayar.jpg"
     ],
-    "ranking": "✦ Inspirado no intenso Fakhar Black (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "notas": {
+      "topo": "framboesa, lichia, folha de violeta",
+      "corpo": "rosa branca, peônia, jasmim",
+      "fundo": "baunilha, almíscar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a delicada fragrância Sabah Al Ward. Alta fixação, fórmula rica com manteiga de karité para pele suave e perfumada.",
-    "estoque": 10,
-    "familia": "Floral Rosa · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Sabah Al Ward",
-    "notas": {
-      "corpo": "Flores Brancas, Gardênia",
-      "fundo": "Patchouli, Almíscar, Sândalo",
-      "topo": "Cítricos, Rosa, Frutas"
-    },
+    "secao": "autorais",
+    "nome": "Midnight Fantasy",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Sabah Al Ward (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/midnight-fantasy.jpg"
+    ],
+    "notas": {
+      "topo": "ameixa, cereja amarga, framboesa",
+      "corpo": "orquídea, íris, freesia",
+      "fundo": "baunilha, âmbar, almíscar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância icônica Yara. Baunilha, orquídea e almíscar com máxima fixação e textura aveludada.",
-    "estoque": 10,
-    "familia": "Âmbar Baunilha · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Yara",
-    "notas": {
-      "corpo": "Frutas Tropicais, Gourmand",
-      "fundo": "Baunilha, Almíscar, Sândalo",
-      "topo": "Orquídea, Heliotrópio, Tangerina"
-    },
+    "secao": "autorais",
+    "nome": "Miracle",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Yara (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/miracle.jpg"
+    ],
+    "notas": {
+      "topo": "lichia, freesia",
+      "corpo": "magnólia, pimenta, gengibre, mandarina",
+      "fundo": "jasmim, almíscar, âmbar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância quente do Asad Bourbon. Máxima fixação, baunilha de bourbon e âmbar para uma presença duradoura.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Asad Bourbon",
-    "notas": {
-      "corpo": "Cacau, Noz-moscada",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
-      "topo": "Lavanda, Ameixa, Pimenta Rosa"
-    },
+    "secao": "autorais",
+    "nome": "Miss Dior",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Asad Bourbon (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/miss-dior.jpg"
+    ],
+    "notas": {
+      "topo": "íris, peônia, lírio-do-vale",
+      "corpo": "rosa, pêssego, damasco",
+      "fundo": "baunilha, fava tonka, almíscar, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a delicada e luxuosa fragrância Delina. Peônia, rosa e lichia em uma composição ultrafeminina e sofisticada.",
-    "estoque": 10,
-    "familia": "Floral Frutal · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Delina",
-    "notas": {
-      "corpo": "Peônia, Rosa, Gardênia",
-      "fundo": "Almíscar, Caxemira, Baunilha",
-      "topo": "Ruibarbo, Lichia, Pimenta Rosa"
-    },
+    "secao": "autorais",
+    "nome": "Mont Blanc Emblem",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Delina (Parfums de Marly) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/mont-blanc-emblem.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia esclareia, cardamomo, toranja",
+      "corpo": "folhas de violeta, canela",
+      "fundo": "notas amadeiradas, fava tonka"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância dourada Royal Amber. Âmbar quente e oriental com máxima fixação para uma pele luminosa.",
-    "estoque": 10,
-    "familia": "Oriental Âmbar · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Royal Amber",
-    "notas": {
-      "corpo": "Âmbar, Rosa, Notas Florais",
-      "fundo": "Sândalo, Almíscar, Baunilha",
-      "topo": "Notas Cítricas, Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Mont Blanc Lady",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Royal Amber (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/mont-blanc-lady.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, toranja rosa, saquê",
+      "corpo": "rosa, jasmim, romã",
+      "fundo": "almíscar, notas amadeiradas, âmbar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância poderosa do Asad. Textura cremosa e rica para hidratação intensa com presença olfativa marcante.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Asad",
-    "notas": {
-      "corpo": "Patchouli, Café, Íris",
-      "fundo": "Âmbar, Baunilha, Madeira Seca",
-      "topo": "Pimenta Preta, Tabaco, Abacaxi"
-    },
+    "secao": "autorais",
+    "nome": "Moschino Toy 2",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Asad (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/moschino-toy-2.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde, mandarina, magnólia",
+      "corpo": "groselha branca, peônia, jasmim",
+      "fundo": "almíscar, sândalo, madeira de âmbar"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância sofisticada Fakhar Gold. Amadeirado floral de longa duração para homens que apreciam elegância.",
-    "estoque": 10,
-    "familia": "Amadeirado Floral · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Gold",
-    "notas": {
-      "corpo": "Flores, Madeiras Nobres",
-      "fundo": "Âmbar, Sândalo, Almíscar",
-      "topo": "Frutas, Cítricos, Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Musamam White",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Fakhar Gold (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/musamam-white.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, bergamota",
+      "corpo": "notas florais, especiarias",
+      "fundo": "almíscar, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância lendária Angel. Máxima fixação, chocolate, mel e baunilha para uma pele deliciosamente perfumada.",
-    "estoque": 10,
-    "familia": "Cremoso Gourmand · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Angel",
-    "notas": {
-      "corpo": "Peônia, Orquídea, Chocolate",
-      "fundo": "Patchouli, Baunilha, Almíscar",
-      "topo": "Bergamota, Mel, Frutas Cítricas"
-    },
+    "secao": "autorais",
+    "nome": "My Way",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Angel (Thierry Mugler) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/my-way.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, bergamota",
+      "corpo": "tuberosa, jasmim indiano",
+      "fundo": "baunilha de madagascar, almíscar branco, cedro da Virgínia"
+    }
   },
   {
     "ativo": true,
-    "badge": "Pasta Hidratante",
-    "desc": "Pasta hidratante extra concentrada 200g com a fragrância floral e feminina do Fakhar Rose. Rosa pura e jasmim com máxima fixação para a pele.",
-    "estoque": 10,
-    "familia": "Floral Rosa · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Pasta Hidratante Isabelle La Belle · Fakhar Rose",
-    "notas": {
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar, Sândalo",
-      "topo": "Frutas, Lírio"
-    },
+    "secao": "autorais",
+    "nome": "Narciso Rodriguez For Her",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 120,00",
-        "vol": "200g"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Fórmula extra concentrada · Fakhar Rose (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/narciso-rodriguez-for-her.jpg"
+    ],
+    "notas": {
+      "topo": "rosa, pêssego",
+      "corpo": "almíscar, âmbar",
+      "fundo": "patchouli, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância floral e delicada do Fakhar Rose. Leve, duradouro e perfeito para uso diário após o banho.",
-    "estoque": 10,
-    "familia": "Floral Rosa · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Rose",
-    "notas": {
-      "corpo": "Rosa, Jasmim, Tuberosa",
-      "fundo": "Baunilha, Almíscar",
-      "topo": "Frutas, Lírio"
-    },
+    "secao": "autorais",
+    "nome": "Neroli Portofino",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Body splash 300ml · Fakhar Rose (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/neroli-portofino.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, mandarina, limão, lavanda, murta, alecrim",
+      "corpo": "flor de laranjeira africana, jasmim, néroli",
+      "fundo": "âmbar, ambreta, angélica"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância envolvente do Asad Bourbon. Oriental especiado com baunilha de bourbon para uma presença marcante e sofisticada.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Asad Bourbon",
-    "notas": {
-      "corpo": "Cacau, Noz-moscada",
-      "fundo": "Baunilha de Bourbon, Âmbar, Vetiver",
-      "topo": "Lavanda, Ameixa, Pimenta Rosa"
-    },
-    "precos": [
-      {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
-      }
+    "secao": "autorais",
+    "nome": "Nina",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/nina.jpg"
     ],
-    "ranking": "✦ Body splash 300ml · Asad Bourbon (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "notas": {
+      "topo": "limão de Amalfi, lima",
+      "corpo": "maçã Granny Smith, pralinê, peônia",
+      "fundo": "macieira, almíscar, cedro"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância floral e suave do Sabah Al Ward. Rosa e flores brancas para uma frescura feminina duradoura.",
-    "estoque": 10,
-    "familia": "Floral Rosa · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Sabah Al Ward",
-    "notas": {
-      "corpo": "Flores Brancas, Gardênia",
-      "fundo": "Patchouli, Almíscar, Sândalo",
-      "topo": "Cítricos, Rosa"
-    },
+    "secao": "autorais",
+    "nome": "Nina Ricci",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Body splash 300ml · Sabah Al Ward (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/nina-ricci.jpg"
+    ],
+    "notas": {
+      "topo": "limão de Amalfi, lima",
+      "corpo": "maçã Granny Smith, pralinê, peônia, datura",
+      "fundo": "macieira, almíscar, cedro da Virgínia"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância poderosa e marcante do Asad. Pimenta, café e âmbar para uma presença imponente e inesquecível.",
-    "estoque": 10,
-    "familia": "Oriental Amadeirado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Asad",
-    "notas": {
-      "corpo": "Patchouli, Café",
-      "fundo": "Âmbar, Baunilha, Madeira Seca",
-      "topo": "Pimenta Preta, Tabaco, Abacaxi"
-    },
+    "secao": "autorais",
+    "nome": "No 5 Chanel",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Body splash 300ml · Asad (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/no-5-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "aldeídos, ylang-ylang, néroli, bergamota, limão",
+      "corpo": "íris, jasmim, rosa, lírio-do-vale",
+      "fundo": "algália, sândalo, âmbar, almíscar, musgo de carvalho, vetiver, baunilha, patchouli"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância doce e cremosa do Yara. Baunilha, orquídea e almíscar em uma formulação leve e irresistível para o corpo.",
-    "estoque": 10,
-    "familia": "Âmbar Baunilha · Feminino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Yara",
-    "notas": {
-      "corpo": "Frutas Tropicais, Gourmand",
-      "fundo": "Baunilha, Almíscar, Sândalo",
-      "topo": "Orquídea, Heliotrópio, Tangerina"
-    },
+    "secao": "autorais",
+    "nome": "Olympea",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Body splash 300ml · Yara (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/olympea.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim aquático, mandarina verde, flor de gengibre",
+      "corpo": "baunilha, sal",
+      "fundo": "âmbar cinzento, madeira de caxemira, sândalo"
+    }
   },
   {
     "ativo": true,
-    "badge": "Body Splash Árabe",
-    "desc": "Body splash árabe 300ml com a fragrância intensa e amadeirada do Fakhar Black. Maçã, lavanda e couro para um rastro masculino marcante.",
-    "estoque": 10,
-    "familia": "Amadeirado Especiado · Masculino",
-    "marca": "ISABELLE LA BELLE",
-    "nome": "Body Splash Árabe Isabelle La Belle · Fakhar Black",
-    "notas": {
-      "corpo": "Sálvia, Gerânio, Baunilha",
-      "fundo": "Fava Tonka, Âmbar, Couro",
-      "topo": "Maçã, Lavanda, Bergamota"
-    },
+    "secao": "autorais",
+    "nome": "Olympea Blossom",
+    "familia": "Feminino",
     "precos": [
       {
-        "preco": "R$ 70,00",
-        "vol": "300ml"
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
       }
     ],
-    "ranking": "✦ Body splash 300ml · Fakhar Black (Lattafa) ✦",
-    "secao": "cosmeticos"
+    "fotos": [
+      "imagens/olympea-blossom.jpg"
+    ],
+    "notas": {
+      "topo": "rosa damascena, pimenta rosa",
+      "corpo": "pera, sorvete de groselha preta",
+      "fundo": "baunilha, sal, patchouli, caxemira"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Olympea Onix",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/olympea-onix.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim aquático, mandarina verde, flor de gengibre",
+      "corpo": "baunilha, sal",
+      "fundo": "âmbar cinzento, madeira de caxemira, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Olympea Parfum",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/olympea-parfum.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia, pimenta rosa, feno",
+      "corpo": "absoluto de jasmim, flor de laranjeira",
+      "fundo": "absoluto de baunilha, benjoim, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Oriana",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/oriana.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, bergamota, toranja",
+      "corpo": "flor de laranjeira, framboesa, groselha preta",
+      "fundo": "marshmallow, creme de leite, almíscar, ambreta"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Pear Glace",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/pear-glace.jpg"
+    ],
+    "notas": {
+      "topo": "pera, melão",
+      "corpo": "camomila, aloe vera",
+      "fundo": "notas doces, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Perfums De Marly Meliof",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [],
+    "notas": {
+      "topo": "groselha preta, frutas vermelhas",
+      "corpo": "rosa, ylang-ylang",
+      "fundo": "baunilha, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Poison Girl",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/poison-girl.jpg"
+    ],
+    "notas": {
+      "topo": "laranja amarga, limão",
+      "corpo": "rosa de damasco, rosa de grasse, flor de laranjeira",
+      "fundo": "fava tonka, baunilha, sândalo, amêndoa"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Prada Candy",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/prada-candy.jpg"
+    ],
+    "notas": {
+      "topo": "caramelo",
+      "corpo": "notas empoeiradas, almíscar",
+      "fundo": "benjoim, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Princesse",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/princesse.jpg"
+    ],
+    "notas": {
+      "topo": "maçã vermelha, melão, damasco",
+      "corpo": "jasmim, tuberosa, rosa",
+      "fundo": "sândalo, almíscar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Pure Seduction",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/pure-seduction.jpg"
+    ],
+    "notas": {
+      "topo": "ameixa, frésia",
+      "corpo": "notas doces, melão",
+      "fundo": "almíscar, notas florais"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Pure XS",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/pure-xs.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, tomilho, toranja, bergamota",
+      "corpo": "baunilha, licor, canela, couro",
+      "fundo": "mirra, açúcar, cedro, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Qaed Branco",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/qaed-branco.jpg"
+    ],
+    "notas": {
+      "topo": "coco, baunilha, amêndoa",
+      "corpo": "notas florais, heliotrópio",
+      "fundo": "almíscar branco, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ralph",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ralph.jpg"
+    ],
+    "notas": {
+      "topo": "folha de macieira, mandarina italiana, osmanthus japonês",
+      "corpo": "frésia amarela, magnólia, borônia",
+      "fundo": "almíscar, íris branca"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Rouge Royal",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/rouge-royal.jpg"
+    ],
+    "notas": {
+      "topo": "morango, groselha preta, limão do tahiti",
+      "corpo": "jasmim, ylang-ylang, lírio-do-vale",
+      "fundo": "musgo de carvalho, opoponax"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Royal Amber",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/royal-amber.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, notas verdes",
+      "corpo": "melão, abacaxi, notas doces, âmbar",
+      "fundo": "notas amadeiradas, baunilha, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Royal Marina",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/royal-marina.jpg"
+    ],
+    "notas": {
+      "topo": "açafrão, bagas vermelhas",
+      "corpo": "jasmim, sândalo, notas florais",
+      "fundo": "almíscar, notas amadeiradas, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Sabah Al Ward",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/sabah-al-ward.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, tangerina",
+      "corpo": "cacau, jasmim sambac, flor de laranjeira",
+      "fundo": "fava tonka, baunilha, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Sakeena",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/sakeena.jpg"
+    ],
+    "notas": {
+      "topo": "maracujá, mandarina, notas ozônicas",
+      "corpo": "framboesa, rosa, sal, flor de laranjeira",
+      "fundo": "pralinê, mel, baunilha, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Samsara",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/samsara.jpg"
+    ],
+    "notas": {
+      "topo": "ylang-ylang, pêssego, bergamota, notas greens, limão",
+      "corpo": "íris, jasmim, narciso, raiz de íris, rosa, violeta",
+      "fundo": "sândalo, íris, baunilha, fava tonka, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Scandal",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/scandal.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia esclareia, mandarina",
+      "corpo": "caramelo, fava tonka",
+      "fundo": "vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Secret Charm",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/secret-charm.jpg"
+    ],
+    "notas": {
+      "topo": "madressilva",
+      "corpo": "jasmim, camomila",
+      "fundo": "aloe vera, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Secret Crush",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/secret-crush.jpg"
+    ],
+    "notas": {
+      "topo": "flor de pêssego",
+      "corpo": "peônia",
+      "fundo": "notas frutadas, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Shagal Al Ward",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/shagal-al-ward.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim, amêndoa",
+      "corpo": "tuberosa, notas florais",
+      "fundo": "fava tonka, cacau, café, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Si",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/si.jpg"
+    ],
+    "notas": {
+      "topo": "groselha preta",
+      "corpo": "rosa de maio, freesia",
+      "fundo": "baunilha, patchouli, ambroxan, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Si Armani",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/si-armani.jpg"
+    ],
+    "notas": {
+      "topo": "groselha preta",
+      "corpo": "rosa de maio, frésia",
+      "fundo": "baunilha, patchouli, ambroxan, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Si Passione",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/si-passione.jpg"
+    ],
+    "notas": {
+      "topo": "pera, groselha preta, pimenta rosa, toranja",
+      "corpo": "abacaxi, rosa, jasmim, heliotrópio",
+      "fundo": "baunilha, cedro, madeira de âmbar, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Sole Di Positano",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/sole-di-positano.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, limão, bergamota, laranja amarga, shisso",
+      "corpo": "flor de laranjeira, néroli, jasmim, ilangue-ilangue",
+      "fundo": "musgo do carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Souvenier Floral Bouquet",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/souvenier-floral-bouquet.jpg"
+    ],
+    "notas": {
+      "topo": "ruibarbo, lichia, bergamota",
+      "corpo": "rosa, lírio-do-vale, peônia",
+      "fundo": "baunilha, almíscar, cashmeran"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Strawberries & Champagne",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/strawberries-champagne.jpg"
+    ],
+    "notas": {
+      "topo": "morango selvagem, champanhe",
+      "corpo": "groselha preta, camomila",
+      "fundo": "aloe vera, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Su Scandal",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/su-scandal.jpg"
+    ],
+    "notas": {
+      "topo": "framboesa, tuberosa",
+      "corpo": "flor de laranjeira, jasmim sambac",
+      "fundo": "notas lácteas, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Temptation",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/temptation.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde",
+      "corpo": "flor de cacto, notas florais",
+      "fundo": "notas doces, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Teriaq",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/teriaq.jpg"
+    ],
+    "notas": {
+      "topo": "caramelo, pimenta rosa, amêndoa amarga, damasco",
+      "corpo": "mel, ruibarbo, flores brancas, rosa",
+      "fundo": "couro, baunilha, ládano, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Tharwah Gold",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/tharwah-gold.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, lavanda",
+      "corpo": "flor de laranjeira, jasmim",
+      "fundo": "baunilha, âmbar, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "The Kingdom",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/the-kingdom.jpg"
+    ],
+    "notas": {
+      "topo": "notas especiadas, cítricos",
+      "corpo": "notas amadeiradas",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Valentino",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/valentino.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, trufa branca",
+      "corpo": "flor de laranjeira, jasmim, tuberosa, morango selvagem",
+      "fundo": "cedro, âmbar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Valentino Donna",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/valentino-donna.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota",
+      "corpo": "rosa búlgara, íris",
+      "fundo": "patchouli, couro, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Dilan Purple",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-dilan-purple.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota, laranja amarga",
+      "corpo": "frésia, pomarose, mahonial",
+      "fundo": "ambroxan, iso e super, sylkolide, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Dylan Blue",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-dylan-blue.jpg"
+    ],
+    "notas": {
+      "topo": "notas aquáticas, bergamota da Calábria, toranja, folha de figo",
+      "corpo": "folha de violeta, papiro, patchouli, pimenta preta, ambroxan",
+      "fundo": "almíscar, incenso, fava tonka, açafrão"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Dylan Purple",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/versace-dylan-purple.jpg"
+    ],
+    "notas": {
+      "topo": "pera, bergamota, laranja amarga",
+      "corpo": "frésia, pomarose, mahonial",
+      "fundo": "ambroxan, cedro, sylkolide"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Dylan Turquoise",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-dylan-turquoise.jpg"
+    ],
+    "notas": {
+      "topo": "limão, tangerina, pimenta rosa",
+      "corpo": "goiaba, frésia, jasmim, cassis",
+      "fundo": "clearwood, almíscar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Eros Por Femme",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-eros-por-femme.jpg"
+    ],
+    "notas": {
+      "topo": "limão siciliano, bergamota da Calábria, romã",
+      "corpo": "flor de limão, jasmim sambac, jasmim, peônia",
+      "fundo": "sândalo, ambroxan, almíscar, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Victoria Lattafa",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/victoria-lattafa.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, bergamota",
+      "corpo": "notas florais, jasmim",
+      "fundo": "baunilha, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Victoria's Secret Angel Gold",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/victoria-s-secret-angel-gold.jpg"
+    ],
+    "notas": {
+      "topo": "pomelo, pera, bergamota, laranja, bagas vermelhas",
+      "corpo": "gardênia, jasmim, peônia, vitória-régia",
+      "fundo": "almíscar, sândalo, baunilha, âmbar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Victoria's Secret Bombshell",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/victoria-s-secret-bombshell.jpg"
+    ],
+    "notas": {
+      "topo": "maracujá, toranja, abacaxi, tangerina, morango",
+      "corpo": "peônia, orquídea baunilha, bagas vermelhas, jasmim",
+      "fundo": "almíscar, notas amadeiradas, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Victoria's Secret Crush",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/victoria-s-secret-crush.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa",
+      "corpo": "peônia",
+      "fundo": "notas florais"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Xerjoff Erba Pura",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/xerjoff-erba-pura.jpg"
+    ],
+    "notas": {
+      "topo": "laranja de sicília, limão de sicília, bergamota da calábria",
+      "corpo": "notas frutadas",
+      "fundo": "almíscar branco, âmbar, baunilha de madagascar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Xerjoff Erbapura",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/xerjoff-erbapura.jpg"
+    ],
+    "notas": {
+      "topo": "laranja de sicília, limão de sicília, bergamota da calábria",
+      "corpo": "notas frutadas",
+      "fundo": "almíscar branco, âmbar, baunilha de madagascar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara.jpg"
+    ],
+    "notas": {
+      "topo": "heliotrópio, tangerina, orquídea",
+      "corpo": "notas gourmand, frutas tropicais",
+      "fundo": "baunilha, sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Candy",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara-candy.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde, tangerina",
+      "corpo": "morango, notas doces",
+      "fundo": "baunilha, caramelo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Elixir",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, tangerina",
+      "corpo": "rosa, notas exóticas",
+      "fundo": "baunilha, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Lattafa",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [],
+    "notas": {
+      "topo": "heliotrópio, tangerina, orquídea",
+      "corpo": "notas gourmand, frutas tropicais",
+      "fundo": "baunilha, sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Moi",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara-moi.jpg"
+    ],
+    "notas": {
+      "topo": "jasmim, pêssego",
+      "corpo": "caramelo, âmbar",
+      "fundo": "patchouli, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Rose",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara-rose.jpg"
+    ],
+    "notas": {
+      "topo": "rosa, frutas vermelhas",
+      "corpo": "jasmim, baunilha",
+      "fundo": "almíscar, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yara Tous",
+    "familia": "Feminino",
+    "precos": [],
+    "fotos": [
+      "imagens/yara-tous.jpg"
+    ],
+    "notas": {
+      "topo": "manga, coco, maracujá",
+      "corpo": "jasmim, heliotrópio, flor de laranjeira",
+      "fundo": "baunilha, almíscar, cashmeran"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Yum Yum",
+    "familia": "Feminino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/yum-yum.jpg"
+    ],
+    "notas": {
+      "topo": "pistache, sorvete, bergamota, rum, cardamomo",
+      "corpo": "lírio-do-vale, pera, gerânio, jasmim",
+      "fundo": "marshmallow, algodão-doce, fava tonka, cacau"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina sangüínea, hortelã, toranja",
+      "corpo": "canela, notas especiadas, rosa",
+      "fundo": "couro, âmbar, notas amadeiradas, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Elixir",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, davana",
+      "corpo": "rosa damascena, osmanthus, cedro",
+      "fundo": "absoluto de baunilha, fava tonka, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Gold",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-gold.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, hortelã, toranja",
+      "corpo": "canela, rosa, especiarias",
+      "fundo": "couro, âmbar, patchouli, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Lucky",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-lucky.jpg"
+    ],
+    "notas": {
+      "topo": "ameixa, ozônio, toranja, bergamota",
+      "corpo": "avelã, mel, cedro, cashmeran, jasmim",
+      "fundo": "patchouli, madeira de âmbar, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Parfum",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-parfum.jpg"
+    ]
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Prive",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-prive.jpg"
+    ],
+    "notas": {
+      "topo": "canela, mandarina sangüínea",
+      "corpo": "tabaco, mirra",
+      "fundo": "fava tonka, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "1 Million Royal",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/1-million-royal.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo, tangerina, bergamota",
+      "corpo": "lavanda, sálvia, violeta",
+      "fundo": "benjoim, cedro, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 Men",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-men.jpg"
+    ],
+    "notas": {
+      "topo": "notas verdes, toranja, especiarias, bergamota, lavanda",
+      "corpo": "gengibre, violeta, gardênia, sálvia",
+      "fundo": "almíscar, sândalo, incenso, vetiver, madeira guaiac"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 Men Heroes Forever Young",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-men-heroes-forever-young.jpg"
+    ],
+    "notas": {
+      "topo": "pera, gengibre, maconha",
+      "corpo": "gerânio, sálvia",
+      "fundo": "almíscar, couro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 Sexy Men",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-sexy-men.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, bergamota, notas verdes",
+      "corpo": "pimenta, cardamomo, flores",
+      "fundo": "baunilha, madeira guaiac, sândalo, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-black.jpg"
+    ],
+    "notas": {
+      "topo": "absinto, anis, erva-doce",
+      "corpo": "lavanda",
+      "fundo": "casca de baunilha negra, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Men",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-men.jpg"
+    ],
+    "notas": {
+      "topo": "maracujá, lima, pimenta, gengibre",
+      "corpo": "vodka, gim, hortelã, especiarias",
+      "fundo": "âmbar, couro, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "212 VIP Men Wins",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/212-vip-men-wins.jpg"
+    ],
+    "notas": {
+      "topo": "notas greens, manjericão, mandarina",
+      "corpo": "pimenta de madagascar, lavanda",
+      "fundo": "notas amadeiradas, fava tonka, couro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "9pm Afnan",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/9pm-afnan.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, canela, lavanda, bergamota",
+      "corpo": "flor de laranjeira, lírio-do-vale",
+      "fundo": "baunilha, fava tonka, âmbar, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Abercrombie & Fitch",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/abercrombie-fitch.jpg"
+    ],
+    "notas": {
+      "topo": "melão, bergamota, mandarina",
+      "corpo": "pimenta preta, sálvia, gerânio",
+      "fundo": "camurça, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Acqua Di Gio",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/acqua-di-gio.jpg"
+    ],
+    "notas": {
+      "topo": "lima, limão, bergamota, jasmim, laranja, néroli",
+      "corpo": "notas marinhas, jasmim, pêssego, alecrim",
+      "fundo": "almíscar, cedro, musgo de carvalho, patchouli, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Acqua Di Gio Perfumo",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/acqua-di-gio-perfumo.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, bergamota",
+      "corpo": "alecrim, sálvia, gerânio",
+      "fundo": "incenso, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Acqua Di Gio Profondo",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/acqua-di-gio-profondo.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, aquozone, bergamota, mandarina verde",
+      "corpo": "alecrim, lavanda, cipreste",
+      "fundo": "patchouli, almíscar, âmbar, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ajwad",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/ajwad.jpg"
+    ],
+    "notas": {
+      "topo": "notas frutadas",
+      "corpo": "jasmim, rosa",
+      "fundo": "âmbar, baunilha, almíscar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Al Layl",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/al-layl.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, especiarias",
+      "corpo": "notas florais, notas amadeiradas",
+      "fundo": "sândalo, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Al Noble Ameer",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/al-noble-ameer.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, pimenta rosa, alecrim",
+      "corpo": "cravo, notas florais",
+      "fundo": "oud, patchouli, cipreste, ládano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Al Noble Safeer",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/al-noble-safeer.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, Artemísia",
+      "corpo": "notas verdes, ervas",
+      "fundo": "notas amadeiradas, patchouli, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Al Noble Wazeer",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/al-noble-wazeer.jpg"
+    ],
+    "notas": {
+      "topo": "hortelã, laranja amarga, bergamota, pera",
+      "corpo": "cardamomo, framboesa, íris",
+      "fundo": "sândalo, âmbar, cedro, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Allure",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/allure.jpg"
+    ],
+    "notas": {
+      "topo": "limão, pêssego, gengibre, mandarina, lavanda, bergamota",
+      "corpo": "pimenta, cedro, patchouli, rosa, jasmim, gardênia",
+      "fundo": "baunilha, fava tonka, coco, sândalo, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Animale",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/animale.jpg"
+    ],
+    "notas": {
+      "topo": "néroli, freesia, limão",
+      "corpo": "lavanda, zimbro, gerânio",
+      "fundo": "couro, musgo de carvalho, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Animale Animale",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/animale-animale.jpg"
+    ],
+    "notas": {
+      "topo": "mel, noz-moscada, limão, sândalo",
+      "corpo": "lavanda, patchouli, âmbar",
+      "fundo": "baunilha, almíscar, cedro, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Animale Gold",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/animale-gold.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, lavanda, especiarias",
+      "corpo": "gerânio, jasmim",
+      "fundo": "patchouli, sândalo, almíscar, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Antonio Banderas",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/antonio-banderas.jpg"
+    ],
+    "notas": {
+      "topo": "hortelã, bergamota, melão",
+      "corpo": "café, noz-moscada, maçã verde, cardamomo",
+      "fundo": "âmbar, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Armani Code",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/armani-code.jpg"
+    ],
+    "notas": {
+      "topo": "limão, bergamota",
+      "corpo": "estrela-de-anis, flor de oliveira, madeira guaiac",
+      "fundo": "couro, tabaco, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Armani Code Absolu",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/armani-code-absolu.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina verde, maçã",
+      "corpo": "noz-moscada, sementes de cenoura, flor de laranjeira",
+      "fundo": "fava tonka, baunilha, camurça, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Asad",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/asad.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta preta, abacaxi, tabaco",
+      "corpo": "café, patchouli, íris",
+      "fundo": "baunilha, âmbar, madeira seca"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Asad Bourbon",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/asad-bourbon.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta, bergamota",
+      "corpo": "notas especiadas, café",
+      "fundo": "baunilha de madagascar, âmbar, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Asad Lattafa",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/asad-lattafa.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta preta, abacaxi, tabaco",
+      "corpo": "café, patchouli, íris",
+      "fundo": "baunilha, âmbar, madeira seca, benjoim"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Asad Zanzibar",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/asad-zanzibar.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta preta, notas oceânicas",
+      "corpo": "lavanda, notas especiadas",
+      "fundo": "incenso, patchouli, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Attar Al Wesal",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/attar-al-wesal.jpg"
+    ],
+    "notas": {
+      "topo": "pera, lavanda, hortelã",
+      "corpo": "canela, sálvia",
+      "fundo": "casca de baunilha negra, âmbar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Aventus",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/aventus.jpg"
+    ],
+    "notas": {
+      "topo": "abacaxi, bergamota, groselha preta, maçã",
+      "corpo": "bétula, patchouli, jasmim marroquino, rosa",
+      "fundo": "almíscar, musgo de carvalho, âmbar cinzento, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Chrome",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-chrome.jpg"
+    ],
+    "notas": {
+      "topo": "limão, alecrim, bergamota, néroli, abacaxi",
+      "corpo": "jasmim, ciclamen, musgo de carvalho",
+      "fundo": "almíscar, cedro, sândalo, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Pour Homme",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-pour-homme.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, anis, limão, alcaravia, manjericão",
+      "corpo": "vetiver, sândalo, patchouli, cedro",
+      "fundo": "musgo de carvalho, couro, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Silver Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-silver-black.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde, bergamota, anis, lima",
+      "corpo": "coentro, junípero, cardamomo",
+      "fundo": "patchouli, sândalo, vetiver, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro The Most Wanted",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-the-most-wanted.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo",
+      "corpo": "toffee",
+      "fundo": "amberwood"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Wanted",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-wanted.jpg"
+    ],
+    "notas": {
+      "topo": "limão, gengibre, lavanda, hortelã",
+      "corpo": "cardamomo da Guatemala, maçã, junípero",
+      "fundo": "fava tonka, amberwood, vetiver do Haiti"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Azzaro Wanted Gold",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/azzaro-wanted-gold.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, limão",
+      "corpo": "cardamomo da guatemala, junípero",
+      "fundo": "fava tonka, vetiver, amberwood"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bad Boy",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bad-boy.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta branca, pimenta preta, bergamota verde",
+      "corpo": "sálvia, cedro",
+      "fundo": "fava tonka, cacau, amberwood"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bad Boy Elixir",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/bad-boy-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta preta, sálvia",
+      "corpo": "trufa negra, incenso",
+      "fundo": "baunilha, fava tonka, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bad Homme",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/bad-homme.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta preta, bergamota",
+      "corpo": "sálvia, cedro",
+      "fundo": "fava tonka, cacau"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bade'e Al Oud Oud For Glory",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/bade-e-al-oud-oud-for-glory.jpg"
+    ],
+    "notas": {
+      "topo": "açafrão, noz-moscada, lavanda",
+      "corpo": "agarwood (oud), patchouli",
+      "fundo": "oud, patchouli, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Black Orchid",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/black-orchid.jpg"
+    ],
+    "notas": {
+      "topo": "trufa, gardênia, groselha preta, ylang-ylang, jasmim, bergamota, tangerina, limão",
+      "corpo": "orquídea, especiarias, notas frutadas",
+      "fundo": "chocolate amargo, patchouli, baunilha, incenso"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Black XS",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/black-xs.jpg"
+    ],
+    "notas": {
+      "topo": "cranberry, pimenta rosa, tamarindo",
+      "corpo": "cacau, rosa, violeta negra",
+      "fundo": "baunilha, patchouli, madeira de massoia"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bleu De Chanel",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bleu-de-chanel.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, limão, hortelã, pimenta rosa",
+      "corpo": "gengibre, noz-moscada, jasmim",
+      "fundo": "incenso, vetiver, cedro, sândalo, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Boss",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/boss.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, ameixa, bergamota, limão, musgo de carvalho, gerânio",
+      "corpo": "canela, mogno, cravo",
+      "fundo": "baunilha, sândalo, cedro, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Boss In Motion",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/boss-in-motion.jpg"
+    ],
+    "notas": {
+      "topo": "laranja, manjericão, folha de violeta, bergamota",
+      "corpo": "noz-moscada, canela, pimenta rosa, cardamomo",
+      "fundo": "sândalo, notas amadeiradas, almíscar, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bvlgari.jpg"
+    ],
+    "notas": {
+      "topo": "chá, aldeídos, lavanda, néroli, bergamota",
+      "corpo": "pimenta, íris, pau-brasil, coentro",
+      "fundo": "almíscar, cedro, vetiver, âmbar, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari Aqva",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bvlgari-aqva.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, laranja, tília",
+      "corpo": "algas marinhas, lavanda, flor de algodão",
+      "fundo": "cedro, notas amadeiradas, patchouli, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Bvlgari Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/bvlgari-black.jpg"
+    ],
+    "notas": {
+      "topo": "chá verde, bergamota, rosa",
+      "corpo": "sândalo, cedro, jasmim",
+      "fundo": "couro, baunilha, âmbar, almíscar, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "CH Men",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ch-men.jpg"
+    ],
+    "notas": {
+      "topo": "grama, bergamota, toranja",
+      "corpo": "notas amadeiradas, noz-moscada, violeta, açafrão, jasmim",
+      "fundo": "camurça, couro, baunilha, açúcar, musgo de carvalho, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "CH Men Prive",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ch-men-prive.jpg"
+    ],
+    "notas": {
+      "topo": "whiskey, toranja, pomelo",
+      "corpo": "cardamomo, lavanda, sálvia, tomilho",
+      "fundo": "couro, fava tonka, notas amadeiradas, benjoim"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "CK Be",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ck-be.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, notas verdes, hortelã, mandarina, junípero, bergamota",
+      "corpo": "grama verde, magnólia, orquídea, frésia, jasmim, pêssego",
+      "fundo": "sândalo, âmbar, opoponax, almíscar, cedro, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "CK One",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ck-one.jpg"
+    ],
+    "notas": {
+      "topo": "limão, notas verdes, bergamota, mandarina, abacaxi",
+      "corpo": "lírio-do-vale, jasmim, violeta, noz-moscada",
+      "fundo": "almíscar, cedro, sândalo, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Club De Nuit",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/club-de-nuit.jpg"
+    ],
+    "notas": {
+      "topo": "limão, abacaxi, bergamota, groselha preta, maçã",
+      "corpo": "bétula, jasmim, rosa",
+      "fundo": "almíscar, âmbar cinzento, patchouli, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Club De Nuit Iconic",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/club-de-nuit-iconic.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, limão, hortelã, pimenta rosa, coentro",
+      "corpo": "gengibre, noz-moscada, jasmim, melão",
+      "fundo": "incenso, âmbar, cedro, sândalo, patchouli, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Club De Nuit Precieux",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/club-de-nuit-precieux.jpg"
+    ],
+    "notas": {
+      "topo": "abacaxi, pera, caramelo, limão, bergamota, pimenta rosa",
+      "corpo": "notas amadeiradas, jasmim, rosa",
+      "fundo": "almíscar, âmbar cinzento, baunilha, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "D&G K The King",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/d-g-k-the-king.jpg"
+    ],
+    "notas": {
+      "topo": "bagas de zimbro, cítricos, laranja vermelha, limão siciliano",
+      "corpo": "pimenta pimento, sálvia esclareia, lavanda, gerânio",
+      "fundo": "vetiver, cedro, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "D&G Pour Homme",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/d-g-pour-homme.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, estragão, sálvia, bergamota, limão, mandarina",
+      "corpo": "tabaco, gerânio, rosa, jasmim",
+      "fundo": "sândalo, fava tonka, âmbar, almíscar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Diesel Bad",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/diesel-bad.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, bergamota, cardamomo, folha de violeta",
+      "corpo": "caviar, raiz de íris, sálvia",
+      "fundo": "notas amadeiradas, tabaco, ambroxan"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Diesel Fuel For Life",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/diesel-fuel-for-life.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, anisestrelado",
+      "corpo": "framboesa, lavanda",
+      "fundo": "notas amadeiradas, heliotrópio"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Diesel Only The Brave",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/diesel-only-the-brave.jpg"
+    ],
+    "notas": {
+      "topo": "limão de Amalfi, mandarina",
+      "corpo": "violeta, cedro, coentro",
+      "fundo": "couro, âmbar, benjoim, estoraque"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dior Homme",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/dior-homme.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, bergamota, sálvia",
+      "corpo": "íris, cacau, âmbar",
+      "fundo": "couro, vetiver, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Dolce & Gabbana Grey",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/dolce-gabbana-grey.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, cardamomo, coentro, manjericão",
+      "corpo": "sálvia esclareia, lavanda, gerânio",
+      "fundo": "vetiver, tabaco, patchouli, ládano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Eternity",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/eternity.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, mandarina, bergamota, limão",
+      "corpo": "coentro, lírio, flor de laranjeira, bagas de zimbro, jasmim, sábia, lírio-do-vale, gerânio",
+      "fundo": "sândalo, âmbar, almíscar, vetiver, pau-brasil"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Euphoria",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/euphoria.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, pimenta",
+      "corpo": "manjericão negro, sálvia, cedro",
+      "fundo": "âmbar, patchouli, pau-brasil, camurça"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fahrenheit",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fahrenheit.jpg"
+    ],
+    "notas": {
+      "topo": "flor de moscadeira, lavanda, cedro, camomila, mandarina",
+      "corpo": "folhas de violeta, noz-moscada, cedro, sândalo",
+      "fundo": "couro, vetiver, almíscar, âmbar, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fakhar Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fakhar-black.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, gengibre, bergamota",
+      "corpo": "sálvia, lavanda, bagas de zimbro, gerânio",
+      "fundo": "âmbar, fava tonka, cedro, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fakhar Gold",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/fakhar-gold.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, notas oceânicas, mandarina",
+      "corpo": "louro, jasmim",
+      "fundo": "madeira guaiac, patchouli, musgo de carvalho, âmbar cinzento"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Fakhar Platinum",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/fakhar-platinum.jpg"
+    ],
+    "notas": {
+      "topo": "notas frescas, cítricos",
+      "corpo": "especiarias, notas florais",
+      "fundo": "notas amadeiradas, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ferrari Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ferrari-black.jpg"
+    ],
+    "notas": {
+      "topo": "maçã vermelha, ameixa, lima, bergamota",
+      "corpo": "canela, jasmim, rosa, cardamomo",
+      "fundo": "baunilha, âmbar, cedro, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ferrari Red",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ferrari-red.jpg"
+    ],
+    "notas": {
+      "topo": "hortelã, bergamota, laranja, gálbano, verbena",
+      "corpo": "jasmim, gerânio, íris, noz-moscada",
+      "fundo": "cedro, sândalo, musgo de carvalho, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Gentleman Society",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/gentleman-society.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo, sálvia esclareia",
+      "corpo": "narciso francês, vetiver do haiti",
+      "fundo": "baunilha de madagascar, palo santo, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Givenchy Gentlemen Only",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/givenchy-gentlemen-only.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina verde, pimenta rosa, noz-moscada, folha de bétula",
+      "corpo": "cedro, patchouli, vetiver, violeta",
+      "fundo": "incenso, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Givenchy Pi",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/givenchy-pi.jpg"
+    ],
+    "notas": {
+      "topo": "mandarina, alecrim, gálbano, manjericão",
+      "corpo": "néroli, gerânio, lírio-do-vale, anis",
+      "fundo": "baunilha, fava tonka, benjoim, amêndoa"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Hayaati",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/hayaati.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, bergamota",
+      "corpo": "canela, notas amadeiradas",
+      "fundo": "almíscar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "His Confession",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/his-confession.jpg"
+    ],
+    "notas": {
+      "topo": "notas frescas, cítricos",
+      "corpo": "notas amadeiradas, especiarias",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Hugo Boss",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/hugo-boss.jpg"
+    ],
+    "notas": {
+      "topo": "maçã verde, hortelã, lavanda, toranja, toranja picante",
+      "corpo": "sálvia, gerânio, cravo, jasmim",
+      "fundo": "abeto, cedro, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Initio Oud For Greatness",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/initio-oud-for-greatness.jpg"
+    ],
+    "notas": {
+      "topo": "açafrão, noz-moscada, lavanda",
+      "corpo": "agarwood (oud)",
+      "fundo": "patchouli, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Intenso",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/intenso.jpg"
+    ],
+    "notas": {
+      "topo": "notas aquáticas, lavanda, manjericão, calêndula",
+      "corpo": "tabaco, feno, moepel wood, sálvia",
+      "fundo": "sândalo, cipreste, almíscar, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Invictus",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/invictus.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, toranja, mandarina",
+      "corpo": "louro, jasmim",
+      "fundo": "âmbar cinzento, madeira guaiac, musgo de carvalho, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Invictus Legend",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/invictus-legend.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, sal marinho, toranja",
+      "corpo": "louro, gerânio, especiarias",
+      "fundo": "âmbar vermelho, madeira guaiac"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Invictus Parfum",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/invictus-parfum.jpg"
+    ],
+    "notas": {
+      "topo": "notas marinhas, lavanda, pimenta rosa",
+      "corpo": "sabão, folhas de violeta, murta",
+      "fundo": "cashmeran, almíscar, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Invictus Victory",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/invictus-victory.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, limão",
+      "corpo": "lavanda, olíbano",
+      "fundo": "baunilha, fava tonka, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Invictus Victory Elixir",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/invictus-victory-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, cardamomo, pimenta preta",
+      "corpo": "incenso, patchouli",
+      "fundo": "fava tonka, fava de baunilha de madagascar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Issey Myaky Masc",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/issey-myaky-masc.jpg"
+    ],
+    "notas": {
+      "topo": "yuzu, limão, bergamota, mandarina, verbena, coentro",
+      "corpo": "lírio-do-vale, noz-moscada, açafrão, gerânio, lótus azul",
+      "fundo": "vetiver, almíscar, sândalo, cedro, âmbar, tabaco"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Lowe Immortel",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/jean-lowe-immortel.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, gengibre, bergamota",
+      "corpo": "alecrim, notas aquáticas, gerânio, sálvia",
+      "fundo": "ambroxan, ládano, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul Gaultier Le Beau",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/jean-paul-gaultier-le-beau.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota",
+      "corpo": "coco",
+      "fundo": "fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jean Paul Le Male",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/jean-paul-le-male.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, hortelã, cardamomo, bergamota, artemísia",
+      "corpo": "canela, flor de laranjeira, alcaravia",
+      "fundo": "baunilha, fava tonka, âmbar, sândalo, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Jimmy Choo Man",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/jimmy-choo-man.jpg"
+    ]
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Joop Homme",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/joop-homme.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, mandarina, bergamota, limão de Amalfi",
+      "corpo": "canela, heliotrópio, jasmim, cardamomo, lírio-do-vale",
+      "fundo": "baunilha, fava tonka, sândalo, patchouli, âmbar, mel"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Joop Night Flight",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/joop-night-flight.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, abacaxi, bergamota, limão",
+      "corpo": "jasmim, lírio-do-vale, rosa, gerânio, pau-brasil",
+      "fundo": "almíscar, fava tonka, sândalo, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Khanjar",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/khanjar.jpg"
+    ],
+    "notas": {
+      "topo": "noz-moscada, açafrão",
+      "corpo": "sândalo, patchouli",
+      "fundo": "oud, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Khanrah",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [],
+    "notas": {
+      "topo": "conhaque, canela, noz-moscada",
+      "corpo": "tâmara, pralinê, tuberosa",
+      "fundo": "baunilha, fava tonka, benjoim, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Kouros",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/kouros.jpg"
+    ],
+    "notas": {
+      "topo": "aldeídos, coentro, artemísia, sálvia",
+      "corpo": "patchouli, cravo, gerânio, canela",
+      "fundo": "algália, mel, couro, almíscar, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Kouros Body",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/kouros-body.jpg"
+    ],
+    "notas": {
+      "topo": "incenso, eucalipto",
+      "corpo": "sálvia esclareia, cedro da china",
+      "fundo": "benjoim"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "L'Eau D'Issey Pour Homme",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/l-eau-d-issey-pour-homme.jpg"
+    ],
+    "notas": {
+      "topo": "yuzu, limão, bergamota, mandarina, verbena",
+      "corpo": "lírio-do-vale, noz-moscada, açafrão, gerânio",
+      "fundo": "vetiver, almíscar, sândalo, cedro, tabaco"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "La Nuit L'Homme Yves Saint Laurent",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/la-nuit-l-homme-yves-saint-laurent.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo",
+      "corpo": "lavanda, cedro, bergamota",
+      "fundo": "vetiver, alcaravia"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Lacoste",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/lacoste.jpg"
+    ],
+    "notas": {
+      "topo": "ameixa, maçã, toranja, bergamota",
+      "corpo": "canela, pimenta rosa, cardamomo, junípero",
+      "fundo": "baunilha, rum, sândalo, almíscar, cedro, ládano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Lacoste Green",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/lacoste-green.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, toranja, melão",
+      "corpo": "lavanda, tomilho, folha de bétula, figo",
+      "fundo": "bambu, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Lapidus",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/lapidus.jpg"
+    ],
+    "notas": {
+      "topo": "abacaxi, lavanda, artemísia, bagas de zimbro",
+      "corpo": "mel, incenso, pinheiro, rosa, pau-brasil",
+      "fundo": "tabaco, patchouli, musgo de carvalho, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Le Beau Le Parfum",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/le-beau-le-parfum.jpg"
+    ],
+    "notas": {
+      "topo": "abacaxi, íris, cipreste, gengibre",
+      "corpo": "coco, notas amadeiradas",
+      "fundo": "fava tonka, sândalo, âmbar, âmbar cinzento"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Le Male",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/le-male.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, hortelã, cardamomo, bergamota",
+      "corpo": "canela, flor de laranjeira, alcaravia",
+      "fundo": "baunilha, fava tonka, âmbar, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Le Male Elixir",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/le-male-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, hortelã",
+      "corpo": "baunilha, benjoim",
+      "fundo": "mel, fava tonka, tabaco"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Liquid Brum",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/liquid-brum.jpg"
+    ],
+    "notas": {
+      "topo": "notas frescas, aquáticas",
+      "corpo": "notas verdes",
+      "fundo": "almíscar, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "MYSLF",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/myslf.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota da calábria, bergamota",
+      "corpo": "flor de laranjeira tunisiana",
+      "fundo": "ambroxan, patchouli"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Maison Alpine",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-alpine.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, notas verdes",
+      "corpo": "chá verde, groselha preta",
+      "fundo": "almíscar, sândalo, gálbano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Maison Dark Aoud",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-dark-aoud.jpg"
+    ],
+    "notas": {
+      "topo": "agarwood (oud)",
+      "corpo": "sândalo",
+      "fundo": "notas amadeiradas, âmbar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Maison Galactic Men Elixir",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-galactic-men-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "notas espaciais, hortelã",
+      "corpo": "lavanda",
+      "fundo": "baunilha, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Maison Sceptre Amazonite",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-sceptre-amazonite.jpg"
+    ],
+    "notas": {
+      "topo": "notas frescas, cítricos",
+      "corpo": "notas florais",
+      "fundo": "notas amadeiradas, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Maison Unknown",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/maison-unknown.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, frescas",
+      "corpo": "notas amadeiradas, especiarias",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Malbec",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/malbec.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo, tangerina, lima, limão, folha de violeta",
+      "corpo": "cedro, patchouli, uva",
+      "fundo": "âmbar, benjoim, almíscar, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mashrabya",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/mashrabya.jpg"
+    ],
+    "notas": {
+      "topo": "especiarias orientais",
+      "corpo": "notas amadeiradas, oud",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mishlah",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/mishlah.jpg"
+    ],
+    "notas": {
+      "topo": "notas de couro, especiarias",
+      "corpo": "notas amadeiradas",
+      "fundo": "âmbar, oud"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mont Blanc Emblem",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/mont-blanc-emblem.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia esclareia, cardamomo, toranja",
+      "corpo": "folhas de violeta, canela",
+      "fundo": "notas amadeiradas, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mont Blanc Explore",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/mont-blanc-explore.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, pimenta rosa, sálvia",
+      "corpo": "vetiver do Haiti, couro",
+      "fundo": "ambroxan, patchouli, cacau"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mont Blanc Legend",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/mont-blanc-legend.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, bergamota, lúcia-lima, abacaxi",
+      "corpo": "cumarina, musgo de carvalho, gerânio, rosa, maçã vermelha, frutas secas",
+      "fundo": "sândalo, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mont Blanc Presence",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/mont-blanc-presence.jpg"
+    ],
+    "notas": {
+      "topo": "canela, cardamomo, gengibre, bergamota",
+      "corpo": "maçã, heliotrópio, sálvia",
+      "fundo": "sândalo, fava tonka, âmbar, almíscar branco, madeira de teca"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Moschino Toy Boy",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/moschino-toy-boy.jpg"
+    ],
+    "notas": {
+      "topo": "pimenta rosa, pera, noz-moscada indonésia",
+      "corpo": "rosa, magnólia, trevo",
+      "fundo": "cashmeran, vetiver do haiti, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Mughar",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/mughar.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, notas especiadas",
+      "corpo": "notas florais, notas amadeiradas",
+      "fundo": "almíscar, âmbar, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Musamam Black",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/musamam-black.jpg"
+    ],
+    "notas": {
+      "topo": "açafrão, mandarina, lavanda",
+      "corpo": "gerânio, madeira de cedro",
+      "fundo": "patchouli, couro, incenso"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Penhaligons",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/penhaligons.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, mandarina, ambroxan",
+      "corpo": "jasmim, lavanda",
+      "fundo": "sândalo, cedro, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Phantom",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/phantom.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, raspas de limão, limão de Amalfi",
+      "corpo": "lavanda, maçã, notas esfumaçadas, terra, patchouli",
+      "fundo": "baunilha, lavanda, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Phantom Intense",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/phantom-intense.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, cardamomo, óleo de limão",
+      "corpo": "lavanda, sálvia esclareia, óleo de rum",
+      "fundo": "fava de baunilha, óleo de cedro, musgo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Phantom Paco Rabanne",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [],
+    "notas": {
+      "topo": "lavanda, raspas de limão, limão de Amalfi",
+      "corpo": "lavanda, maçã, notas esfumaçadas, patchouli",
+      "fundo": "baunilha, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Phantom Parfum",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/phantom-parfum.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo, ruibarbo, limão, bergamota",
+      "corpo": "lavanda, patchouli, gerânio, cedro",
+      "fundo": "fava de baunilha, vetiver do Haiti, tolu bálsamo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Polo Black",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/polo-black.jpg"
+    ],
+    "notas": {
+      "topo": "manga, sálvia, tangerina, limão",
+      "corpo": "Artemísia, notas verdes",
+      "fundo": "sândalo, patchouli, fava tonka"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Polo Blue",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/polo-blue.jpg"
+    ],
+    "notas": {
+      "topo": "melão, mandarina, pepino",
+      "corpo": "manjericão, sálvia, gerânio",
+      "fundo": "almíscar, notas amadeiradas, camurça"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Polo Green",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/polo-green.jpg"
+    ],
+    "notas": {
+      "topo": "pinheiro, couro, bagas de zimbro, alcaravia",
+      "corpo": "agulhas de pinheiro, camomila, coentro, cravo",
+      "fundo": "tabaco, musgo de carvalho, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Polo Red",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/polo-red.jpg"
+    ],
+    "notas": {
+      "topo": "toranja vermelha, limão italiano, oxicoco (cranberry)",
+      "corpo": "açafrão, sálvia vermelha",
+      "fundo": "notas amadeiradas, âmbar, grãos de café"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Polo Sport",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/polo-sport.jpg"
+    ],
+    "notas": {
+      "topo": "hortelã, aldeídos, lavanda, bergamota, mandarina",
+      "corpo": "ervas marinhas, jasmim, gerânio, pau-brasil",
+      "fundo": "almíscar, madeira guaiac, cedro, sândalo"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Prada Luna Rossa",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/prada-luna-rossa.jpg"
+    ],
+    "notas": {
+      "topo": "lavanda, laranja amarga",
+      "corpo": "hortelã, sálvia esclareia",
+      "fundo": "ambroxan, ambreta"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Pure XS",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/pure-xs.jpg"
+    ],
+    "notas": {
+      "topo": "gengibre, tomilho, toranja, bergamota",
+      "corpo": "baunilha, licor, canela, couro",
+      "fundo": "mirra, açúcar, cedro, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Rayhaan Lion",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/rayhaan-lion.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, hortelã",
+      "corpo": "lavanda, gerânio",
+      "fundo": "sândalo, âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Salvo Elixir",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/salvo-elixir.jpg"
+    ],
+    "notas": {
+      "topo": "canela, noz-moscada, cardamomo, toranja",
+      "corpo": "lavanda",
+      "fundo": "alcaçuz, sândalo, âmbar, patchouli, vetiver do Haiti"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Salvo Intense",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/salvo-intense.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota da Calábria, pimenta",
+      "corpo": "pimenta de Szechuan, lavanda, pimenta rosa, vetiver, patchouli",
+      "fundo": "ambroxan, cedro, ládano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Sauvage",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/sauvage.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota da Calábria, pimenta",
+      "corpo": "pimenta de Szechuan, lavanda, pimenta rosa, vetiver, patchouli, gerânio, elemi",
+      "fundo": "ambroxan, cedro, ládano"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Scandal",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/scandal.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia esclareia, mandarina",
+      "corpo": "caramelo, fava tonka",
+      "fundo": "vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Scandal Men",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/scandal-men.jpg"
+    ],
+    "notas": {
+      "topo": "sálvia esclareia, mandarina",
+      "corpo": "caramelo, fava tonka",
+      "fundo": "vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Scuderia Ferrari Forte",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/scuderia-ferrari-forte.jpg"
+    ],
+    "notas": {
+      "topo": "maçã, abacaxi, limão italiano",
+      "corpo": "canela, ameixa, flor de laranjeira",
+      "fundo": "baunilha de madagascar, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Sherif",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/sherif.jpg"
+    ],
+    "notas": {
+      "topo": "notas frescas, cítricos",
+      "corpo": "notas especiadas",
+      "fundo": "sândalo, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Silver Scent",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/silver-scent.jpg"
+    ],
+    "notas": {
+      "topo": "flor de laranjeira, limão verdadeiro ou siciliano",
+      "corpo": "lavanda, noz-moscada, cardamomo, coentro, alecrim, gerânio",
+      "fundo": "fava tonka, lichia, madeira de teca, vetiver"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Spectre Ghost",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/spectre-ghost.jpg"
+    ],
+    "notas": {
+      "topo": "bergamota, gengibre",
+      "corpo": "cardamomo, pimenta",
+      "fundo": "baunilha, sândalo, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Stronger With You",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/stronger-with-you.jpg"
+    ],
+    "notas": {
+      "topo": "cardamomo, pimenta rosa, folha de violeta, hortelã",
+      "corpo": "sálvia, melão, abacaxi, canela",
+      "fundo": "baunilha, castanha, âmbar, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "The Kingdom",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/the-kingdom.jpg"
+    ],
+    "notas": {
+      "topo": "notas especiadas, cítricos",
+      "corpo": "notas amadeiradas",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "The Kingdom Men",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/the-kingdom-men.jpg"
+    ],
+    "notas": {
+      "topo": "notas especiadas, cítricos",
+      "corpo": "notas amadeiradas",
+      "fundo": "âmbar, almíscar"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Tobacco Vanille",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/tobacco-vanille.jpg"
+    ],
+    "notas": {
+      "topo": "folhas de tabaco, notas especiadas",
+      "corpo": "baunilha, cacau, fava tonka",
+      "fundo": "frutos secos, notas amadeiradas"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Ultra Male",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/ultra-male.jpg"
+    ],
+    "notas": {
+      "topo": "pera, lavanda, hortelã, bergamota, limão",
+      "corpo": "canela, alcaravia, sálvia",
+      "fundo": "casca de baunilha negra, âmbar, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Valentino Intense",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/valentino-intense.jpg"
+    ],
+    "notas": {
+      "topo": "tangerina, sálvia esclareia",
+      "corpo": "íris, fava tonka",
+      "fundo": "couro, baunilha"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Dylan Blue",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-dylan-blue.jpg"
+    ],
+    "notas": {
+      "topo": "notas aquáticas, bergamota da Calábria, toranja, folha de figo",
+      "corpo": "folha de violeta, papiro, patchouli, pimenta preta, ambroxan",
+      "fundo": "almíscar, incenso, fava tonka, açafrão"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Versace Eros",
+    "familia": "Masculino",
+    "precos": [
+      {
+        "preco": "R$ 109,90",
+        "vol": "100 ml"
+      },
+      {
+        "preco": "R$ 89,90",
+        "vol": "50 ml"
+      }
+    ],
+    "fotos": [
+      "imagens/versace-eros.jpg"
+    ],
+    "notas": {
+      "topo": "hortelã, maçã verde, limão siciliano",
+      "corpo": "fava tonka, ambroxan, gerânio",
+      "fundo": "baunilha de Madagascar, cedro da Virgínia, cedro do Atlas, vetiver, musgo de carvalho"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "Winners Trophy",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/winners-trophy.jpg"
+    ],
+    "notas": {
+      "topo": "toranja, pimenta rosa",
+      "corpo": "lavanda, gengibre",
+      "fundo": "ambroxan, patchouli, cedro"
+    }
+  },
+  {
+    "ativo": true,
+    "secao": "autorais",
+    "nome": "World Spectre",
+    "familia": "Masculino",
+    "precos": [],
+    "fotos": [
+      "imagens/world-spectre.jpg"
+    ],
+    "notas": {
+      "topo": "notas cítricas, frescas",
+      "corpo": "especiarias, notas florais",
+      "fundo": "notas amadeiradas, sândalo"
+    }
   }
 ];
 
-var KITS=[
-  {
-    "ativo": true,
-    "badge": "Kit",
-    "desc": "O casal que cheira bem junto. Asad + Yara em combo especial com desconto exclusivo.",
-    "fotos": [
-      ""
-    ],
-    "nome": "Kit Casal Lattafa",
-    "preco": "R$ 54,90",
-    "produtos": [
-      "Asad",
-      "Yara"
-    ],
-    "secao": "decants"
-  },
-  {
-    "ativo": true,
-    "badge": "Kit",
-    "desc": "Pure Seduction + Coconut Passion — dois ícones da VS no kit perfeito para o calor.",
-    "fotos": [
-      ""
-    ],
-    "nome": "Kit Verão VS",
-    "preco": "R$ 139,90",
-    "produtos": [
-      "Kit Body Splah + Creme Hidratante - Pure Seduction",
-      "Kit Body Splah + Creme Hidratante - Coconut Passion"
-    ],
-    "secao": "cosmeticos"
-  },
-  {
-    "nome": "Kit Casal Premium Lattafa",
-    "desc": "O casal mais pedido do catálogo em frascos originais 100ml. Presente completo para os dois — elegante e marcante.",
-    "preco": "R$ 369,90",
-    "badge": "Kit",
-    "produtos": [
-      "Asad · 100ml (original)",
-      "Yara · 100ml (original)"
-    ],
-    "fotos": [
-      ""
-    ],
-    "ativo": true
-  },
-  {
-    "nome": "Kit Trio Yara",
-    "desc": "As três versões da linha mais icônica da perfumaria árabe. Perfeito para descobrir qual versão combina mais com você.",
-    "preco": "R$ 199,90",
-    "badge": "Kit",
-    "produtos": [
-      "Yara · 25ml",
-      "Yara Candy · 25ml",
-      "Yara Moi · 25ml"
-    ],
-    "fotos": [
-      ""
-    ],
-    "ativo": true
-  },
-  {
-    "nome": "Kit Oud Collection",
-    "desc": "A família Bade'e Al Oud completa — do floral ao amadeirado oriental. Uma jornada pelo oud árabe em três facetas.",
-    "preco": "R$ 199,90",
-    "badge": "Kit",
-    "produtos": [
-      "Bade'e Al Oud Sublime · 25ml",
-      "Bade'e Al Oud Amethyst · 25ml",
-      "Bade'e Al Oud Honor & Glory · 25ml"
-    ],
-    "fotos": [
-      ""
-    ],
-    "ativo": true
-  }
-];
+var KITS=[];
 
 var DEPOIMENTOS=[
   {
@@ -2316,491 +7880,6 @@ var DEPOIMENTOS=[
     "nome": "Mariana C.",
     "produto": "Ajwad · Original 100ml",
     "texto": "Atendimento nota 10, produto chegou bem embalado e o Ajwad é viciante! Meu marido também adorou. Virei cliente fiel da Tobaldine!"
-  },
-{
-"nome": "Afeef",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Unissex",
-"ranking": "✦ Obra-prima da opulência árabe ✦",
-"desc": "Uma essência luxuosa que evoca noites estreladas no Oriente. Harmonia rica de especiarias quentes e madeiras nobres, revelando uma assinatura magnética de pura opulência.",
-"notas": { "topo": "Açafrão, Cardamomo", "corpo": "Rosa, Oud Líquido", "fundo": "Âmbar, Patchouli, Almíscar" },
-"preco": "R$ 445,00"
-},
-{
-"nome": "Ajwad",
-"marca": "LATTAFA",
-"familia": "Floral Amadeirado · Unissex",
-"ranking": "✦ Inspirado no Roses Vanille ✦",
-"desc": "Elixir metálico e doce que irradia modernidade. Pétalas aveludadas encontram baunilha oriental, criando um rastro apaixonante e de fixação impecável.",
-"notas": { "topo": "Notas Frutadas, Lichia", "corpo": "Rosa, Jasmim", "fundo": "Baunilha, Âmbar, Cedro" },
-"preco": "R$ 110,00"
-},
-{
-"nome": "Ajwad Pink",
-"marca": "LATTAFA",
-"familia": "Floral Frutado · Feminino",
-"ranking": "✦ Feminilidade radiante ✦",
-"desc": "Vibrante coquetel de frutas vermelhas e flores cremosas. Uma aura delicada, porém inegavelmente poderosa e luxuosa para todas as ocasiões.",
-"notas": { "topo": "Morango, Framboesa, Cereja", "corpo": "Rosa Damascena, Jasmim Sambac", "fundo": "Almíscar Branco, Baunilha, Sândalo" },
-"preco": "R$ 105,00"
-},
-{
-"nome": "Al Layl",
-"marca": "LATTAFA",
-"familia": "Ambarino Amadeirado · Unissex",
-"ranking": "✦ O segredo das mil e uma noites ✦",
-"desc": "Fragrância noturna profunda e enigmática. Notas balsâmicas dançam sobre madeiras preciosas com projeção avassaladora.",
-"notas": { "topo": "Lavanda, Maçã Verde", "corpo": "Madeiras Preciosas, Cardamomo", "fundo": "Oud, Âmbar, Fava Tonka" },
-"preco": "R$ 105,00"
-},
-{
-"nome": "Al Noble Ameer",
-"marca": "LATTAFA",
-"familia": "Aromático Especiado · Unissex",
-"ranking": "✦ Elegância oriental revigorante ✦",
-"desc": "Composição botânica de frescor condimentado. Uma viagem aos palácios luxuosos, exalando poder, vitalidade e sofisticação exótica.",
-"notas": { "topo": "Maçã, Pimenta Rosa, Alecrim", "corpo": "Cravo, Notas Florais", "fundo": "Oud, Vetiver, Cipreste, Patchouli" },
-"preco": "R$ 155,00"
-},
-{
-"nome": "Al Noble Safeer",
-"marca": "LATTAFA",
-"familia": "Amadeirado Herbal · Unissex",
-"ranking": "✦ Aura verde e aristocrática ✦",
-"desc": "A faceta mais refinada da linha Noble. Abertura cítrica verde fundida a um coração lenhoso, resultando em um aroma misterioso digno da mais alta realeza.",
-"notas": { "topo": "Artemísia, Bergamota", "corpo": "Notas Verdes, Especiarias", "fundo": "Cedro, Madeira de Guaiac, Incenso" },
-"preco": "R$ 155,00"
-},
-{
-"nome": "Al Noble Wazeer",
-"marca": "LATTAFA",
-"familia": "Frutado Especiado · Unissex",
-"ranking": "✦ Indulgência frutada irresistível ✦",
-"desc": "Poção que mescla frutas suculentas, chocolate e madeiras. Um espetáculo denso, adocicado e inebriante para deixar uma marca inesquecível.",
-"notas": { "topo": "Menta, Laranja, Bergamota", "corpo": "Chocolate, Caramelo, Pera, Framboesa", "fundo": "Baunilha, Âmbar, Sândalo" },
-"preco": "R$ 170,00"
-},
-{
-"nome": "Asad",
-"marca": "LATTAFA",
-"familia": "Especiado Quente · Masculino",
-"ranking": "✦ Inspirado no Sauvage Elixir ✦",
-"desc": "Pináculo da masculinidade moderna. Contraste explosivo de especiarias frescas e madeiras ambaradas, garantindo sofisticação inquestionável.",
-"notas": { "topo": "Pimenta Preta, Tabaco, Abacaxi", "corpo": "Café, Patchouli, Íris", "fundo": "Baunilha, Âmbar, Madeira" },
-"preco": "R$ 160,00"
-},
-{
-"nome": "Asad Bourbon",
-"marca": "LATTAFA",
-"familia": "Ambarino Amadeirado · Masculino",
-"ranking": "✦ Reinterpretação intensa e noturna ✦",
-"desc": "Elixir licoroso e amadeirado. Nuances esfumaçadas trazem uma elegância madura que seduz de maneira silenciosa e letal.",
-"notas": { "topo": "Bergamota, Pimenta, Noz-Moscada", "corpo": "Notas Licorosas, Vetiver", "fundo": "Cedro, Âmbar, Baunilha Bourbon" },
-"preco": "R$ 235,00"
-},
-{
-"nome": "Asad Zanzibar",
-"marca": "LATTAFA",
-"familia": "Cítrico Especiado · Masculino",
-"ranking": "✦ Calor exótico das ilhas ✦",
-"desc": "Frescor tropical fundido ao DNA especiado de Asad. Fragrância revigorante e radiante que transporta para destinos paradisíacos.",
-"notas": { "topo": "Pimenta Preta, Bergamota, Notas Marinhas", "corpo": "Lavanda, Íris, Água de Coco", "fundo": "Incenso, Patchouli, Baunilha" },
-"preco": "R$ 160,00"
-},
-{
-"nome": "Atheeri",
-"marca": "LATTAFA",
-"familia": "Couro Especiado · Unissex",
-"ranking": "✦ Alta perfumaria de nicho ✦",
-"desc": "Expressão máxima de status. Couro nobre e resinas orientais em uma obra-prima sedutora, intensamente viciante e exclusiva.",
-"notas": { "topo": "Açafrão, Cardamomo", "corpo": "Couro, Osmanthus, Rosa Turca", "fundo": "Oud, Vetiver, Âmbar, Patchouli" },
-"preco": "R$ 470,00"
-},
-{
-"nome": "Bade’e Noble Blush",
-"marca": "LATTAFA",
-"familia": "Floral Frutado · Feminino",
-"ranking": "✦ Delicadeza e sofisticação ✦",
-"desc": "Poção romântica que encapsula a feminilidade. Frutas cristalizadas e rosas fundem-se em um fundo macio de almíscar hipnotizante.",
-"notas": { "topo": "Frutas Vermelhas, Mandarina", "corpo": "Rosa, Peônia, Orquídea", "fundo": "Baunilha, Almíscar, Madeiras" },
-"preco": "R$ 150,00"
-},
-{
-"nome": "Bad Homme",
-"marca": "MAISON ALHAMBRA",
-"familia": "Especiado Oriental · Masculino",
-"ranking": "✦ Inspirado no Bad Boy ✦",
-"desc": "A dualidade do homem contemporâneo. Frescor elétrico cedendo a um fundo escuro de cacau e fava tonka, garantindo atração magnética.",
-"notas": { "topo": "Pimenta Branca, Bergamota", "corpo": "Sálvia, Cedro", "fundo": "Fava Tonka, Cacau, Madeira" },
-"preco": "R$ 125,00"
-},
-{
-"nome": "Club Woman",
-"marca": "ARMAF",
-"familia": "Floral Oriental · Feminino",
-"ranking": "✦ Inspirado no Coco Mademoiselle ✦",
-"desc": "Puro luxo e empoderamento. Cítricos vibrantes, coração floral romântico e patchouli terroso e sensual.",
-"notas": { "topo": "Laranja, Bergamota, Pêssego", "corpo": "Rosa, Jasmim, Lichia", "fundo": "Patchouli, Baunilha, Almíscar" },
-"preco": "R$ 220,00"
-},
-{
-"nome": "Dalal",
-"marca": "AL REHAB",
-"familia": "Gourmand Oriental · Unissex",
-"ranking": "✦ Doce abraço da realeza árabe ✦",
-"desc": "Delícia olfativa rica. Caramelo dourado com laranjas maduras e sândalo, criando uma nuvem doce, luxuosa e intimista.",
-"notas": { "topo": "Laranja Doce, Bergamota", "corpo": "Caramelo, Baunilha", "fundo": "Sândalo, Almíscar" },
-"preco": "R$ 300,00"
-},
-{
-"nome": "Delilah",
-"marca": "MAISON ALHAMBRA",
-"familia": "Floral Frutado · Feminino",
-"ranking": "✦ Inspirado no Delina ✦",
-"desc": "Dança majestosa de rosas turcas e ruibarbo. Elegância aristocrática com rastro de seda que domina todos os sentidos.",
-"notas": { "topo": "Bergamota, Ruibarbo, Lichia", "corpo": "Rosa Turca, Peônia, Baunilha", "fundo": "Caxemira, Cedro, Vetiver" },
-"preco": "R$ 180,00"
-},
-{
-"nome": "Eclaire Pistache",
-"marca": "PARIS CORNER",
-"familia": "Gourmand · Feminino",
-"ranking": "✦ Inspirado no Bianco Latte ✦",
-"desc": "Experiência gastronômica. Baunilha e pistache cremoso criam uma sobremesa olfativa opulenta, altamente viciante e sensual.",
-"notas": { "topo": "Pistache, Sorvete de Baunilha", "corpo": "Algodão Doce, Leite", "fundo": "Caramelo, Fava Tonka, Almíscar" },
-"preco": "R$ 195,00"
-},
-{
-"nome": "Eterial Vanille",
-"marca": "MAISON ALHAMBRA",
-"familia": "Âmbar Baunilha · Unissex",
-"ranking": "✦ A baunilha mais nobre do Oriente ✦",
-"desc": "Estudo sobre a baunilha. Madeiras e especiarias abraçam o aspecto licoroso, resultando em uma poção escura, rica e envolvente.",
-"notas": { "topo": "Baunilha, Cardamomo", "corpo": "Sândalo, Cedro", "fundo": "Âmbar, Almíscar, Fava Tonka" },
-"preco": "R$ 205,00"
-},
-{
-"nome": "Fakhar Black",
-"marca": "LATTAFA",
-"familia": "Aromático Fougère · Masculino",
-"ranking": "✦ Inspirado no Y EDP ✦",
-"desc": "Espírito da conquista. Maçã verde e sálvia encontram madeiras profundas, entregando elegância, versatilidade e presença.",
-"notas": { "topo": "Maçã, Bergamota, Gengibre", "corpo": "Lavanda, Sálvia, Gerânio", "fundo": "Fava Tonka, Cedro, Vetiver" },
-"preco": "R$ 185,00"
-},
-{
-"nome": "Fakhar Gold",
-"marca": "LATTAFA",
-"familia": "Âmbar Floral · Masculino",
-"ranking": "✦ Inspirado no 1 Million Parfum ✦",
-"desc": "Barra de ouro derretida sobre flores brancas. Atestado de riqueza que brilha intensamente na pele e garante atenção absoluta.",
-"notas": { "topo": "Tuberosa, Sal", "corpo": "Monoi, Couro", "fundo": "Âmbar Gris, Ládano, Caxemira" },
-"preco": "R$ 145,00"
-},
-{
-"nome": "Fakhar Platinum",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Brilho impecável do sucesso ✦",
-"desc": "Assinatura para o homem corporativo. Fusão metálica de especiarias frias e madeiras robustas para um luxo impenetrável.",
-"notas": { "topo": "Pimenta Preta, Cítricos", "corpo": "Gerânio, Lavanda", "fundo": "Cedro, Vetiver, Almíscar" },
-"preco": "R$ 150,00"
-},
-{
-"nome": "Fakhar Rose",
-"marca": "LATTAFA",
-"familia": "Floral Branco · Feminino",
-"ranking": "✦ Inspirado no L'Interdit ✦",
-"desc": "Declaração de ousadia. Tuberosa cremosa e jasmim chocam-se contra vetiver, joia olfativa intensamente feminina e inesquecível.",
-"notas": { "topo": "Frutas, Romã, Aldeídos", "corpo": "Tuberosa, Jasmim, Gardênia", "fundo": "Baunilha, Sândalo, Almíscar" },
-"preco": "R$ 265,00"
-},
-{
-"nome": "Hayaati",
-"marca": "LATTAFA",
-"familia": "Aquático Amadeirado · Masculino",
-"ranking": "✦ Inspirado no Invictus ✦",
-"desc": "Onda revigorante de vitalidade. Notas marinhas com maçã crocante, coroando um campeão moderno com aura vibrante e limpa.",
-"notas": { "topo": "Maçã, Bergamota", "corpo": "Canela, Notas Amadeiradas, Aquáticas", "fundo": "Baunilha, Almíscar, Âmbar" },
-"preco": "R$ 115,00"
-},
-{
-"nome": "Her Confession",
-"marca": "LATTAFA",
-"familia": "Floral Âmbar · Feminino",
-"ranking": "✦ Mistério sedutor ✦",
-"desc": "Feitiço magnético de doces celestiais e base noturna envolvente. Revela o lado ousado da feminilidade com luxo cativante.",
-"notas": { "topo": "Amêndoa, Especiarias", "corpo": "Tuberosa, Flor de Laranjeira, Jasmim", "fundo": "Baunilha, Fava Tonka, Âmbar" },
-"preco": "R$ 225,00"
-},
-{
-"nome": "His Confession",
-"marca": "LATTAFA",
-"familia": "Amadeirado Aromático · Masculino",
-"ranking": "✦ Charme do homem letal ✦",
-"desc": "Combinação de lavanda fresca e resinas esfumaçadas. Assinatura de confiança para o homem que exala magnetismo natural.",
-"notas": { "topo": "Cardamomo, Bergamota, Pimenta", "corpo": "Lavanda, Íris, Madeiras", "fundo": "Patchouli, Vetiver, Baunilha" },
-"preco": "R$ 190,00"
-},
-{
-"nome": "Jean Lowe Immortel",
-"marca": "MAISON ALHAMBRA",
-"familia": "Amadeirado Aquático · Masculino",
-"ranking": "✦ Inspirado no L'Immensité ✦",
-"desc": "Brisa infinita de luxo marítimo. Gengibre e toranja explodem em oceano de ambroxan radiante para desbravar o mundo com classe.",
-"notas": { "topo": "Toranja, Gengibre, Bergamota", "corpo": "Notas Aquáticas, Alecrim, Sálvia", "fundo": "Ambroxan, Âmbar, Ládano, Vetiver" },
-"preco": "R$ 155,00"
-},
-{
-"nome": "Khanjar",
-"marca": "LATTAFA",
-"familia": "Couro Especiado · Unissex",
-"ranking": "✦ Vanguarda da perfumaria árabe ✦",
-"desc": "Afiado e inebriante. Couro, noz-moscada e oud formam aura magistral de luxo intimidador e extremo bom gosto.",
-"notas": { "topo": "Açafrão, Noz-Moscada", "corpo": "Couro Escuro, Patchouli, Resinas", "fundo": "Oud, Almíscar, Incenso" },
-"preco": "R$ 310,00"
-},
-{
-"nome": "Khanrah",
-"marca": "LATTAFA",
-"familia": "Gourmand Especiado · Unissex",
-"ranking": "✦ Inspirado no Angels' Share ✦",
-"desc": "O perfume dos deuses. Conhaque com canela, tâmaras e pralinê derretido. O suprassumo do luxo quente e exótico.",
-"notas": { "topo": "Canela, Noz-Moscada, Bergamota", "corpo": "Tâmaras, Pralinê, Tuberosa", "fundo": "Baunilha, Fava Tonka, Âmbar, Mirra" },
-"preco": "R$ 145,00"
-},
-{
-"nome": "Liquid Brum",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Inspirado no Althaïr ✦",
-"desc": "Indulgente baunilha bourbon infundida com madeiras nobres e especiarias. Carisma magnético para as noites mais exclusivas.",
-"notas": { "topo": "Flor de Laranjeira, Bergamota, Canela", "corpo": "Baunilha Bourbon, Elemi", "fundo": "Madeira de Guaiac, Ambroxan, Pralinê" },
-"preco": "R$ 285,00"
-},
-{
-"nome": "Maison Alpine",
-"marca": "MAISON ALHAMBRA",
-"familia": "Aromático Fougère · Masculino",
-"ranking": "✦ Inspirado no Allure Homme Sport ✦",
-"desc": "Adrenalina e elegância atemporal. Frescor cítrico e aquático evoluindo para um coração sensual de alta classe.",
-"notas": { "topo": "Laranja, Mandarina, Aldeídos", "corpo": "Pimenta, Néroli, Cedro", "fundo": "Fava Tonka, Baunilha, Almíscar" },
-"preco": "R$ 125,00"
-},
-{
-"nome": "Maison Chateau Ottoman",
-"marca": "MAISON ALHAMBRA",
-"familia": "Ambarino Amadeirado · Unissex",
-"ranking": "✦ Esplendor imperial do Oriente ✦",
-"desc": "Mergulho no luxo dos sultões. Madeiras milenares banhadas em resinas quentes, sofisticação densa, madura e inigualável.",
-"notas": { "topo": "Rosa, Açafrão", "corpo": "Oud, Patchouli", "fundo": "Âmbar, Sândalo, Baunilha" },
-"preco": "R$ 115,00"
-},
-{
-"nome": "Maison Dark Aoud",
-"marca": "MAISON ALHAMBRA",
-"familia": "Amadeirado Intenso · Unissex",
-"ranking": "✦ Inspirado no Black Aoud ✦",
-"desc": "Banquete teatral. Rosa medicinal e oud brutal, espetáculo de projeção e longevidade para personalidades intensas.",
-"notas": { "topo": "Pétalas de Rosa, Mandarina", "corpo": "Oud, Patchouli", "fundo": "Almíscar, Sândalo, Âmbar" },
-"preco": "R$ 125,00"
-},
-{
-"nome": "Maison Galactic Men Elixir",
-"marca": "MAISON ALHAMBRA",
-"familia": "Fougère Oriental · Masculino",
-"ranking": "✦ Inspirado no Phantom ✦",
-"desc": "Fusão de lavanda, limão e baunilha amadeirada. Fragrância festiva, moderna e extremamente chamativa para o homem cibernético.",
-"notas": { "topo": "Limão, Lavanda, Maçã", "corpo": "Baunilha, Lavandin, Patchouli", "fundo": "Vetiver, Madeiras Claras, Fava Tonka" },
-"preco": "R$ 110,00"
-},
-{
-"nome": "Maison Intrude",
-"marca": "MAISON ALHAMBRA",
-"familia": "Floral Branco · Feminino",
-"ranking": "✦ Inspirado no L'Interdit ✦",
-"desc": "Convite ao proibido. Flores brancas narcóticas com acorde escuro de vetiver, mistério viciante e luxuosamente audacioso.",
-"notas": { "topo": "Pera, Bergamota", "corpo": "Tuberosa, Flor de Laranjeira, Jasmim", "fundo": "Patchouli, Vetiver, Baunilha" },
-"preco": "R$ 135,00"
-},
-{
-"nome": "Maison Sceptre Amazonite",
-"marca": "MAISON ALHAMBRA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Inspirado no Le Gemme Falkar ✦",
-"desc": "Grandiosidade esculpida em joias. Couro ardente e oud esfumaçado para líderes que exigem o melhor e mais exclusivo.",
-"notas": { "topo": "Noz-Moscada, Canela", "corpo": "Cypriol, Olíbano, Resinas", "fundo": "Oud, Couro Negro, Almíscar" },
-"preco": "R$ 135,00"
-},
-{
-"nome": "Maison Unknown",
-"marca": "MAISON ALHAMBRA",
-"familia": "Oriental Amadeirado · Unissex",
-"ranking": "✦ Mistério sem precedentes ✦",
-"desc": "Odisseia que não precisa de rótulos. Especiarias e madeiras místicas em fundo incensado, provocando sentidos com evolução imprevisível.",
-"notas": { "topo": "Pimenta Rosa, Cítricos", "corpo": "Flores Escuras, Incenso", "fundo": "Âmbar, Sândalo, Baunilha" },
-"preco": "R$ 105,00"
-},
-{
-"nome": "Mashrabya",
-"marca": "LATTAFA",
-"familia": "Amadeirado Floral · Unissex",
-"ranking": "✦ Homenagem à arquitetura árabe ✦",
-"desc": "Passeio pelos palácios do deserto. Madeiras doces, notas florais e almíscar, representação de conforto luxuoso e espiritual.",
-"notas": { "topo": "Rosa, Frutas Cristalizadas", "corpo": "Patchouli, Especiarias", "fundo": "Sândalo, Âmbar, Almíscar" },
-"preco": "R$ 105,00"
-},
-{
-"nome": "Mayar",
-"marca": "LATTAFA",
-"familia": "Frutado Floral · Feminino",
-"ranking": "✦ Inspirado no Angel Nova ✦",
-"desc": "Tempestade rosa de lichia e framboesa. Alegria sedutora e explosiva, embalada em rosa moderna que atrai elogios.",
-"notas": { "topo": "Lichia, Framboesa", "corpo": "Rosa Damascena, Flor de Laranjeira", "fundo": "Baunilha, Almíscar" },
-"preco": "R$ 145,00"
-},
-{
-"nome": "Mishlah",
-"marca": "LATTAFA",
-"familia": "Âmbar Especiado · Unissex",
-"ranking": "✦ Realeza de um manto dourado ✦",
-"desc": "Captura a tradição gloriosa. Blend de âmbar denso, resinas milenares e flores aveludadas, manifesto de poder e presença.",
-"notas": { "topo": "Açafrão, Rosa Turca", "corpo": "Oud, Sândalo", "fundo": "Âmbar, Baunilha, Almíscar" },
-"preco": "R$ 140,00"
-},
-{
-"nome": "Musamam Black",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Fascínio do luxo sombrio ✦",
-"desc": "Mistério letal e elegância imponente. Incenso e couro negro, entregando perfume de personalidade dominadora e refinamento.",
-"notas": { "topo": "Mandarina, Lavanda, Pimenta Preta", "corpo": "Madeira de Âmbar, Couro, Vetiver", "fundo": "Incenso, Patchouli, Sândalo" },
-"preco": "R$ 325,00"
-},
-{
-"nome": "Musamam White",
-"marca": "LATTAFA",
-"familia": "Floral Amadeirado · Unissex",
-"ranking": "✦ Dualidade angelical e luxuosa ✦",
-"desc": "Contraparte solar, pura e reluzente. Flores brancas mergulhadas em coco e sândalo, exótico e cremoso, sofisticação extrema.",
-"notas": { "topo": "Mandarina, Bergamota", "corpo": "Jasmim, Ylang-Ylang, Coco", "fundo": "Sândalo, Baunilha, Almíscar" },
-"preco": "R$ 320,00"
-},
-{
-"nome": "Qaed Branco",
-"marca": "LATTAFA",
-"familia": "Floral Frutado · Unissex",
-"ranking": "✦ Opulência refrescante ✦",
-"desc": "Oásis de coco, baunilha e abacaxi. Viagem de primeira classe a uma ilha deserta, rastro viciante de doçura exótica.",
-"notas": { "topo": "Coco, Cítricos, Abacaxi", "corpo": "Ylang-Ylang, Jasmim", "fundo": "Baunilha, Almíscar, Sândalo" },
-"preco": "R$ 100,00"
-},
-{
-"nome": "Rayhaan Lion",
-"marca": "RAYHAAN",
-"familia": "Amadeirado Aromático · Masculino",
-"ranking": "✦ Majestade do rei da selva ✦",
-"desc": "Assinatura robusta e viril. Abertura fresca com intensidade aromática sobre base terrosa, conferindo confiança e presença luxuosa.",
-"notas": { "topo": "Bergamota, Lavanda, Pimenta", "corpo": "Gerânio, Patchouli", "fundo": "Cedro, Vetiver, Âmbar" },
-"preco": "R$ 205,00"
-},
-{
-"nome": "Sakeena",
-"marca": "LATTAFA",
-"familia": "Floral Frutado · Feminino",
-"ranking": "✦ Doce rubi da realeza ✦",
-"desc": "Explosão ácida e doce de maracujá e framboesa. Encanto exótico para mulheres vibrantes que dominam o ambiente com doçura.",
-"notas": { "topo": "Maracujá, Mandarina", "corpo": "Framboesa, Rosa, Flor de Laranjeira", "fundo": "Pralinê, Baunilha, Almíscar" },
-"preco": "R$ 135,00"
-},
-{
-"nome": "Salvo Elixir",
-"marca": "MAISON ALHAMBRA",
-"familia": "Especiado Quente · Masculino",
-"ranking": "✦ Inspirado no Sauvage Elixir ✦",
-"desc": "Fera engarrafada. Especiarias frescas noturnas com lavanda e madeiras escuras, elegância rústica e sofisticação inebriante.",
-"notas": { "topo": "Canela, Noz-Moscada, Toranja", "corpo": "Lavanda", "fundo": "Sândalo, Alcaçuz, Âmbar" },
-"preco": "R$ 125,00"
-},
-{
-"nome": "Salvo Intense",
-"marca": "MAISON ALHAMBRA",
-"familia": "Aromático Fougère · Masculino",
-"ranking": "✦ Inspirado no Sauvage EDP ✦",
-"desc": "Versatilidade luxuosa. Brilho da bergamota esbarra no ambroxan ardente, assinatura magnética perfeita para ditar as próprias regras.",
-"notas": { "topo": "Bergamota, Pimenta", "corpo": "Lavanda, Vetiver, Gerânio", "fundo": "Ambroxan, Cedro, Ládano" },
-"preco": "R$ 130,00"
-},
-{
-"nome": "Sherif",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Autoridade e nobreza de um líder ✦",
-"desc": "Tradução da honra e respeito. Acorde amadeirado clássico com especiarias raras e âmbar impecável, perfil maduro e magnético.",
-"notas": { "topo": "Limão, Cardamomo", "corpo": "Lavanda, Patchouli", "fundo": "Vetiver, Âmbar, Musgo" },
-"preco": "R$ 130,00"
-},
-{
-"nome": "Teriaq",
-"marca": "LATTAFA",
-"familia": "Gourmand Floral · Unissex",
-"ranking": "✦ Poção do gênio Quentin Bisch ✦",
-"desc": "Luxo contemporâneo. Caramelo salgado e amêndoas com couro macio, obra-prima viciante e fora da curva.",
-"notas": { "topo": "Amêndoa, Caramelo, Damasco", "corpo": "Mel, Rosa Branca, Flor de Laranjeira", "fundo": "Couro, Almíscar, Baunilha" },
-"preco": "R$ 200,00"
-},
-{
-"nome": "The Kingdom",
-"marca": "LATTAFA",
-"familia": "Amadeirado Especiado · Masculino",
-"ranking": "✦ Coroa do homem poderoso ✦",
-"desc": "Fragrância monárquica de presença arrebatadora. Sálvia e incenso coroado por madeiras esfumaçadas que garantem rastro sedutor.",
-"notas": { "topo": "Sálvia, Bergamota", "corpo": "Cardamomo, Elemi", "fundo": "Madeira de Guaiac, Âmbar, Vetiver" },
-"preco": "R$ 190,00"
-},
-{
-"nome": "Tharwah Gold",
-"marca": "LATTAFA",
-"familia": "Floral Branco · Feminino",
-"ranking": "✦ Inspirado no Libre Intense ✦",
-"desc": "Riqueza líquida da mulher indomável. Lavanda sofisticada em baunilha vulcânica e flor de laranjeira, aura dourada de luxo.",
-"notas": { "topo": "Lavanda, Bergamota", "corpo": "Flor de Laranjeira, Jasmim", "fundo": "Baunilha, Âmbar, Vetiver" },
-"preco": "R$ 350,00"
-},
-{
-"nome": "Victoria Lattafa",
-"marca": "LATTAFA",
-"familia": "Aquático Amadeirado · Masculino",
-"ranking": "✦ Inspirado no Invictus ✦",
-"desc": "Frescor dinâmico de campeão. Toranja, notas marítimas e madeira magnética para quem nunca aceita ser o segundo.",
-"notas": { "topo": "Toranja, Notas Oceânicas", "corpo": "Folha de Louro, Jasmim", "fundo": "Madeira de Guaiac, Patchouli, Âmbar" },
-"preco": "R$ 210,00"
-},
-{
-"nome": "Winners Trophy",
-"marca": "LATTAFA",
-"familia": "Oriental Especiado · Masculino",
-"ranking": "✦ Inspirado no Valentino Uomo ✦",
-"desc": "Taça do sucesso. Frescor da violeta fundido a especiarias, fragrância provocativa que carrega o luxo no DNA.",
-"notas": { "topo": "Pimenta Rosa, Mandarina", "corpo": "Folhas de Violeta, Especiarias", "fundo": "Patchouli, Vetiver, Almíscar" },
-"preco": "R$ 140,00"
-},
-{
-"nome": "Yara Elixir",
-"marca": "LATTAFA",
-"familia": "Floral Frutado · Feminino",
-"ranking": "✦ Encanto aveludado supremo ✦",
-"desc": "Evolução rica e magnética. Morangos cremosos, orquídeas e baunilha em chantilly luxuoso, fragrância meiga e irresistível.",
-"notas": { "topo": "Orquídea, Heliotrópio, Mandarina", "corpo": "Frutas Tropicais, Gourmand", "fundo": "Baunilha, Almíscar, Sândalo" },
-"preco": "R$ 235,00"
-},
-{
-"nome": "Yara Tous",
-"marca": "LATTAFA",
-"familia": "Tropical Frutado · Feminino",
-"ranking": "✦ Inspirado no Fame de Rabanne ✦",
-"desc": "Pôr do sol em ilha paradisíaca. Manga suculenta, maracujá e florais, redoma tropical vibrante e cremosa de luxo.",
-"notas": { "topo": "Manga, Coco, Maracujá", "corpo": "Jasmim, Flor de Laranjeira", "fundo": "Baunilha, Almíscar, Cashmeran" },
-"preco": "R$ 140,00"
-},	
-]
+  }
+];
+
